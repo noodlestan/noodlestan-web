@@ -1,0 +1,15 @@
+# Module
+
+## Application: Noodlestan Website
+
+**Purpose:** Astro-based website for Noodlestan, deployed as a static site.
+
+**Description:** Static website application built with Astro, hosted on AWS S3 with CloudFront CDN.
+
+**Owner:** Project: Noodlestan Web
+
+**Repository:** Repository: Noodlestan Web
+
+**Path:** `$NOODLESTAN_WEB/apps/noodlestan-web`
+
+**Status:** `ACTIVE`

@@ -1,0 +1,15 @@
+# Module
+
+## Deployment: Noodlestan Website Production
+
+**Purpose:** Deploy the Noodlestan Website to production on AWS S3 with CloudFront.
+
+**Owner:** Application: Noodlestan Website
+
+**Status:** `DEPLOYED`
+
+**Target:** Production
+
+**URL:** `https://noodlestan.org`
+
+**Infrastructure:** S3 + CloudFront (ops-managed Terraform)
