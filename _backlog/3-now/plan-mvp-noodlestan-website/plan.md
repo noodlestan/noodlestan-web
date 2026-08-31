@@ -2,7 +2,7 @@
 
 **Id:** `mvp-noodlestan-website`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -62,20 +62,20 @@ None.
 
 ### Resource Kinds in Scope
 
-| Kind        | Domain        | Structure Record Path                                            |
-| ----------- | ------------- | ---------------------------------------------------------------- |
-| Project     | Projects      | `$DOMAINS/projects/structures/project.art`                      |
-| Repository  | Repositories  | `$DOMAINS/repositories/structures/repository.art`               |
-| Application | Applications  | — WIP                                                           |
-| Deployment  | Deployments   | `$DOMAINS/deployments/structures/deployment.art`                |
+| Kind        | Domain       | Structure Record Path                             |
+| ----------- | ------------ | ------------------------------------------------- |
+| Project     | Projects     | `$DOMAINS/projects/structures/project.art`        |
+| Repository  | Repositories | `$DOMAINS/repositories/structures/repository.art` |
+| Application | Applications | — WIP                                             |
+| Deployment  | Deployments  | `$DOMAINS/deployments/structures/deployment.art`  |
 
 ### Workflows
 
-| Workflow / Path                                                        | Purpose                                                                                 |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Workflow: Planning `$DOMAINS/plans/workflows/planning.art`             | Planning lifecycle for contextualising, drafting, refining, and integrating plans.       |
-| Workflow: Engineering `$DOMAINS/engineering/workflows/engineering.art` | Engineering lifecycle for setting up, verifying, and committing work.                    |
-| Workflow: Deploying `$DOMAINS/deployments/workflows/deploying.art`     | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.                     |
+| Workflow / Path                                                        | Purpose                                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Workflow: Planning `$DOMAINS/plans/workflows/planning.art`             | Planning lifecycle for contextualising, drafting, refining, and integrating plans. |
+| Workflow: Engineering `$DOMAINS/engineering/workflows/engineering.art` | Engineering lifecycle for setting up, verifying, and committing work.              |
+| Workflow: Deploying `$DOMAINS/deployments/workflows/deploying.art`     | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.               |
 
 ### Knowledge
 
@@ -239,11 +239,11 @@ Execution is coordinated from `$WORKSPACE`. The repo scaffold and app developmen
 
 ## Items:
 
-| Iteration / Instructions                                                                                   | Status |
-| ---------------------------------------------------------------------------------------------------------- | ------ |
-| Iteration: Scaffold Noodlestan Web `plan-mvp-noodlestan-website/instructions/scaffold-repo.md`             | `DONE` |
-| Iteration: Provision Infrastructure `plan-mvp-noodlestan-website/instructions/provision-infra.md`          | `DONE` |
-| Iteration: Create and Deploy App `plan-mvp-noodlestan-website/instructions/create-app.md`                  | `DONE` |
+| Iteration / Instructions                                                                                     | Status |
+| ------------------------------------------------------------------------------------------------------------ | ------ |
+| Iteration: Scaffold Noodlestan Web `plan-mvp-noodlestan-website/instructions/scaffold-repo.md`               | `DONE` |
+| Iteration: Provision Infrastructure `plan-mvp-noodlestan-website/instructions/provision-infra.md`            | `DONE` |
+| Iteration: Create and Deploy App `plan-mvp-noodlestan-website/instructions/create-app.md`                    | `DONE` |
 | Iteration: Refine Deployment Records `plan-mvp-noodlestan-website/instructions/refine-deployment-records.md` | `DONE` |
 
 ### Iteration: Scaffold Noodlestan Web
@@ -278,9 +278,9 @@ Execution is coordinated from `$WORKSPACE`. The repo scaffold and app developmen
 
 #### Commits:
 
-| ID                                    | Repository / Checkout / Branch                    | Policy       | Hash    | Status    |
-| ------------------------------------- | ------------------------------------------------- | ------------ | ------- | --------- |
-| `scaffold-noodlestan-web-repository` | Noodlestan Web / `$NOODLESTAN_WEB` / `main`       | `AUTONOMOUS` | `2a11048` | `COMMITTED` |
+| ID                                   | Repository / Checkout / Branch              | Policy       | Hash      | Status      |
+| ------------------------------------ | ------------------------------------------- | ------------ | --------- | ----------- |
+| `scaffold-noodlestan-web-repository` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `2a11048` | `COMMITTED` |
 
 ##### Commit: `scaffold-noodlestan-web-repository`
 
@@ -329,9 +329,9 @@ build(noodlestan-web): scaffold Noodlestan Web repository
 
 #### Commits:
 
-| ID                                       | Repository / Checkout / Branch         | Policy       | Hash    | Status    |
-| ---------------------------------------- | -------------------------------------- | ------------ | ------- | --------- |
-| `provision-noodlestan-web-infrastructure` | Ops / `$OPS` / `main`               | `AUTONOMOUS` | `d2243ec` | `COMMITTED` |
+| ID                                        | Repository / Checkout / Branch | Policy       | Hash      | Status      |
+| ----------------------------------------- | ------------------------------ | ------------ | --------- | ----------- |
+| `provision-noodlestan-web-infrastructure` | Ops / `$OPS` / `main`          | `AUTONOMOUS` | `d2243ec` | `COMMITTED` |
 
 ##### Commit: `provision-noodlestan-web-infrastructure`
 
@@ -383,9 +383,9 @@ ops(noodlestan): add noodlestan-web static website module
 
 #### Commits:
 
-| ID                                       | Repository / Checkout / Branch              | Policy       | Hash    | Status    |
-| ---------------------------------------- | ------------------------------------------- | ------------ | ------- | --------- |
-| `deploy-noodlestan-website-hello-world`  | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `b9a5a1e` | `COMMITTED` |
+| ID                                      | Repository / Checkout / Branch              | Policy       | Hash      | Status      |
+| --------------------------------------- | ------------------------------------------- | ------------ | --------- | ----------- |
+| `deploy-noodlestan-website-hello-world` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `b9a5a1e` | `COMMITTED` |
 
 ##### Commit: `deploy-noodlestan-website-hello-world`
 
@@ -433,10 +433,10 @@ build(noodlestan-web): initialize Astro app and deploy hello world
 
 #### Commits:
 
-| ID                              | Repository / Checkout / Branch              | Policy   | Hash    | Status    |
-| ------------------------------- | ------------------------------------------- | -------- | ------- | --------- |
-| `refine-deployment-records`    | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `ac23b01` | `COMMITTED` |
-| `fix-terraform-prod-domain`    | Ops / `$OPS` / `main`                       | `MANUAL` | `56d5049` | `COMMITTED` |
+| ID                          | Repository / Checkout / Branch              | Policy   | Hash      | Status      |
+| --------------------------- | ------------------------------------------- | -------- | --------- | ----------- |
+| `refine-deployment-records` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `ac23b01` | `COMMITTED` |
+| `fix-terraform-prod-domain` | Ops / `$OPS` / `main`                       | `MANUAL` | `56d5049` | `COMMITTED` |
 
 ##### Commit: `refine-deployment-records`
 
@@ -451,12 +451,6 @@ chore(noodlestan-web): refine deployment records
 - Refactor static-web-deployment to structured format.
 ```
 
-**Policy:** `MANUAL`
-
-**Hash:** `ac23b01`
-
-**Status:** `COMMITTED`
-
 ##### Commit: `fix-terraform-prod-domain`
 
 **Repository:** Repository: Ops
@@ -468,12 +462,6 @@ fix(noodlestan-web): correct Terraform prod domain name
 
 - Change prod_domain_name from www.noodlestan.org to noodlestan.org.
 ```
-
-**Policy:** `MANUAL`
-
-**Hash:** `56d5049`
-
-**Status:** `COMMITTED`
 
 ---
 
