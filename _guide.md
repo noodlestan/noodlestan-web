@@ -37,6 +37,13 @@ Records are co-located with the resources they describe in `_records/` directori
 
 ## Workflows
 
+### Roadmapping
+
+This project manages milestones (think plans of plans) with the workflow defined in `$DOMAINS/roadmaps/workflows/roadmapping/workflow.art`.
+
+- The roadmap lives at `_roadmap/` with subdirectories such as `/3-now` and `/4-next/`.
+- The short-term roadmapping focus is captured in `_backlog/_parking-lot.md`.
+
 ### Planning Work
 
 This project plans its work with the workflow defined in `$DOMAINS/work/workflows/planning-work/workflow.art`.
