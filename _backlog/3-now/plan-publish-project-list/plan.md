@@ -83,6 +83,28 @@ None.
 
 This plan adds a project listing to the Noodlestan Website.
 
+### (Scope) Structure: Project
+
+**Record:** `$DOMAINS/projects/structures/project.art`
+
+**Role:** — Needs changes to add `code`, `website`, and `management` fields.
+
+**Changes:**
+
+- Add `code` field (URL) to project structure.
+- Add `website` field (URL) to project structure.
+- Add `management` field (NaturalBlock) to project structure.
+
+### (Scope) Workspace: Noodlestan
+
+**Record:** `$WORKSPACE/.agents/domains/projects/structures/project.art`
+
+**Role:** — Hosts the project structure definition. Needs commits for structure changes.
+
+**Changes:**
+
+- Commit updated project structure to workspace repo.
+
 ### (Scope) Application: Noodlestan Website
 
 **Record:** `$NOODLESTAN_WEB/apps/noodlestan-web/_records/package.art`
@@ -113,6 +135,39 @@ This plan adds a project listing to the Noodlestan Website.
 - `owner` — Project: Noodlestan Web
 - `path` — `$NOODLESTAN_WEB/`
 
+### (Scope) Repository: Management
+
+**Record:** `$MANAGEMENT/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+**Partial:**
+
+- `owner` — Project: Management
+- `path` — `$MANAGEMENT/`
+
+### (Scope) Repository: Artisans
+
+**Record:** `$ARTISANS/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+**Partial:**
+
+- `owner` — Project: Artisans
+- `path` — `$ARTISANS/`
+
+### (Scope) Repository: Ops
+
+**Record:** `$OPS/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+**Partial:**
+
+- `owner` — Project: Ops
+- `path` — `$OPS/`
+
 ## Execution Context
 
 Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. Project records are sourced from `$WORKSPACE/_records/repositories/` and individual checkout directories.
@@ -121,12 +176,137 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 
 ## Items:
 
-| Iteration / Instructions                                                                              | Status    |
-| ----------------------------------------------------------------------------------------------------- | --------- |
-| Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`     | `DRAFT`   |
-| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`            | `DRAFT`   |
-| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md` | `DRAFT` |
-| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`    | `DRAFT`   |
+| Iteration / Instructions                                                                                      | Status    |
+| ------------------------------------------------------------------------------------------------------------- | --------- |
+| Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`     | `DRAFT`   |
+| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md`     | `DRAFT`   |
+| Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`              | `DRAFT`   |
+| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                     | `DRAFT`   |
+| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`         | `DRAFT`   |
+| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`             | `DRAFT`   |
+
+### Iteration: Add Fields to Project Structure
+
+**Id:** `add-project-fields`
+
+**Status:** `DRAFT`
+
+**Purpose:** Add `code`, `website`, and `management` fields to the Project structure definition.
+
+**Description:** Update `$DOMAINS/projects/structures/project.art` to include new fields for public repository URL, project website URL, and management approach. Commit the change to the workspace repo.
+
+**Instructions:** `./plan-publish-project-list/instructions/add-project-fields.md`
+
+**Changes:**
+
+- Add `code` field (URL) to project structure shape.
+- Add `website` field (URL) to project structure shape.
+- Add `management` field (NaturalBlock) to project structure shape.
+- Update example in structure to include new fields.
+
+**Dependencies:**
+
+- None.
+
+#### Commits:
+
+| ID                      | Repository / Checkout / Branch          | Policy       | Hash | Status   |
+| ----------------------- | --------------------------------------- | ------------ | ---- | -------- |
+| `add-project-fields`    | Workspace / `$WORKSPACE` / `main`       | `AUTONOMOUS` | (TBD) | `DRAFT`  |
+
+##### Commit: `add-project-fields`
+
+**Repository:** Workspace: Noodlestan
+
+**Message:**
+
+```
+domains(projects): Add code, website, and management fields to Project structure
+
+- code: URL for public repository
+- website: URL for project website
+- management: NaturalBlock for project management approach
+```
+
+### Iteration: Populate New Project Fields
+
+**Id:** `populate-project-fields`
+
+**Status:** `DRAFT`
+
+**Purpose:** Populate the new `code`, `website`, and `management` fields in all project records across checkouts.
+
+**Description:** Read project records from all checkouts that contain `_records/project.art`, extract information from co-located repository records and `_guide.md` files, and add the new fields. Commits are policy MANUAL for user review.
+
+**Instructions:** `./plan-publish-project-list/instructions/populate-project-fields.md`
+
+**Changes:**
+
+- Update `$NOODLESTAN_WEB/_records/project.art` — add code, website, management.
+- Update `$MANAGEMENT/_records/project.art` — add code, management (private, no website).
+- Update `$ARTISANS/_records/project.art` — add code, website, management.
+- Update `$OPS/_records/project.art` — add code, management (private, no website).
+
+**Dependencies:**
+
+- Iteration: Add Fields to Project Structure (structure must have new fields first).
+
+#### Commits:
+
+| ID                              | Repository / Checkout / Branch        | Policy     | Hash | Status   |
+| ------------------------------- | ------------------------------------- | ---------- | ---- | -------- |
+| `populate-noodlestan-web-fields` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | (TBD) | `DRAFT`  |
+| `populate-management-fields`     | Management / `$MANAGEMENT` / `main`   | `MANUAL`   | (TBD) | `DRAFT`  |
+| `populate-artisans-fields`       | Artisans / `$ARTISANS` / `main`       | `MANUAL`   | (TBD) | `DRAFT`  |
+| `populate-ops-fields`             | Ops / `$OPS` / `main`                 | `MANUAL`   | (TBD) | `DRAFT`  |
+
+##### Commit: `populate-noodlestan-web-fields`
+
+**Repository:** Repository: Noodlestan Web
+
+**Message:**
+
+```
+records(noodlestan-web): Populate new project fields
+
+- Add code, website, and management fields to project record.
+```
+
+##### Commit: `populate-management-fields`
+
+**Repository:** Repository: Management
+
+**Message:**
+
+```
+records(management): Populate new project fields
+
+- Add code and management fields to project record.
+```
+
+##### Commit: `populate-artisans-fields`
+
+**Repository:** Repository: Artisans
+
+**Message:**
+
+```
+records(artisans): Populate new project fields
+
+- Add code, website, and management fields to project record.
+```
+
+##### Commit: `populate-ops-fields`
+
+**Repository:** Repository: Ops
+
+**Message:**
+
+```
+records(ops): Populate new project fields
+
+- Add code and management fields to project record.
+```
 
 ### Iteration: Copy Project Records
 
@@ -148,7 +328,7 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 
 **Dependencies:**
 
-- None.
+- Iteration: Populate New Project Fields (project records must have new fields before copying).
 
 #### Commits:
 
