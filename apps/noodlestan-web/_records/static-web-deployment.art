@@ -1,15 +1,20 @@
 # Module
 
-## Deployment: Noodlestan Website Production
-
-**Purpose:** Deploy the Noodlestan Website to production on AWS S3 with CloudFront.
+## Static Web Deployment: Noodlestan Website
 
 **Owner:** Application: Noodlestan Website
 
 **Status:** `DEPLOYED`
 
-**Target:** Production
+**Build:** Deployment Build: NPM Command
 
-**URL:** `https://noodlestan.org`
+**Deploy:** Deployment Command: Static Web AWS CLI
 
-**Infrastructure:** S3 + CloudFront (ops-managed Terraform)
+**Domain:** `noodlestan.org`
+
+**Environments:**
+
+- `Production` — Deployment Environment: Noodlestan Website Production
+- `Staging` — Deployment Environment: Noodlestan Website Staging
+
+**Infrastructure:** Deployment Infrastructure: Noodlestan Website

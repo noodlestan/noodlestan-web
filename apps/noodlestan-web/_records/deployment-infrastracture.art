@@ -1,0 +1,18 @@
+# Module
+
+## Deployment Infrastructure: Noodlestan Website
+
+**Platform:** Terraform
+
+**Provider:** AWS
+
+**Files:**
+
+- `$OPS/domains/noodlestan/main.tf`
+- `$OPS/domains/noodlestan/websites/noodlestan-web/main.tf`
+- `$OPS/domains/noodlestan/main.tf` (module `noodlestan_web`)
+
+**Resources:**
+
+- `$OPS/modules/static-website/s3-bucket`
+- `$OPS/modules/static-website/cf-distribution`

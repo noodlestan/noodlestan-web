@@ -1,0 +1,11 @@
+# Module
+
+## Deployment Environment: Noodlestan Website Staging
+
+**Environment:** Staging
+
+**URL:** `https://stage.noodlestan.org`
+
+**BucketName:** `noodlestan-web-noodlestan-org-stage`
+
+**DistributionId:** `EALBNPZQ20HER`
