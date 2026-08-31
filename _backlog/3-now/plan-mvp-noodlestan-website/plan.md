@@ -1,6 +1,6 @@
 # Plan: MVP Noodlestan Website
 
-**ID:** `mvp-noodlestan-website`
+**Id:** `mvp-noodlestan-website`
 
 **Status:** `WORKING`
 
@@ -14,7 +14,9 @@
 
 ## Mandatory Reading
 
-::READ `$DOMAINS/plans/structures/plan.art` (Structure) — Defines the plan structure and nested types.
+::READ `$DOMAINS/plans/structures/plan.art` (Structure) — Describe the work-item changes through a series of iterations and commits with detailed instructions.
+
+---
 
 ## Path Variables
 
@@ -31,44 +33,9 @@
 
 Create a standalone `noodlestan/web` repository, provision AWS static website infrastructure via Terraform in the ops repo, and deploy a hello-world Astro site to noodlestan.org. This is the first production deployment in the split architecture.
 
-## Domains
+## Attachments
 
-| Domain / Path                                        | Description                                                                        |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Domain: Plans `$DOMAINS/plans/index.md`              | Planning lifecycle for contextualising, drafting, refining, and integrating plans. |
-| Domain: Engineering `$DOMAINS/engineering/_guide.md` | Engineering lifecycle for setting up, verifying, and committing work.              |
-| Domain: Deployments `$DOMAINS/deployments/index.md`  | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.               |
-
-### Work Scope Types
-
-| Work Scope Type / Path                                                      | Resource Kind / Path                                                    |
-| --------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| Type: Project Scope `$DOMAINS/projects/types/project-scope.art`             | Structure: Project `$DOMAINS/projects/structures/project.art`           |
-| Type: Repository Scope `$DOMAINS/repositories/types/repository-scope.art`   | Structure: Repository `$DOMAINS/repositories/structures/repository.art` |
-| Type: Application Scope `$DOMAINS/applications/types/application-scope.art` | Structure: Application — WIP                                            |
-| Type: Deployment Scope `$DOMAINS/deployments/types/deployment-scope.art`    | Structure: Deployment `$DOMAINS/deployments/structures/deployment.art`  |
-
-### Workflows
-
-| Workflow / Path                                                        | Description                                                                        |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Workflow: Planning `$DOMAINS/plans/workflows/planning.art`             | Planning lifecycle for contextualising, drafting, refining, and integrating plans. |
-| Workflow: Engineering `$DOMAINS/engineering/workflows/engineering.art` | Engineering lifecycle for setting up, verifying, and committing work.              |
-| Workflow: Deploying `$DOMAINS/deployments/workflows/deploying.art`     | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.               |
-
-### Workflow Stages
-
-| Name            | Workflow               | Description                                    |
-| --------------- | ---------------------- | ---------------------------------------------- |
-| Contextualizing | Workflow: Planning     | Gather scope and context for planning.         |
-| Drafting        | Workflow: Planning     | Produce the initial plan and iteration drafts. |
-| Refining        | Workflow: Planning     | Resolve gaps and improve the work sequence.    |
-| Setting up      | Workflow: Implementing | Prepare a project or package for execution.    |
-| Verifying       | Workflow: Implementing | Validate the current work.                     |
-| Committing      | Workflow: Implementing | Record a verified change.                      |
-| Pre-Deploy      | Workflow: Deploying    | Prepare a deployment.                          |
-| Deploy          | Workflow: Deploying    | Execute the deployment.                        |
-| Post-Deploy     | Workflow: Deploying    | Verify and record deployment outcome.          |
+None.
 
 ## Context
 
@@ -85,7 +52,32 @@ Create a standalone `noodlestan/web` repository, provision AWS static website in
 - `render-template` — Renders plan and instruction artefacts. Required for Drafting, Refining.
 - `scaffold` — Scaffolds project files from records and templates. Required for Setting up.
 
-## Knowledge Context
+### Domains
+
+| Domain / Path                                        | Description                                                                        |
+| ---------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Domain: Plans `$DOMAINS/plans/index.md`              | Planning lifecycle for contextualising, drafting, refining, and integrating plans. |
+| Domain: Engineering `$DOMAINS/engineering/_guide.md` | Engineering lifecycle for setting up, verifying, and committing work.              |
+| Domain: Deployments `$DOMAINS/deployments/index.md`  | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.               |
+
+### Resource Kinds in Scope
+
+| Kind        | Domain        | Structure Record Path                                            |
+| ----------- | ------------- | ---------------------------------------------------------------- |
+| Project     | Projects      | `$DOMAINS/projects/structures/project.art`                      |
+| Repository  | Repositories  | `$DOMAINS/repositories/structures/repository.art`               |
+| Application | Applications  | — WIP                                                           |
+| Deployment  | Deployments   | `$DOMAINS/deployments/structures/deployment.art`                |
+
+### Workflows
+
+| Workflow / Path                                                        | Purpose                                                                                 |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Workflow: Planning `$DOMAINS/plans/workflows/planning.art`             | Planning lifecycle for contextualising, drafting, refining, and integrating plans.       |
+| Workflow: Engineering `$DOMAINS/engineering/workflows/engineering.art` | Engineering lifecycle for setting up, verifying, and committing work.                    |
+| Workflow: Deploying `$DOMAINS/deployments/workflows/deploying.art`     | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.                     |
+
+### Knowledge
 
 ::READ `$DOMAINS/plans/structures/plan.art` (Structure) — Defines plan record fields and statuses. Relevant for stages Contextualizing, Drafting, Refining.
 
@@ -113,23 +105,17 @@ Create a standalone `noodlestan/web` repository, provision AWS static website in
 
 This plan creates a new repository (`noodlestan/web`), provisions AWS infrastructure in the ops repo, and deploys a hello-world Astro site.
 
-### Project Scope: Noodlestan Web (new)
-
-**Resource:** Project: Noodlestan Web
-
-**Path:** `$NOODLESTAN_WEB/`
+### (Scope) Project: Noodlestan Web
 
 **Record:** `$NOODLESTAN_WEB/_records/project.art`
 
-**Repository:** Repository: Noodlestan Web
+**Role:** — New — manages the Noodlestan Website and any future noodlestan.org sites.
 
-**Repository Record:** `$NOODLESTAN_WEB/_records/repository.art`
+**Partial:**
 
-**Remote:** `git@github.com:noodlestan/web.git`
-
-**Owner:** Project Management
-
-**Role:** New — manages the Noodlestan Website and any future noodlestan.org sites.
+- `owner` — Project Management
+- `path` — `$NOODLESTAN_WEB/`
+- `remote` — `git@github.com:noodlestan/web.git`
 
 **Changes:**
 
@@ -144,19 +130,17 @@ This plan creates a new repository (`noodlestan/web`), provisions AWS infrastruc
 
 - Scaffolding files copied from `$ARTISANS` (dotfiles, configs, scaffolders, license, records).
 
-### Repository Scope: Noodlestan Web (new)
-
-**Resource:** Repository: Noodlestan Web
-
-**Path:** `$NOODLESTAN_WEB/`
+### (Scope) Repository: Noodlestan Web
 
 **Record:** `$NOODLESTAN_WEB/_records/repository.art`
 
-**Owner:** Project: Noodlestan Web
+**Role:** — New — hosts the Noodlestan Website and any future noodlestan.org sites.
 
-**Role:** New — hosts the Noodlestan Website and any future noodlestan.org sites.
+**Partial:**
 
-**Remote:** `git@github.com:noodlestan/web.git`
+- `owner` — Project: Noodlestan Web
+- `path` — `$NOODLESTAN_WEB/`
+- `remote` — `git@github.com:noodlestan/web.git`
 
 **Changes:**
 
@@ -165,17 +149,16 @@ This plan creates a new repository (`noodlestan/web`), provisions AWS infrastruc
 - Copy license from `$ARTISANS/_records/license/` (verbatim).
 - Create namespace record adapted from `$ARTISANS/_records/namespace.art` for `@noodlestan`.
 
-### Application Scope: Noodlestan Website
-
-**Resource:** Application: Noodlestan Website
-
-**Path:** `$NOODLESTAN_WEB/apps/noodlestan-web/`
+### (Scope) Application: Noodlestan Website
 
 **Record:** `$NOODLESTAN_WEB/apps/noodlestan-web/_records/package.art`
 
-**Owner:** Project: Noodlestan Web
+**Role:** — The main noodlestan.org website, built with Astro.
 
-**Role:** The main noodlestan.org website, built with Astro.
+**Partial:**
+
+- `owner` — Project: Noodlestan Web
+- `path` — `$NOODLESTAN_WEB/apps/noodlestan-web/`
 
 **Changes:**
 
@@ -189,21 +172,18 @@ This plan creates a new repository (`noodlestan/web`), provisions AWS infrastruc
 - Repository scaffolded (Iteration: Scaffold Noodlestan Web).
 - Infrastructure provisioned (Iteration: Provision Infrastructure).
 
-### Deployment Scope: Noodlestan Website Production
-
-**Resource:** Deployment: Noodlestan Website Production
-
-**Path:** `$OPS/domains/noodlestan/websites/noodlestan-web/`
+### (Scope) Deployment: Noodlestan Website Production
 
 **Record:** `$NOODLESTAN_WEB/apps/noodlestan-web/_records/static-web-deployment.art`
 
-**Owner:** Project: Noodlestan Web
+**Role:** — Production deployment of the Noodlestan Website to noodlestan.org via AWS S3 + CloudFront.
 
-**Target:** Production
+**Partial:**
 
-**URL:** `https://noodlestan.org`
-
-**Role:** Production deployment of the Noodlestan Website to noodlestan.org via AWS S3 + CloudFront.
+- `owner` — Project: Noodlestan Web
+- `path` — `$OPS/domains/noodlestan/websites/noodlestan-web/`
+- `target` — Production
+- `url` — `https://noodlestan.org`
 
 **Changes:**
 
@@ -216,17 +196,16 @@ This plan creates a new repository (`noodlestan/web`), provisions AWS infrastruc
 - Infrastructure provisioned (Iteration: Provision Infrastructure).
 - App built (Iteration: Create and Deploy App).
 
-### Repository Scope: Ops (existing)
-
-**Resource:** Repository: Ops
-
-**Path:** `$OPS/`
+### (Scope) Repository: Ops
 
 **Record:** `$OPS/_records/repository.art`
 
-**Owner:** Project: Ops
+**Role:** — Existing — Terraform infrastructure. Add noodlestan-web website module.
 
-**Role:** Existing — Terraform infrastructure. Add noodlestan-web website module.
+**Partial:**
+
+- `owner` — Project: Ops
+- `path` — `$OPS/`
 
 **Changes:**
 
@@ -237,55 +216,47 @@ This plan creates a new repository (`noodlestan/web`), provisions AWS infrastruc
 
 - None — ops repo already exists.
 
-### Project Scope: Artisans (reference)
-
-**Resource:** Project: Artisans
-
-**Path:** `$ARTISANS/`
+### (Scope) Project: Artisans
 
 **Record:** `$ARTISANS/_records/project.art`
 
-**Owner:** Project: Artisans
+**Role:** — Scaffolding reference — source of configs, records, and files to copy.
 
-**Role:** Scaffolding reference — source of configs, records, and files to copy.
+**Partial:**
 
-**References:**
-
-- `_records/scaffolders/` — Copy verbatim (project skeleton, README, package.json, lefthook scaffolders).
-- `_records/license/` — Copy verbatim (Noodlestan 2026 MIT license).
-- `_records/namespace.art` — Adapt to `@noodlestan` namespace (replace `@artisans` with `@noodlestan`).
-- Root scaffolders — Copy or replace where scaffolder skeleton file has dotfiles, license, readme, configs, turbo, lefthook.
-- Example application in `apps/` — Contains application and deployment record patterns to follow.
+- `owner` — Project: Artisans
+- `path` — `$ARTISANS/`
 
 **Dependencies:**
 
 - `$ARTISANS` checkout must be available (clone via `npm run workspace clone artisans`).
 
-## Work
-
-### Execution Context
+## Execution Context
 
 Execution is coordinated from `$WORKSPACE`. The repo scaffold and app development happen in `$NOODLESTAN_WEB`. Terraform changes happen in `$OPS`. Deployment uses the existing noodlestan.org domain infrastructure (certificate, hosted zone). Scaffolding files are sourced from `$ARTISANS`.
 
-### Items
+---
 
-| Phase | Resource / Path                                                                                   | Status |
-| ----- | ------------------------------------------------------------------------------------------------- | ------ |
-| `3`   | Iteration: Scaffold Noodlestan Web `plan-mvp-noodlestan-website/instructions/scaffold-repo.md`    | READY  |
-| `3`   | Iteration: Provision Infrastructure `plan-mvp-noodlestan-website/instructions/provision-infra.md` | READY  |
-| `3`   | Iteration: Create and Deploy App `plan-mvp-noodlestan-website/instructions/create-app.md`         | READY  |
+## Items:
 
-#### Iteration: Scaffold Noodlestan Web
+| Iteration / Instructions                                                                                   | Status |
+| ---------------------------------------------------------------------------------------------------------- | ------ |
+| Iteration: Scaffold Noodlestan Web `plan-mvp-noodlestan-website/instructions/scaffold-repo.md`             | `DONE` |
+| Iteration: Provision Infrastructure `plan-mvp-noodlestan-website/instructions/provision-infra.md`          | `DONE` |
+| Iteration: Create and Deploy App `plan-mvp-noodlestan-website/instructions/create-app.md`                  | `DONE` |
+| Iteration: Refine Deployment Records `plan-mvp-noodlestan-website/instructions/refine-deployment-records.md` | `DONE` |
 
-**id:** `scaffold-repo`
+### Iteration: Scaffold Noodlestan Web
+
+**Id:** `scaffold-repo`
+
+**Status:** `DONE`
 
 **Purpose:** Create the `noodlestan/web` repository with project and repository records, scaffolders, configs, and CI.
 
 **Description:** Scaffold a new repository following the workspace conventions. Copy dotfiles, configs, scaffolders from `$ARTISANS`. Create project and repository records. Init git, add remote, push.
 
-**Status:** `WORKING`
-
-**Source:** `$ARTISANS` — scaffolding reference for all copy commands.
+**Instructions:** `./plan-mvp-noodlestan-website/instructions/scaffold-repo.md`
 
 **Changes:**
 
@@ -301,13 +272,19 @@ Execution is coordinated from `$WORKSPACE`. The repo scaffold and app developmen
 - Create `$WORKSPACE/_records/checkouts/noodlestan-web-checkout.art`.
 - Git init, add remote `git@github.com:noodlestan/web.git`, push.
 
-**Instructions:** `./plan-mvp-noodlestan-website/instructions/scaffold-repo.md`
+**Dependencies:**
 
-**Report:** `./plan-mvp-noodlestan-website/instructions/scaffold-repo__report.md`
+- None.
+
+#### Commits:
+
+| ID                                    | Repository / Checkout / Branch                    | Policy       | Hash    | Status    |
+| ------------------------------------- | ------------------------------------------------- | ------------ | ------- | --------- |
+| `scaffold-noodlestan-web-repository` | Noodlestan Web / `$NOODLESTAN_WEB` / `main`       | `AUTONOMOUS` | `2a11048` | `COMMITTED` |
 
 ##### Commit: `scaffold-noodlestan-web-repository`
 
-**Repository:** Repository Scope: Noodlestan Web `$NOODLESTAN_WEB`
+**Repository:** Repository: Noodlestan Web
 
 **Message:**
 
@@ -318,19 +295,23 @@ build(noodlestan-web): scaffold Noodlestan Web repository
 - Create project and repository records.
 ```
 
-**Status:** `WORKING`
-
 **Policy:** `AUTONOMOUS`
 
-#### Iteration: Provision Infrastructure
+**Hash:** `2a11048`
 
-**id:** `provision-infra`
+**Status:** `COMMITTED`
+
+### Iteration: Provision Infrastructure
+
+**Id:** `provision-infra`
+
+**Status:** `DONE`
 
 **Purpose:** Add Terraform module for noodlestan-web in ops, provision AWS infrastructure, and smoke-test with a placeholder deploy.
 
 **Description:** Create `$OPS/domains/noodlestan/websites/noodlestan-web/main.tf` following the art-mantras pattern. Add module reference to `$OPS/domains/noodlestan/main.tf`. Deploy smoke-test `dist/index.html` to verify infrastructure. Commit in ops, discard smoke dist.
 
-**Status:** READY
+**Instructions:** `./plan-mvp-noodlestan-website/instructions/provision-infra.md`
 
 **Changes:**
 
@@ -342,13 +323,19 @@ build(noodlestan-web): scaffold Noodlestan Web repository
 - Commit terraform changes in ops.
 - Discard smoke `dist/`.
 
-**Instructions:** `./plan-mvp-noodlestan-website/instructions/provision-infra.md`
+**Dependencies:**
 
-**Report:** `./plan-mvp-noodlestan-website/instructions/provision-infra__report.md`
+- None.
+
+#### Commits:
+
+| ID                                       | Repository / Checkout / Branch         | Policy       | Hash    | Status    |
+| ---------------------------------------- | -------------------------------------- | ------------ | ------- | --------- |
+| `provision-noodlestan-web-infrastructure` | Ops / `$OPS` / `main`               | `AUTONOMOUS` | `d2243ec` | `COMMITTED` |
 
 ##### Commit: `provision-noodlestan-web-infrastructure`
 
-**Repository:** Repository Scope: Ops `$OPS`
+**Repository:** Repository: Ops
 
 **Message:**
 
@@ -360,19 +347,23 @@ ops(noodlestan): add noodlestan-web static website module
 - Smoke test deployment.
 ```
 
-**Status:** READY
-
 **Policy:** `AUTONOMOUS`
 
-#### Iteration: Create and Deploy App
+**Hash:** `d2243ec`
 
-**id:** `create-app`
+**Status:** `COMMITTED`
+
+### Iteration: Create and Deploy App
+
+**Id:** `create-app`
+
+**Status:** `DONE`
 
 **Purpose:** Initialize the Astro app in the new repo, add hello-world content, deploy to production.
 
 **Description:** Create `$NOODLESTAN_WEB/apps/noodlestan-web/` with Astro project, application and deployment records, hello-world content. Build and deploy to noodlestan.org. Commit in noodlestan-web.
 
-**Status:** READY
+**Instructions:** `./plan-mvp-noodlestan-website/instructions/create-app.md`
 
 **Changes:**
 
@@ -385,13 +376,20 @@ ops(noodlestan): add noodlestan-web static website module
 - Verify `noodlestan.org` loads.
 - Commit in noodlestan-web.
 
-**Instructions:** `./plan-mvp-noodlestan-website/instructions/create-app.md`
+**Dependencies:**
 
-**Report:** `./plan-mvp-noodlestan-website/instructions/create-app__report.md`
+- Repository scaffolded (Iteration: Scaffold Noodlestan Web).
+- Infrastructure provisioned (Iteration: Provision Infrastructure).
+
+#### Commits:
+
+| ID                                       | Repository / Checkout / Branch              | Policy       | Hash    | Status    |
+| ---------------------------------------- | ------------------------------------------- | ------------ | ------- | --------- |
+| `deploy-noodlestan-website-hello-world`  | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `b9a5a1e` | `COMMITTED` |
 
 ##### Commit: `deploy-noodlestan-website-hello-world`
 
-**Repository:** Repository Scope: Noodlestan Web `$NOODLESTAN_WEB`
+**Repository:** Repository: Noodlestan Web
 
 **Message:**
 
@@ -403,40 +401,178 @@ build(noodlestan-web): initialize Astro app and deploy hello world
 - Deploy hello world to noodlestan.org.
 ```
 
-**Status:** READY
-
 **Policy:** `AUTONOMOUS`
+
+**Hash:** `b9a5a1e`
+
+**Status:** `COMMITTED`
+
+### Iteration: Refine Deployment Records
+
+**Id:** `refine-deployment-records`
+
+**Status:** `DONE`
+
+**Purpose:** Structure deployment metadata with proper environment, infrastructure, and build/deploy records after initial hello-world deployment.
+
+**Description:** Refine the deployment records created during the hello-world iteration. Add deployment infrastructure record, production and staging environment records. Refactor `static-web-deployment.art` to reference environments, build/deploy commands, and infrastructure. Fix Terraform domain name in ops.
+
+**Instructions:** `./plan-mvp-noodlestan-website/instructions/refine-deployment-records.md`
+
+**Changes:**
+
+- Create `$NOODLESTAN_WEB/apps/noodlestan-web/_records/deployment-infrastracture.art` (Deployment Infrastructure: Noodlestan Website).
+- Create `$NOODLESTAN_WEB/apps/noodlestan-web/_records/production-environment.art` (Deployment Environment: Noodlestan Website Production).
+- Create `$NOODLESTAN_WEB/apps/noodlestan-web/_records/staging-environment.art` (Deployment Environment: Noodlestan Website Staging).
+- Refactor `$NOODLESTAN_WEB/apps/noodlestan-web/_records/static-web-deployment.art` to structured format with environments, build/deploy commands, and infrastructure reference.
+- Fix `$OPS/domains/noodlestan/websites/noodlestan-web/main.tf` — correct `prod_domain_name` from `www.noodlestan.org` to `noodlestan.org`.
+
+**Dependencies:**
+
+- App built and deployed (Iteration: Create and Deploy App).
+
+#### Commits:
+
+| ID                              | Repository / Checkout / Branch              | Policy   | Hash    | Status    |
+| ------------------------------- | ------------------------------------------- | -------- | ------- | --------- |
+| `refine-deployment-records`    | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `ac23b01` | `COMMITTED` |
+| `fix-terraform-prod-domain`    | Ops / `$OPS` / `main`                       | `MANUAL` | `56d5049` | `COMMITTED` |
+
+##### Commit: `refine-deployment-records`
+
+**Repository:** Repository: Noodlestan Web
+
+**Message:**
+
+```
+chore(noodlestan-web): refine deployment records
+
+- Add deployment infrastructure, production, and staging environment records.
+- Refactor static-web-deployment to structured format.
+```
+
+**Policy:** `MANUAL`
+
+**Hash:** `ac23b01`
+
+**Status:** `COMMITTED`
+
+##### Commit: `fix-terraform-prod-domain`
+
+**Repository:** Repository: Ops
+
+**Message:**
+
+```
+fix(noodlestan-web): correct Terraform prod domain name
+
+- Change prod_domain_name from www.noodlestan.org to noodlestan.org.
+```
+
+**Policy:** `MANUAL`
+
+**Hash:** `56d5049`
+
+**Status:** `COMMITTED`
+
+---
+
+## Work
 
 ### Next
 
-Scaffold the repository — the core prerequisite for infrastructure and app work.
+All iterations are complete. Plan is ready for review and closure.
 
 ### Blockers
 
-- AWS credentials must be available for `terraform apply` and S3 deployment.
-- The `noodlestan.org` domain and certificate already exist in ops — no new DNS setup needed.
-- `$ARTISANS` checkout must be available (clone via `npm run workspace clone artisans`).
+- None.
 
-## Findings
+## Operating Instructions
 
-- The ops repo already has noodlestan.org infrastructure (domain, certificate, S3 modules). The new website just needs a new module referencing the existing certificate and zone.
-- Art-Mantras is a good reference pattern: same S3 + CloudFront + certificate chain.
-- Artisans repo contains scaffolding patterns (project skeleton, license, namespace, configs) to copy.
+### Writing Commit Message
 
-## Decisions
+**Purpose:** Write standardized message according to context conventions. Operation of Workflow: Planning Work, defined in `$DOMAINS/work/workflows/planning-work/ops/writing-commit-message.art`.
+
+**Instructions:** (From `$WORKSPACE/_guide.md`)
+
+1. Read commit message conventions from `$WORKSPACE/knowledge/conventions/writing-commit-message.art`.
+2. Write the commit message following the rules defined there.
+
+### Setting Up
+
+**Purpose:** Prepare the execution environment. Operation of Workflow: Executing Work, defined in `$DOMAINS/work/workflows/executing-work/ops/setting-up.art`.
+
+**Instructions:** (From `$WORKSPACE/_guide.md`)
+
+Run from the `$WORKSPACE` root:
+
+```bash
+npm ci # to install dependencies.
+npm run workspace clone {repo.name} # to create a new checkout of a known repository.
+npm run workspace branch {branch.name} {checkout.location} # to create a working branch.
+```
+
+**Instructions:** (From `$OPS/_guide.md`)
+
+Run from the `$OPS` root:
+
+```bash
+terraform init
+terraform apply
+```
+
+### Verifying Completion
+
+**Purpose:** Confirms that the work item has been completed and satisfies its intended outcome. Operation of Workflow: Executing Work, defined in `$DOMAINS/work/workflows/executing-work/ops/verifying-completion.art`.
+
+**Instructions:** (From `$WORKSPACE/_guide.md`)
+
+Run from the `$WORKSPACE` root:
+
+```bash
+npm run workspace sanity # to check git status across all repos
+```
+
+---
+
+## Coordination
+
+### Not In Scope
+
+- **CI/CD setup** — Deferred to follow-up plan.
+- **Staging environment deployment** — Infrastructure exists but not yet deployed.
+- **Real content** — Project listing and documentation deferred to follow-up.
+
+### Evidence
+
+- **Hello World Deployed** to production: https://noodlestan.org
+- **Terraform module** created and applied in ops repo.
+- **Deployment records** structured with environments and infrastructure references.
+
+### Findings
+
+- **Ops repo already has noodlestan.org infrastructure** — The new website just needs a new module referencing the existing certificate and zone.
+- **Art-Mantras is a good reference pattern** — Same S3 + CloudFront + certificate chain.
+- **Artisans repo contains scaffolding patterns** — Project skeleton, license, namespace, configs to copy.
+
+### Decisions
 
 - **Single repo** — `noodlestan/web` hosts all noodlestan.org websites, not one repo per site.
-- **Astro** — static site generator, appropriate for a documentation/content site.
-- **Existing infrastructure** — reuse the noodlestan.org certificate and hosted zone from ops, no new DNS.
-- **Terraform first** — provision infrastructure before building the app, so deployment is verified end-to-end.
-- **Scaffold from artisans** — copy configs, records, and scaffolders from artisans repo as the reference pattern.
+- **Astro** — Static site generator, appropriate for a documentation/content site.
+- **Existing infrastructure** — Reuse the noodlestan.org certificate and hosted zone from ops, no new DNS.
+- **Terraform first** — Provision infrastructure before building the app, so deployment is verified end-to-end.
+- **Scaffold from artisans** — Copy configs, records, and scaffolders from artisans repo as the reference pattern.
 
-## Follow Ups
+### Knowledge to Update
+
+None.
+
+### Follow Ups
 
 - Add real content to noodlestan.org (project listing, documentation).
 - Set up CI/CD for automatic deployment on push.
-- Add staging environment.
+- Deploy staging environment.
 
-## Feedback
+### Feedback
 
 None.
