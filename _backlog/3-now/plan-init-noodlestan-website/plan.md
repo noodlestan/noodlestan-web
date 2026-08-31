@@ -1,6 +1,6 @@
-# Plan: MVP Noodlestan Website
+# Plan: Initialize Noodlestan Website
 
-**Id:** `mvp-noodlestan-website`
+**Id:** `init-noodlestan-website`
 
 **Status:** `DONE`
 
@@ -241,10 +241,10 @@ Execution is coordinated from `$WORKSPACE`. The repo scaffold and app developmen
 
 | Iteration / Instructions                                                                                     | Status |
 | ------------------------------------------------------------------------------------------------------------ | ------ |
-| Iteration: Scaffold Noodlestan Web `plan-mvp-noodlestan-website/instructions/scaffold-repo.md`               | `DONE` |
-| Iteration: Provision Infrastructure `plan-mvp-noodlestan-website/instructions/provision-infra.md`            | `DONE` |
-| Iteration: Create and Deploy App `plan-mvp-noodlestan-website/instructions/create-app.md`                    | `DONE` |
-| Iteration: Refine Deployment Records `plan-mvp-noodlestan-website/instructions/refine-deployment-records.md` | `DONE` |
+| Iteration: Scaffold Noodlestan Web `plan-init-noodlestan-website/instructions/scaffold-repo.md`               | `DONE` |
+| Iteration: Provision Infrastructure `plan-init-noodlestan-website/instructions/provision-infra.md`            | `DONE` |
+| Iteration: Create and Deploy App `plan-init-noodlestan-website/instructions/create-app.md`                    | `DONE` |
+| Iteration: Refine Deployment Records `plan-init-noodlestan-website/instructions/refine-deployment-records.md` | `DONE` |
 
 ### Iteration: Scaffold Noodlestan Web
 
@@ -256,7 +256,7 @@ Execution is coordinated from `$WORKSPACE`. The repo scaffold and app developmen
 
 **Description:** Scaffold a new repository following the workspace conventions. Copy dotfiles, configs, scaffolders from `$ARTISANS`. Create project and repository records. Init git, add remote, push.
 
-**Instructions:** `./plan-mvp-noodlestan-website/instructions/scaffold-repo.md`
+**Instructions:** `./plan-init-noodlestan-website/instructions/scaffold-repo.md`
 
 **Changes:**
 
@@ -311,7 +311,7 @@ build(noodlestan-web): scaffold Noodlestan Web repository
 
 **Description:** Create `$OPS/domains/noodlestan/websites/noodlestan-web/main.tf` following the art-mantras pattern. Add module reference to `$OPS/domains/noodlestan/main.tf`. Deploy smoke-test `dist/index.html` to verify infrastructure. Commit in ops, discard smoke dist.
 
-**Instructions:** `./plan-mvp-noodlestan-website/instructions/provision-infra.md`
+**Instructions:** `./plan-init-noodlestan-website/instructions/provision-infra.md`
 
 **Changes:**
 
@@ -363,7 +363,7 @@ ops(noodlestan): add noodlestan-web static website module
 
 **Description:** Create `$NOODLESTAN_WEB/apps/noodlestan-web/` with Astro project, application and deployment records, hello-world content. Build and deploy to noodlestan.org. Commit in noodlestan-web.
 
-**Instructions:** `./plan-mvp-noodlestan-website/instructions/create-app.md`
+**Instructions:** `./plan-init-noodlestan-website/instructions/create-app.md`
 
 **Changes:**
 
@@ -417,7 +417,7 @@ build(noodlestan-web): initialize Astro app and deploy hello world
 
 **Description:** Refine the deployment records created during the hello-world iteration. Add deployment infrastructure record, production and staging environment records. Refactor `static-web-deployment.art` to reference environments, build/deploy commands, and infrastructure. Fix Terraform domain name in ops.
 
-**Instructions:** `./plan-mvp-noodlestan-website/instructions/refine-deployment-records.md`
+**Instructions:** `./plan-init-noodlestan-website/instructions/refine-deployment-records.md`
 
 **Changes:**
 

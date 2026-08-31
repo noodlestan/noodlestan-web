@@ -41,7 +41,7 @@ None.
 
 | Kind        | Path                                                            | Role                                                           |
 | ----------- | --------------------------------------------------------------- | -------------------------------------------------------------- |
-| Plan        | `$NOODLESTAN_WEB/_backlog/3-now/plan-mvp-noodlestan-website/plan.md` | Previous plan that deployed the hello-world site.              |
+| Plan        | `$NOODLESTAN_WEB/_backlog/3-now/plan-init-noodlestan-website/plan.md` | Previous plan that deployed the hello-world site.              |
 | Parking Lot | `$MANAGEMENT/_roadmap/_parking-lot.md`                          | Tracks short-term actionables, pending questions, and blockers. |
 
 ### Required Skills

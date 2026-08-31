@@ -1,6 +1,6 @@
 # Noodlestan Web
 
-MVP Noodlestan Website — Astro-based website for Noodlestan.
+Initialize Noodlestan Website — Astro-based website for Noodlestan.
 
 ## Recommended Reading
 

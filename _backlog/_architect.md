@@ -2,7 +2,7 @@
 
 ## Upstream Context
 
-This project originates from the MVP Noodlestan Website plan in the management repository. The goal is to establish a standalone repository for the Noodlestan website, initially deployed as a hello-world Astro site at noodlestan.org.
+This project originates from the Initialize Noodlestan Website plan in the management repository. The goal is to establish a standalone repository for the Noodlestan website, initially deployed as a hello-world Astro site at noodlestan.org.
 
 ## Goals
 
