@@ -1,0 +1,27 @@
+# Module
+
+## Project: Noodlestan Web
+
+**Purpose:** Initialize Noodlestan Website — Astro-based website for Noodlestan.
+
+**Description:** Standalone website repository for Noodlestan, hosting the Astro website application.
+
+**Owner:** Project: Management
+
+**Author:** Noodlestan Collective
+
+**Repository:** Repository: Noodlestan Web
+
+**Code:** https://github.com/noodlestan/noodlestan-web
+
+**Website:** https://noodlestan.org
+
+**Resources:**
+
+- Application: Noodlestan Website
+
+**Private:** `false`
+
+**Management:** Uses Workflow: Planning Work and a local Backlog at `_backlog/`.
+
+**License:** License: Noodlestan 2026 MIT

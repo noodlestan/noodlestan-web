@@ -16,6 +16,7 @@ _backlog/    — plans, instructions, reports
 _records/    — records (project, repository, namespaces, scaffolders, license)
 _roadmap/    — roadmap
 apps/        — application packages
+data/        — data for applications (e.g. project records)
 ```
 
 ## Projects
@@ -33,6 +34,8 @@ Records are co-located with the resources they describe in `_records/` directori
 - **Namespace:** `_records/namespace.art`
 - **License:** `_records/license.art`
 - **Scaffolders:** `_records/scaffolders/`
+
+A copy all `project.art` records from know repositories is kept at `data/_records/projects/` and updated via **Operating Instructions: Updating Project Records**.
 
 ## Workflows
 
@@ -65,6 +68,18 @@ Run from the repository root (monorepo):
 ```bash
 npm ci # to install dependencies.
 ```
+
+### Operating Instructions: Updating Project Records
+
+**Instructions:**
+
+Run from the repository root (monorepo):
+
+```bash
+npm run update-project-records
+```
+
+Copies project.art files from workspace `_records/repositories` into the noodlestan-web `data/_records/projects/` directory.
 
 ### Operating Instructions: Verifying Completion
 

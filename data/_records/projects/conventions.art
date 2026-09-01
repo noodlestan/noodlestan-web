@@ -1,0 +1,29 @@
+# Module
+
+## Project: Conventions
+
+**Purpose:** Maintain reusable Noodlestan conventions as a standalone reference package.
+
+**Description:** A private documentation and reference package containing convention documents and their inventory.
+
+**Owner:** Project: Management
+
+**Author:** Noodlestan Collective
+
+**Repository:** Repository: Conventions
+
+**Code:** https://github.com/noodlestan/conventions
+
+**Resources:**
+
+- Package: TypeScript Conventions
+- Package: JSX Conventions
+- Package: SolidJS Conventions
+- Package: SCSS Conventions
+- Package: Commits Conventions
+
+**Private:** `false`
+
+**Management:** Uses Workflow: Planning Work with a backlog at `_backlog/`.
+
+**License:** License: Noodlestan 2026 MIT

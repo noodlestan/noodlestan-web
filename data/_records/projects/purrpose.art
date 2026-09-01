@@ -1,0 +1,25 @@
+# Module
+
+## Project: Purrpose
+
+**Purpose:** Layered code rendering system for codebase data extracted with Purrception.
+
+**Description:** Single-purpose utilities for in-browser JSX/TSX compilation, SolidJS JSX transform presets, and Shiki-based syntax highlighting.
+
+**Owner:** Project: Management
+
+**Author:** Noodlestan Collective
+
+**Repository:** Repository: Purrpose
+
+**Code:** https://github.com/noodlestan/purrpose
+
+**Resources:**
+
+- WIP
+
+**Private:** `false`
+
+**Management:** Uses Workflow: Planning Work with a backlog at `_backlog/`.
+
+**License:** License: Noodlestan 2026 MIT

@@ -1,0 +1,25 @@
+# Module
+
+## Project: Purrtrait
+
+**Purpose:** Layered code rendering system for codebase data extracted with Purrception.
+
+**Description:** Libraries for rendering data extracted from source code.
+
+**Owner:** Project: Management
+
+**Author:** Noodlestan Collective
+
+**Repository:** Repository: Purrtrait
+
+**Code:** https://github.com/noodlestan/purrtrait
+
+**Resources:**
+
+- WIP
+
+**Private:** `false`
+
+**Management:** Uses Workflow: Planning Work with a backlog at `_backlog/`.
+
+**License:** License: Noodlestan 2026 MIT

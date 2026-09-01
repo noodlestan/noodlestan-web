@@ -7,9 +7,14 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "lint": "prettier . -c",
+    "lint:fix": "prettier . -c --write",
+    "build:clean": "rm -rf dist",
     "build": "astro build",
+    "test": "echo none yet",
     "preview": "astro preview",
-    "astro": "astro"
+    "start": "astro",
+    "ci": "npm run lint && npm run build && npm run test"
   },
   "dependencies": {
     "astro": "^7.2.7"

@@ -1,0 +1,25 @@
+# Module
+
+## Project: Management
+
+**Purpose:** Manage roadmap, projects, and shared assets.
+
+**Description:** Roadmap, ideas, research notes, and incubation material for the Noodlestan ecosystem.
+
+**Owner:** Project: Management
+
+**Author:** Noodlestan Collective
+
+**Repository:** Repository: Management
+
+**Code:** https://github.com/noodlestan/_mgmt
+
+**Resources:**
+
+- WIP
+
+**Private:** `true`
+
+**Management:** Uses Workflow: Roadmapping (roadmap at `_roadmap/`) and Workflow: Planning Work (backlog at `_backlog/`).
+
+**License:** License: Noodlestan 2026 MIT

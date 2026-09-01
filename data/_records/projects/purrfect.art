@@ -1,0 +1,25 @@
+# Module
+
+## Project: Purrfect
+
+**Purpose:** Manage the Purrception, Purrtrait, and Purrpose projects.
+
+**Description:** Collection of tools for extracting and visualising codebase metadata.
+
+**Owner:** Project: Management
+
+**Author:** Noodlestan Collective
+
+**Repository:** Repository: Purrfect
+
+**Code:** https://github.com/noodlestan/purrfect
+
+**Resources:**
+
+- WIP
+
+**Private:** `false`
+
+**Management:** Manages its owned projects (Purrception, Purrtrait, Purrpose) through the Workflow: Planning Work.
+
+**License:** License: Noodlestan 2026 MIT

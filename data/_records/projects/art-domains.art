@@ -1,0 +1,25 @@
+# Module
+
+## Project: Art Domains
+
+**Purpose:** Manage Art Domains knowledge resources and work streams.
+
+**Description:** Hosts Art Domains roadmap and backlog and the domain architecture knowledge and ADRs.
+
+**Owner:** Project: Artificials
+
+**Author:** Noodlestan Collective
+
+**Repository:** Repository: Art Domains
+
+**Code:** https://github.com/noodlestan/art-domains
+
+**Resources:**
+
+- Package: Workspace CLI
+
+**Private:** `false`
+
+**Management:** Uses Workflow: Planning Work with a backlog at `_backlog/`.
+
+**License:** License: Noodlestan 2026 MIT

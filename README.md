@@ -4,22 +4,18 @@
 
 A collection of tools and resources to generate and manage agent instructions. Includes the Art Language, and a (reactive) pipeline for bundling, compiling, validating, parsing, and locating resources.
 
-## Packages
+## Applications
 
-| namespace   | dir                 | package                 | description                               |
-| ----------- | ------------------- | ----------------------- | ----------------------------------------- |
-| `@artisans` | `apps/art-mantras/` | `@artisans/art-mantras` | Interactive A.R.T.I.F.I.C.I.A.L.S curator |
+| dir                    | description        |
+| ---------------------- | ------------------ |
+| `apps/noodlestan-web/` | Noodlestan Website |
 
 ## Scripts
 
-- **$** `npm run build` — Bundle all packages for production.
+- **$** `npm run update-project-records` — Copies `project.art` records from workspace `_records/` into the noodlestan-web data directory.
+- **$** `npm run build` — Build all packages.
 - **$** `npm run lint` — Lint all packages.
 - **$** `npm run ci` — Full CI pass (lint + build + test).
-
-## Setup
-
-- **Serve a micro app** — each app under `artisans/apps/` is vanilla HTML/CSS/JS with a single `serve` script.
-- **Scaffold by cloning practices in neighbours** — when adding a new package of **app** type, its `package.json` is very different from the lib/cli packages.
 
 ## License
 
