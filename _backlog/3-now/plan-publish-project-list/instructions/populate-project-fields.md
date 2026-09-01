@@ -41,15 +41,19 @@ Populate the new `code`, `website`, and `management` fields in all project recor
 
 ## Changes
 
-- Step 1 / 5 — Populate Noodlestan Web project record
-- Step 2 / 5 — Commit `populate-noodlestan-web-fields` (MANUAL)
-- Step 3 / 5 — Populate Management, Artisans, and Ops project records
-- Step 4 / 5 — Commit remaining records (MANUAL)
-- Step 5 / 5 — Verify all changes
+- Step 1 / 9 — Populate Noodlestan Web project record
+- Step 2 / 9 — Commit `populate-noodlestan-web-fields`
+- Step 3 / 9 — Populate Management project record
+- Step 4 / 9 — Commit `populate-management-fields`
+- Step 5 / 9 — Populate Artisans project record
+- Step 6 / 9 — Commit `populate-artisans-fields`
+- Step 7 / 9 — Populate Ops project record
+- Step 8 / 9 — Commit `populate-ops-fields`
+- Step 9 / 9 — Verify all changes
 
 ## Steps
 
-### Step `1 / 5` — Populate Noodlestan Web project record
+### Step `1 / 9` — Populate Noodlestan Web project record
 
 Read `$NOODLESTAN_WEB/_records/project.art` and `$NOODLESTAN_WEB/_records/repository.art`.
 
@@ -71,13 +75,15 @@ Also refine:
 - `**Purpose:**` — must describe what the project does, under 200 chars.
 - `**Description:**` — must describe what the project consists of / how it works, under 200 chars.
 
-### Step `2 / 5` — Commit (MANUAL)
+### Step `2 / 9` — Commit `populate-noodlestan-web-fields`
 
-Stage and commit the Noodlestan Web project record. This commit is policy MANUAL — stop and wait for user review.
+Stage and commit the Noodlestan Web project record.
 
 ---
 
 #### Commit: `populate-noodlestan-web-fields`
+
+**Repository:** `$NOODLESTAN_WEB`
 
 **Policy:** MANUAL — Wait for user review before proceeding.
 
@@ -91,39 +97,28 @@ records(noodlestan-web): Populate new project fields
 
 ---
 
-### Step `3 / 5` — Populate Management, Artisans, and Ops project records
+STOP — Wait for user review before proceeding.
 
-For each of the following checkouts, read `_records/project.art` and `_records/repository.art`, then update the project record:
+### Step `3 / 9` — Populate Management project record
 
-#### Management (`$MANAGEMENT`)
+Read `$MANAGEMENT/_records/project.art` and `$MANAGEMENT/_records/repository.art`.
 
 - Private: `true` — no website URL.
 - Add `**Code:**` from repository remote: `https://github.com/noodlestan/_mgmt`
 - Add `**Management:**` — describe how the project is managed (read `_guide.md` for clues about roadmaps and planning).
 - Refine Purpose and Description to be under 200 chars each.
 
-#### Artisans (`$ARTISANS`)
+Place `**Code:**` after `**Repository:**`. Place `**Management:**` before `**License:**`.
 
-- Private: `false` — add website URL.
-- Add `**Code:**` from repository remote: `https://github.com/noodlestan/artisans`
-- Add `**Website:**` — determine from the app. Art-Mantras is at `https://art-mantras.noodlestan.org`.
-- Add `**Management:**` — describe how the project is managed.
-- Refine Purpose and Description to be under 200 chars each.
+### Step `4 / 9` — Commit `populate-management-fields`
 
-#### Ops (`$OPS`)
-
-- Private: `true` — no website URL.
-- Add `**Code:**` from repository remote: `https://github.com/noodlestan/_ops`
-- Add `**Management:**` — describe how the project is managed (Terraform workflows, ops procedures).
-- Refine Purpose and Description to be under 200 chars each.
-
-### Step `4 / 5` — Commit remaining records (MANUAL)
-
-Stage and commit each repository's project record separately. All commits are policy MANUAL — stop and wait for user review.
+Stage and commit the Management project record.
 
 ---
 
 #### Commit: `populate-management-fields`
+
+**Repository:** `$MANAGEMENT`
 
 **Policy:** MANUAL — Wait for user review before proceeding.
 
@@ -137,7 +132,29 @@ records(management): Populate new project fields
 
 ---
 
+STOP — Wait for user review before proceeding.
+
+### Step `5 / 9` — Populate Artisans project record
+
+Read `$ARTISANS/_records/project.art` and `$ARTISANS/_records/repository.art`.
+
+- Private: `false` — add website URL.
+- Add `**Code:**` from repository remote: `https://github.com/noodlestan/artisans`
+- Add `**Website:**` — determine from the app. Art-Mantras is at `https://art-mantras.noodlestan.org`.
+- Add `**Management:**` — describe how the project is managed.
+- Refine Purpose and Description to be under 200 chars each.
+
+Place `**Code:**` and `**Website:**` after `**Repository:**`. Place `**Management:**` before `**License:**`.
+
+### Step `6 / 9` — Commit `populate-artisans-fields`
+
+Stage and commit the Artisans project record.
+
+---
+
 #### Commit: `populate-artisans-fields`
+
+**Repository:** `$ARTISANS`
 
 **Policy:** MANUAL — Wait for user review before proceeding.
 
@@ -151,7 +168,28 @@ records(artisans): Populate new project fields
 
 ---
 
+STOP — Wait for user review before proceeding.
+
+### Step `7 / 9` — Populate Ops project record
+
+Read `$OPS/_records/project.art` and `$OPS/_records/repository.art`.
+
+- Private: `true` — no website URL.
+- Add `**Code:**` from repository remote: `https://github.com/noodlestan/_ops`
+- Add `**Management:**` — describe how the project is managed (Terraform workflows, ops procedures).
+- Refine Purpose and Description to be under 200 chars each.
+
+Place `**Code:**` after `**Repository:**`. Place `**Management:**` before `**License:**`.
+
+### Step `8 / 9` — Commit `populate-ops-fields`
+
+Stage and commit the Ops project record.
+
+---
+
 #### Commit: `populate-ops-fields`
+
+**Repository:** `$OPS`
 
 **Policy:** MANUAL — Wait for user review before proceeding.
 
@@ -165,7 +203,9 @@ records(ops): Populate new project fields
 
 ---
 
-### Step `5 / 5` — Verify all changes
+STOP — Wait for user review before proceeding.
+
+### Step `9 / 9` — Verify all changes
 
 Read all four updated project records and verify:
 - `code` field exists and is a valid GitHub URL.
