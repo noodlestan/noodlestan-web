@@ -398,18 +398,21 @@ build(noodlestan-web): add project records copy script
 
 **Purpose:** Create a script that builds a JSON collection from copied project records.
 
-**Description:** Create `scripts/create-collection.tsx` that loads project records from `data/projects/`, extracts fields from project.art (including `id`, `website`, `code`), filters out private projects, and saves to `data/projects/collection.json`.
+**Description:** Create `scripts/create-collection.ts` that loads project records from `data/_records/projects/`, extracts fields from project.art (including `id`, `website`, `code`), filters out private projects, and saves to `data/projects/collection.json`. Add `update-project-collection` npm script and document it in README and `_guide.md`.
 
 **Instructions:** `./plan-publish-project-list/instructions/create-collection.md`
 
 **Changes:**
 
-- Create `$NOODLESTAN_WEB/scripts/create-collection.tsx`.
+- Create `$NOODLESTAN_WEB/scripts/create-collection.ts`.
+- Add `update-project-collection` script to `$NOODLESTAN_WEB/package.json`.
+- Document `update-project-collection` in `$NOODLESTAN_WEB/README.md`.
+- Add "Updating Project Collection" section to `$NOODLESTAN_WEB/_guide.md`.
 - Generate `$NOODLESTAN_WEB/data/projects/collection.json`.
 
 **Dependencies:**
 
-- Iteration: Copy Project Records (must run first to populate `data/projects/`).
+- Iteration: Copy Project Records (must run first to populate `data/_records/projects/`).
 
 #### Commits:
 
@@ -427,6 +430,8 @@ build(noodlestan-web): add project records copy script
 build(noodlestan-web): add project collection builder
 
 - Create create-collection script to build JSON from project records.
+- Add update-project-collection npm script.
+- Document update-project-collection in README and _guide.md.
 ```
 
 ### Iteration: Create Astro Collection

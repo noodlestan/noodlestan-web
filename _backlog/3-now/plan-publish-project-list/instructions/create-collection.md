@@ -93,13 +93,16 @@ Verify it completes without errors and creates `data/projects/collection.json`.
 
 ## Changes
 
-- Step 1 / 3 — Create `scripts/create-collection.ts`
-- Step 2 / 3 — Verify script works
-- Step 3 / 3 — Commit `add-create-collection-script`
+- Step 1 / 6 — Create `scripts/create-collection.ts`
+- Step 2 / 6 — Add `update-project-collection` script to `package.json`
+- Step 3 / 6 — Document `update-project-collection` in `README.md`
+- Step 4 / 6 — Add "Updating Project Collection" section to `_guide.md`
+- Step 5 / 6 — Verify script works
+- Step 6 / 6 — Commit `add-create-collection-script`
 
 ## Steps
 
-### Step `1 / 3` — Create create-collection.ts
+### Step `1 / 6` — Create create-collection.ts
 
 Create `$NOODLESTAN_WEB/scripts/create-collection.ts` with the following logic:
 
@@ -125,6 +128,7 @@ type ProjectRecord = {
 };
 
 const WORKSPACE = resolve(import.meta.dirname, '../../..');
+const RECORDS_DIR = join(import.meta.dirname, '../data/_records/projects');
 const DATA_DIR = join(import.meta.dirname, '../data/projects');
 
 function kebab(name: string): string {
@@ -245,7 +249,7 @@ async function saveProjectJson(projects: ProjectRecord[]): Promise<void> {
 }
 
 async function main() {
-	const projects = await loadProjectRecords(DATA_DIR);
+	const projects = await loadProjectRecords(RECORDS_DIR);
 	console.log(`Loaded ${projects.length} project records`);
 	await saveProjectJson(projects);
 	console.log('Done');
@@ -259,13 +263,51 @@ main().catch(err => {
 
 Key design decisions:
 - Uses `resolve(import.meta.dirname, '../../..')` for WORKSPACE (consistent with `copy-project-records.ts`).
+- Reads `.art` files from `data/_records/projects/` (where `copy-project-records.ts` writes them).
+- Writes `collection.json` to `data/projects/`.
 - Uses filename (already kebabified by copy-project-records) as the `id`.
 - Extracts `website` and `code` fields directly from project.art (no mapping).
 - Filters out private projects from the JSON output.
 - Each collection item has an `id` field (required by Astro's file() loader).
 - Throws on missing H1 (consistent with `loadRepositoryRecords` in `copy-project-records.ts`).
 
-### Step `2 / 3` — Verify script works
+### Step `2 / 6` — Add `update-project-collection` script to package.json
+
+Add the following script to the `scripts` section of `$NOODLESTAN_WEB/package.json`:
+
+```json
+"update-project-collection": "tsx scripts/create-collection.ts",
+```
+
+Place it after the existing `"update-project-records"` entry.
+
+### Step `3 / 6` — Document `update-project-collection` in README.md
+
+Add the following line to the `## Scripts` section of `$NOODLESTAN_WEB/README.md`, after the existing `update-project-records` line:
+
+```markdown
+- **$** `npm run update-project-collection` — Generates `data/projects/collection.json` from `data/_records/projects`.
+```
+
+### Step `4 / 6` — Add "Updating Project Collection" section to _guide.md
+
+Add the following section to `$NOODLESTAN_WEB/_guide.md`, before the `### Operating Instructions: Verifying Completion` section:
+
+```markdown
+### Operating Instructions: Updating Project Collection
+
+**Instructions:**
+
+Run from the repository root (monorepo):
+
+```bash
+npm run update-project-collection
+```
+
+Generates `data/projects/collection.json` from the project.art files in `data/_records/projects/`.
+```
+
+### Step `5 / 6` — Verify script works
 
 Run the script to verify it works:
 
@@ -279,9 +321,9 @@ Verify:
 - Each item has `id`, `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`, `private`.
 - Private projects are excluded.
 
-### Step `3 / 3` — Commit `add-create-collection-script`
+### Step `6 / 6` — Commit `add-create-collection-script`
 
-Stage and commit the new script.
+Stage and commit the new script, package.json, README.md, and _guide.md changes.
 
 ---
 
@@ -297,6 +339,8 @@ Stage and commit the new script.
 build(noodlestan-web): add project collection builder
 
 - Create create-collection script to build JSON from project records.
+- Add update-project-collection npm script.
+- Document update-project-collection in README and _guide.md.
 ```
 
 ---
