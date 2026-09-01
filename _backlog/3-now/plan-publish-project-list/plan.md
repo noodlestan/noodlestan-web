@@ -39,10 +39,10 @@ None.
 
 ### Upstream Work
 
-| Kind        | Path                                                                  | Role                                                            |
-| ----------- | --------------------------------------------------------------------- | --------------------------------------------------------------- |
-| Plan        | `$NOODLESTAN_WEB/_backlog/3-now/plan-init-noodlestan-website/plan.md` | Previous plan that deployed the hello-world site.               |
-| Parking Lot | `$MANAGEMENT/_roadmap/_parking-lot.md`                                | Tracks short-term actionables, pending questions, and blockers. |
+| Kind        | Path                                                                       | Role                                                            |
+| ----------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Milestone   | `$NOODLESTAN_WEB/_roadmap/3-now/milestone-noodlestan-web-mvp/milestone.md` | Owning Milestone.                                               |
+| Parking Lot | `$MANAGEMENT/_roadmap/_parking-lot.md`                                     | Tracks short-term actionables, pending questions, and blockers. |
 
 ### Required Skills
 
@@ -349,17 +349,17 @@ records({project-name}): Populate new project fields and update guide
 
 **Id:** `copy-project-records`
 
-**Status:** `DRAFT`
+**Status:** `READY`
 
 **Purpose:** Create a script that copies project.art files from workspace checkouts into the noodlestan-web data directory.
 
-**Description:** Install `simple-git` as a dev dependency. Create `scripts/copy-project-records.tsx` that loads repository records from `_records/repositories/*.art`, clones/verifies each checkout, and copies `_records/project.art` to `data/projects/`.
+**Description:** Install `simple-git` and `tsx` as dev dependencies. Create `scripts/copy-project-records.tsx` that loads repository records from `_records/repositories/*.art`, clones/verifies each checkout, and copies `_records/project.art` to `data/projects/`.
 
 **Instructions:** `./plan-publish-project-list/instructions/copy-project-records.md`
 
 **Changes:**
 
-- Install `simple-git@^3.24.0` as dev dependency in root `package.json`.
+- Install `simple-git@^3.24.0` and `tsx@^4.8.1` as dev dependencies in root `package.json`.
 - Create `$NOODLESTAN_WEB/scripts/copy-project-records.tsx`.
 - Create `$NOODLESTAN_WEB/data/projects/` directory.
 
@@ -369,9 +369,9 @@ records({project-name}): Populate new project fields and update guide
 
 #### Commits:
 
-| ID                        | Repository / Checkout / Branch              | Policy       | Hash  | Status  |
-| ------------------------- | ------------------------------------------- | ------------ | ----- | ------- |
-| `add-copy-records-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `DRAFT` |
+| ID                        | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
+| ------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
+| `add-copy-records-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
 
 ##### Commit: `add-copy-records-script`
 
@@ -390,7 +390,7 @@ build(noodlestan-web): add project records copy script
 
 **Id:** `create-collection`
 
-**Status:** `DRAFT`
+**Status:** `READY`
 
 **Purpose:** Create a script that builds a JSON collection from copied project records.
 
@@ -409,9 +409,9 @@ build(noodlestan-web): add project records copy script
 
 #### Commits:
 
-| ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status  |
-| ------------------------------ | ------------------------------------------- | ------------ | ----- | ------- |
-| `add-create-collection-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `DRAFT` |
+| ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
+| ------------------------------ | ------------------------------------------- | ------------ | ----- | ---------- |
+| `add-create-collection-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
 
 ##### Commit: `add-create-collection-script`
 
@@ -459,7 +459,7 @@ build(noodlestan-web): add project collection builder
 **Message:**
 
 ```
-feat(noodlestan-web): add Astro project collection
+build(publish-project-list): add Astro project collection
 
 - Define projects collection config for JSON data source.
 ```
@@ -497,7 +497,7 @@ feat(noodlestan-web): add Astro project collection
 **Message:**
 
 ```
-feat(noodlestan-web): render project list on homepage
+build(publish-project-list): render project list on homepage
 
 - Query projects collection and render project cards.
 - Display name, repository, website, purpose, and description.
