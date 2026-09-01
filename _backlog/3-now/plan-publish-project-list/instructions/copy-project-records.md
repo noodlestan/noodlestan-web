@@ -140,9 +140,10 @@ type RepositoryRecord = {
   };
 };
 
-const WORKSPACE = resolve(import.meta.dirname, '../..');
+const WORKSPACE = resolve(import.meta.dirname, '../../..');
 const RECORDS_DIR = join(WORKSPACE, '_records/repositories');
 const DATA_DIR = join(import.meta.dirname, '../data/projects');
+const HOSTING_REPO = 'noodlestan-web';
 
 function kebab(name: string): string {
   return name
@@ -178,6 +179,7 @@ async function loadRepositoryRecords(): Promise<RepositoryRecord[]> {
 
 async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void> {
   const location = join(WORKSPACE, 'checkouts', repo.resource.id);
+  const isHosting = repo.resource.id === HOSTING_REPO;
 
   // Clone if not exists
   if (!existsSync(location)) {
@@ -195,17 +197,31 @@ async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void
     throw new Error(`Remote mismatch in ${repo.resource.id}: expected ${expectedRemote}`);
   }
 
-  // Verify branch
-  const branch = execSync('git branch --show-current', {
-    cwd: location,
-    encoding: 'utf-8',
-  }).trim();
-  if (branch !== 'main') {
-    throw new Error(`Branch mismatch in ${repo.resource.id}: expected main, got ${branch}`);
-  }
+  if (isHosting) {
+    // Hosting repo runs the script and may be on a feature branch during the plan;
+    // skip branch check and pull, its project.art is already present locally.
+    console.log(`Skipping branch check and pull for hosting repo: ${repo.resource.name}`);
+  } else {
+    // Verify branch
+    const branch = execSync('git branch --show-current', {
+      cwd: location,
+      encoding: 'utf-8',
+    }).trim();
+    if (branch !== 'main') {
+      throw new Error(`Branch mismatch in ${repo.resource.id}: expected main, got ${branch}`);
+    }
 
-  // Pull
-  execSync('git pull', { cwd: location, stdio: 'inherit' });
+    // Pull (skip if the checkout has uncommitted changes, e.g. leftover workspace state)
+    const dirty = execSync('git status --porcelain', {
+      cwd: location,
+      encoding: 'utf-8',
+    }).trim();
+    if (dirty) {
+      console.warn(`Skipping pull for ${repo.resource.id}: uncommitted changes present`);
+    } else {
+      execSync('git pull', { cwd: location, stdio: 'inherit' });
+    }
+  }
 
   // Copy project.art
   const projectRecord = join(location, '_records/project.art');
@@ -242,6 +258,8 @@ Key design decisions:
 - Uses `import.meta.dirname` to resolve paths relative to the script location (Node 22+).
 - `WORKSPACE` is resolved as `../../` from the script location.
 - Throws on any failure (remote mismatch, branch mismatch, missing files).
+- Skips branch check and pull for the hosting repo (`noodlestan-web`), which runs the script and may be on a feature branch during the plan.
+- Skips `git pull` for checkouts with uncommitted changes (warns instead of throwing), so leftover workspace state does not block the copy.
 - Skips repos without `project.art` with a warning.
 
 ### Step `4 / 5` — Verify script works

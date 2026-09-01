@@ -12,13 +12,13 @@
 
 Goal: create a script that copies `project.art` files from workspace checkouts into the noodlestan-web `data/projects/` directory.
 
-| Step  | Change                                                                                | Status                                                                                     |
-| ----- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Step | Change | Status |
+| ---- | ------ | ------ |
 | 1 / 5 | Install `simple-git@^3.24.0` and `tsx@^4.8.1` dev dependencies in root `package.json` | DONE — resolved to `simple-git@3.36.0`, `tsx@4.23.13`, within the requested semver ranges. |
-| 2 / 5 | Create `data/projects/` directory                                                     | DONE — directory created.                                                                  |
-| 3 / 5 | Create `scripts/copy-project-records.tsx`                                             | DONE — created per the instruction.                                                        |
-| 4 / 5 | Verify script works (`npx tsx scripts/copy-project-records.tsx`)                      | DONE — script completed without errors; `data/projects/` populated with 14 `.art` files.   |
-| 5 / 5 | Commit `add-copy-records-script`                                                      | DONE — commit `7dfca86`, pushed to `origin/publish-project-list`.                          |
+| 2 / 5 | Create `data/projects/` directory | DONE — directory created. |
+| 3 / 5 | Create `scripts/copy-project-records.tsx` | DONE — created per the instruction. |
+| 4 / 5 | Verify script works (`npx tsx scripts/copy-project-records.tsx`) | DONE — script completed without errors; `data/projects/` populated with 14 `.art` files. |
+| 5 / 5 | Commit `add-copy-records-script` | DONE — commit `d2fa4ba`, pushed to `origin/publish-project-list`. |
 
 #### Files changed
 

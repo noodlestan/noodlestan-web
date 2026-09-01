@@ -39,7 +39,9 @@ Create a script that builds a JSON collection from copied project records, filte
 
 ## Mandatory Reading
 
-::READ `$WORKSPACE/_guide.md` (Guide) — Defines workspace operations and verification.
+::READ `$WORKSPACE/_guide.md` (Guide) — Defines workspace operations and verification. Relevant for Setting up, Verifying.
+
+::READ `$NOODLESTAN_WEB/_guide.md` (Guide) — Defines the Noodlestan Web repository operations. Relevant for Setting up, Verifying.
 
 ---
 
@@ -47,22 +49,42 @@ Create a script that builds a JSON collection from copied project records, filte
 
 ### Setting Up
 
-**Purpose:** Prepare the execution environment.
+**Purpose:** Prepare the execution environment. Operation of Workflow: Executing Work, defined in `$DOMAINS/work/workflows/executing-work/ops/setting-up.art`.
 
 **Instructions:** (From `$WORKSPACE/_guide.md`)
 
+Run from the `$WORKSPACE` root:
+
 ```bash
-cd $NOODLESTAN_WEB && npm install
+npm ci # to install dependencies.
+npm run workspace clone {repo.name} # to create a new checkout of a known repository.
+```
+
+**Instructions:** (From `$NOODLESTAN_WEB/_guide.md`)
+
+Run from the `$NOODLESTAN_WEB` root:
+
+```bash
+npm ci # to install dependencies.
 ```
 
 ### Verifying Completion
 
-**Purpose:** Confirms that the work item has been completed.
+**Purpose:** Confirms that the work item has been completed and satisfies its intended outcome. Operation of Workflow: Executing Work, defined in `$DOMAINS/work/workflows/executing-work/ops/verifying-completion.art`.
 
-**Instructions:**
+**Instructions:** (From `$NOODLESTAN_WEB/apps/noodlestan-web/_guide.md`)
+
+Run from this package directory:
 
 ```bash
-cd $NOODLESTAN_WEB && npx tsx scripts/create-collection.tsx
+npm run lint # to report formatting issues
+npm run build # to produce a full build
+```
+
+Additionally, verify the collection script works:
+
+```bash
+cd $NOODLESTAN_WEB && npx tsx scripts/create-collection.ts
 ```
 
 Verify it completes without errors and creates `data/projects/collection.json`.
@@ -71,160 +93,211 @@ Verify it completes without errors and creates `data/projects/collection.json`.
 
 ## Changes
 
-- Step 1 / 2 — Create `scripts/create-collection.tsx`
-- Step 2 / 2 — Commit `add-create-collection-script`
+- Step 1 / 3 — Create `scripts/create-collection.ts`
+- Step 2 / 3 — Verify script works
+- Step 3 / 3 — Commit `add-create-collection-script`
 
 ## Steps
 
-### Step `1 / 2` — Create create-collection.tsx
+### Step `1 / 3` — Create create-collection.ts
 
-Create `$NOODLESTAN_WEB/scripts/create-collection.tsx` with the following logic:
+Create `$NOODLESTAN_WEB/scripts/create-collection.ts` with the following logic:
 
 ```typescript
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { join } from "node:path";
+import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 
 type ProjectRecord = {
-  record: string;
-  content: string;
-  resource: {
-    name: string;
-    purpose: string;
-    description: string;
-    private: boolean;
-    url: string | null;
-    repository: string;
-    owner: string;
-    resources: string[];
-  };
+	id: string;
+	record: string;
+	content: string;
+	resource: {
+		name: string;
+		purpose: string;
+		description: string;
+		website: string | null;
+		code: string | null;
+		repository: string;
+		owner: string;
+		resources: string[];
+		private: boolean;
+	};
 };
 
-const DATA_DIR = join(import.meta.dirname, "../data/projects");
+const WORKSPACE = resolve(import.meta.dirname, '../../..');
+const DATA_DIR = join(import.meta.dirname, '../data/projects');
+
+function kebab(name: string): string {
+	return name
+		.replace(/([a-z])([A-Z])/g, '$1-$2')
+		.toLowerCase()
+		.replace(/\s+/g, '-');
+}
 
 function extractField(content: string, field: string): string | null {
-  // Match **Field:** `value` or **Field:** value
-  const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const patterns = [
-    new RegExp(`\\*\\*${escapedField}:\\*\\*\\s*\`([^\`]+)\``, "m"),
-    new RegExp(`\\*\\*${escapedField}:\\*\\*\\s*(.+)`, "m"),
-  ];
+	const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	const patterns = [
+		new RegExp(`\\*\\*${escapedField}:\\*\\*\\s*\`([^\`]+)\``, 'm'),
+		new RegExp(`\\*\\*${escapedField}:\\*\\*\\s*(.+)`, 'm'),
+	];
 
-  for (const pattern of patterns) {
-    const match = content.match(pattern);
-    if (match) return match[1].trim();
-  }
-  return null;
+	for (const pattern of patterns) {
+		const match = content.match(pattern);
+		if (match) return match[1].trim();
+	}
+	return null;
 }
 
 function extractBoolean(content: string, field: string): boolean {
-  const value = extractField(content, field);
-  return value?.toLowerCase() === "true";
+	const value = extractField(content, field);
+	return value?.toLowerCase() === 'true';
 }
 
-function extractResources(
-  content: string,
-  field: string
-): string[] {
-  const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const pattern = new RegExp(`\\*\\*${escapedField}:\\*\\*([\\s\\S]*?)(?=\\n\\*\\*|\\n##|$)`, "m");
-  const match = content.match(pattern);
-  if (!match) return [];
+function extractResources(content: string, field: string): string[] {
+	const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	const pattern = new RegExp(
+		`\\*\\*${escapedField}:\\*\\*([\\s\\S]*?)(?=\\n\\*\\*|\\n##|$)`,
+		'm'
+	);
+	const match = content.match(pattern);
+	if (!match) return [];
 
-  const block = match[1];
-  const items: string[] = [];
-  const lines = block.split("\n");
-  for (const line of lines) {
-    const trimmed = line.trim();
-    if (trimmed.startsWith("-") || trimmed.startsWith("•")) {
-      const item = trimmed.replace(/^[-•]\s*/, "").trim();
-      if (item) items.push(item);
-    }
-  }
-  return items;
+	const block = match[1];
+	const items: string[] = [];
+	const lines = block.split('\n');
+	for (const line of lines) {
+		const trimmed = line.trim();
+		if (trimmed.startsWith('-') || trimmed.startsWith('•')) {
+			const item = trimmed.replace(/^[-•]\s*/, '').trim();
+			if (item) items.push(item);
+		}
+	}
+	return items;
 }
 
 async function loadProjectRecords(dir: string): Promise<ProjectRecord[]> {
-  const files = readdirSync(dir).filter((f) => f.endsWith(".art"));
+	const { readdirSync } = await import('node:fs');
+	const files = readdirSync(dir).filter(f => f.endsWith('.art'));
 
-  return files.map((file) => {
-    const content = readFileSync(join(dir, file), "utf-8");
+	return files.map(file => {
+		const content = readFileSync(join(dir, file), 'utf-8');
 
-    const nameMatch = content.match(/## Project:\s*(.+)/);
-    const name = nameMatch ? nameMatch[1].trim() : file.replace(".art", "");
+		const nameMatch = content.match(/## Project:\s*(.+)/);
+		if (!nameMatch) throw new Error(`No H1 in ${file}`);
+		const name = nameMatch[1]?.trim();
+		if (!name) {
+			throw new Error(`Could not resolve name from file: ${file}`);
+		}
 
-    const purpose = extractField(content, "Purpose") || "";
-    const description = extractField(content, "Description") || "";
-    const private_ = extractBoolean(content, "Private");
-    const url = extractField(content, "URL");
+		const id = kebab(name);
+		const purpose = extractField(content, 'Purpose') || '';
+		const description = extractField(content, 'Description') || '';
+		const website = extractField(content, 'Website') || null;
+		const code = extractField(content, 'Code') || null;
+		const private_ = extractBoolean(content, 'Private');
 
-    // Repository: prefix if missing
-    let repository = extractField(content, "Repository") || "";
-    if (repository && !repository.startsWith("Repository: ")) {
-      repository = `Repository: ${repository}`;
-    }
+		let repository = extractField(content, 'Repository') || '';
+		if (repository && !repository.startsWith('Repository: ')) {
+			repository = `Repository: ${repository}`;
+		}
 
-    // Owner: prefix if missing
-    let owner = extractField(content, "Owner") || "";
-    if (owner && !owner.startsWith("Project: ")) {
-      owner = `Project: ${owner}`;
-    }
+		let owner = extractField(content, 'Owner') || '';
+		if (owner && !owner.startsWith('Project: ')) {
+			owner = `Project: ${owner}`;
+		}
 
-    // Resources: filter to project names only
-    const allResources = extractResources(content, "Resources");
-    const resources = allResources.filter(
-      (r) => r.startsWith("Project: ") || r.startsWith("Repository: ")
-    );
+		const allResources = extractResources(content, 'Resources');
+		const resources = allResources.filter(
+			r => r.startsWith('Project: ') || r.startsWith('Repository: ')
+		);
 
-    return {
-      record: file,
-      content,
-      resource: {
-        name,
-        purpose,
-        description,
-        private: private_,
-        url,
-        repository,
-        owner,
-        resources,
-      },
-    };
-  });
+		return {
+			id,
+			record: file,
+			content,
+			resource: {
+				name,
+				purpose,
+				description,
+				website,
+				code,
+				repository,
+				owner,
+				resources,
+				private: private_,
+			},
+		};
+	});
 }
 
 async function saveProjectJson(projects: ProjectRecord[]): Promise<void> {
-  const resources = projects
-    .filter((p) => !p.resource.private)
-    .map((p) => p.resource);
+	const resources = projects
+		.filter(p => !p.resource.private)
+		.map(p => ({
+			id: p.id,
+			...p.resource,
+		}));
 
-  mkdirSync(DATA_DIR, { recursive: true });
-  const outPath = join(DATA_DIR, "collection.json");
-  writeFileSync(outPath, JSON.stringify(resources, null, 2));
-  console.log(`Saved ${resources.length} projects to collection.json`);
+	mkdirSync(DATA_DIR, { recursive: true });
+	const outPath = join(DATA_DIR, 'collection.json');
+	writeFileSync(outPath, JSON.stringify(resources, null, 2));
+	console.log(`Saved ${resources.length} projects to collection.json`);
 }
 
 async function main() {
-  const projects = await loadProjectRecords(DATA_DIR);
-  console.log(`Loaded ${projects.length} project records`);
-  await saveProjectJson(projects);
-  console.log("Done");
+	const projects = await loadProjectRecords(DATA_DIR);
+	console.log(`Loaded ${projects.length} project records`);
+	await saveProjectJson(projects);
+	console.log('Done');
 }
 
-main().catch((err) => {
-  console.error(err);
-  process.exit(1);
+main().catch(err => {
+	console.error(err);
+	process.exit(1);
 });
 ```
 
 Key design decisions:
-- Extracts fields via regex from `.art` file format.
-- Adds `Repository:` and `Project:` prefixes when missing.
+- Uses `resolve(import.meta.dirname, '../../..')` for WORKSPACE (consistent with `copy-project-records.ts`).
+- Uses filename (already kebabified by copy-project-records) as the `id`.
+- Extracts `website` and `code` fields directly from project.art (no mapping).
 - Filters out private projects from the JSON output.
-- Saves a flat array of resources to `collection.json`.
+- Each collection item has an `id` field (required by Astro's file() loader).
+- Throws on missing H1 (consistent with `loadRepositoryRecords` in `copy-project-records.ts`).
 
-### Step `2 / 2` — Commit
+### Step `2 / 3` — Verify script works
+
+Run the script to verify it works:
+
+```bash
+cd $NOODLESTAN_WEB && npx tsx scripts/create-collection.ts
+```
+
+Verify:
+- Script completes without errors.
+- `data/projects/collection.json` contains a JSON array.
+- Each item has `id`, `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`, `private`.
+- Private projects are excluded.
+
+### Step `3 / 3` — Commit `add-create-collection-script`
 
 Stage and commit the new script.
+
+---
+
+#### Commit: `add-create-collection-script`
+
+**Repository:** `$NOODLESTAN_WEB`
+
+**Policy:** AUTONOMOUS — Commit and proceed.
+
+**Message:**
+
+```
+build(noodlestan-web): add project collection builder
+
+- Create create-collection script to build JSON from project records.
+```
 
 ---
 
@@ -232,8 +305,9 @@ Stage and commit the new script.
 
 **Instructions:**
 
-- Verify that the script runs without errors: `cd $NOODLESTAN_WEB && npx tsx scripts/create-collection.tsx`
+- Verify that the script runs without errors.
 - Verify that `data/projects/collection.json` exists and contains a JSON array.
-- Verify that the JSON contains expected fields: `name`, `purpose`, `description`, `repository`, `owner`, `resources`.
+- Verify that the JSON contains expected fields: `id`, `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`.
 - Verify that private projects are excluded.
+- Verify that commits have been executed and pushed according to the commit's policy.
 - Report according to the "How to Report Back to the Delegator" instructions.

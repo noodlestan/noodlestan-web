@@ -234,10 +234,10 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 | ---------------------------------------------------------------------------------------------------------- | ------- |
 | Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DONE`  |
 | Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DONE`  |
-| Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DRAFT` |
-| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DRAFT` |
-| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DRAFT` |
-| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `DRAFT` |
+| Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DONE`  |
+| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `READY` |
+| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `READY` |
+| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `READY` |
 
 ### Iteration: Add Fields to Project Structure
 
@@ -349,13 +349,15 @@ records({project-name}): Populate new project fields and update guide
 
 **Id:** `copy-project-records`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Create a script that copies project.art files from workspace checkouts into the noodlestan-web data directory.
 
 **Description:** Install `simple-git` and `tsx` as dev dependencies. Create `scripts/copy-project-records.tsx` that loads repository records from `_records/repositories/*.art`, clones/verifies each checkout, and copies `_records/project.art` to `data/projects/`.
 
 **Instructions:** `./plan-publish-project-list/instructions/copy-project-records.md`
+
+**Report:** `./plan-publish-project-list/instructions/copy-project-records__report.md`
 
 **Changes:**
 
@@ -369,13 +371,15 @@ records({project-name}): Populate new project fields and update guide
 
 #### Commits:
 
-| ID                        | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
-| ------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
-| `add-copy-records-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| ID                        | Repository / Checkout / Branch                              | Policy       | Hash      | Status      |
+| ------------------------- | ----------------------------------------------------------- | ------------ | --------- | ----------- |
+| `add-copy-records-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `publish-project-list` | `AUTONOMOUS` | `d2fa4ba` | `COMMITTED` |
 
 ##### Commit: `add-copy-records-script`
 
 **Repository:** Repository: Noodlestan Web
+
+**Hash:** `7dfca86`
 
 **Message:**
 
@@ -394,7 +398,7 @@ build(noodlestan-web): add project records copy script
 
 **Purpose:** Create a script that builds a JSON collection from copied project records.
 
-**Description:** Create `scripts/create-collection.tsx` that loads project records from `data/projects/`, extracts resource fields via regex, filters out private projects, and saves to `data/projects/collection.json`.
+**Description:** Create `scripts/create-collection.tsx` that loads project records from `data/projects/`, extracts fields from project.art (including `id`, `website`, `code`), filters out private projects, and saves to `data/projects/collection.json`.
 
 **Instructions:** `./plan-publish-project-list/instructions/create-collection.md`
 
@@ -429,18 +433,18 @@ build(noodlestan-web): add project collection builder
 
 **Id:** `create-astro-collection`
 
-**Status:** `DRAFT`
+**Status:** `READY`
 
-**Purpose:** Create an Astro content collection that reads the JSON project data.
+**Purpose:** Create an Astro content collection that reads the JSON project data using the Content Layer API.
 
-**Description:** Define an Astro collection config for projects that loads from `data/projects/collection.json`. Create a TypeScript type for project records.
+**Description:** Create `src/content.config.ts` using `file()` loader from `astro/loaders`. Schema reflects ProjectRecord fields: id, name, purpose, description, website, code, repository, owner, resources.
 
 **Instructions:** `./plan-publish-project-list/instructions/create-astro-collection.md`
 
 **Changes:**
 
-- Create `$NOODLESTAN_WEB/apps/noodlestan-web/src/content/config.ts` (or `collections.config.ts`).
-- Define `projects` collection schema.
+- Create `$NOODLESTAN_WEB/apps/noodlestan-web/src/content.config.ts` (Content Layer API).
+- Define `projects` collection using `file()` loader from `astro/loaders`.
 
 **Dependencies:**
 
@@ -448,9 +452,9 @@ build(noodlestan-web): add project collection builder
 
 #### Commits:
 
-| ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status  |
-| ------------------------------ | ------------------------------------------- | ------------ | ----- | ------- |
-| `add-astro-project-collection` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `DRAFT` |
+| ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
+| ------------------------------ | ------------------------------------------- | ------------ | ----- | ---------- |
+| `add-astro-project-collection` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
 
 ##### Commit: `add-astro-project-collection`
 
@@ -459,20 +463,21 @@ build(noodlestan-web): add project collection builder
 **Message:**
 
 ```
-build(publish-project-list): add Astro project collection
+build(noodlestan-web): add Astro project collection
 
-- Define projects collection config for JSON data source.
+- Define projects collection config using file() loader from astro/loaders.
+- Schema validates ProjectRecord fields: id, name, website, code, etc.
 ```
 
 ### Iteration: Render Projects on Homepage
 
 **Id:** `render-projects`
 
-**Status:** `DRAFT`
+**Status:** `READY`
 
 **Purpose:** Update the homepage to display the project list from the Astro collection.
 
-**Description:** Update `src/pages/index.astro` to query the projects collection and render each project with name, repository link, website link, purpose, and description.
+**Description:** Update `src/pages/index.astro` to query the projects collection via `getCollection("projects")` and render each project with name, repository link, website link, purpose, and description. No CSS.
 
 **Instructions:** `./plan-publish-project-list/instructions/render-projects.md`
 
@@ -486,9 +491,9 @@ build(publish-project-list): add Astro project collection
 
 #### Commits:
 
-| ID                            | Repository / Checkout / Branch              | Policy       | Hash  | Status  |
-| ----------------------------- | ------------------------------------------- | ------------ | ----- | ------- |
-| `render-projects-on-homepage` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `DRAFT` |
+| ID                            | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
+| ----------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
+| `render-projects-on-homepage` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
 
 ##### Commit: `render-projects-on-homepage`
 
@@ -497,10 +502,10 @@ build(publish-project-list): add Astro project collection
 **Message:**
 
 ```
-build(publish-project-list): render project list on homepage
+build(noodlestan-web): render project list on homepage
 
-- Query projects collection and render project cards.
-- Display name, repository, website, purpose, and description.
+- Query projects collection via getCollection("projects").
+- Display name, code (GitHub), website, purpose, and description.
 ```
 
 ---
@@ -513,7 +518,8 @@ Draft instructions for the first iteration: Copy Project Records.
 
 ### Blockers
 
-- None.
+- None. `copy-project-records` was BLOCKED on first delegation (path bug, hosting branch, dirty checkout); instruction fixed and re-delegated successfully.
+- Crew action (workspace state, outside plan scope): `checkouts/art-domains` has a staged `_guide.md` change; commit or discard before re-running the copy script.
 
 ## Operating Instructions
 
@@ -564,6 +570,7 @@ npm run workspace sanity # to check git status across all repos
 
 - All 13 project records populated with `code`, `website` (non-private with known subdomain), and `management` fields; all 13 `_guide.md` files regenerated via the project-guide template. Purposes/Descriptions verified under 200 chars.
 - Commits created on each `add-project-fields-and-update-guide` branch (not pushed, policy MANUAL). See report: `./plan-publish-project-list/instructions/populate-project-fields__report.md`.
+- `copy-project-records` DONE: `scripts/copy-project-records.tsx` created; script verified and populated `data/projects/` with 14 `.art` files; commit `7dfca86` pushed to `origin/publish-project-list`. See report: `./plan-publish-project-list/instructions/copy-project-records__report.md`.
 
 ### Findings
 
