@@ -147,7 +147,7 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 | Phase | Resource / Record                                                                               | Status     |
 | ----- | ----------------------------------------------------------------------------------------------- | ---------- |
-| `1`   | Plan: Initialize Noodlestan Website `_backlog/3-now/plan-init-noodlestan-website/plan.md`       | `DONE`     |
+| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md`     | `DONE`     |
 | -     |                                                                                                 |            |
 | `2`   | Plan: Publish Project List `_backlog/3-now/plan-publish-project-list/plan.md`                   | `READY`    |
 | `2`   | Plan: Home Sections MVP                                                                         | `PLANNING` |
