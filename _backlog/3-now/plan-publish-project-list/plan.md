@@ -2,7 +2,7 @@
 
 **Id:** `publish-project-list`
 
-**Status:** `PLANNING`
+**Status:** `READY`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -232,8 +232,8 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 
 | Iteration / Instructions                                                                                   | Status  |
 | ---------------------------------------------------------------------------------------------------------- | ------- |
-| Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DRAFT` |
-| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DRAFT` |
+| Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DONE`  |
+| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `READY` |
 | Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DRAFT` |
 | Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DRAFT` |
 | Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DRAFT` |
@@ -243,7 +243,7 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 
 **Id:** `add-project-fields`
 
-**Status:** `DRAFT`
+**Status:** `DONE`
 
 **Purpose:** Add `code`, `website`, and `management` fields to the Project structure definition.
 
@@ -264,9 +264,9 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 
 #### Commits:
 
-| ID                   | Repository / Checkout / Branch    | Policy       | Hash      | Status  |
-| -------------------- | --------------------------------- | ------------ | --------- | ------- |
-| `add-project-fields` | Workspace / `$WORKSPACE` / `main` | `AUTONOMOUS` | `820f98c` | `DRAFT` |
+| ID                   | Repository / Checkout / Branch    | Policy       | Hash      | Status      |
+| -------------------- | --------------------------------- | ------------ | --------- | ----------- |
+| `add-project-fields` | Workspace / `$WORKSPACE` / `main` | `AUTONOMOUS` | `820f98c` | `COMMITTED` |
 
 ##### Commit: `add-project-fields`
 
@@ -286,11 +286,11 @@ domains(projects): Add code, website, and management fields to Project structure
 
 **Id:** `populate-project-fields`
 
-**Status:** `DRAFT`
+**Status:** `READY`
 
 **Purpose:** Populate the new `code`, `website`, and `management` fields in all project records across all checkouts, and update each repository's `_guide.md`.
 
-**Description:** For each checkout with `_records/project.art`: branch, read project and repository records, update project.art with new fields, execute the create-project-guide routine to update `_guide.md`, and commit. All commits are policy MANUAL for user review.
+**Description:** For each checkout with `_records/project.art`: branch, read project and repository records, update project.art with new fields, execute the create-project-guide routine to update `_guide.md`, and commit. All commits are policy AUTONOMOUS.
 
 **Instructions:** `./plan-publish-project-list/instructions/populate-project-fields.md`
 
@@ -316,21 +316,21 @@ domains(projects): Add code, website, and management fields to Project structure
 
 #### Commits:
 
-| ID                                | Repository / Checkout / Branch                          | Policy   | Hash  | Status  |
-| --------------------------------- | ------------------------------------------------------- | -------- | ----- | ------- |
-| `populate-noodlestan-web-fields`  | Noodlestan Web / `$NOODLESTAN_WEB` / `add-project-fields-and-update-guide` | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-management-fields`      | Management / `$MANAGEMENT` / `add-project-fields-and-update-guide`         | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-artisans-fields`        | Artisans / `$ARTISANS` / `add-project-fields-and-update-guide`             | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-ops-fields`             | Ops / `$OPS` / `add-project-fields-and-update-guide`                       | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-art-domains-fields`     | Art Domains / `$ART_DOMAINS` / `add-project-fields-and-update-guide`       | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-art-js-fields`          | Art JS / `$ART_JS` / `add-project-fields-and-update-guide`                 | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-artificials-fields`     | Artificials / `$ARTIFICIALS` / `add-project-fields-and-update-guide`       | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-conventions-fields`     | Conventions / `$CONVENTIONS` / `add-project-fields-and-update-guide`       | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-purrception-fields`     | Purrception / `$PURRCEPTION` / `add-project-fields-and-update-guide`       | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-purrfect-fields`        | Purrfect / `$PURRFECT` / `add-project-fields-and-update-guide`             | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-purrpose-fields`        | Purrpose / `$PURRPOSE` / `add-project-fields-and-update-guide`             | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-purrtrait-fields`       | Purrtrait / `$PURRTRAIT` / `add-project-fields-and-update-guide`           | `MANUAL` | (TBD) | `DRAFT` |
-| `populate-workspace-tooling-fields` | Workspace Tooling / `$WORKSPACE_TOOLING` / `add-project-fields-and-update-guide` | `MANUAL` | (TBD) | `DRAFT` |
+| ID                                  | Repository / Checkout / Branch                                                   | Policy       | Hash  | Status     |
+| ----------------------------------- | -------------------------------------------------------------------------------- | ------------ | ----- | ---------- |
+| `populate-noodlestan-web-fields`    | Noodlestan Web / `$NOODLESTAN_WEB` / `add-project-fields-and-update-guide`       | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-management-fields`        | Management / `$MANAGEMENT` / `add-project-fields-and-update-guide`               | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-artisans-fields`          | Artisans / `$ARTISANS` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-ops-fields`               | Ops / `$OPS` / `add-project-fields-and-update-guide`                             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-art-domains-fields`       | Art Domains / `$ART_DOMAINS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-art-js-fields`            | Art JS / `$ART_JS` / `add-project-fields-and-update-guide`                       | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-artificials-fields`       | Artificials / `$ARTIFICIALS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-conventions-fields`       | Conventions / `$CONVENTIONS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-purrception-fields`       | Purrception / `$PURRCEPTION` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-purrfect-fields`          | Purrfect / `$PURRFECT` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-purrpose-fields`          | Purrpose / `$PURRPOSE` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-purrtrait-fields`         | Purrtrait / `$PURRTRAIT` / `add-project-fields-and-update-guide`                 | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-workspace-tooling-fields` | Workspace Tooling / `$WORKSPACE_TOOLING` / `add-project-fields-and-update-guide` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
 
 ##### Commit: `populate-noodlestan-web-fields`
 

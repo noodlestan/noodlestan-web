@@ -21,11 +21,11 @@ RULE: If at any point you are instructed to **REPORT A BLOCKER** or you encounte
 
 ## Path Variables
 
-| Variable          | Resolved Path                          | Purpose                           |
-| ----------------- | -------------------------------------- | --------------------------------- |
-| `$WORKSPACE`      | Current working directory              | Workspace root directory          |
-| `$DOMAINS`        | `$WORKSPACE/.agents/domains`           | Domain resources directory        |
-| `$CHECKOUTS`      | `$WORKSPACE/checkouts`                 | All repository checkouts          |
+| Variable     | Resolved Path                | Purpose                    |
+| ------------ | ---------------------------- | -------------------------- |
+| `$WORKSPACE` | Current working directory    | Workspace root directory   |
+| `$DOMAINS`   | `$WORKSPACE/.agents/domains` | Domain resources directory |
+| `$CHECKOUTS` | `$WORKSPACE/checkouts`       | All repository checkouts   |
 
 ## Goals
 
@@ -77,11 +77,11 @@ Each repository step follows the same pattern:
 cd $CHECKOUTS/noodlestan-web && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - `**Code:** https://github.com/noodlestan/noodlestan-web`
 - `**Website:** https://noodlestan.org`
-- `**Management:** Use Workflow: Planning Work and a local Backlog at `_backlog/`.`
-- Place after `**Repository:**`, before `**License:**`.
+- `**Management:** Use Workflow: Planning Work and a local Backlog at `\_backlog/`.`
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -91,7 +91,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/noodlestan-web`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -114,11 +114,10 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/management && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Private: `true` — no website URL.
+Update `_records/project.art`, placing "code" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - `**Code:** https://github.com/noodlestan/_mgmt`
 - `**Management:**` — describe how the project is managed (read `_guide.md` for clues about roadmaps and planning).
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -128,7 +127,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/management`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -151,12 +150,11 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/artisans && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Private: `false` — add website URL.
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`
+
 - `**Code:** https://github.com/noodlestan/artisans`
 - `**Website:** https://art-mantras.noodlestan.org`
 - `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -166,7 +164,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/artisans`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -189,11 +187,10 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/ops && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Private: `true` — no website URL.
+Update `_records/project.art`, placing "code" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - `**Code:** https://github.com/noodlestan/_ops`
 - `**Management:**` — describe how the project is managed (Terraform workflows, ops procedures).
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -203,7 +200,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/ops`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -226,12 +223,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/art-domains && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for URL.
+
+Update `_records/project.art` placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -241,7 +239,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/art-domains`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -264,12 +262,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/art-js && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for remote URL.
+
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -279,7 +278,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/art-js`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -302,12 +301,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/artificials && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for remote URL.
+
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -317,7 +317,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/artificials`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -340,12 +340,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/conventions && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for remote URL.
+
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -355,7 +356,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/conventions`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -378,12 +379,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/purrception && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for remote URL.
+
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -393,7 +395,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/purrception`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -416,12 +418,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/purrfect && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for remote URL.
+
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -431,7 +434,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/purrfect`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -454,12 +457,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/purrpose && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for remote URL.
+
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -469,7 +473,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/purrpose`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -492,12 +496,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/purrtrait && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for remote URL.
+
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -507,7 +512,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/purrtrait`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -530,12 +535,13 @@ STOP — Wait for user review before proceeding.
 cd $CHECKOUTS/workspace-tooling && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Update `_records/project.art`:
-- Read `_records/repository.art` for remote URL.
+Read `_records/repository.art` for remote URL.
+
+Update `_records/project.art`, placing "code" and "website" after `**Repository:**`, and "managemet" before `**License:**`.
+
 - Add `**Code:**` from repository remote.
 - Add `**Website:**` if not private (subdomain of noodlestan.org).
 - Add `**Management:**` — describe how the project is managed.
-- Place after `**Repository:**`, before `**License:**`.
 
 Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
@@ -545,7 +551,7 @@ Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to updat
 
 **Repository:** `$CHECKOUTS/workspace-tooling`
 
-**Policy:** MANUAL — Wait for user review before proceeding.
+**Policy:** AUTONOMOUS
 
 **Message:**
 
@@ -563,6 +569,7 @@ STOP — Wait for user review before proceeding.
 ### Step `14 / 14` — Verify all changes
 
 For each of the 13 repositories, verify:
+
 - Branch `add-project-fields-and-update-guide` exists and is checked out.
 - `_records/project.art` has `code`, `website` (if not private), and `management` fields.
 - `_guide.md` has been updated using the project-guide template.
