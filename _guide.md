@@ -1,22 +1,21 @@
 # Noodlestan Web
 
-Initialize Noodlestan Website — Astro-based website for Noodlestan.
+Standalone website repository for Noodlestan, hosting the Astro website application.
 
 ## Recommended Reading
 
-Agents SHOULD scan these files for definitions and resource locations when faced with uncertainty or ambiguity that may result from missing resources.
+Agents SHOULD scan these files for relevant clarifications when faced with ambiguity or omissions that may result from missing definitions.
 
-- `_guide.md` — this file: system overview, layout, records, workflows, and operating instructions.
-- `_records/project.art` — the project record.
-- `_records/repository.art` — the repository record.
+- `_guide.md` — this file: system overview, layout, setup, verification.
 
 ## Repository Layout
 
 ```
-_guide.md           — this file
-_backlog/           — plans, instructions, reports
-_records/           — project, repository, namespace, and license records
-apps/               — application packages
+_guide.md    — this file
+_backlog/    — plans, instructions, reports
+_records/    — records (project, repository, namespaces, scaffolders, license)
+_roadmap/    — roadmap
+apps/        — application packages
 ```
 
 ## Projects
@@ -37,16 +36,19 @@ Records are co-located with the resources they describe in `_records/` directori
 
 ## Workflows
 
-### Roadmapping
+Projects in this repository use the following workflows:
 
-This project manages milestones (think plans of plans) with the workflow defined in `$DOMAINS/roadmaps/workflows/roadmapping/workflow.art`.
+| Workflow / Path                                                        | Purpose                                                                                           |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| **Roadmapping** `$DOMAINS/roadmaps/workflows/roadmapping/workflow.art` | Organize roadmap creation and maintenance and coordination of downstream work items.              |
+| **Planning Work** `$DOMAINS/work/workflows/planning-work/workflow.art` | Create and manage work item lifecycles, collecting operational instructions according to context. |
+
+### Roadmapping
 
 - The roadmap lives at `_roadmap/` with subdirectories such as `/3-now` and `/4-next/`.
 - The short-term roadmapping focus is captured in `_backlog/_parking-lot.md`.
 
 ### Planning Work
-
-This project plans its work with the workflow defined in `$DOMAINS/work/workflows/planning-work/workflow.art`.
 
 - The backlog lives at `_backlog/` with subdirectories such as `/3-now` and `/4-next/`.
 - The short-term focus is captured in `_backlog/_parking-lot.md`.

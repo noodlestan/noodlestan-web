@@ -12,10 +12,16 @@
 
 **Repository:** Repository: Noodlestan Web
 
+**Code:** https://github.com/noodlestan/noodlestan-web
+
+**Website:** https://noodlestan.org
+
 **Resources:**
 
 - Application: Noodlestan Website
 
 **Private:** `false`
+
+**Management:** Uses Workflow: Planning Work and a local Backlog at `_backlog/`.
 
 **License:** License: Noodlestan 2026 MIT
