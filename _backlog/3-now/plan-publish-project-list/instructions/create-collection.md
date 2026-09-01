@@ -22,10 +22,10 @@ RULE: If at any point you are instructed to **REPORT A BLOCKER** or you encounte
 
 ## Path Variables
 
-| Variable          | Resolved Path                         | Purpose                                              |
-| ----------------- | ------------------------------------- | ---------------------------------------------------- |
-| `$WORKSPACE`      | Current working directory             | Workspace root directory                             |
-| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout                   |
+| Variable          | Resolved Path                         | Purpose                            |
+| ----------------- | ------------------------------------- | ---------------------------------- |
+| `$WORKSPACE`      | Current working directory             | Workspace root directory           |
+| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout |
 
 ## Working Agreements
 
@@ -111,164 +111,160 @@ import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
 type ProjectRecord = {
-	id: string;
-	record: string;
-	content: string;
-	resource: {
-		name: string;
-		purpose: string;
-		description: string;
-		website: string | null;
-		code: string | null;
-		repository: string;
-		owner: string;
-		resources: string[];
-		private: boolean;
-	};
+  id: string;
+  record: string;
+  content: string;
+  resource: {
+    name: string;
+    purpose: string;
+    description: string;
+    website: string | null;
+    code: string | null;
+    repository: string;
+    owner: string;
+    resources: string[];
+    private: boolean;
+  };
 };
 
-const WORKSPACE = resolve(import.meta.dirname, '../../..');
 const RECORDS_DIR = join(import.meta.dirname, '../data/_records/projects');
 const DATA_DIR = join(import.meta.dirname, '../data/projects');
 
 function kebab(name: string): string {
-	return name
-		.replace(/([a-z])([A-Z])/g, '$1-$2')
-		.toLowerCase()
-		.replace(/\s+/g, '-');
+  return name
+    .replace(/([a-z])([A-Z])/g, '$1-$2')
+    .toLowerCase()
+    .replace(/\s+/g, '-');
 }
 
 function extractField(content: string, field: string): string | null {
-	const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-	const patterns = [
-		new RegExp(`\\*\\*${escapedField}:\\*\\*\\s*\`([^\`]+)\``, 'm'),
-		new RegExp(`\\*\\*${escapedField}:\\*\\*\\s*(.+)`, 'm'),
-	];
+  const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const patterns = [
+    new RegExp(`\\*\\*${escapedField}:\\*\\*\\s*\`([^\`]+)\``, 'm'),
+    new RegExp(`\\*\\*${escapedField}:\\*\\*\\s*(.+)`, 'm'),
+  ];
 
-	for (const pattern of patterns) {
-		const match = content.match(pattern);
-		if (match) return match[1].trim();
-	}
-	return null;
+  for (const pattern of patterns) {
+    const match = content.match(pattern);
+    if (match) return match[1].trim();
+  }
+  return null;
 }
 
 function extractBoolean(content: string, field: string): boolean {
-	const value = extractField(content, field);
-	return value?.toLowerCase() === 'true';
+  const value = extractField(content, field);
+  return value?.toLowerCase() === 'true';
 }
 
 function extractResources(content: string, field: string): string[] {
-	const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-	const pattern = new RegExp(
-		`\\*\\*${escapedField}:\\*\\*([\\s\\S]*?)(?=\\n\\*\\*|\\n##|$)`,
-		'm'
-	);
-	const match = content.match(pattern);
-	if (!match) return [];
+  const escapedField = field.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const pattern = new RegExp(`\\*\\*${escapedField}:\\*\\*([\\s\\S]*?)(?=\\n\\*\\*|\\n##|$)`, 'm');
+  const match = content.match(pattern);
+  if (!match) return [];
 
-	const block = match[1];
-	const items: string[] = [];
-	const lines = block.split('\n');
-	for (const line of lines) {
-		const trimmed = line.trim();
-		if (trimmed.startsWith('-') || trimmed.startsWith('•')) {
-			const item = trimmed.replace(/^[-•]\s*/, '').trim();
-			if (item) items.push(item);
-		}
-	}
-	return items;
+  const block = match[1];
+  const items: string[] = [];
+  const lines = block.split('\n');
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (trimmed.startsWith('-') || trimmed.startsWith('•')) {
+      const item = trimmed.replace(/^[-•]\s*/, '').trim();
+      if (item) items.push(item);
+    }
+  }
+  return items;
 }
 
 async function loadProjectRecords(dir: string): Promise<ProjectRecord[]> {
-	const { readdirSync } = await import('node:fs');
-	const files = readdirSync(dir).filter(f => f.endsWith('.art'));
+  const { readdirSync } = await import('node:fs');
+  const files = readdirSync(dir).filter(f => f.endsWith('.art'));
 
-	return files.map(file => {
-		const content = readFileSync(join(dir, file), 'utf-8');
+  return files.map(file => {
+    const content = readFileSync(join(dir, file), 'utf-8');
 
-		const nameMatch = content.match(/## Project:\s*(.+)/);
-		if (!nameMatch) throw new Error(`No H1 in ${file}`);
-		const name = nameMatch[1]?.trim();
-		if (!name) {
-			throw new Error(`Could not resolve name from file: ${file}`);
-		}
+    const nameMatch = content.match(/## Project:\s*(.+)/);
+    if (!nameMatch) throw new Error(`No H1 in ${file}`);
+    const name = nameMatch[1]?.trim();
+    if (!name) {
+      throw new Error(`Could not resolve name from file: ${file}`);
+    }
 
-		const id = kebab(name);
-		const purpose = extractField(content, 'Purpose') || '';
-		const description = extractField(content, 'Description') || '';
-		const website = extractField(content, 'Website') || null;
-		const code = extractField(content, 'Code') || null;
-		const private_ = extractBoolean(content, 'Private');
+    const id = kebab(name);
+    const purpose = extractField(content, 'Purpose') || '';
+    const description = extractField(content, 'Description') || '';
+    const website = extractField(content, 'Website') || null;
+    const code = extractField(content, 'Code') || null;
+    const private_ = extractBoolean(content, 'Private');
 
-		let repository = extractField(content, 'Repository') || '';
-		if (repository && !repository.startsWith('Repository: ')) {
-			repository = `Repository: ${repository}`;
-		}
+    let repository = extractField(content, 'Repository') || '';
+    if (repository && !repository.startsWith('Repository: ')) {
+      repository = `Repository: ${repository}`;
+    }
 
-		let owner = extractField(content, 'Owner') || '';
-		if (owner && !owner.startsWith('Project: ')) {
-			owner = `Project: ${owner}`;
-		}
+    let owner = extractField(content, 'Owner') || '';
+    if (owner && !owner.startsWith('Project: ')) {
+      owner = `Project: ${owner}`;
+    }
 
-		const allResources = extractResources(content, 'Resources');
-		const resources = allResources.filter(
-			r => r.startsWith('Project: ') || r.startsWith('Repository: ')
-		);
+    const allResources = extractResources(content, 'Resources');
+    const resources = allResources.filter(
+      r => r.startsWith('Project: ') || r.startsWith('Repository: '),
+    );
 
-		return {
-			id,
-			record: file,
-			content,
-			resource: {
-				name,
-				purpose,
-				description,
-				website,
-				code,
-				repository,
-				owner,
-				resources,
-				private: private_,
-			},
-		};
-	});
+    return {
+      id,
+      record: file,
+      content,
+      resource: {
+        name,
+        purpose,
+        description,
+        website,
+        code,
+        repository,
+        owner,
+        resources,
+        private: private_,
+      },
+    };
+  });
 }
 
 async function saveProjectJson(projects: ProjectRecord[]): Promise<void> {
-	const resources = projects
-		.filter(p => !p.resource.private)
-		.map(p => ({
-			id: p.id,
-			...p.resource,
-		}));
+  const items = projects
+    .filter(p => !p.resource.private)
+    .map(p => ({
+      id: p.id,
+      project: p.resource,
+    }));
 
-	mkdirSync(DATA_DIR, { recursive: true });
-	const outPath = join(DATA_DIR, 'collection.json');
-	writeFileSync(outPath, JSON.stringify(resources, null, 2));
-	console.log(`Saved ${resources.length} projects to collection.json`);
+  mkdirSync(DATA_DIR, { recursive: true });
+  const outPath = join(DATA_DIR, 'collection.json');
+  writeFileSync(outPath, JSON.stringify(items, null, 2));
+  console.log(`Saved ${items.length} projects to collection.json`);
 }
 
 async function main() {
-	const projects = await loadProjectRecords(RECORDS_DIR);
-	console.log(`Loaded ${projects.length} project records`);
-	await saveProjectJson(projects);
-	console.log('Done');
+  const projects = await loadProjectRecords(RECORDS_DIR);
+  console.log(`Loaded ${projects.length} project records`);
+  await saveProjectJson(projects);
+  console.log('Done');
 }
 
 main().catch(err => {
-	console.error(err);
-	process.exit(1);
+  console.error(err);
+  process.exit(1);
 });
 ```
 
 Key design decisions:
-- Uses `resolve(import.meta.dirname, '../../..')` for WORKSPACE (consistent with `copy-project-records.ts`).
+
 - Reads `.art` files from `data/_records/projects/` (where `copy-project-records.ts` writes them).
 - Writes `collection.json` to `data/projects/`.
 - Uses filename (already kebabified by copy-project-records) as the `id`.
 - Extracts `website` and `code` fields directly from project.art (no mapping).
 - Filters out private projects from the JSON output.
-- Each collection item has an `id` field (required by Astro's file() loader).
+- Each collection item has an `id` field and a nested `project` object (required by Astro's file() loader).
 - Throws on missing H1 (consistent with `loadRepositoryRecords` in `copy-project-records.ts`).
 
 ### Step `2 / 6` — Add `update-project-collection` script to package.json
@@ -289,11 +285,11 @@ Add the following line to the `## Scripts` section of `$NOODLESTAN_WEB/README.md
 - **$** `npm run update-project-collection` — Generates `data/projects/collection.json` from `data/_records/projects`.
 ```
 
-### Step `4 / 6` — Add "Updating Project Collection" section to _guide.md
+### Step `4 / 6` — Add "Updating Project Collection" section to \_guide.md
 
 Add the following section to `$NOODLESTAN_WEB/_guide.md`, before the `### Operating Instructions: Verifying Completion` section:
 
-```markdown
+````markdown
 ### Operating Instructions: Updating Project Collection
 
 **Instructions:**
@@ -303,9 +299,11 @@ Run from the repository root (monorepo):
 ```bash
 npm run update-project-collection
 ```
+````
 
 Generates `data/projects/collection.json` from the project.art files in `data/_records/projects/`.
-```
+
+````
 
 ### Step `5 / 6` — Verify script works
 
@@ -313,17 +311,18 @@ Run the script to verify it works:
 
 ```bash
 cd $NOODLESTAN_WEB && npx tsx scripts/create-collection.ts
-```
+````
 
 Verify:
+
 - Script completes without errors.
 - `data/projects/collection.json` contains a JSON array.
-- Each item has `id`, `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`, `private`.
+- Each item has `id` and a nested `project` object with `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`, `private`.
 - Private projects are excluded.
 
 ### Step `6 / 6` — Commit `add-create-collection-script`
 
-Stage and commit the new script, package.json, README.md, and _guide.md changes.
+Stage and commit the new script, package.json, README.md, and \_guide.md changes.
 
 ---
 

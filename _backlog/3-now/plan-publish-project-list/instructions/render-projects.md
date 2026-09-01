@@ -22,11 +22,11 @@ RULE: If at any point you are instructed to **REPORT A BLOCKER** or you encounte
 
 ## Path Variables
 
-| Variable          | Resolved Path                         | Purpose                                              |
-| ----------------- | ------------------------------------- | ---------------------------------------------------- |
-| `$WORKSPACE`      | Current working directory             | Workspace root directory                             |
-| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout                   |
-| `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web` | The Astro application                                |
+| Variable          | Resolved Path                         | Purpose                            |
+| ----------------- | ------------------------------------- | ---------------------------------- |
+| `$WORKSPACE`      | Current working directory             | Workspace root directory           |
+| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout |
+| `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web` | The Astro application              |
 
 ## Working Agreements
 
@@ -121,23 +121,23 @@ const projects = await getCollection("projects");
 
 		{projects.map((project) => (
 			<div>
-				<h3>{project.data.name}</h3>
+				<h3>{project.data.project.name}</h3>
 				<div>
 					<p>
 						Repository:{" "}
-						<a href={project.data.code || `https://github.com/${project.data.repository.replace("Repository: ", "")}`}>
+						<a href={project.data.project.code || `https://github.com/${project.data.project.repository.replace("Repository: ", "")}`}>
 							GitHub
 						</a>
 					</p>
-					{project.data.website && (
+					{project.data.project.website && (
 						<p>
 							Website:{" "}
-							<a href={project.data.website}>{project.data.website}</a>
+							<a href={project.data.project.website}>{project.data.project.website}</a>
 						</p>
 					)}
 				</div>
-				{project.data.purpose && <p>{project.data.purpose}</p>}
-				{project.data.description && <p>{project.data.description}</p>}
+				{project.data.project.purpose && <p>{project.data.project.purpose}</p>}
+				{project.data.project.description && <p>{project.data.project.description}</p>}
 			</div>
 		))}
 	</body>
@@ -145,11 +145,12 @@ const projects = await getCollection("projects");
 ```
 
 Key design decisions:
+
 - Uses `getCollection("projects")` — the canonical Astro Content Layer API.
 - No CSS — plain HTML only.
-- Uses `project.data.name`, `project.data.code`, `project.data.website`, etc. (ProjectRecord fields).
-- `project.data.code` used for the GitHub link URL; falls back to constructing from repository name.
-- `project.data.website` used for the website link.
+- Uses `project.data.project.name`, `project.data.project.code`, `project.data.project.website`, etc. (nested `project` object per collection.json shape).
+- `project.data.project.code` used for the GitHub link URL; falls back to constructing from repository name.
+- `project.data.project.website` used for the website link.
 
 ### Step `2 / 3` — Verify build works
 
@@ -160,6 +161,7 @@ cd $APP && npm run build
 ```
 
 Verify:
+
 - Build completes without errors.
 - The built HTML contains the project list.
 

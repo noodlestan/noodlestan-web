@@ -442,7 +442,7 @@ build(noodlestan-web): add project collection builder
 
 **Purpose:** Create an Astro content collection that reads the JSON project data using the Content Layer API.
 
-**Description:** Create `src/content.config.ts` using `file()` loader from `astro/loaders`. Schema reflects ProjectRecord fields: id, name, purpose, description, website, code, repository, owner, resources.
+**Description:** Create `src/content.config.ts` using `file()` loader from `astro/loaders`. Schema reflects collection.json items: `id` + nested `project` object (name, purpose, description, website, code, repository, owner, resources, private).
 
 **Instructions:** `./plan-publish-project-list/instructions/create-astro-collection.md`
 
@@ -482,7 +482,7 @@ build(noodlestan-web): add Astro project collection
 
 **Purpose:** Update the homepage to display the project list from the Astro collection.
 
-**Description:** Update `src/pages/index.astro` to query the projects collection via `getCollection("projects")` and render each project with name, repository link, website link, purpose, and description. No CSS.
+**Description:** Update `src/pages/index.astro` to query the projects collection via `getCollection("projects")` and render each project with name, repository link, website link, purpose, and description. Uses nested `project.data.project.*` fields. No CSS.
 
 **Instructions:** `./plan-publish-project-list/instructions/render-projects.md`
 

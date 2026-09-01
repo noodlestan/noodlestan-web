@@ -106,14 +106,17 @@ const projects = defineCollection({
   loader: file("../../../data/projects/collection.json"),
   schema: z.object({
     id: z.string(),
-    name: z.string(),
-    purpose: z.string(),
-    description: z.string(),
-    website: z.string().nullable(),
-    code: z.string().nullable(),
-    repository: z.string(),
-    owner: z.string(),
-    resources: z.array(z.string()),
+    project: z.object({
+      name: z.string(),
+      purpose: z.string(),
+      description: z.string(),
+      website: z.string().nullable(),
+      code: z.string().nullable(),
+      repository: z.string(),
+      owner: z.string(),
+      resources: z.array(z.string()),
+      private: z.boolean(),
+    }),
   }),
 });
 
@@ -125,7 +128,7 @@ export const collections = {
 Key design decisions:
 - Uses `src/content.config.ts` (not `src/content/config.ts`) for Astro's Content Layer API.
 - Uses `file()` loader from `astro/loaders` — the canonical Astro approach.
-- Schema reflects `ProjectRecord` fields: `id`, `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`.
+- Schema reflects `collection.json` items: `id` + nested `project` object with `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`, `private`.
 - `file()` path resolves relative to `config.root` (apps/noodlestan-web/): `../../../data/projects/collection.json` reaches the repo root `data/projects/`.
 
 ### Step `2 / 3` — Verify build works
