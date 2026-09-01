@@ -20,12 +20,12 @@
 
 ## Path Variables
 
-| Variable          | Resolved Path                         | Purpose                                              |
-| ----------------- | ------------------------------------- | ---------------------------------------------------- |
-| `$WORKSPACE`      | Current working directory             | Workspace root directory                             |
-| `$DOMAINS`        | `$WORKSPACE/.agents/domains`          | Domain resources directory                           |
-| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout                   |
-| `$RECORDS`        | `$WORKSPACE/_records/repositories`    | Workspace-level repository records                   |
+| Variable          | Resolved Path                         | Purpose                            |
+| ----------------- | ------------------------------------- | ---------------------------------- |
+| `$WORKSPACE`      | Current working directory             | Workspace root directory           |
+| `$DOMAINS`        | `$WORKSPACE/.agents/domains`          | Domain resources directory         |
+| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout |
+| `$RECORDS`        | `$WORKSPACE/_records/repositories`    | Workspace-level repository records |
 
 ## Summary
 
@@ -39,10 +39,10 @@ None.
 
 ### Upstream Work
 
-| Kind        | Path                                                            | Role                                                           |
-| ----------- | --------------------------------------------------------------- | -------------------------------------------------------------- |
-| Plan        | `$NOODLESTAN_WEB/_backlog/3-now/plan-init-noodlestan-website/plan.md` | Previous plan that deployed the hello-world site.              |
-| Parking Lot | `$MANAGEMENT/_roadmap/_parking-lot.md`                          | Tracks short-term actionables, pending questions, and blockers. |
+| Kind        | Path                                                                  | Role                                                            |
+| ----------- | --------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Plan        | `$NOODLESTAN_WEB/_backlog/3-now/plan-init-noodlestan-website/plan.md` | Previous plan that deployed the hello-world site.               |
+| Parking Lot | `$MANAGEMENT/_roadmap/_parking-lot.md`                                | Tracks short-term actionables, pending questions, and blockers. |
 
 ### Required Skills
 
@@ -65,9 +65,9 @@ None.
 
 ### Workflows
 
-| Workflow / Path                                                        | Purpose                                                                                 |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
-| Workflow: Engineering `$DOMAINS/engineering/workflows/engineering.art` | Engineering lifecycle for setting up, verifying, and committing work.                    |
+| Workflow / Path                                                        | Purpose                                                               |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Workflow: Engineering `$DOMAINS/engineering/workflows/engineering.art` | Engineering lifecycle for setting up, verifying, and committing work. |
 
 ### Knowledge
 
@@ -168,6 +168,60 @@ This plan adds a project listing to the Noodlestan Website.
 - `owner` — Project: Ops
 - `path` — `$OPS/`
 
+### (Scope) Repository: Art Domains
+
+**Record:** `$ART_DOMAINS/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+### (Scope) Repository: Art JS
+
+**Record:** `$ART_JS/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+### (Scope) Repository: Artificials
+
+**Record:** `$ARTIFICIALS/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+### (Scope) Repository: Conventions
+
+**Record:** `$CONVENTIONS/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+### (Scope) Repository: Purrception
+
+**Record:** `$PURRCEPTION/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+### (Scope) Repository: Purrfect
+
+**Record:** `$PURRFECT/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+### (Scope) Repository: Purrpose
+
+**Record:** `$PURRPOSE/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+### (Scope) Repository: Purrtrait
+
+**Record:** `$PURRTRAIT/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
+### (Scope) Repository: Workspace Tooling
+
+**Record:** `$WORKSPACE_TOOLING/_records/repository.art`
+
+**Role:** — Contains project records that need new fields populated.
+
 ## Execution Context
 
 Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. Project records are sourced from `$WORKSPACE/_records/repositories/` and individual checkout directories.
@@ -176,14 +230,14 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 
 ## Items:
 
-| Iteration / Instructions                                                                                      | Status    |
-| ------------------------------------------------------------------------------------------------------------- | --------- |
-| Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`     | `DRAFT`   |
-| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md`     | `DRAFT`   |
-| Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`              | `DRAFT`   |
-| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                     | `DRAFT`   |
-| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`         | `DRAFT`   |
-| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`             | `DRAFT`   |
+| Iteration / Instructions                                                                                   | Status  |
+| ---------------------------------------------------------------------------------------------------------- | ------- |
+| Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DRAFT` |
+| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DRAFT` |
+| Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DRAFT` |
+| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DRAFT` |
+| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DRAFT` |
+| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `DRAFT` |
 
 ### Iteration: Add Fields to Project Structure
 
@@ -210,9 +264,9 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 
 #### Commits:
 
-| ID                      | Repository / Checkout / Branch          | Policy       | Hash | Status   |
-| ----------------------- | --------------------------------------- | ------------ | ---- | -------- |
-| `add-project-fields`    | Workspace / `$WORKSPACE` / `main`       | `AUTONOMOUS` | (TBD) | `DRAFT`  |
+| ID                   | Repository / Checkout / Branch    | Policy       | Hash      | Status  |
+| -------------------- | --------------------------------- | ------------ | --------- | ------- |
+| `add-project-fields` | Workspace / `$WORKSPACE` / `main` | `AUTONOMOUS` | `820f98c` | `DRAFT` |
 
 ##### Commit: `add-project-fields`
 
@@ -234,18 +288,27 @@ domains(projects): Add code, website, and management fields to Project structure
 
 **Status:** `DRAFT`
 
-**Purpose:** Populate the new `code`, `website`, and `management` fields in all project records across checkouts.
+**Purpose:** Populate the new `code`, `website`, and `management` fields in all project records across all checkouts, and update each repository's `_guide.md`.
 
-**Description:** Read project records from all checkouts that contain `_records/project.art`, extract information from co-located repository records and `_guide.md` files, and add the new fields. Commits are policy MANUAL for user review.
+**Description:** For each checkout with `_records/project.art`: branch, read project and repository records, update project.art with new fields, execute the create-project-guide routine to update `_guide.md`, and commit. All commits are policy MANUAL for user review.
 
 **Instructions:** `./plan-publish-project-list/instructions/populate-project-fields.md`
 
 **Changes:**
 
-- Update `$NOODLESTAN_WEB/_records/project.art` — add code, website, management.
-- Update `$MANAGEMENT/_records/project.art` — add code, management (private, no website).
-- Update `$ARTISANS/_records/project.art` — add code, website, management.
-- Update `$OPS/_records/project.art` — add code, management (private, no website).
+- Update `$NOODLESTAN_WEB/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$MANAGEMENT/_records/project.art` — add code, management (private). Update `_guide.md`.
+- Update `$ARTISANS/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$OPS/_records/project.art` — add code, management (private). Update `_guide.md`.
+- Update `$ART_DOMAINS/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$ART_JS/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$ARTIFICIALS/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$CONVENTIONS/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$PURRCEPTION/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$PURRFECT/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$PURRPOSE/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$PURRTRAIT/_records/project.art` — add code, website, management. Update `_guide.md`.
+- Update `$WORKSPACE_TOOLING/_records/project.art` — add code, website, management. Update `_guide.md`.
 
 **Dependencies:**
 
@@ -253,12 +316,21 @@ domains(projects): Add code, website, and management fields to Project structure
 
 #### Commits:
 
-| ID                              | Repository / Checkout / Branch        | Policy     | Hash | Status   |
-| ------------------------------- | ------------------------------------- | ---------- | ---- | -------- |
-| `populate-noodlestan-web-fields` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | (TBD) | `DRAFT`  |
-| `populate-management-fields`     | Management / `$MANAGEMENT` / `main`   | `MANUAL`   | (TBD) | `DRAFT`  |
-| `populate-artisans-fields`       | Artisans / `$ARTISANS` / `main`       | `MANUAL`   | (TBD) | `DRAFT`  |
-| `populate-ops-fields`             | Ops / `$OPS` / `main`                 | `MANUAL`   | (TBD) | `DRAFT`  |
+| ID                                | Repository / Checkout / Branch                          | Policy   | Hash  | Status  |
+| --------------------------------- | ------------------------------------------------------- | -------- | ----- | ------- |
+| `populate-noodlestan-web-fields`  | Noodlestan Web / `$NOODLESTAN_WEB` / `add-project-fields-and-update-guide` | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-management-fields`      | Management / `$MANAGEMENT` / `add-project-fields-and-update-guide`         | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-artisans-fields`        | Artisans / `$ARTISANS` / `add-project-fields-and-update-guide`             | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-ops-fields`             | Ops / `$OPS` / `add-project-fields-and-update-guide`                       | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-art-domains-fields`     | Art Domains / `$ART_DOMAINS` / `add-project-fields-and-update-guide`       | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-art-js-fields`          | Art JS / `$ART_JS` / `add-project-fields-and-update-guide`                 | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-artificials-fields`     | Artificials / `$ARTIFICIALS` / `add-project-fields-and-update-guide`       | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-conventions-fields`     | Conventions / `$CONVENTIONS` / `add-project-fields-and-update-guide`       | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-purrception-fields`     | Purrception / `$PURRCEPTION` / `add-project-fields-and-update-guide`       | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-purrfect-fields`        | Purrfect / `$PURRFECT` / `add-project-fields-and-update-guide`             | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-purrpose-fields`        | Purrpose / `$PURRPOSE` / `add-project-fields-and-update-guide`             | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-purrtrait-fields`       | Purrtrait / `$PURRTRAIT` / `add-project-fields-and-update-guide`           | `MANUAL` | (TBD) | `DRAFT` |
+| `populate-workspace-tooling-fields` | Workspace Tooling / `$WORKSPACE_TOOLING` / `add-project-fields-and-update-guide` | `MANUAL` | (TBD) | `DRAFT` |
 
 ##### Commit: `populate-noodlestan-web-fields`
 
@@ -267,9 +339,10 @@ domains(projects): Add code, website, and management fields to Project structure
 **Message:**
 
 ```
-records(noodlestan-web): Populate new project fields
+records(noodlestan-web): Populate new project fields and update guide
 
 - Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
 ```
 
 ##### Commit: `populate-management-fields`
@@ -279,9 +352,10 @@ records(noodlestan-web): Populate new project fields
 **Message:**
 
 ```
-records(management): Populate new project fields
+records(management): Populate new project fields and update guide
 
 - Add code and management fields to project record.
+- Update _guide.md using project-guide template.
 ```
 
 ##### Commit: `populate-artisans-fields`
@@ -291,9 +365,10 @@ records(management): Populate new project fields
 **Message:**
 
 ```
-records(artisans): Populate new project fields
+records(artisans): Populate new project fields and update guide
 
 - Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
 ```
 
 ##### Commit: `populate-ops-fields`
@@ -303,9 +378,127 @@ records(artisans): Populate new project fields
 **Message:**
 
 ```
-records(ops): Populate new project fields
+records(ops): Populate new project fields and update guide
 
 - Add code and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-art-domains-fields`
+
+**Repository:** Repository: Art Domains
+
+**Message:**
+
+```
+records(art-domains): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-art-js-fields`
+
+**Repository:** Repository: Art JS
+
+**Message:**
+
+```
+records(art-js): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-artificials-fields`
+
+**Repository:** Repository: Artificials
+
+**Message:**
+
+```
+records(artificials): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-conventions-fields`
+
+**Repository:** Repository: Conventions
+
+**Message:**
+
+```
+records(conventions): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-purrception-fields`
+
+**Repository:** Repository: Purrception
+
+**Message:**
+
+```
+records(purrception): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-purrfect-fields`
+
+**Repository:** Repository: Purrfect
+
+**Message:**
+
+```
+records(purrfect): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-purrpose-fields`
+
+**Repository:** Repository: Purrpose
+
+**Message:**
+
+```
+records(purrpose): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-purrtrait-fields`
+
+**Repository:** Repository: Purrtrait
+
+**Message:**
+
+```
+records(purrtrait): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+##### Commit: `populate-workspace-tooling-fields`
+
+**Repository:** Repository: Workspace Tooling
+
+**Message:**
+
+```
+records(workspace-tooling): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
 ```
 
 ### Iteration: Copy Project Records
@@ -332,8 +525,8 @@ records(ops): Populate new project fields
 
 #### Commits:
 
-| ID                     | Repository / Checkout / Branch              | Policy       | Hash | Status   |
-| ---------------------- | ------------------------------------------- | ------------ | ---- | -------- |
+| ID                        | Repository / Checkout / Branch              | Policy       | Hash  | Status  |
+| ------------------------- | ------------------------------------------- | ------------ | ----- | ------- |
 | `add-copy-records-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `DRAFT` |
 
 ##### Commit: `add-copy-records-script`
@@ -372,8 +565,8 @@ build(noodlestan-web): add project records copy script
 
 #### Commits:
 
-| ID                     | Repository / Checkout / Branch              | Policy       | Hash | Status   |
-| ---------------------- | ------------------------------------------- | ------------ | ---- | -------- |
+| ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status  |
+| ------------------------------ | ------------------------------------------- | ------------ | ----- | ------- |
 | `add-create-collection-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `DRAFT` |
 
 ##### Commit: `add-create-collection-script`
@@ -411,8 +604,8 @@ build(noodlestan-web): add project collection builder
 
 #### Commits:
 
-| ID                     | Repository / Checkout / Branch              | Policy       | Hash | Status   |
-| ---------------------- | ------------------------------------------- | ------------ | ---- | -------- |
+| ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status  |
+| ------------------------------ | ------------------------------------------- | ------------ | ----- | ------- |
 | `add-astro-project-collection` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `DRAFT` |
 
 ##### Commit: `add-astro-project-collection`
@@ -449,8 +642,8 @@ feat(noodlestan-web): add Astro project collection
 
 #### Commits:
 
-| ID                     | Repository / Checkout / Branch              | Policy       | Hash | Status   |
-| ---------------------- | ------------------------------------------- | ------------ | ---- | -------- |
+| ID                            | Repository / Checkout / Branch              | Policy       | Hash  | Status  |
+| ----------------------------- | ------------------------------------------- | ------------ | ----- | ------- |
 | `render-projects-on-homepage` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `DRAFT` |
 
 ##### Commit: `render-projects-on-homepage`

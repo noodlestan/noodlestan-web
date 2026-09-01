@@ -21,196 +21,551 @@ RULE: If at any point you are instructed to **REPORT A BLOCKER** or you encounte
 
 ## Path Variables
 
-| Variable          | Resolved Path                         | Purpose                                              |
-| ----------------- | ------------------------------------- | ---------------------------------------------------- |
-| `$WORKSPACE`      | Current working directory             | Workspace root directory                             |
-| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout                   |
-| `$MANAGEMENT`     | `$WORKSPACE/checkouts/management`     | Management repository checkout                       |
-| `$ARTISANS`       | `$WORKSPACE/checkouts/artisans`       | Artisans repository checkout                         |
-| `$OPS`            | `$WORKSPACE/checkouts/ops`            | Ops repository checkout                              |
+| Variable          | Resolved Path                          | Purpose                           |
+| ----------------- | -------------------------------------- | --------------------------------- |
+| `$WORKSPACE`      | Current working directory              | Workspace root directory          |
+| `$DOMAINS`        | `$WORKSPACE/.agents/domains`           | Domain resources directory        |
+| `$CHECKOUTS`      | `$WORKSPACE/checkouts`                 | All repository checkouts          |
 
 ## Goals
 
-Populate the new `code`, `website`, and `management` fields in all project records across checkouts.
+Populate the new `code`, `website`, and `management` fields in all project records across all checkouts, and update each repository's `_guide.md` using the project-guide template.
 
 ## Mandatory Reading
 
 ::READ `$DOMAINS/projects/structures/project.art` (Structure) — The project structure with new fields.
+::READ `$DOMAINS/noodlestan/routines/create-project-guide.art` (Routine) — How to generate project guides.
+::READ `$DOMAINS/noodlestan/templates/project-guide.tart` (Template) — The project guide template.
 
 ---
 
 ## Changes
 
-- Step 1 / 9 — Populate Noodlestan Web project record
-- Step 2 / 9 — Commit `populate-noodlestan-web-fields`
-- Step 3 / 9 — Populate Management project record
-- Step 4 / 9 — Commit `populate-management-fields`
-- Step 5 / 9 — Populate Artisans project record
-- Step 6 / 9 — Commit `populate-artisans-fields`
-- Step 7 / 9 — Populate Ops project record
-- Step 8 / 9 — Commit `populate-ops-fields`
-- Step 9 / 9 — Verify all changes
+- Step 1 / 14 — Noodlestan Web
+- Step 2 / 14 — Management
+- Step 3 / 14 — Artisans
+- Step 4 / 14 — Ops
+- Step 5 / 14 — Art Domains
+- Step 6 / 14 — Art JS
+- Step 7 / 14 — Artificials
+- Step 8 / 14 — Conventions
+- Step 9 / 14 — Purrception
+- Step 10 / 14 — Purrfect
+- Step 11 / 14 — Purrpose
+- Step 12 / 14 — Purrtrait
+- Step 13 / 14 — Workspace Tooling
+- Step 14 / 14 — Verify all changes
 
 ## Steps
 
-### Step `1 / 9` — Populate Noodlestan Web project record
+Each repository step follows the same pattern:
 
-Read `$NOODLESTAN_WEB/_records/project.art` and `$NOODLESTAN_WEB/_records/repository.art`.
+1. `cd` into the checkout, `git pull`, `git checkout -b add-project-fields-and-update-guide`.
+2. Read `_records/project.art` and `_records/repository.art`.
+3. Update `project.art` with `code`, `website` (if not private), and `management` fields. Refine Purpose and Description to be under 200 chars each.
+4. Execute the create-project-guide routine to update `_guide.md` (preserve important existing content, remove redundancy).
+5. Commit with the repository-specific message below.
+6. STOP — Wait for user review before proceeding to the next repository.
 
-Update the project record to add:
+---
 
-```md
-**Code:** https://github.com/noodlestan/noodlestan-web
+### Step `1 / 14` — Noodlestan Web
 
-**Website:** https://noodlestan.org
+**Checkout:** `$CHECKOUTS/noodlestan-web`
 
-**Management:**
-
-Use Workflow: Planning Work and a local Backlog at `$NOODLESTAN_WEB/_backlog/`.
+```bash
+cd $CHECKOUTS/noodlestan-web && git pull && git checkout -b add-project-fields-and-update-guide
 ```
 
-Place `**Code:**` and `**Website:**` after `**Repository:**`. Place `**Management:**` before `**License:**`.
+Update `_records/project.art`:
+- `**Code:** https://github.com/noodlestan/noodlestan-web`
+- `**Website:** https://noodlestan.org`
+- `**Management:** Use Workflow: Planning Work and a local Backlog at `_backlog/`.`
+- Place after `**Repository:**`, before `**License:**`.
 
-Also refine:
-- `**Purpose:**` — must describe what the project does, under 200 chars.
-- `**Description:**` — must describe what the project consists of / how it works, under 200 chars.
-
-### Step `2 / 9` — Commit `populate-noodlestan-web-fields`
-
-Stage and commit the Noodlestan Web project record.
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
 ---
 
 #### Commit: `populate-noodlestan-web-fields`
 
-**Repository:** `$NOODLESTAN_WEB`
+**Repository:** `$CHECKOUTS/noodlestan-web`
 
 **Policy:** MANUAL — Wait for user review before proceeding.
 
 **Message:**
 
 ```
-records(noodlestan-web): Populate new project fields
+records(noodlestan-web): Populate new project fields and update guide
 
 - Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
 ```
 
 ---
 
 STOP — Wait for user review before proceeding.
 
-### Step `3 / 9` — Populate Management project record
+### Step `2 / 14` — Management
 
-Read `$MANAGEMENT/_records/project.art` and `$MANAGEMENT/_records/repository.art`.
+**Checkout:** `$CHECKOUTS/management`
 
+```bash
+cd $CHECKOUTS/management && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
 - Private: `true` — no website URL.
-- Add `**Code:**` from repository remote: `https://github.com/noodlestan/_mgmt`
-- Add `**Management:**` — describe how the project is managed (read `_guide.md` for clues about roadmaps and planning).
-- Refine Purpose and Description to be under 200 chars each.
+- `**Code:** https://github.com/noodlestan/_mgmt`
+- `**Management:**` — describe how the project is managed (read `_guide.md` for clues about roadmaps and planning).
+- Place after `**Repository:**`, before `**License:**`.
 
-Place `**Code:**` after `**Repository:**`. Place `**Management:**` before `**License:**`.
-
-### Step `4 / 9` — Commit `populate-management-fields`
-
-Stage and commit the Management project record.
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
 ---
 
 #### Commit: `populate-management-fields`
 
-**Repository:** `$MANAGEMENT`
+**Repository:** `$CHECKOUTS/management`
 
 **Policy:** MANUAL — Wait for user review before proceeding.
 
 **Message:**
 
 ```
-records(management): Populate new project fields
+records(management): Populate new project fields and update guide
 
 - Add code and management fields to project record.
+- Update _guide.md using project-guide template.
 ```
 
 ---
 
 STOP — Wait for user review before proceeding.
 
-### Step `5 / 9` — Populate Artisans project record
+### Step `3 / 14` — Artisans
 
-Read `$ARTISANS/_records/project.art` and `$ARTISANS/_records/repository.art`.
+**Checkout:** `$CHECKOUTS/artisans`
 
+```bash
+cd $CHECKOUTS/artisans && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
 - Private: `false` — add website URL.
-- Add `**Code:**` from repository remote: `https://github.com/noodlestan/artisans`
-- Add `**Website:**` — determine from the app. Art-Mantras is at `https://art-mantras.noodlestan.org`.
-- Add `**Management:**` — describe how the project is managed.
-- Refine Purpose and Description to be under 200 chars each.
+- `**Code:** https://github.com/noodlestan/artisans`
+- `**Website:** https://art-mantras.noodlestan.org`
+- `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
 
-Place `**Code:**` and `**Website:**` after `**Repository:**`. Place `**Management:**` before `**License:**`.
-
-### Step `6 / 9` — Commit `populate-artisans-fields`
-
-Stage and commit the Artisans project record.
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
 ---
 
 #### Commit: `populate-artisans-fields`
 
-**Repository:** `$ARTISANS`
+**Repository:** `$CHECKOUTS/artisans`
 
 **Policy:** MANUAL — Wait for user review before proceeding.
 
 **Message:**
 
 ```
-records(artisans): Populate new project fields
+records(artisans): Populate new project fields and update guide
 
 - Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
 ```
 
 ---
 
 STOP — Wait for user review before proceeding.
 
-### Step `7 / 9` — Populate Ops project record
+### Step `4 / 14` — Ops
 
-Read `$OPS/_records/project.art` and `$OPS/_records/repository.art`.
+**Checkout:** `$CHECKOUTS/ops`
 
+```bash
+cd $CHECKOUTS/ops && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
 - Private: `true` — no website URL.
-- Add `**Code:**` from repository remote: `https://github.com/noodlestan/_ops`
-- Add `**Management:**` — describe how the project is managed (Terraform workflows, ops procedures).
-- Refine Purpose and Description to be under 200 chars each.
+- `**Code:** https://github.com/noodlestan/_ops`
+- `**Management:**` — describe how the project is managed (Terraform workflows, ops procedures).
+- Place after `**Repository:**`, before `**License:**`.
 
-Place `**Code:**` after `**Repository:**`. Place `**Management:**` before `**License:**`.
-
-### Step `8 / 9` — Commit `populate-ops-fields`
-
-Stage and commit the Ops project record.
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
 
 ---
 
 #### Commit: `populate-ops-fields`
 
-**Repository:** `$OPS`
+**Repository:** `$CHECKOUTS/ops`
 
 **Policy:** MANUAL — Wait for user review before proceeding.
 
 **Message:**
 
 ```
-records(ops): Populate new project fields
+records(ops): Populate new project fields and update guide
 
 - Add code and management fields to project record.
+- Update _guide.md using project-guide template.
 ```
 
 ---
 
 STOP — Wait for user review before proceeding.
 
-### Step `9 / 9` — Verify all changes
+### Step `5 / 14` — Art Domains
 
-Read all four updated project records and verify:
-- `code` field exists and is a valid GitHub URL.
-- `website` field exists for non-private projects.
-- `management` field exists and describes the project's management approach.
+**Checkout:** `$CHECKOUTS/art-domains`
+
+```bash
+cd $CHECKOUTS/art-domains && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-art-domains-fields`
+
+**Repository:** `$CHECKOUTS/art-domains`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(art-domains): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `6 / 14` — Art JS
+
+**Checkout:** `$CHECKOUTS/art-js`
+
+```bash
+cd $CHECKOUTS/art-js && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-art-js-fields`
+
+**Repository:** `$CHECKOUTS/art-js`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(art-js): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `7 / 14` — Artificials
+
+**Checkout:** `$CHECKOUTS/artificials`
+
+```bash
+cd $CHECKOUTS/artificials && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-artificials-fields`
+
+**Repository:** `$CHECKOUTS/artificials`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(artificials): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `8 / 14` — Conventions
+
+**Checkout:** `$CHECKOUTS/conventions`
+
+```bash
+cd $CHECKOUTS/conventions && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-conventions-fields`
+
+**Repository:** `$CHECKOUTS/conventions`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(conventions): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `9 / 14` — Purrception
+
+**Checkout:** `$CHECKOUTS/purrception`
+
+```bash
+cd $CHECKOUTS/purrception && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-purrception-fields`
+
+**Repository:** `$CHECKOUTS/purrception`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(purrception): Populate new project fields and update guide
+
+- Add code, website,, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `10 / 14` — Purrfect
+
+**Checkout:** `$CHECKOUTS/purrfect`
+
+```bash
+cd $CHECKOUTS/purrfect && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-purrfect-fields`
+
+**Repository:** `$CHECKOUTS/purrfect`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(purrfect): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `11 / 14` — Purrpose
+
+**Checkout:** `$CHECKOUTS/purrpose`
+
+```bash
+cd $CHECKOUTS/purrpose && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-purrpose-fields`
+
+**Repository:** `$CHECKOUTS/purrpose`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(purrpose): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `12 / 14` — Purrtrait
+
+**Checkout:** `$CHECKOUTS/purrtrait`
+
+```bash
+cd $CHECKOUTS/purrtrait && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-purrtrait-fields`
+
+**Repository:** `$CHECKOUTS/purrtrait`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(purrtrait): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `13 / 14` — Workspace Tooling
+
+**Checkout:** `$CHECKOUTS/workspace-tooling`
+
+```bash
+cd $CHECKOUTS/workspace-tooling && git pull && git checkout -b add-project-fields-and-update-guide
+```
+
+Update `_records/project.art`:
+- Read `_records/repository.art` for remote URL.
+- Add `**Code:**` from repository remote.
+- Add `**Website:**` if not private (subdomain of noodlestan.org).
+- Add `**Management:**` — describe how the project is managed.
+- Place after `**Repository:**`, before `**License:**`.
+
+Execute routine `$DOMAINS/noodlestan/routines/create-project-guide.art` to update `_guide.md`.
+
+---
+
+#### Commit: `populate-workspace-tooling-fields`
+
+**Repository:** `$CHECKOUTS/workspace-tooling`
+
+**Policy:** MANUAL — Wait for user review before proceeding.
+
+**Message:**
+
+```
+records(workspace-tooling): Populate new project fields and update guide
+
+- Add code, website, and management fields to project record.
+- Update _guide.md using project-guide template.
+```
+
+---
+
+STOP — Wait for user review before proceeding.
+
+### Step `14 / 14` — Verify all changes
+
+For each of the 13 repositories, verify:
+- Branch `add-project-fields-and-update-guide` exists and is checked out.
+- `_records/project.art` has `code`, `website` (if not private), and `management` fields.
+- `_guide.md` has been updated using the project-guide template.
 - Purpose and Description are each under 200 chars.
 
 ---
@@ -219,6 +574,7 @@ Read all four updated project records and verify:
 
 **Instructions:**
 
-- Verify all four project records have the new fields.
-- Verify commits have been staged (but NOT pushed — policy MANUAL).
+- Verify all 13 project records have the new fields.
+- Verify all 13 guides have been updated.
+- Verify commits have been staged on branches (but NOT pushed — policy MANUAL).
 - Report according to the "How to Report Back to the Delegator" instructions.
