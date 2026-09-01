@@ -233,7 +233,7 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 | Iteration / Instructions                                                                                   | Status  |
 | ---------------------------------------------------------------------------------------------------------- | ------- |
 | Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DONE`  |
-| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `READY` |
+| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DONE` |
 | Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DRAFT` |
 | Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DRAFT` |
 | Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DRAFT` |
@@ -286,13 +286,15 @@ domains(projects): Add code, website, and management fields to Project structure
 
 **Id:** `populate-project-fields`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Populate the new `code`, `website`, and `management` fields in all project records across all checkouts, and update each repository's `_guide.md`.
 
 **Description:** For each checkout with `_records/project.art`: branch, read project and repository records, update project.art with new fields, execute the create-project-guide routine to update `_guide.md`, and commit. All commits are policy AUTONOMOUS.
 
 **Instructions:** `./plan-publish-project-list/instructions/populate-project-fields.md`
+
+**Report:** `./plan-publish-project-list/instructions/populate-project-fields__report.md`
 
 **Changes:**
 
@@ -318,19 +320,19 @@ domains(projects): Add code, website, and management fields to Project structure
 
 | ID                                  | Repository / Checkout / Branch                                                   | Policy       | Hash  | Status     |
 | ----------------------------------- | -------------------------------------------------------------------------------- | ------------ | ----- | ---------- |
-| `populate-noodlestan-web-fields`    | Noodlestan Web / `$NOODLESTAN_WEB` / `add-project-fields-and-update-guide`       | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-management-fields`        | Management / `$MANAGEMENT` / `add-project-fields-and-update-guide`               | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-artisans-fields`          | Artisans / `$ARTISANS` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-ops-fields`               | Ops / `$OPS` / `add-project-fields-and-update-guide`                             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-art-domains-fields`       | Art Domains / `$ART_DOMAINS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-art-js-fields`            | Art JS / `$ART_JS` / `add-project-fields-and-update-guide`                       | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-artificials-fields`       | Artificials / `$ARTIFICIALS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-conventions-fields`       | Conventions / `$CONVENTIONS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-purrception-fields`       | Purrception / `$PURRCEPTION` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-purrfect-fields`          | Purrfect / `$PURRFECT` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-purrpose-fields`          | Purrpose / `$PURRPOSE` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-purrtrait-fields`         | Purrtrait / `$PURRTRAIT` / `add-project-fields-and-update-guide`                 | `AUTONOMOUS` | (TBD) | `AUTHORED` |
-| `populate-workspace-tooling-fields` | Workspace Tooling / `$WORKSPACE_TOOLING` / `add-project-fields-and-update-guide` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `populate-noodlestan-web-fields`    | Noodlestan Web / `$NOODLESTAN_WEB` / `add-project-fields-and-update-guide`       | `AUTONOMOUS` | `da4cd5d` | `COMMITTED` |
+| `populate-management-fields`        | Management / `$MANAGEMENT` / `add-project-fields-and-update-guide`               | `AUTONOMOUS` | `37b7b7c` | `COMMITTED` |
+| `populate-artisans-fields`          | Artisans / `$ARTISANS` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `e516a17` | `COMMITTED` |
+| `populate-ops-fields`               | Ops / `$OPS` / `add-project-fields-and-update-guide`                             | `AUTONOMOUS` | `a3f1c33` | `COMMITTED` |
+| `populate-art-domains-fields`       | Art Domains / `$ART_DOMAINS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `25b9033` | `COMMITTED` |
+| `populate-art-js-fields`            | Art JS / `$ART_JS` / `add-project-fields-and-update-guide`                       | `AUTONOMOUS` | `4bc5df0` | `COMMITTED` |
+| `populate-artificials-fields`       | Artificials / `$ARTIFICIALS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `3dc4359` | `COMMITTED` |
+| `populate-conventions-fields`       | Conventions / `$CONVENTIONS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `b0f6589` | `COMMITTED` |
+| `populate-purrception-fields`       | Purrception / `$PURRCEPTION` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `f6cb1c5` | `COMMITTED` |
+| `populate-purrfect-fields`          | Purrfect / `$PURRFECT` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `166a5a7` | `COMMITTED` |
+| `populate-purrpose-fields`          | Purrpose / `$PURRPOSE` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `d0fd9cf` | `COMMITTED` |
+| `populate-purrtrait-fields`         | Purrtrait / `$PURRTRAIT` / `add-project-fields-and-update-guide`                 | `AUTONOMOUS` | `ab03ba4` | `COMMITTED` |
+| `populate-workspace-tooling-fields` | Workspace Tooling / `$WORKSPACE_TOOLING` / `add-project-fields-and-update-guide` | `AUTONOMOUS` | `b4538e3` | `COMMITTED` |
 
 ##### Commit: `populate-noodlestan-web-fields`
 
@@ -718,7 +720,8 @@ npm run workspace sanity # to check git status across all repos
 
 ### Evidence
 
-- TBD.
+- All 13 project records populated with `code`, `website` (non-private with known subdomain), and `management` fields; all 13 `_guide.md` files regenerated via the project-guide template. Purposes/Descriptions verified under 200 chars.
+- Commits created on each `add-project-fields-and-update-guide` branch (not pushed, policy MANUAL). See report: `./plan-publish-project-list/instructions/populate-project-fields__report.md`.
 
 ### Findings
 
@@ -743,4 +746,4 @@ None.
 
 ### Feedback
 
-None.
+- `website` added only where a public subdomain was clearly known (noodlestan-web, artisans, purrfect). For other non-private repos (art-domains, art-js, artificials, conventions, purrception, purrpose, purrtrait) no subdomain was evident, so `website` was omitted rather than fabricated. Planner may want to specify these if intended.
