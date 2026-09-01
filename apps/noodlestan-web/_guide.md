@@ -47,15 +47,6 @@ npm ci # to install dependencies.
 Run from this package directory:
 
 ```bash
-npm run build # to produce a full build
-```
-
-### Operating Instructions: Verifying Completion
-
-**Instructions:**
-
-Run from this package directory:
-
-```bash
+npm run lint # to report formatting issues
 npm run build # to produce a full build
 ```

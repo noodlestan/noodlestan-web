@@ -233,7 +233,7 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 | Iteration / Instructions                                                                                   | Status  |
 | ---------------------------------------------------------------------------------------------------------- | ------- |
 | Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DONE`  |
-| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DONE` |
+| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DONE`  |
 | Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DRAFT` |
 | Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DRAFT` |
 | Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DRAFT` |
@@ -318,8 +318,8 @@ domains(projects): Add code, website, and management fields to Project structure
 
 #### Commits:
 
-| ID                                  | Repository / Checkout / Branch                                                   | Policy       | Hash  | Status     |
-| ----------------------------------- | -------------------------------------------------------------------------------- | ------------ | ----- | ---------- |
+| ID                                  | Repository / Checkout / Branch                                                   | Policy       | Hash      | Status      |
+| ----------------------------------- | -------------------------------------------------------------------------------- | ------------ | --------- | ----------- |
 | `populate-noodlestan-web-fields`    | Noodlestan Web / `$NOODLESTAN_WEB` / `add-project-fields-and-update-guide`       | `AUTONOMOUS` | `3188cb0` | `COMMITTED` |
 | `populate-management-fields`        | Management / `$MANAGEMENT` / `add-project-fields-and-update-guide`               | `AUTONOMOUS` | `c5a92f1` | `COMMITTED` |
 | `populate-artisans-fields`          | Artisans / `$ARTISANS` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `478afec` | `COMMITTED` |
@@ -336,168 +336,10 @@ domains(projects): Add code, website, and management fields to Project structure
 
 ##### Commit: `populate-noodlestan-web-fields`
 
-**Repository:** Repository: Noodlestan Web
-
 **Message:**
 
 ```
-records(noodlestan-web): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-management-fields`
-
-**Repository:** Repository: Management
-
-**Message:**
-
-```
-records(management): Populate new project fields and update guide
-
-- Add code and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-artisans-fields`
-
-**Repository:** Repository: Artisans
-
-**Message:**
-
-```
-records(artisans): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-ops-fields`
-
-**Repository:** Repository: Ops
-
-**Message:**
-
-```
-records(ops): Populate new project fields and update guide
-
-- Add code and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-art-domains-fields`
-
-**Repository:** Repository: Art Domains
-
-**Message:**
-
-```
-records(art-domains): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-art-js-fields`
-
-**Repository:** Repository: Art JS
-
-**Message:**
-
-```
-records(art-js): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-artificials-fields`
-
-**Repository:** Repository: Artificials
-
-**Message:**
-
-```
-records(artificials): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-conventions-fields`
-
-**Repository:** Repository: Conventions
-
-**Message:**
-
-```
-records(conventions): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-purrception-fields`
-
-**Repository:** Repository: Purrception
-
-**Message:**
-
-```
-records(purrception): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-purrfect-fields`
-
-**Repository:** Repository: Purrfect
-
-**Message:**
-
-```
-records(purrfect): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-purrpose-fields`
-
-**Repository:** Repository: Purrpose
-
-**Message:**
-
-```
-records(purrpose): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-purrtrait-fields`
-
-**Repository:** Repository: Purrtrait
-
-**Message:**
-
-```
-records(purrtrait): Populate new project fields and update guide
-
-- Add code, website, and management fields to project record.
-- Update _guide.md using project-guide template.
-```
-
-##### Commit: `populate-workspace-tooling-fields`
-
-**Repository:** Repository: Workspace Tooling
-
-**Message:**
-
-```
-records(workspace-tooling): Populate new project fields and update guide
+records({project-name}): Populate new project fields and update guide
 
 - Add code, website, and management fields to project record.
 - Update _guide.md using project-guide template.
