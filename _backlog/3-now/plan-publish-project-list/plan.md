@@ -320,18 +320,18 @@ domains(projects): Add code, website, and management fields to Project structure
 
 | ID                                  | Repository / Checkout / Branch                                                   | Policy       | Hash  | Status     |
 | ----------------------------------- | -------------------------------------------------------------------------------- | ------------ | ----- | ---------- |
-| `populate-noodlestan-web-fields`    | Noodlestan Web / `$NOODLESTAN_WEB` / `add-project-fields-and-update-guide`       | `AUTONOMOUS` | `da4cd5d` | `COMMITTED` |
-| `populate-management-fields`        | Management / `$MANAGEMENT` / `add-project-fields-and-update-guide`               | `AUTONOMOUS` | `37b7b7c` | `COMMITTED` |
-| `populate-artisans-fields`          | Artisans / `$ARTISANS` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `e516a17` | `COMMITTED` |
-| `populate-ops-fields`               | Ops / `$OPS` / `add-project-fields-and-update-guide`                             | `AUTONOMOUS` | `a3f1c33` | `COMMITTED` |
-| `populate-art-domains-fields`       | Art Domains / `$ART_DOMAINS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `25b9033` | `COMMITTED` |
-| `populate-art-js-fields`            | Art JS / `$ART_JS` / `add-project-fields-and-update-guide`                       | `AUTONOMOUS` | `4bc5df0` | `COMMITTED` |
+| `populate-noodlestan-web-fields`    | Noodlestan Web / `$NOODLESTAN_WEB` / `add-project-fields-and-update-guide`       | `AUTONOMOUS` | `3188cb0` | `COMMITTED` |
+| `populate-management-fields`        | Management / `$MANAGEMENT` / `add-project-fields-and-update-guide`               | `AUTONOMOUS` | `c5a92f1` | `COMMITTED` |
+| `populate-artisans-fields`          | Artisans / `$ARTISANS` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `478afec` | `COMMITTED` |
+| `populate-ops-fields`               | Ops / `$OPS` / `add-project-fields-and-update-guide`                             | `AUTONOMOUS` | `be99372` | `COMMITTED` |
+| `populate-art-domains-fields`       | Art Domains / `$ART_DOMAINS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `b324bef` | `COMMITTED` |
+| `populate-art-js-fields`            | Art JS / `$ART_JS` / `add-project-fields-and-update-guide`                       | `AUTONOMOUS` | `604e549` | `COMMITTED` |
 | `populate-artificials-fields`       | Artificials / `$ARTIFICIALS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `3dc4359` | `COMMITTED` |
-| `populate-conventions-fields`       | Conventions / `$CONVENTIONS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `b0f6589` | `COMMITTED` |
-| `populate-purrception-fields`       | Purrception / `$PURRCEPTION` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `f6cb1c5` | `COMMITTED` |
-| `populate-purrfect-fields`          | Purrfect / `$PURRFECT` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `166a5a7` | `COMMITTED` |
-| `populate-purrpose-fields`          | Purrpose / `$PURRPOSE` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `d0fd9cf` | `COMMITTED` |
-| `populate-purrtrait-fields`         | Purrtrait / `$PURRTRAIT` / `add-project-fields-and-update-guide`                 | `AUTONOMOUS` | `ab03ba4` | `COMMITTED` |
+| `populate-conventions-fields`       | Conventions / `$CONVENTIONS` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `37780ae` | `COMMITTED` |
+| `populate-purrception-fields`       | Purrception / `$PURRCEPTION` / `add-project-fields-and-update-guide`             | `AUTONOMOUS` | `1807218` | `COMMITTED` |
+| `populate-purrfect-fields`          | Purrfect / `$PURRFECT` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `7f4c7cb` | `COMMITTED` |
+| `populate-purrpose-fields`          | Purrpose / `$PURRPOSE` / `add-project-fields-and-update-guide`                   | `AUTONOMOUS` | `59760d2` | `COMMITTED` |
+| `populate-purrtrait-fields`         | Purrtrait / `$PURRTRAIT` / `add-project-fields-and-update-guide`                 | `AUTONOMOUS` | `8a3b959` | `COMMITTED` |
 | `populate-workspace-tooling-fields` | Workspace Tooling / `$WORKSPACE_TOOLING` / `add-project-fields-and-update-guide` | `AUTONOMOUS` | `b4538e3` | `COMMITTED` |
 
 ##### Commit: `populate-noodlestan-web-fields`
