@@ -21,6 +21,7 @@
     "test": "turbo run test",
     "extract": "echo no purrception yet",
     "update-project-records": "tsx scripts/copy-project-records.ts",
+    "update-project-collection": "tsx scripts/create-collection.ts",
     "ci": "turbo run ci"
   },
   "devDependencies": {

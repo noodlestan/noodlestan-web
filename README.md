@@ -13,6 +13,7 @@ A collection of tools and resources to generate and manage agent instructions. I
 ## Scripts
 
 - **$** `npm run update-project-records` — Copies `project.art` records from workspace `_records/` into the noodlestan-web data directory.
+- **$** `npm run update-project-collection` — Generates `data/projects/collection.json` from `data/_records/projects`.
 - **$** `npm run build` — Build all packages.
 - **$** `npm run lint` — Lint all packages.
 - **$** `npm run ci` — Full CI pass (lint + build + test).

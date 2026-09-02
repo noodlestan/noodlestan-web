@@ -81,6 +81,18 @@ npm run update-project-records
 
 Copies project.art files from workspace `_records/repositories` into the noodlestan-web `data/_records/projects/` directory.
 
+### Operating Instructions: Updating Project Collection
+
+**Instructions:**
+
+Run from the repository root (monorepo):
+
+```bash
+npm run update-project-collection
+```
+
+Generates `data/projects/collection.json` from the project.art files in `data/_records/projects/`.
+
 ### Operating Instructions: Verifying Completion
 
 **Instructions:**
