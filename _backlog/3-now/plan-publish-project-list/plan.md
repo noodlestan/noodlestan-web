@@ -2,7 +2,7 @@
 
 **Id:** `publish-project-list`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
