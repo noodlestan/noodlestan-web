@@ -2,9 +2,9 @@
 
 ## Project: Artisans
 
-**Purpose:** Artisan applications built with Art JS.
+**Purpose:** Have fun with artificials.
 
-**Description:** Owns Art-Mantras and other artisan applications.
+**Description:** Creative and experimental micro projects developed entirely using Artificials.
 
 **Owner:** Project: Artificials
 
@@ -22,7 +22,7 @@
 
 **Private:** `false`
 
-**Management:** Uses Workflow: Planning Work with a local Backlog at `apps/art-mantras/_backlog/`.
+**Management:** Uses Workflow: Planning Work with one backlog per package, coordinating with Workflow: Roadmapping from one project-wide roadmap.
 
 **License:** License: Noodlestan 2026 MIT
 

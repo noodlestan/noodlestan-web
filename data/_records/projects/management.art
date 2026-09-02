@@ -1,12 +1,12 @@
 # Module
 
-## Project: Management
+## Project: Noodlestan Management
 
-**Purpose:** Manage roadmap, projects, and shared assets.
+**Purpose:** Coordinate Noodlestan projects and their roadmaps and orgnanize shared assets.
 
-**Description:** Roadmap, ideas, research notes, and incubation material for the Noodlestan ecosystem.
+**Description:** Noodlestan's top-level roadmap, ideas, research notes, and incubation material.
 
-**Owner:** Project: Management
+**Owner:** Project: Noodlestan Management
 
 **Author:** Noodlestan Collective
 
@@ -20,7 +20,7 @@
 
 **Private:** `true`
 
-**Management:** Uses Workflow: Roadmapping (roadmap at `_roadmap/`) and Workflow: Planning Work (backlog at `_backlog/`).
+**Management:** Umbrella project; Coordinates other projects with Workflow: Roadmapping from one organization-wide roadmap. Manages incubation backlogs with Workflow: Planning Work.
 
 **License:** License: Noodlestan 2026 MIT
 

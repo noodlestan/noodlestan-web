@@ -2,11 +2,11 @@
 
 ## Project: Noodlestan Web
 
-**Purpose:** Initialize Noodlestan Website — Astro-based website for Noodlestan.
+**Purpose:** Noodlestan says Hello World.
 
-**Description:** Standalone website repository for Noodlestan, hosting the Astro website application.
+**Description:** Repository of Noodlestan websites — typically built with Astro.
 
-**Owner:** Project: Management
+**Owner:** Project: Noodlestan Management
 
 **Author:** Noodlestan Collective
 
@@ -22,7 +22,7 @@
 
 **Private:** `false`
 
-**Management:** Uses Workflow: Planning Work and a local Backlog at `_backlog/`.
+**Management:** Uses Workflow: Planning Work with one backlog per package, coordinating with Workflow: Roadmapping from one project-wide roadmap.
 
 **License:** License: Noodlestan 2026 MIT
 

@@ -1,12 +1,12 @@
 # Module
 
-## Project: Conventions
+## Project: Noodlestan Conventions
 
-**Purpose:** Maintain reusable Noodlestan conventions as a standalone reference package.
+**Purpose:** Distributable Noodlestan conventions written in Art.
 
-**Description:** A private documentation and reference package containing convention documents and their inventory.
+**Description:** Conventions packages for Noodlestan stack, including Typescript, JSX, Solid JS, and SCSS.
 
-**Owner:** Project: Management
+**Owner:** Project: Noodlestan Management
 
 **Author:** Noodlestan Collective
 

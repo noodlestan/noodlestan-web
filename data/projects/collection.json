@@ -1,0 +1,156 @@
+[
+  {
+    "id": "art-domains",
+    "project": {
+      "name": "Art Domains",
+      "purpose": "Extends agentic working environments with structured instructions projected from stable sources of truth.",
+      "description": "Distributable artificial resources within knowledge and work domains: structures, templates, processes, agent instructions, modes, and skills.",
+      "website": null,
+      "code": "https://github.com/noodlestan/art-domains",
+      "repository": "Repository: Art Domains",
+      "owner": "Project: Artificials",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "art-js",
+    "project": {
+      "name": "Art JS",
+      "purpose": "Art MD implemented in JS: parse, validate, transform, and serialize back to Art MD or Markdown.",
+      "description": "Libraries for parsing and working with Art MD content, resources, modules, programs, and projections.",
+      "website": null,
+      "code": "https://github.com/noodlestan/art-js",
+      "repository": "Repository: Art JS",
+      "owner": "Project: Artificials",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "artificials",
+    "project": {
+      "name": "Artificials",
+      "purpose": "Generate and manage (Art)ificial Driven Development environments.",
+      "description": "A collection of tools and resources to generate and manage knowledge artefacts and agent instructions.",
+      "website": null,
+      "code": "https://github.com/noodlestan/artificials",
+      "repository": "Repository: Artificials",
+      "owner": "Project: Noodlestan Management",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "artisans",
+    "project": {
+      "name": "Artisans",
+      "purpose": "Have fun with artificials.",
+      "description": "Creative and experimental micro projects developed entirely using Artificials.",
+      "website": "https://art-mantras.noodlestan.org",
+      "code": "https://github.com/noodlestan/artisans",
+      "repository": "Repository: Artisans",
+      "owner": "Project: Artificials",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "noodlestan-conventions",
+    "project": {
+      "name": "Noodlestan Conventions",
+      "purpose": "Distributable Noodlestan conventions written in Art.",
+      "description": "Conventions packages for Noodlestan stack, including Typescript, JSX, Solid JS, and SCSS.",
+      "website": null,
+      "code": "https://github.com/noodlestan/conventions",
+      "repository": "Repository: Conventions",
+      "owner": "Project: Noodlestan Management",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "no-comply",
+    "project": {
+      "name": "No Comply",
+      "purpose": "Context-aware UI system built with SolidJS and modern CSS.",
+      "description": "SolidJS layered library ecosystem spanning foundational types, accessibility primitives, contexts and services, composable controllers, a themeable component library, and developer tooling.",
+      "website": null,
+      "code": "https://github.com/noodlestan/no-comply",
+      "repository": "Repository: No Comply",
+      "owner": "Project: Noodlestan Management",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "noodlestan-web",
+    "project": {
+      "name": "Noodlestan Web",
+      "purpose": "Noodlestan says Hello World.",
+      "description": "Repository of Noodlestan websites — typically built with Astro.",
+      "website": "https://noodlestan.org",
+      "code": "https://github.com/noodlestan/noodlestan-web",
+      "repository": "Repository: Noodlestan Web",
+      "owner": "Project: Noodlestan Management",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "purrception",
+    "project": {
+      "name": "Purrception",
+      "purpose": "Extract and compose metadata from source code and artefacts.",
+      "description": "Collection of abstractions and tools for building metadata extraction pipelines from local and remote sources using heuristics, schemas, and factories.",
+      "website": null,
+      "code": "https://github.com/noodlestan/purrception",
+      "repository": "Repository: Purrception",
+      "owner": "Project: Noodlestan Management",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "purrfect",
+    "project": {
+      "name": "Purrfect",
+      "purpose": "Extract, compose, and expose metadata to support the discovery, interpretation, and operation of artefacts.",
+      "description": "Collection of composable tools and abstractions for building metadata extraction pipelines, aggregations, indexes, visualizations, and metadata endpoints.",
+      "website": null,
+      "code": "https://github.com/noodlestan/purrfect",
+      "repository": "Repository: Purrfect",
+      "owner": "Project: Noodlestan Management",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "purrpose",
+    "project": {
+      "name": "Purrpose",
+      "purpose": "In browser source code and metadata transformations.",
+      "description": "Single-purpose utilities for in-browser transformations: JSX/TSX compilation, SolidJS JSX transform presets, and Shiki-based syntax highlighting.",
+      "website": null,
+      "code": "https://github.com/noodlestan/purrpose",
+      "repository": "Repository: Purrpose",
+      "owner": "Project: Noodlestan Management",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "purrtrait",
+    "project": {
+      "name": "Purrtrait",
+      "purpose": "Transform, render and visualize metadata about source code and artefacts.",
+      "description": "Collection of tools for rendering code, visualizing metadata, and creating representations for humans and tools.",
+      "website": null,
+      "code": "https://github.com/noodlestan/purrtrait",
+      "repository": "Repository: Purrtrait",
+      "owner": "Project: Noodlestan Management",
+      "resources": [],
+      "private": false
+    }
+  }
+]

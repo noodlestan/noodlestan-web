@@ -2,11 +2,11 @@
 
 ## Project: Purrfect
 
-**Purpose:** Manage the Purrception, Purrtrait, and Purrpose projects.
+**Purpose:** Extract, compose, and expose metadata to support the discovery, interpretation, and operation of artefacts.
 
-**Description:** Collection of tools for extracting and visualising codebase metadata.
+**Description:** Collection of composable tools and abstractions for building metadata extraction pipelines, aggregations, indexes, visualizations, and metadata endpoints.
 
-**Owner:** Project: Management
+**Owner:** Project: Noodlestan Management
 
 **Author:** Noodlestan Collective
 
@@ -20,7 +20,7 @@
 
 **Private:** `false`
 
-**Management:** Manages its owned projects (Purrception, Purrtrait, Purrpose) through the Workflow: Planning Work.
+**Management:** Umbrella project; Coordinates other projects with Workflow: Roadmapping from one project-wide roadmap.
 
 **License:** License: Noodlestan 2026 MIT
 

@@ -1,12 +1,12 @@
 # Module
 
-## Project: Ops
+## Project: Noodlestan Ops
 
-**Purpose:** AWS infrastructure as code for Noodlestan projects.
+**Purpose:** Infrastructure as code for Noodlestan projects.
 
-**Description:** Terraform configurations for managing DNS zones, SSL certificates, S3 buckets, CloudFront distributions, and state backends. Organized into accounts, backend, domains, and modules.
+**Description:** Terraform configurations for managing AWS resources: DNS zones, SSL certificates, S3 buckets, CloudFront distributions, and state backends. Organized into accounts, backend, domains, and modules.
 
-**Owner:** Project: Management
+**Owner:** Project: Noodlestan Management
 
 **Author:** Noodlestan Collective
 
@@ -20,7 +20,7 @@
 
 **Private:** `true`
 
-**Management:** Uses Workflow: Planning Work with a backlog at `_backlog/`.
+**Management:** Uses Workflow: Planning Work with a single backlog.
 
 **License:** License: Noodlestan 2025 MIT
 
