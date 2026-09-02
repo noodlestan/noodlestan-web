@@ -238,6 +238,7 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 | Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DONE`  |
 | Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DONE`  |
 | Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `DONE`  |
+| Iteration: Sync Project Records and Collection — | `DONE`  |
 
 ### Iteration: Add Fields to Project Structure
 
@@ -518,6 +519,72 @@ build(noodlestan-web): render project list on homepage
 
 - Query projects collection via getCollection("projects").
 - Display name, code (GitHub), website, purpose, and description.
+```
+
+
+### Iteration: Sync Project Records and Collection
+
+**Id:** `sync-project-records`
+
+**Status:** `DONE`
+
+**Purpose:** Commit remaining uncommitted changes: updated project/repo records, re-synced project copies, and generated collection.
+
+**Description:** The `populate-project-fields` and `copy-project-records` iterations left behind updated root records and re-synced copies. The `create-collection` iteration generated `collection.json`. These are all unstaged. Commit them in two logical commits: first the project identity updates, then the re-synced data and generated output.
+
+**Dependencies:**
+
+- Iteration: Create Collection (generates `collection.json`).
+- Iteration: Populate New Project Fields (source of updated record content).
+
+#### Commits:
+
+| ID                            | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
+| ----------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
+| `update-project-identity`     | Noodlestan Web / `$NOODLESTAN_WEB` / `publish-project-list` | `MANUAL` | `cee0388` | `COMMITTED` |
+| `sync-project-collection`     | Noodlestan Web / `$NOODLESTAN_WEB` / `publish-project-list` | `MANUAL` | `ef1cd36` | `COMMITTED` |
+
+##### Commit: `update-project-identity`
+
+**Repository:** `$NOODLESTAN_WEB`
+
+**Policy:** MANUAL — Commit and wait for crew approval.
+
+**Files:**
+
+- `_records/project.art` — updated purpose, description, owner, management
+- `_records/repository.art` — updated purpose, description
+- `README.md` — title and description reflect monorepo
+- `_guide.md` — workflow details and monorepo description
+- `package.json` — name and description updated
+
+**Message:**
+
+```
+docs(noodlestan-web): update project and repository identity
+
+- Update purpose, description, and owner in project and repository records.
+- Reflect monorepo scope in README, _guide, and package.json.
+```
+
+##### Commit: `sync-project-collection`
+
+**Repository:** `$NOODLESTAN_WEB`
+
+**Policy:** MANUAL — Commit and wait for crew approval.
+
+**Files:**
+
+- `data/_records/projects/*.art` — 14 re-synced project records with updated fields
+- `data/projects/collection.json` — generated JSON collection (untracked)
+
+**Message:**
+
+```
+data(noodlestan-web): sync project records and generated collection
+
+- Re-sync 14 project record copies with updated purpose, description, management.
+- Commit generated collection.json from create-collection script.
 ```
 
 ---
