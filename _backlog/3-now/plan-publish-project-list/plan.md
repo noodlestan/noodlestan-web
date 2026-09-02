@@ -236,7 +236,7 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 | Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DONE`  |
 | Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DONE`  |
 | Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DONE`  |
-| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `READY` |
+| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DONE`  |
 | Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `READY` |
 
 ### Iteration: Add Fields to Project Structure
@@ -441,13 +441,15 @@ build(noodlestan-web): add project collection builder
 
 **Id:** `create-astro-collection`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Create an Astro content collection that reads the JSON project data using the Content Layer API.
 
 **Description:** Create `src/content.config.ts` using `file()` loader from `astro/loaders`. Schema reflects collection.json items: `id` + nested `project` object (name, purpose, description, website, code, repository, owner, resources, private).
 
 **Instructions:** `./plan-publish-project-list/instructions/create-astro-collection.md`
+
+**Report:** `./plan-publish-project-list/instructions/create-astro-collection__report.md`
 
 **Changes:**
 
@@ -462,7 +464,7 @@ build(noodlestan-web): add project collection builder
 
 | ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
 | ------------------------------ | ------------------------------------------- | ------------ | ----- | ---------- |
-| `add-astro-project-collection` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `add-astro-project-collection` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `a8f568d` | `COMMITTED` |
 
 ##### Commit: `add-astro-project-collection`
 
@@ -522,7 +524,7 @@ build(noodlestan-web): render project list on homepage
 
 ### Next
 
-Delegate `create-astro-collection` (READY).
+Delegate `render-projects` (READY).
 
 ### Blockers
 
