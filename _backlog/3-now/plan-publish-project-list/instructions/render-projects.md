@@ -123,10 +123,12 @@ const projects = await getCollection("projects");
 			<div>
 				<h3>{project.data.project.name}</h3>
 				<div>
-					<p>
-						Repository:{" "}
-						<a href={project.data.project.code}>GitHub</a>
-					</p>
+					{project.data.project.code && (
+						<p>
+							Repository:{" "}
+							<a href={project.data.project.code}>GitHub</a>
+						</p>
+					)}
 					{project.data.project.website && (
 						<p>
 							Website:{" "}
@@ -147,7 +149,7 @@ Key design decisions:
 - Uses `getCollection("projects")` — the canonical Astro Content Layer API.
 - No CSS — plain HTML only.
 - Uses `project.data.project.name`, `project.data.project.code`, `project.data.project.website`, etc. (nested `project` object per collection.json shape).
-- `project.data.project.code` used for the GitHub link URL (always present — create-collection derives it from the repository name when missing).
+- `project.data.project.code` used for the GitHub link URL (derived from the `Remote` field by create-collection when missing; link only rendered when present).
 - `project.data.project.website` used for the website link.
 
 ### Step `2 / 3` — Verify build works

@@ -202,8 +202,10 @@ async function loadProjectRecords(dir: string): Promise<ProjectRecord[]> {
     }
 
     if (!code) {
-      const repoName = repository.replace('Repository: ', '');
-      code = `https://github.com/noodlestan/${kebab(repoName)}`;
+      const remote = extractField(content, 'Remote');
+      if (remote) {
+        code = `https://github.com/${remote}`;
+      }
     }
 
     let owner = extractField(content, 'Owner') || '';
@@ -265,7 +267,7 @@ Key design decisions:
 - Writes `collection.json` to `data/projects/`.
 - Uses kebabified project name as the `id` (matches the filename produced by copy-project-records).
 - Extracts `website` and `code` fields directly from project.art (no mapping).
-- When `code` is missing, derives `https://github.com/noodlestan/{kebab(repoName)}` from the repository field (e.g. "No Comply" → `https://github.com/noodlestan/no-comply`).
+- When `code` is missing, derives `https://github.com/{remote}` from the `Remote` field that copy-project-records appends to each copied record (e.g. `noodlestan/no-comply` → `https://github.com/noodlestan/no-comply`). No hardcoded org.
 - Keeps all `resources` from project.art (e.g. "Application: ...", "Package: ...", "Namespace: ...").
 - Filters out private projects from the JSON output.
 - Each collection item has an `id` field and a nested `project` object (required by Astro's file() loader).

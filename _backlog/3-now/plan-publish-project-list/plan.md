@@ -364,6 +364,7 @@ records({project-name}): Populate new project fields and update guide
 - Install `simple-git@^3.24.0` and `tsx@^4.8.1` as dev dependencies in root `package.json`.
 - Create `$NOODLESTAN_WEB/scripts/copy-project-records.ts`.
 - Create `$NOODLESTAN_WEB/data/_records/projects/` directory.
+- Enrich each copied project.art with a `Remote` field (from the repository record) so downstream scripts can derive URLs without hardcoding the org.
 
 **Dependencies:**
 
@@ -398,7 +399,7 @@ build(noodlestan-web): add project records copy script
 
 **Purpose:** Create a script that builds a JSON collection from copied project records.
 
-**Description:** Create `scripts/create-collection.ts` that loads project records from `data/_records/projects/`, extracts fields from project.art (including `id`, `website`, `code`), filters out private projects, and saves to `data/projects/collection.json`. Add `update-project-collection` npm script and document it in README and `_guide.md`.
+**Description:** Create `scripts/create-collection.ts` that loads project records from `data/_records/projects/`, extracts fields from project.art (including `id`, `website`, `code`), derives `code` from the `Remote` field when missing, filters out private projects, and saves to `data/projects/collection.json`. Add `update-project-collection` npm script and document it in README and `_guide.md`.
 
 **Instructions:** `./plan-publish-project-list/instructions/create-collection.md`
 

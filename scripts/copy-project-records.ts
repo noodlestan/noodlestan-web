@@ -107,7 +107,11 @@ async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void
 
 	mkdirSync(DATA_DIR, { recursive: true });
 	const dest = join(DATA_DIR, `${repo.resource.id}.art`);
-	writeFileSync(dest, readFileSync(projectRecord, 'utf-8'));
+	const content = readFileSync(projectRecord, 'utf-8');
+	// Enrich the copied record with the repository remote so downstream scripts
+	// can derive URLs (e.g. GitHub) without hardcoding the org.
+	const enriched = `${content.trimEnd()}\n\n**Remote:** \`${repo.resource.remote}\`\n`;
+	writeFileSync(dest, enriched);
 	console.log(`Copied project record: ${repo.resource.id}`);
 }
 

@@ -232,7 +232,11 @@ async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void
 
   mkdirSync(DATA_DIR, { recursive: true });
   const dest = join(DATA_DIR, `${repo.resource.id}.art`);
-  writeFileSync(dest, readFileSync(projectRecord, 'utf-8'));
+  const content = readFileSync(projectRecord, 'utf-8');
+  // Enrich the copied record with the repository remote so downstream scripts
+  // can derive URLs (e.g. GitHub) without hardcoding the org.
+  const enriched = `${content.trimEnd()}\n\n**Remote:** \`${repo.resource.remote}\`\n`;
+  writeFileSync(dest, enriched);
   console.log(`Copied project record: ${repo.resource.id}`);
 }
 
@@ -261,6 +265,7 @@ Key design decisions:
 - Skips branch check and pull for the hosting repo (`noodlestan-web`), which runs the script and may be on a feature branch during the plan.
 - Skips `git pull` for checkouts with uncommitted changes (warns instead of throwing), so leftover workspace state does not block the copy.
 - Skips repos without `project.art` with a warning.
+- Appends a `Remote` field (e.g. `noodlestan/no-comply`) to each copied record, extracted from the repository record, so downstream scripts can derive URLs without hardcoding the org.
 
 ### Step `4 / 5` — Verify script works
 
