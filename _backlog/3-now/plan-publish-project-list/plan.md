@@ -237,7 +237,7 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 | Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DONE`  |
 | Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DONE`  |
 | Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DONE`  |
-| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `READY` |
+| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `DONE`  |
 
 ### Iteration: Add Fields to Project Structure
 
@@ -483,13 +483,15 @@ build(noodlestan-web): add Astro project collection
 
 **Id:** `render-projects`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Update the homepage to display the project list from the Astro collection.
 
 **Description:** Update `src/pages/index.astro` to query the projects collection via `getCollection("projects")` and render each project with name, repository link, website link, purpose, and description. Uses nested `project.data.project.*` fields. No CSS.
 
 **Instructions:** `./plan-publish-project-list/instructions/render-projects.md`
+
+**Report:** `./plan-publish-project-list/instructions/render-projects__report.md`
 
 **Changes:**
 
@@ -503,7 +505,7 @@ build(noodlestan-web): add Astro project collection
 
 | ID                            | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
 | ----------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
-| `render-projects-on-homepage` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `render-projects-on-homepage` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `dbed616` | `COMMITTED` |
 
 ##### Commit: `render-projects-on-homepage`
 
@@ -524,7 +526,7 @@ build(noodlestan-web): render project list on homepage
 
 ### Next
 
-Delegate `render-projects` (READY).
+All iterations DONE. Plan complete.
 
 ### Blockers
 
