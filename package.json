@@ -16,7 +16,7 @@
     "dev": "turbo run dev --ui tui",
     "clean": "turbo run build:clean",
     "build": "turbo run build",
-    "lint": "prettier . - && turbo run lint",
+    "lint": "prettier . -c && turbo run lint",
     "lint:fix": "prettier . -c --write && turbo run lint:fix",
     "test": "turbo run test",
     "extract": "echo no purrception yet",
