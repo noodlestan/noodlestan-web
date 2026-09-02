@@ -193,7 +193,7 @@ async function loadProjectRecords(dir: string): Promise<ProjectRecord[]> {
     const purpose = extractField(content, 'Purpose') || '';
     const description = extractField(content, 'Description') || '';
     const website = extractField(content, 'Website') || null;
-    const code = extractField(content, 'Code') || null;
+    let code = extractField(content, 'Code') || null;
     const private_ = extractBoolean(content, 'Private');
 
     let repository = extractField(content, 'Repository') || '';
@@ -201,15 +201,17 @@ async function loadProjectRecords(dir: string): Promise<ProjectRecord[]> {
       repository = `Repository: ${repository}`;
     }
 
+    if (!code) {
+      const repoName = repository.replace('Repository: ', '');
+      code = `https://github.com/noodlestan/${kebab(repoName)}`;
+    }
+
     let owner = extractField(content, 'Owner') || '';
     if (owner && !owner.startsWith('Project: ')) {
       owner = `Project: ${owner}`;
     }
 
-    const allResources = extractResources(content, 'Resources');
-    const resources = allResources.filter(
-      r => r.startsWith('Project: ') || r.startsWith('Repository: '),
-    );
+    const resources = extractResources(content, 'Resources');
 
     return {
       id,
@@ -261,8 +263,10 @@ Key design decisions:
 
 - Reads `.art` files from `data/_records/projects/` (where `copy-project-records.ts` writes them).
 - Writes `collection.json` to `data/projects/`.
-- Uses filename (already kebabified by copy-project-records) as the `id`.
+- Uses kebabified project name as the `id` (matches the filename produced by copy-project-records).
 - Extracts `website` and `code` fields directly from project.art (no mapping).
+- When `code` is missing, derives `https://github.com/noodlestan/{kebab(repoName)}` from the repository field (e.g. "No Comply" → `https://github.com/noodlestan/no-comply`).
+- Keeps all `resources` from project.art (e.g. "Application: ...", "Package: ...", "Namespace: ...").
 - Filters out private projects from the JSON output.
 - Each collection item has an `id` field and a nested `project` object (required by Astro's file() loader).
 - Throws on missing H1 (consistent with `loadRepositoryRecords` in `copy-project-records.ts`).
@@ -318,6 +322,7 @@ Verify:
 - Script completes without errors.
 - `data/projects/collection.json` contains a JSON array.
 - Each item has `id` and a nested `project` object with `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`, `private`.
+- Every item has a `code` URL (derived from repository name when missing).
 - Private projects are excluded.
 
 ### Step `6 / 6` — Commit `add-create-collection-script`

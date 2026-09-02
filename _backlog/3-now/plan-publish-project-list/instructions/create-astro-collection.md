@@ -103,7 +103,7 @@ import { file } from "astro/loaders";
 import { z } from "astro/zod";
 
 const projects = defineCollection({
-  loader: file("../../../data/projects/collection.json"),
+  loader: file("../../data/projects/collection.json"),
   schema: z.object({
     id: z.string(),
     project: z.object({
@@ -129,7 +129,7 @@ Key design decisions:
 - Uses `src/content.config.ts` (not `src/content/config.ts`) for Astro's Content Layer API.
 - Uses `file()` loader from `astro/loaders` — the canonical Astro approach.
 - Schema reflects `collection.json` items: `id` + nested `project` object with `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`, `private`.
-- `file()` path resolves relative to `config.root` (apps/noodlestan-web/): `../../../data/projects/collection.json` reaches the repo root `data/projects/`.
+- `file()` path resolves relative to `config.root` (the Astro app dir `apps/noodlestan-web/`): `../../data/projects/collection.json` reaches the repo root `data/projects/`. (NOT `../../../` — that would escape the repo into `checkouts/data/`.)
 
 ### Step `2 / 3` — Verify build works
 

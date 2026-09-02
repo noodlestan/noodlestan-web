@@ -38,7 +38,7 @@ The plan workflow (see the entry point guide → Planning Workflow → Working T
 
 ## Goals
 
-Create a script that copies project.art files from workspace checkouts into the noodlestan-web `data/projects/` directory.
+Create a script that copies project.art files from workspace checkouts into the noodlestan-web `data/_records/projects/` directory.
 
 ## Mandatory Reading
 
@@ -86,10 +86,10 @@ npm run ci # lint, test and build
 Additionally, verify the script works:
 
 ```bash
-npx tsx scripts/copy-project-records.tsx
+npx tsx scripts/copy-project-records.ts
 ```
 
-Verify it completes without errors and populates `data/projects/` with `.art` files.
+Verify it completes without errors and populates `data/_records/projects/` with `.art` files.
 
 ---
 
@@ -98,8 +98,8 @@ Verify it completes without errors and populates `data/projects/` with `.art` fi
 This section summarises the changes to be made in this iteration.
 
 - Step 1 / 5 — Install `simple-git` and `tsx` dev dependencies
-- Step 2 / 5 — Create `data/projects/` directory
-- Step 3 / 5 — Create `scripts/copy-project-records.tsx`
+- Step 2 / 5 — Create `data/_records/projects/` directory
+- Step 3 / 5 — Create `scripts/copy-project-records.ts`
 - Step 4 / 5 — Verify script works
 - Step 5 / 5 — Commit `add-copy-records-script`
 
@@ -115,15 +115,15 @@ cd $NOODLESTAN_WEB && npm install --save-dev simple-git@^3.24.0 tsx@^4.8.1
 
 ### Step `2 / 5` — Create data directory
 
-Create the `data/projects/` directory in `$NOODLESTAN_WEB`.
+Create the `data/_records/projects/` directory in `$NOODLESTAN_WEB`.
 
 ```bash
-mkdir -p $NOODLESTAN_WEB/data/projects
+mkdir -p $NOODLESTAN_WEB/data/_records/projects
 ```
 
-### Step `3 / 5` — Create copy-project-records.tsx
+### Step `3 / 5` — Create copy-project-records.ts
 
-Create `$NOODLESTAN_WEB/scripts/copy-project-records.tsx` with the following logic:
+Create `$NOODLESTAN_WEB/scripts/copy-project-records.ts` with the following logic:
 
 ```typescript
 import { execSync } from 'node:child_process';
@@ -142,7 +142,7 @@ type RepositoryRecord = {
 
 const WORKSPACE = resolve(import.meta.dirname, '../../..');
 const RECORDS_DIR = join(WORKSPACE, '_records/repositories');
-const DATA_DIR = join(import.meta.dirname, '../data/projects');
+const DATA_DIR = join(import.meta.dirname, '../data/_records/projects');
 const HOSTING_REPO = 'noodlestan-web';
 
 function kebab(name: string): string {
@@ -267,13 +267,13 @@ Key design decisions:
 Run the script to verify it works:
 
 ```bash
-cd $NOODLESTAN_WEB && npx tsx scripts/copy-project-records.tsx
+cd $NOODLESTAN_WEB && npx tsx scripts/copy-project-records.ts
 ```
 
 Verify:
 
 - Script completes without errors.
-- `data/projects/` contains `.art` files for each repository that has a `project.art`.
+- `data/_records/projects/` contains `.art` files for each repository that has a `project.art`.
 
 ### Step `5 / 5` — Commit `add-copy-records-script`
 
@@ -299,6 +299,6 @@ build(publish-project-list): add project records copy script
 **Instructions:**
 
 - Verify that the script runs without errors.
-- Verify that `data/projects/` contains `.art` files.
+- Verify that `data/_records/projects/` contains `.art` files.
 - Verify that commits have been executed and pushed according to the commit's policy.
 - Report according to the "How to Report Back to the Delegator" instructions.

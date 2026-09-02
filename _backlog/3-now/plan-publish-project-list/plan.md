@@ -118,9 +118,9 @@ This plan adds a project listing to the Noodlestan Website.
 
 **Changes:**
 
-- Add `simple-git` dev dependency to root `package.json`.
-- Create `$NOODLESTAN_WEB/scripts/copy-project-records.tsx` — copies project records from checkouts.
-- Create `$NOODLESTAN_WEB/scripts/create-collection.tsx` — builds JSON collection from project records.
+- Add `simple-git` and `tsx` dev dependencies to root `package.json`.
+- Create `$NOODLESTAN_WEB/scripts/copy-project-records.ts` — copies project records from checkouts.
+- Create `$NOODLESTAN_WEB/scripts/create-collection.ts` — builds JSON collection from project records.
 - Create Astro collection config for projects.
 - Update homepage to render project list.
 
@@ -353,7 +353,7 @@ records({project-name}): Populate new project fields and update guide
 
 **Purpose:** Create a script that copies project.art files from workspace checkouts into the noodlestan-web data directory.
 
-**Description:** Install `simple-git` and `tsx` as dev dependencies. Create `scripts/copy-project-records.tsx` that loads repository records from `_records/repositories/*.art`, clones/verifies each checkout, and copies `_records/project.art` to `data/projects/`.
+**Description:** Install `simple-git` and `tsx` as dev dependencies. Create `scripts/copy-project-records.ts` that loads repository records from `_records/repositories/*.art`, clones/verifies each checkout, and copies `_records/project.art` to `data/_records/projects/`.
 
 **Instructions:** `./plan-publish-project-list/instructions/copy-project-records.md`
 
@@ -362,8 +362,8 @@ records({project-name}): Populate new project fields and update guide
 **Changes:**
 
 - Install `simple-git@^3.24.0` and `tsx@^4.8.1` as dev dependencies in root `package.json`.
-- Create `$NOODLESTAN_WEB/scripts/copy-project-records.tsx`.
-- Create `$NOODLESTAN_WEB/data/projects/` directory.
+- Create `$NOODLESTAN_WEB/scripts/copy-project-records.ts`.
+- Create `$NOODLESTAN_WEB/data/_records/projects/` directory.
 
 **Dependencies:**
 
@@ -379,14 +379,14 @@ records({project-name}): Populate new project fields and update guide
 
 **Repository:** Repository: Noodlestan Web
 
-**Hash:** `7dfca86`
+**Hash:** `d2fa4ba`
 
 **Message:**
 
 ```
 build(noodlestan-web): add project records copy script
 
-- Install simple-git dev dependency.
+- Install simple-git and tsx dev dependencies.
 - Create copy-project-records script to clone repos and copy project.art files.
 ```
 
@@ -471,7 +471,7 @@ build(noodlestan-web): add project collection builder
 build(noodlestan-web): add Astro project collection
 
 - Define projects collection config using file() loader from astro/loaders.
-- Schema validates ProjectRecord fields: id, name, website, code, etc.
+- Schema validates collection.json items: id + nested project object (name, purpose, description, website, code, repository, owner, resources, private).
 ```
 
 ### Iteration: Render Projects on Homepage
@@ -519,7 +519,7 @@ build(noodlestan-web): render project list on homepage
 
 ### Next
 
-Draft instructions for the first iteration: Copy Project Records.
+Delegate `create-collection` (READY).
 
 ### Blockers
 
@@ -575,7 +575,7 @@ npm run workspace sanity # to check git status across all repos
 
 - All 13 project records populated with `code`, `website` (non-private with known subdomain), and `management` fields; all 13 `_guide.md` files regenerated via the project-guide template. Purposes/Descriptions verified under 200 chars.
 - Commits created on each `add-project-fields-and-update-guide` branch (not pushed, policy MANUAL). See report: `./plan-publish-project-list/instructions/populate-project-fields__report.md`.
-- `copy-project-records` DONE: `scripts/copy-project-records.tsx` created; script verified and populated `data/projects/` with 14 `.art` files; commit `7dfca86` pushed to `origin/publish-project-list`. See report: `./plan-publish-project-list/instructions/copy-project-records__report.md`.
+- `copy-project-records` DONE: `scripts/copy-project-records.ts` created; script verified and populated `data/_records/projects/` with 14 `.art` files; commit `d2fa4ba` pushed to `origin/publish-project-list`. See report: `./plan-publish-project-list/instructions/copy-project-records__report.md`.
 
 ### Findings
 
@@ -584,7 +584,7 @@ npm run workspace sanity # to check git status across all repos
 
 ### Decisions
 
-- **JSON as intermediate format** — Scripts produce a flat JSON file that Astro reads via a content collection. Simple, debuggable, replaceable later.
+- **JSON as intermediate format** — Scripts produce a JSON file (items with `id` + nested `project` object) that Astro reads via a content collection. Simple, debuggable, replaceable later.
 - **simple-git for repo operations** — Used for clone, pull, branch, and config verification in the copy script.
 - **Flat list** — No hierarchy in this iteration; just display all projects.
 

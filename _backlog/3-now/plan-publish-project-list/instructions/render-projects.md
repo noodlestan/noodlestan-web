@@ -125,9 +125,7 @@ const projects = await getCollection("projects");
 				<div>
 					<p>
 						Repository:{" "}
-						<a href={project.data.project.code || `https://github.com/${project.data.project.repository.replace("Repository: ", "")}`}>
-							GitHub
-						</a>
+						<a href={project.data.project.code}>GitHub</a>
 					</p>
 					{project.data.project.website && (
 						<p>
@@ -149,7 +147,7 @@ Key design decisions:
 - Uses `getCollection("projects")` — the canonical Astro Content Layer API.
 - No CSS — plain HTML only.
 - Uses `project.data.project.name`, `project.data.project.code`, `project.data.project.website`, etc. (nested `project` object per collection.json shape).
-- `project.data.project.code` used for the GitHub link URL; falls back to constructing from repository name.
+- `project.data.project.code` used for the GitHub link URL (always present — create-collection derives it from the repository name when missing).
 - `project.data.project.website` used for the website link.
 
 ### Step `2 / 3` — Verify build works
