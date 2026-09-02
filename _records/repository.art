@@ -2,9 +2,9 @@
 
 ## Repository: Noodlestan Web
 
-**Purpose:** Initialize Noodlestan Website — Astro-based website for Noodlestan.
+**Purpose:** Host the Noodlestan websites source code and content and manage their backlogs.
 
-**Description:** Standalone website repository for Noodlestan, hosting the Astro website application.
+**Description:** Monorepo containing source code of Noodlestan websites and their backlogs, and shared content reusable in websites hosted in other repositories.
 
 **Owner:** Project: Noodlestan Web
 

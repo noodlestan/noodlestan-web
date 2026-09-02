@@ -1,6 +1,10 @@
-# Noodlestan Web
+# Guide: Noodlestan Web
 
-Standalone website repository for Noodlestan, hosting the Astro website application.
+> Host the Noodlestan websites source code and content and manage their backlogs.
+
+Monorepo containing source code of Noodlestan websites and their backlogs, and shared content reusable in websites hosted in other repositories.
+
+Uses Workflow: Planning Work with one backlog per package, coordinating with Workflow: Roadmapping from one project-wide roadmap.
 
 ## Recommended Reading
 

@@ -1,8 +1,8 @@
-# Artificial
+# Noodlestan Web
 
-> Generate and manage (Art)ificial Driven Development environments.
+> Noodlestan says Hello World.
 
-A collection of tools and resources to generate and manage agent instructions. Includes the Art Language, and a (reactive) pipeline for bundling, compiling, validating, parsing, and locating resources.
+Repository of Noodlestan websites - typically built with Astro.
 
 ## Applications
 
