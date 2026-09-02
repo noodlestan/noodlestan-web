@@ -235,7 +235,7 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 | Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DONE`  |
 | Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DONE`  |
 | Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DONE`  |
-| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `READY` |
+| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DONE`  |
 | Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `READY` |
 | Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `READY` |
 
@@ -395,13 +395,15 @@ build(noodlestan-web): add project records copy script
 
 **Id:** `create-collection`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Create a script that builds a JSON collection from copied project records.
 
 **Description:** Create `scripts/create-collection.ts` that loads project records from `data/_records/projects/`, extracts fields from project.art (including `id`, `website`, `code`), derives `code` from the `Remote` field when missing, filters out private projects, and saves to `data/projects/collection.json`. Add `update-project-collection` npm script and document it in README and `_guide.md`.
 
 **Instructions:** `./plan-publish-project-list/instructions/create-collection.md`
+
+**Report:** `./plan-publish-project-list/instructions/create-collection__report.md`
 
 **Changes:**
 
@@ -419,7 +421,7 @@ build(noodlestan-web): add project records copy script
 
 | ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
 | ------------------------------ | ------------------------------------------- | ------------ | ----- | ---------- |
-| `add-create-collection-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| `add-create-collection-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `323351c` | `COMMITTED` |
 
 ##### Commit: `add-create-collection-script`
 
@@ -520,7 +522,7 @@ build(noodlestan-web): render project list on homepage
 
 ### Next
 
-Delegate `create-collection` (READY).
+Delegate `create-astro-collection` (READY).
 
 ### Blockers
 
