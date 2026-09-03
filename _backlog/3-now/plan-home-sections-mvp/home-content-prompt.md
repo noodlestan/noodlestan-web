@@ -1,14 +1,102 @@
 # Prompt: noodlestan.org Homepage Content
 
-You are a copywriter for a small open-source software collective. Write the outline and copy for the homepage of **noodlestan.org**. Plain, warm, direct language. No marketing fluff, no buzzwords, no exclamation marks. Short paragraphs. Write for developers and designers who might want to use our tools or join us.
+You are a copywriter for a ~small open-source software collective~. lonely developer seeing friends. Write the outline and copy for the homepage of **noodlestan.org**. Plain, warm, direct language. No marketing fluff, no buzzwords, no exclamation marks. Short paragraphs. Write for developers and designers who might want to use our tools or join us.
+
+## Projecs
+
+Noodlestan
+
+Welcome to noodlestan.org
+Projects
+Art Domains
+
+Repository: GitHub
+
+Extends agentic working environments with structured instructions projected from stable sources of truth.
+
+Distributable artificial resources within knowledge and work domains: structures, templates, processes, agent instructions, modes, and skills.
+Art JS
+
+Repository: GitHub
+
+Art MD implemented in JS: parse, validate, transform, and serialize back to Art MD or Markdown.
+
+Libraries for parsing and working with Art MD content, resources, modules, programs, and projections.
+Artificials
+
+Repository: GitHub
+
+Generate and manage (Art)ificial Driven Development environments.
+
+A collection of tools and resources to generate and manage knowledge artefacts and agent instructions.
+Artisans
+
+Repository: GitHub
+
+Website: https://art-mantras.noodlestan.org
+
+Have fun with artificials.
+
+Creative and experimental micro projects developed entirely using Artificials.
+No Comply
+
+Repository: GitHub
+
+Context-aware UI system built with SolidJS and modern CSS.
+
+SolidJS layered library ecosystem spanning foundational types, accessibility primitives, contexts and services, composable controllers, a themeable component library, and developer tooling.
+Noodlestan Conventions
+
+Repository: GitHub
+
+Distributable Noodlestan conventions written in Art.
+
+Conventions packages for Noodlestan stack, including Typescript, JSX, Solid JS, and SCSS.
+Noodlestan Web
+
+Repository: GitHub
+
+Website: https://noodlestan.org
+
+Noodlestan says Hello World.
+
+Repository of Noodlestan websites — typically built with Astro.
+Purrception
+
+Repository: GitHub
+
+Extract and compose metadata from source code and artefacts.
+
+Collection of abstractions and tools for building metadata extraction pipelines from local and remote sources using heuristics, schemas, and factories.
+Purrfect
+
+Repository: GitHub
+
+Extract, compose, and expose metadata to support the discovery, interpretation, and operation of artefacts.
+
+Collection of composable tools and abstractions for building metadata extraction pipelines, aggregations, indexes, visualizations, and metadata endpoints.
+Purrpose
+
+Repository: GitHub
+
+In browser source code and metadata transformations.
+
+Single-purpose utilities for in-browser transformations: JSX/TSX compilation, SolidJS JSX transform presets, and Shiki-based syntax highlighting.
+Purrtrait
+
+Repository: GitHub
+
+Transform, render and visualize metadata about source code and artefacts.
+
+Collection of tools for rendering code, visualizing metadata, and creating representations for humans and tools.
 
 ## Who we are
 
-Noodlestan is an open collective — friends, family, and neighbours — writing software because we love it. We build tools for developers: parsers, code renderers, documentation tooling, component libraries, and the infrastructure and conventions to hold it all together. Everything is public on GitHub under the MIT license.
+~Noodlestan is an open collective — friends, family, and neighbours — writing software because we love it.~ We build tools for developers: parsers, code renderers, documentation tooling, component libraries, and the infrastructure and conventions to hold it all together. Everything is public on GitHub under the MIT license.
 
-Our tagline candidate: "We are writing software because we love it."
+Our tagline candidate: "Writing software because. Just because."
 
-## What we are building
+##
 
 The ecosystem is 14 repositories that fit together in layers:
 
@@ -32,11 +120,6 @@ The ecosystem is 14 repositories that fit together in layers:
 - **Artisans** — Artisan applications built with Art JS.
 - **Artificials** — Umbrella project for shared resources and websites.
 - **Noodlestan Web** — This website.
-
-**Operations**
-
-- **Management** — Top-level roadmap, incubating project ideas, research and assets.
-- **Ops** — AWS infrastructure as code (Terraform): Route53, ACM, S3, CloudFront.
 
 ## How we work
 

@@ -2,7 +2,7 @@
 
 **Id:** `home-sections-mvp`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -111,20 +111,22 @@ This plan adds content sections to the noodlestan.org homepage.
 
 | Iteration / Instructions                                                                                | Status     |
 | ------------------------------------------------------------------------------------------------------- | ---------- |
-| Iteration: Write Homepage Content Prompt `plan-home-sections-mvp/instructions/write-content-prompt.md`  | `READY`    |
+| Iteration: Write Homepage Content Prompt `plan-home-sections-mvp/instructions/write-content-prompt.md`  | `DONE`     |
 | Iteration: Apply Content to Homepage `plan-home-sections-mvp/instructions/apply-content-to-homepage.md` | `PLANNING` |
 
 ### Iteration: Write Homepage Content Prompt
 
 **Id:** `write-content-prompt`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Create a detailed prompt for an AI writing tool to generate homepage outlines and copy.
 
 **Description:** Write a prompt that captures the Noodlestan ecosystem — what we are building, how we work and plan — and requests six sections: hero, what we build, how we work, a statement on AI usage, a call for contributors with a Discord invite link, and a footer.
 
 **Instructions:** `./plan-home-sections-mvp/instructions/write-content-prompt.md`
+
+**Report:** `./plan-home-sections-mvp/instructions/write-content-prompt__report.md`
 
 **Changes:**
 
@@ -142,9 +144,9 @@ This plan adds content sections to the noodlestan.org homepage.
 
 #### Commits:
 
-| ID                        | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
-| ------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
-| `add-home-content-prompt` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+| ID                        | Repository / Checkout / Branch              | Policy       | Hash      | Status      |
+| ------------------------- | ------------------------------------------- | ------------ | --------- | ----------- |
+| `add-home-content-prompt` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `4ffa68c` | `COMMITTED` |
 
 ##### Commit: `add-home-content-prompt`
 
@@ -214,7 +216,7 @@ build(noodlestan-web): apply content sections to homepage
 
 ### Next
 
-Delegate `write-content-prompt` (READY). Then crew runs the prompt and approves copy before `apply-content-to-homepage` can be drafted.
+`write-content-prompt` DONE — prompt created (`4ffa68c`). Next: crew runs the prompt and approves copy, then draft `apply-content-to-homepage` instructions.
 
 ### Blockers
 
