@@ -53,7 +53,8 @@ npm ci # to install dependencies.
 Run from this package directory:
 
 ```bash
-npm run lint # to report formatting issues
+npm run lint:fix # to fix formatting issues automatically
+npm run lint # to report other issues
 npm run build # to produce a full build
 ```
 

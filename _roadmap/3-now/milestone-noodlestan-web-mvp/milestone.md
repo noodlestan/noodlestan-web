@@ -20,10 +20,10 @@
 
 ## Path Variables
 
-| Variable          | Resolved Path                         | Purpose                            |
-| ----------------- | ------------------------------------- | ---------------------------------- |
-| `$WORKSPACE` | Current working directory             | Workspace root directory                             |
-| `$DOMAINS`   | `$WORKSPACE/.agents/domains`          | Domain resources directory                           |
+| Variable     | Resolved Path                | Purpose                    |
+| ------------ | ---------------------------- | -------------------------- |
+| `$WORKSPACE` | Current working directory    | Workspace root directory   |
+| `$DOMAINS`   | `$WORKSPACE/.agents/domains` | Domain resources directory |
 
 ## Summary
 
@@ -37,9 +37,9 @@ None.
 
 ### Upstream Work
 
-| Kind        | Path                                  | Role                                              |
-| ----------- | ------------------------------------- | ------------------------------------------------- |
-| Parking Lot | `_backlog/_parking-lot.md`                       | Tracks short-term actionables, pending questions.        |
+| Kind        | Path                       | Role                                              |
+| ----------- | -------------------------- | ------------------------------------------------- |
+| Parking Lot | `_backlog/_parking-lot.md` | Tracks short-term actionables, pending questions. |
 
 ### Required Skills
 
@@ -145,21 +145,21 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 ## Items:
 
-| Phase | Resource / Record                                                                               | Status     |
-| ----- | ----------------------------------------------------------------------------------------------- | ---------- |
-| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md`     | `DONE`     |
-| -     |                                                                                                 |            |
-| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`                  | `DONE`     |
-| `2`   | Plan: Home Sections MVP                                                                         |            |
-| -     |                                                                                                 |            |
-| `3`   | Plan: Design Exploration                                                                        |            |
-| `3`   | Plan: Tokenize and Style                                                                        |            |
+| Phase | Resource / Record                                                                          | Status  |
+| ----- | ------------------------------------------------------------------------------------------ | ------- |
+| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE`  |
+| -     |                                                                                            |         |
+| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE`  |
+| `2`   | Plan: Home Sections MVP `_backlog/3-now/plan-home-sections-mvp/plan.md`                    | `READY` |
+| -     |                                                                                            |         |
+| `3`   | Plan: Design Exploration                                                                   |         |
+| `3`   | Plan: Tokenize and Style                                                                   |         |
 
 ## Work
 
 ### Next
 
-Draft Plan: Home Sections MVP (Phase 2, second plan).
+Delegate Plan: Home Sections MVP iteration `write-content-prompt`.
 
 ### Blockers
 

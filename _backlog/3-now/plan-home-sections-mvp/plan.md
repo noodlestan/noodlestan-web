@@ -2,7 +2,7 @@
 
 **Id:** `home-sections-mvp`
 
-**Status:** `PLANNING`
+**Status:** `READY`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -24,8 +24,9 @@
 | ----------------- | ------------------------------------- | ---------------------------------- |
 | `$WORKSPACE`      | Current working directory             | Workspace root directory           |
 | `$DOMAINS`        | `$WORKSPACE/.agents/domains`          | Domain resources directory         |
-| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout |
+| `$NOODLESTAN_WEB` | Provided with Prompt.                 | Noodlestan Web repository checkout |
 | `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web` | The Astro application              |
+| `$MANAGEMENT`     | `$WORKSPACE/checkouts/management`     | Management repository checkout     |
 
 ## Summary
 
@@ -33,17 +34,19 @@ Add structured content sections to the noodlestan.org homepage: an introduction 
 
 ## Attachments
 
-None.
+- `home-content-prompt.md` — AI writing prompt (produced by iteration `write-content-prompt`).
+- `home-content.md` — approved homepage copy (produced by iteration `apply-content-to-homepage`).
 
 ## Context
 
 ### Upstream Work
 
-| Kind        | Path                                                                       | Role                                                            |
-| ----------- | -------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| Plan        | `_backlog/1-done/plan-publish-project-list/plan.md`                        | Completed — project list rendered on homepage.                  |
-| Milestone   | `$NOODLESTAN_WEB/_roadmap/3-now/milestone-noodlestan-web-mvp/milestone.md` | Owning Milestone.                                               |
-| Parking Lot | `_backlog/_parking-lot.md`                                                 | Tracks short-term actionables, pending questions, and blockers. |
+| Kind        | Path                                                                       | Role                                                                  |
+| ----------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| Brief       | `$MANAGEMENT/noodlestan-web/sites/noodlestan-org.md`                       | Early content outline for noodlestan.org (hero, contributing, about). |
+| Plan        | `_backlog/1-done/plan-publish-project-list/plan.md`                        | Completed — project list rendered on homepage.                        |
+| Milestone   | `$NOODLESTAN_WEB/_roadmap/3-now/milestone-noodlestan-web-mvp/milestone.md` | Owning Milestone.                                                     |
+| Parking Lot | `_backlog/_parking-lot.md`                                                 | Tracks short-term actionables, pending questions, and blockers.       |
 
 ### Required Skills
 
@@ -58,9 +61,9 @@ None.
 
 ### Resource Kinds in Scope
 
-| Kind        | Domain       | Structure Record Path                             |
-| ----------- | ------------ | ------------------------------------------------- |
-| Application | Applications | — WIP                                             |
+| Kind        | Domain       | Structure Record Path |
+| ----------- | ------------ | --------------------- |
+| Application | Applications | — WIP                 |
 
 ### Workflows
 
@@ -106,44 +109,54 @@ This plan adds content sections to the noodlestan.org homepage.
 
 ## Items:
 
-| Iteration / Instructions                                                         | Status  |
-| -------------------------------------------------------------------------------- | ------- |
-| Iteration: Write Homepage Content Prompt `plan-home-sections-mvp/instructions/write-content-prompt.md` | `PLANNING` |
+| Iteration / Instructions                                                                                | Status     |
+| ------------------------------------------------------------------------------------------------------- | ---------- |
+| Iteration: Write Homepage Content Prompt `plan-home-sections-mvp/instructions/write-content-prompt.md`  | `READY`    |
 | Iteration: Apply Content to Homepage `plan-home-sections-mvp/instructions/apply-content-to-homepage.md` | `PLANNING` |
 
 ### Iteration: Write Homepage Content Prompt
 
 **Id:** `write-content-prompt`
 
-**Status:** `PLANNING`
+**Status:** `READY`
 
 **Purpose:** Create a detailed prompt for an AI writing tool to generate homepage outlines and copy.
 
-**Description:** Write a prompt that captures the Noodlestan ecosystem — what we are building, how we work and plan — and requests specific content: an introduction, a statement on AI usage, and a call for contributors with a Discord invite link.
+**Description:** Write a prompt that captures the Noodlestan ecosystem — what we are building, how we work and plan — and requests six sections: hero, what we build, how we work, a statement on AI usage, a call for contributors with a Discord invite link, and a footer.
 
 **Instructions:** `./plan-home-sections-mvp/instructions/write-content-prompt.md`
 
 **Changes:**
 
-- Create `$NOODLESTAN_WEB/_docs/prompts/home-content.md` — the writing prompt.
-- Content must cover:
-  - Noodlestan ecosystem overview (14 repositories, what they do).
-  - How we work: workflows, planning, roadmaps, backlogs.
-  - What we are building: a collective of tools for codebase introspection, documentation, and developer experience.
-  - AI usage statement: how AI is used in the project and our philosophy on it.
-  - Call for contributors: what kind of contributors we need, Discord invite link.
+- Create `_backlog/3-now/plan-home-sections-mvp/home-content-prompt.md` — the writing prompt (plan attachment).
+- Prompt covers:
+  - Who we are: open collective, MIT, "We are writing software because we love it."
+  - Ecosystem overview: 14 repositories grouped in layers (foundations, introspection/docs, UI/apps, operations).
+  - How we work: workspace, roadmaps → milestones → plans → iterations, `.art` records, AI agents in defined roles.
+  - Requested sections: hero, what we build, how we work, on AI, join us (Discord `{DISCORD_INVITE_URL}` + GitHub), footer.
+  - Constraints: under 700 words, no invented facts, markdown output.
 
 **Dependencies:**
 
 - Plan: Publish Project List (project list exists on homepage, content builds on it).
 
-**Commit Blueprint:**
+#### Commits:
+
+| ID                        | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
+| ------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
+| `add-home-content-prompt` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `AUTHORED` |
+
+##### Commit: `add-home-content-prompt`
+
+**Repository:** Repository: Noodlestan Web
+
+**Message:**
 
 ```
 docs(noodlestan-web): add homepage content prompt
 
-- Create AI writing prompt for noodlestan.org homepage sections.
-- Cover ecosystem overview, AI usage statement, contributor call.
+- Add AI writing prompt for noodlestan.org homepage sections.
+- Cover ecosystem overview, how we work, AI usage statement, contributor call.
 ```
 
 ### Iteration: Apply Content to Homepage
@@ -154,29 +167,45 @@ docs(noodlestan-web): add homepage content prompt
 
 **Purpose:** Apply the AI-generated content and outlines to the homepage as structured sections.
 
-**Description:** Take the output from the content prompt and integrate it into `$APP/src/pages/index.astro` as structured HTML sections. Each section is a distinct content block (intro, AI statement, contributors).
+**Description:** Run the prompt through a writing AI, review the output with the crew, save the approved copy as a plan attachment, then integrate it into `$APP/src/pages/index.astro` as structured HTML sections. No CSS.
 
 **Instructions:** `./plan-home-sections-mvp/instructions/apply-content-to-homepage.md`
 
 **Changes:**
 
-- Update `$APP/src/pages/index.astro` with new sections:
-  - Hero/intro section introducing Noodlestan.
-  - Projects section (existing, from publish-project-list).
-  - AI usage statement section.
-  - Contributors section with Discord invite.
+- Save approved copy to `_backlog/3-now/plan-home-sections-mvp/home-content.md` (plan attachment).
+- Update `$APP/src/pages/index.astro` with sections in order:
+  - Hero.
+  - What we build.
+  - Projects (existing list, from publish-project-list).
+  - How we work.
+  - On AI.
+  - Join us (Discord + GitHub links).
+  - Footer.
 
 **Dependencies:**
 
-- Iteration: Write Homepage Content Prompt (content must be generated first).
+- Iteration: Write Homepage Content Prompt (prompt must exist).
+- Crew: run the prompt and approve the copy; supply the Discord invite URL.
 
-**Commit Blueprint:**
+#### Commits:
+
+| ID                    | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
+| --------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
+| `add-home-content`    | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `PLANNING` |
+| `apply-home-sections` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `PLANNING` |
+
+##### Commit: `apply-home-sections`
+
+**Repository:** Repository: Noodlestan Web
+
+**Message:**
 
 ```
 build(noodlestan-web): apply content sections to homepage
 
-- Add intro, AI usage, and contributors sections.
-- Integrate with existing project list section.
+- Add hero, what we build, how we work, on AI, join us, and footer sections.
+- Keep existing project list between what we build and how we work.
 ```
 
 ---
@@ -185,11 +214,11 @@ build(noodlestan-web): apply content sections to homepage
 
 ### Next
 
-Draft instructions for the first iteration: Write Homepage Content Prompt.
+Delegate `write-content-prompt` (READY). Then crew runs the prompt and approves copy before `apply-content-to-homepage` can be drafted.
 
 ### Blockers
 
-- None.
+- Crew: Discord invite URL is unknown — prompt and page use `{DISCORD_INVITE_URL}` placeholder until supplied.
 
 ## Operating Instructions
 
@@ -220,6 +249,18 @@ Run from the `$NOODLESTAN_WEB` root:
 
 ```bash
 npm ci # to install dependencies.
+```
+
+### Verifying Step
+
+**Instructions:**
+
+Run from this package directory:
+
+```bash
+npm run lint:fix # to fix formatting issues automatically
+npm run lint # to report other issues
+npm run build # to produce a full build
 ```
 
 ### Verifying Completion
