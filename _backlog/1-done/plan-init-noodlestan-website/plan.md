@@ -239,8 +239,8 @@ Execution is coordinated from `$WORKSPACE`. The repo scaffold and app developmen
 
 ## Items:
 
-| Iteration / Instructions                                                                                     | Status |
-| ------------------------------------------------------------------------------------------------------------ | ------ |
+| Iteration / Instructions                                                                                      | Status |
+| ------------------------------------------------------------------------------------------------------------- | ------ |
 | Iteration: Scaffold Noodlestan Web `plan-init-noodlestan-website/instructions/scaffold-repo.md`               | `DONE` |
 | Iteration: Provision Infrastructure `plan-init-noodlestan-website/instructions/provision-infra.md`            | `DONE` |
 | Iteration: Create and Deploy App `plan-init-noodlestan-website/instructions/create-app.md`                    | `DONE` |

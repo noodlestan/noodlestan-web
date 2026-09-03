@@ -230,15 +230,15 @@ Execution is coordinated from `$WORKSPACE`. Scripts run from `$NOODLESTAN_WEB`. 
 
 ## Items:
 
-| Iteration / Instructions                                                                                   | Status  |
-| ---------------------------------------------------------------------------------------------------------- | ------- |
-| Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DONE`  |
-| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DONE`  |
-| Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DONE`  |
-| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DONE`  |
-| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DONE`  |
-| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `DONE`  |
-| Iteration: Sync Project Records and Collection — | `DONE`  |
+| Iteration / Instructions                                                                                   | Status |
+| ---------------------------------------------------------------------------------------------------------- | ------ |
+| Iteration: Add Fields to Project Structure `plan-publish-project-list/instructions/add-project-fields.md`  | `DONE` |
+| Iteration: Populate New Project Fields `plan-publish-project-list/instructions/populate-project-fields.md` | `DONE` |
+| Iteration: Copy Project Records `plan-publish-project-list/instructions/copy-project-records.md`           | `DONE` |
+| Iteration: Create Collection `plan-publish-project-list/instructions/create-collection.md`                 | `DONE` |
+| Iteration: Create Astro Collection `plan-publish-project-list/instructions/create-astro-collection.md`     | `DONE` |
+| Iteration: Render Projects on Homepage `plan-publish-project-list/instructions/render-projects.md`         | `DONE` |
+| Iteration: Sync Project Records and Collection —                                                           | `DONE` |
 
 ### Iteration: Add Fields to Project Structure
 
@@ -420,8 +420,8 @@ build(noodlestan-web): add project records copy script
 
 #### Commits:
 
-| ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
-| ------------------------------ | ------------------------------------------- | ------------ | ----- | ---------- |
+| ID                             | Repository / Checkout / Branch              | Policy       | Hash      | Status      |
+| ------------------------------ | ------------------------------------------- | ------------ | --------- | ----------- |
 | `add-create-collection-script` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `323351c` | `COMMITTED` |
 
 ##### Commit: `add-create-collection-script`
@@ -463,8 +463,8 @@ build(noodlestan-web): add project collection builder
 
 #### Commits:
 
-| ID                             | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
-| ------------------------------ | ------------------------------------------- | ------------ | ----- | ---------- |
+| ID                             | Repository / Checkout / Branch              | Policy       | Hash      | Status      |
+| ------------------------------ | ------------------------------------------- | ------------ | --------- | ----------- |
 | `add-astro-project-collection` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `a8f568d` | `COMMITTED` |
 
 ##### Commit: `add-astro-project-collection`
@@ -504,8 +504,8 @@ build(noodlestan-web): add Astro project collection
 
 #### Commits:
 
-| ID                            | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
-| ----------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
+| ID                            | Repository / Checkout / Branch              | Policy       | Hash      | Status      |
+| ----------------------------- | ------------------------------------------- | ------------ | --------- | ----------- |
 | `render-projects-on-homepage` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | `dbed616` | `COMMITTED` |
 
 ##### Commit: `render-projects-on-homepage`
@@ -520,7 +520,6 @@ build(noodlestan-web): render project list on homepage
 - Query projects collection via getCollection("projects").
 - Display name, code (GitHub), website, purpose, and description.
 ```
-
 
 ### Iteration: Sync Project Records and Collection
 
@@ -539,10 +538,10 @@ build(noodlestan-web): render project list on homepage
 
 #### Commits:
 
-| ID                            | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
-| ----------------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
-| `update-project-identity`     | Noodlestan Web / `$NOODLESTAN_WEB` / `publish-project-list` | `MANUAL` | `cee0388` | `COMMITTED` |
-| `sync-project-collection`     | Noodlestan Web / `$NOODLESTAN_WEB` / `publish-project-list` | `MANUAL` | `ef1cd36` | `COMMITTED` |
+| ID                        | Repository / Checkout / Branch                              | Policy   | Hash      | Status      |
+| ------------------------- | ----------------------------------------------------------- | -------- | --------- | ----------- |
+| `update-project-identity` | Noodlestan Web / `$NOODLESTAN_WEB` / `publish-project-list` | `MANUAL` | `cee0388` | `COMMITTED` |
+| `sync-project-collection` | Noodlestan Web / `$NOODLESTAN_WEB` / `publish-project-list` | `MANUAL` | `ef1cd36` | `COMMITTED` |
 
 ##### Commit: `update-project-identity`
 

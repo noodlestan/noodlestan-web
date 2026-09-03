@@ -22,11 +22,11 @@ RULE: If at any point you are instructed to **REPORT A BLOCKER** or you encounte
 
 ## Path Variables
 
-| Variable          | Resolved Path                         | Purpose                                              |
-| ----------------- | ------------------------------------- | ---------------------------------------------------- |
-| `$WORKSPACE`      | Current working directory             | Workspace root directory                             |
-| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout                   |
-| `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web` | The Astro application                                |
+| Variable          | Resolved Path                         | Purpose                            |
+| ----------------- | ------------------------------------- | ---------------------------------- |
+| `$WORKSPACE`      | Current working directory             | Workspace root directory           |
+| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout |
+| `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web` | The Astro application              |
 
 ## Working Agreements
 
@@ -98,12 +98,12 @@ npm run build # to produce a full build
 Create `$APP/src/content.config.ts` with the following content:
 
 ```typescript
-import { defineCollection } from "astro:content";
-import { file } from "astro/loaders";
-import { z } from "astro/zod";
+import { defineCollection } from 'astro:content';
+import { file } from 'astro/loaders';
+import { z } from 'astro/zod';
 
 const projects = defineCollection({
-  loader: file("../../data/projects/collection.json"),
+  loader: file('../../data/projects/collection.json'),
   schema: z.object({
     id: z.string(),
     project: z.object({
@@ -126,6 +126,7 @@ export const collections = {
 ```
 
 Key design decisions:
+
 - Uses `src/content.config.ts` (not `src/content/config.ts`) for Astro's Content Layer API.
 - Uses `file()` loader from `astro/loaders` — the canonical Astro approach.
 - Schema reflects `collection.json` items: `id` + nested `project` object with `name`, `purpose`, `description`, `website`, `code`, `repository`, `owner`, `resources`, `private`.
@@ -140,6 +141,7 @@ cd $APP && npm run build
 ```
 
 Verify:
+
 - Build completes without errors.
 - The `projects` collection is recognized by Astro.
 

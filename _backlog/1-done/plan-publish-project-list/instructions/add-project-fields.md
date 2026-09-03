@@ -21,10 +21,10 @@ RULE: If at any point you are instructed to **REPORT A BLOCKER** or you encounte
 
 ## Path Variables
 
-| Variable     | Resolved Path                          | Purpose                           |
-| ------------ | -------------------------------------- | --------------------------------- |
-| `$WORKSPACE` | Current working directory              | Workspace root directory          |
-| `$DOMAINS`   | `$WORKSPACE/.agents/domains`           | Domain resources directory        |
+| Variable     | Resolved Path                | Purpose                    |
+| ------------ | ---------------------------- | -------------------------- |
+| `$WORKSPACE` | Current working directory    | Workspace root directory   |
+| `$DOMAINS`   | `$WORKSPACE/.agents/domains` | Domain resources directory |
 
 ## Goals
 
