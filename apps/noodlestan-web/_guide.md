@@ -1,4 +1,4 @@
-# Noodlestan Website
+# Guide: Noodlestan Website
 
 The `apps-noodlestan-web` package is an Astro-based static website for Noodlestan, deployed to production on AWS S3 with CloudFront.
 
@@ -28,6 +28,12 @@ Records are co-located with the resources they describe in `_records/` directori
 
 This package does not maintain a dedicated architecture reference.
 
+## Workflows
+
+| Workflow / Path                                                       | Purpose                                          |
+| --------------------------------------------------------------------- | ------------------------------------------------ |
+| **Deploying** `$DOMAINS/deployments/workflows/deploying/workflow.art` | Organizes deployment of artefacts in operations. |
+
 ## Operating Instructions
 
 ### Operating Instructions: Setting Up
@@ -50,3 +56,12 @@ Run from this package directory:
 npm run lint # to report formatting issues
 npm run build # to produce a full build
 ```
+
+### Operating Instructions: Deploying Artefacts
+
+**Instructions:**
+
+Execute the **Deploying:** instructions of Deployment Command: Static Web AWS CLI `$DOMAINS/packages/_records/deployment-commands/static-web-aws-cli.art` with
+
+- deployment record:
+- environments: `_records/production-environment.art`, `_records/staging-environment.art`.
