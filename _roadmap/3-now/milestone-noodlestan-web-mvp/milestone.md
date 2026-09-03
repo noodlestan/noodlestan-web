@@ -149,79 +149,17 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 | ----- | ----------------------------------------------------------------------------------------------- | ---------- |
 | `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md`     | `DONE`     |
 | -     |                                                                                                 |            |
-| `2`   | Plan: Publish Project List `_backlog/3-now/plan-publish-project-list/plan.md`                   | `READY`    |
-| `2`   | Plan: Home Sections MVP                                                                         | `PLANNING` |
+| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`                  | `DONE`     |
+| `2`   | Plan: Home Sections MVP                                                                         |            |
 | -     |                                                                                                 |            |
-| `3`   | Plan: Design Exploration                                                                        | `PLANNING` |
-| `3`   | Plan: Tokenize and Style                                                                        | `PLANNING` |
-
-The following items are not yet captured in a work item document.
-
-### Plan: Home Sections MVP
-
-**Status:** `PLANNING`
-
-**Purpose:** Define and implement the core homepage sections for noodlestan.org.
-
-**Description:** Create the main content sections for the homepage: hero, about, projects highlights, and footer. Establish layout patterns and component structure.
-
-**Changes:**
-
-- Design homepage section layout.
-- Create Astro components for each section.
-- Implement responsive design.
-- Add content for each section.
-
-**Dependencies:**
-
-- Plan: Publish Project List (project list must exist to feature on homepage).
-
-### Plan: Design Exploration
-
-**Status:** `PLANNING`
-
-**Purpose:** Explore visual direction and design language for noodlestan.org.
-
-**Description:** Research and propose visual identity options including typography, color palette, imagery style, and layout patterns. Produce design references and direction.
-
-**Changes:**
-
-- Research design references and inspiration.
-- Propose 2-3 visual directions.
-- Select and document chosen direction.
-- Create mood board and style guide.
-
-**Dependencies:**
-
-- Phase 2 content defined (design needs content context).
-
-### Plan: Tokenize and Style
-
-**Status:** `PLANNING`
-
-**Purpose:** Translate design direction into a token-based styling system.
-
-**Description:** Define design tokens (colors, typography, spacing, shadows) and implement them as CSS custom properties or a design token system. Apply tokens across all components.
-
-**Changes:**
-
-- Define design token schema.
-- Create token files (JSON/CSS).
-- Implement token-based styling system.
-- Apply tokens to existing components.
-- Ensure accessibility compliance.
-
-**Dependencies:**
-
-- Plan: Design Exploration (design direction must be chosen).
-
----
+| `3`   | Plan: Design Exploration                                                                        |            |
+| `3`   | Plan: Tokenize and Style                                                                        |            |
 
 ## Work
 
 ### Next
 
-Execute Phase 2 iterations: populate project fields and build the project list.
+Draft Plan: Home Sections MVP (Phase 2, second plan).
 
 ### Blockers
 
