@@ -23,8 +23,8 @@
 | Variable          | Resolved Path                         | Purpose                            |
 | ----------------- | ------------------------------------- | ---------------------------------- |
 | `$WORKSPACE`      | Current working directory             | Workspace root directory           |
-| `$DOMAINS`        | `$WORKSPACE/.agents/domains`          | Domain resources directory         |
 | `$NOODLESTAN_WEB` | Provided with Prompt.                 | Noodlestan Web repository checkout |
+| `$DOMAINS`        | `$WORKSPACE/.agents/domains`          | Domain resources directory         |
 | `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web` | The Astro application              |
 | `$MANAGEMENT`     | `$WORKSPACE/checkouts/management`     | Management repository checkout     |
 
@@ -34,8 +34,9 @@ Add structured content sections to the noodlestan.org homepage: an introduction 
 
 ## Attachments
 
-- `home-content-prompt.md` — AI writing prompt (produced by iteration `write-content-prompt`).
-- `home-content.md` — approved homepage copy (produced by iteration `apply-content-to-homepage`).
+- `attachments/home-content-prompt.md` — AI writing prompt (produced by iteration `write-content-prompt`).
+- `attachments/home-content.md` — approved homepage copy (produced by iteration `apply-content-to-homepage`).
+- `specs/home.pseudo-html.md` — HTML structure for home page.
 
 ## Context
 
@@ -130,7 +131,7 @@ This plan adds content sections to the noodlestan.org homepage.
 
 **Changes:**
 
-- Create `_backlog/3-now/plan-home-sections-mvp/home-content-prompt.md` — the writing prompt (plan attachment).
+- Create `_backlog/3-now/plan-home-sections-mvp/attachments/home-content-prompt.md` — the writing prompt (plan attachment).
 - Prompt covers:
   - Who we are: open collective, MIT, "We are writing software because we love it."
   - Ecosystem overview: 14 repositories grouped in layers (foundations, introspection/docs, UI/apps, operations).
@@ -165,49 +166,65 @@ docs(noodlestan-web): add homepage content prompt
 
 **Id:** `apply-content-to-homepage`
 
-**Status:** `PLANNING`
+**Status:** `WORKING`
 
 **Purpose:** Apply the AI-generated content and outlines to the homepage as structured sections.
 
 **Description:** Run the prompt through a writing AI, review the output with the crew, save the approved copy as a plan attachment, then integrate it into `$APP/src/pages/index.astro` as structured HTML sections. No CSS.
 
-**Instructions:** `./plan-home-sections-mvp/instructions/apply-content-to-homepage.md`
+**Pairing:** `./plan-home-sections-mvp/pairing/apply-content-to-homepage.md`
 
 **Changes:**
 
-- Save approved copy to `_backlog/3-now/plan-home-sections-mvp/home-content.md` (plan attachment).
-- Update `$APP/src/pages/index.astro` with sections in order:
-  - Hero.
-  - What we build.
-  - Projects (existing list, from publish-project-list).
-  - How we work.
-  - On AI.
-  - Join us (Discord + GitHub links).
-  - Footer.
-
-**Dependencies:**
-
-- Iteration: Write Homepage Content Prompt (prompt must exist).
-- Crew: run the prompt and approve the copy; supply the Discord invite URL.
+- Refine and match structure (`./specs/home.pseudo-html.md`) and content (`./attachments/home-content.md`).
+- Update `$APP/src/pages/index.astro` with sections in order.
+- TBD: Create some components.
+  - Q: Which? Decide after we see markup in place.
+  - Q: Where? Use Astro standards for site-wide (Example: footer) and page-specific (Example: ).
+- TBD. Store variables such as Discord Link and Github link.
+  - !: Astro standards for thinks like this. How to feed, from config?
+  - Q: Source of truth? If in Art, then we need create a routine to convert Art to the Astro input.
 
 #### Commits:
 
-| ID                    | Repository / Checkout / Branch              | Policy       | Hash  | Status     |
-| --------------------- | ------------------------------------------- | ------------ | ----- | ---------- |
-| `add-home-content`    | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `PLANNING` |
-| `apply-home-sections` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `AUTONOMOUS` | (TBD) | `PLANNING` |
+| ID                   | Repository / Checkout / Branch              | Policy    | Hash  | Status        |
+| -------------------- | ------------------------------------------- | --------- | ----- | ------------- |
+| `add-home-content`   | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | (TBD) | `PLACEHOLDER` |
+| `extract-components` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | (TBD) | `PLACEHOLDER` |
+| `urls-as-variables`  | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | (TBD) | `PLACEHOLDER` |
 
-##### Commit: `apply-home-sections`
+##### Commit: `add-home-content`
 
 **Repository:** Repository: Noodlestan Web
 
 **Message:**
 
 ```
-build(noodlestan-web): apply content sections to homepage
+build(noodlestan-web): Add content sections to homepage.
+```
 
-- Add hero, what we build, how we work, on AI, join us, and footer sections.
-- Keep existing project list between what we build and how we work.
+##### Commit: `extract-components`
+
+**Repository:** Repository: Noodlestan Web
+
+**Message:**
+
+```
+build(noodlestan-web): Extract site and home page components.
+
+- TBD
+```
+
+##### Commit: `urls-as-variables`
+
+**Repository:** Repository: Noodlestan Web
+
+**Message:**
+
+```
+build(noodlestan-web): TBD
+
+- TBD
 ```
 
 ---

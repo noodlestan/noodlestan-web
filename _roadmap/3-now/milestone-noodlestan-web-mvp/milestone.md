@@ -48,11 +48,10 @@ None.
 
 ### Domains
 
-| Domain / Path                                        | Description                                                                  |
-| ---------------------------------------------------- | ---------------------------------------------------------------------------- |
-| Domain: Plans `$DOMAINS/plans/index.md`              | Planning lifecycle for contextualising, drafting, refining, and integrating. |
-| Domain: Engineering `$DOMAINS/engineering/_guide.md` | Engineering lifecycle for setting up, verifying, and committing work.        |
-| Domain: Deployments `$DOMAINS/deployments/index.md`  | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.         |
+| Domain / Path                                       | Description                                                                  |
+| --------------------------------------------------- | ---------------------------------------------------------------------------- |
+| Domain: Plans `$DOMAINS/plans/index.md`             | Planning lifecycle for contextualising, drafting, refining, and integrating. |
+| Domain: Deployments `$DOMAINS/deployments/index.md` | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.         |
 
 ### Resource Kinds in Scope
 
@@ -63,11 +62,10 @@ None.
 
 ### Workflows
 
-| Workflow / Path                                                        | Purpose                                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| Workflow: Planning `$DOMAINS/plans/workflows/planning.art`             | Planning lifecycle for contextualising, drafting, refining, and integrating plans. |
-| Workflow: Engineering `$DOMAINS/engineering/workflows/engineering.art` | Engineering lifecycle for setting up, verifying, and committing work.              |
-| Workflow: Deploying `$DOMAINS/deployments/workflows/deploying.art`     | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.               |
+| Workflow / Path                                                    | Purpose                                                                            |
+| ------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+| Workflow: Planning `$DOMAINS/plans/workflows/planning.art`         | Planning lifecycle for contextualising, drafting, refining, and integrating plans. |
+| Workflow: Deploying `$DOMAINS/deployments/workflows/deploying.art` | Deployment lifecycle for pre-deploy, deploy, and post-deploy stages.               |
 
 ### Knowledge
 
@@ -102,7 +100,7 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 | Index | Name                           | Status     |
 | ----- | ------------------------------ | ---------- |
 | `1`   | Initialize Website             | `DONE`     |
-| `2`   | Develop Noodlestan Web Content | `PLANNING` |
+| `2`   | Develop Noodlestan Web Content | `WORKING`  |
 | `3`   | Identity and Styling           | `PLANNING` |
 
 ### Phase: 1 — Initialize Website
@@ -123,7 +121,7 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 **Description:** Copy project records from workspace checkouts, build a JSON collection, create Astro collections, and render projects on the homepage. Add homepage sections for key content areas.
 
-**Status:** `PLANNING`
+**Status:** `WORKING`
 
 **Dependencies:**
 
@@ -145,15 +143,15 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 ## Items:
 
-| Phase | Resource / Record                                                                          | Status  |
-| ----- | ------------------------------------------------------------------------------------------ | ------- |
-| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE`  |
-| -     |                                                                                            |         |
-| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE`  |
-| `2`   | Plan: Home Sections MVP `_backlog/3-now/plan-home-sections-mvp/plan.md`                    | `READY` |
-| -     |                                                                                            |         |
-| `3`   | Plan: Design Exploration                                                                   |         |
-| `3`   | Plan: Tokenize and Style                                                                   |         |
+| Phase | Resource / Record                                                                          | Status    |
+| ----- | ------------------------------------------------------------------------------------------ | --------- |
+| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE`    |
+| -     |                                                                                            |           |
+| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE`    |
+| `2`   | Plan: Home Sections MVP `_backlog/3-now/plan-home-sections-mvp/plan.md`                    | `WORKING` |
+| -     |                                                                                            |           |
+| `3`   | Plan: Design Exploration                                                                   |           |
+| `3`   | Plan: Tokenize and Style                                                                   |           |
 
 ## Work
 
