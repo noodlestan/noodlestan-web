@@ -28,6 +28,34 @@
     }
   },
   {
+    "id": "art-cli",
+    "project": {
+      "name": "Art Cli",
+      "purpose": "Build high quality, consistent, CLI experiences from composable units.",
+      "description": "Shared libraries and tools for building CLIs.",
+      "website": null,
+      "code": "https://github.com/noodlestan/art-cli",
+      "repository": "Repository: Art Cli",
+      "owner": "Project: Artificials",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "art-work",
+    "project": {
+      "name": "Art Work",
+      "purpose": "Manage multi-repository development environments for parallel planning and execution.",
+      "description": "Tools for discovering projects, managing knowledge and context resources, and operating across multiple checkouts: cloning, visualizing, synchronizing, and executing commands.",
+      "website": null,
+      "code": "https://github.com/noodlestan/art-work",
+      "repository": "Repository: Art Work",
+      "owner": "Project: Art Domains",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
     "id": "artificials",
     "project": {
       "name": "Artificials",
