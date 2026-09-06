@@ -135,7 +135,7 @@ async function saveProjectJson(projects: ProjectRecord[]): Promise<void> {
 
 	mkdirSync(DATA_DIR, { recursive: true });
 	const outPath = join(DATA_DIR, 'collection.json');
-	writeFileSync(outPath, JSON.stringify(items, null, 2));
+	writeFileSync(outPath, JSON.stringify(items, null, 2) + '\n');
 	console.log(`Saved ${items.length} projects to collection.json`);
 }
 

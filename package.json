@@ -13,16 +13,16 @@
     "node": ">=22"
   },
   "scripts": {
+    "turbo": "turbo",
     "dev": "turbo run dev --ui tui",
     "clean": "turbo run build:clean",
-    "build": "turbo run build",
-    "lint": "prettier . -c && turbo run lint",
-    "lint:fix": "prettier . -c --write && turbo run lint:fix",
-    "test": "turbo run test",
+    "lint": "prettier . -c",
+    "lint:fix": "prettier . -c --write",
     "extract": "echo no purrception yet",
     "update-project-records": "tsx scripts/copy-project-records.ts",
     "update-project-collection": "tsx scripts/create-collection.ts",
-    "ci": "turbo run ci"
+    "ci:root": "npm run lint",
+    "ci": "npm run ci:root && turbo run ci"
   },
   "devDependencies": {
     "@noodlestan/eslint-config": "^0.0.8",

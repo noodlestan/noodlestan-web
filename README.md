@@ -10,13 +10,30 @@ Repository of Noodlestan websites - typically built with Astro.
 | ---------------------- | ------------------ |
 | `apps/noodlestan-web/` | Noodlestan Website |
 
-## Scripts
+## Development
 
-- **$** `npm run update-project-records` — Copies `project.art` records from workspace `_records/` into the noodlestan-web data directory.
-- **$** `npm run update-project-collection` — Generates `data/projects/collection.json` from `data/_records/projects`.
-- **$** `npm run build` — Build all packages.
-- **$** `npm run lint` — Lint all packages.
-- **$** `npm run ci` — Full CI pass (lint + build + test).
+### Scripts
+
+- **$** `npm run turbo build` — Build all packages.
+- **$** `npm run turbo test` — Run tests in all packages.
+- **$** `npm run turbo lint` — Lint all packages (Prettier + ESLint).
+- **$** `npm run ci` — Run all CI scripts in all packages.
+
+- **$** `npm run update-project-records` — Collects project records into `data/_records/project`.
+- **$** `npm run update-project-collection` — Generates collection for Astro `data/projects/collection.json`.
+
+### update-project-records
+
+- Reads repository records from workspace `_records/repositories/*`.
+- Clones repository if not present using `art-work-cli clone "{repo.name}"`;
+- Makes sure it's on `main` branch and pulls.
+- Reads repository project record from `$CHECKOUT/_records/project.art`
+- Copies all project records into `data/_records/projects/`.
+
+### update-project-collection
+
+- Loads all projects from `data/_records/project`.
+- Generates `data/projects/collection.json`
 
 ## License
 

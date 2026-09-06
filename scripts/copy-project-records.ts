@@ -59,7 +59,7 @@ async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void
 	// Clone if not exists
 	if (!existsSync(location)) {
 		console.log(`Cloning ${repo.resource.name}...`);
-		execSync(`npm run workspace clone "${repo.resource.name}"`, {
+		execSync(`npm run art-work clone "${repo.resource.name}"`, {
 			cwd: WORKSPACE,
 			stdio: 'inherit',
 		});
