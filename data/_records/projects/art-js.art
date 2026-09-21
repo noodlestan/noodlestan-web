@@ -2,11 +2,11 @@
 
 ## Project: Art JS
 
-**Purpose:** Art MD implemented in JS: parse, validate, transform, and serialize back to Art MD or Markdown.
+**Purpose:** Enable Art files to be authored as programs, with validation, language tooling, and automated projection to target formats.
 
-**Description:** Libraries for parsing and working with Art MD content, resources, modules, programs, and projections.
+**Description:** Libraries and tools for working with Art MD as a programming language, including records, resources, modules, programs, program builders, validators, projectors, language services, and related tooling.
 
-**Owner:** Project: Artificials
+**Owner:** Project: Art JS
 
 **Author:** Noodlestan Collective
 
@@ -16,11 +16,14 @@
 
 **Resources:**
 
-- Package: Parser
-- Package: Serializer
-- Package: Constructs
-- Package: Primitives
-- Package: Pipeline Tests
+- Package: Bundler
+- Package: Program
+- Package: Validator
+- Package: Bin
+- Package: Dev Server
+- Package: Language Server
+- Package: Tools
+- Package: Watcher
 
 **Private:** `false`
 

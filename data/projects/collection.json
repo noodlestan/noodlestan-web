@@ -17,26 +17,40 @@
     "id": "art-js",
     "project": {
       "name": "Art JS",
-      "purpose": "Art MD implemented in JS: parse, validate, transform, and serialize back to Art MD or Markdown.",
-      "description": "Libraries for parsing and working with Art MD content, resources, modules, programs, and projections.",
+      "purpose": "Enable Art files to be authored as programs, with validation, language tooling, and automated projection to target formats.",
+      "description": "Libraries and tools for working with Art MD as a programming language, including records, resources, modules, programs, program builders, validators, projectors, language services, and related tooling.",
       "website": null,
       "code": "https://github.com/noodlestan/art-js",
       "repository": "Repository: Art JS",
+      "owner": "Project: Art JS",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
+    "id": "art-lib",
+    "project": {
+      "name": "Art Lib",
+      "purpose": "Build high quality, consistent, Cli and Tool experiences from composable units.",
+      "description": "Shared libraries and tools for building CLIs and Tools.",
+      "website": null,
+      "code": "https://github.com/noodlestan/art-lib",
+      "repository": "Repository: Art Lib",
       "owner": "Project: Artificials",
       "resources": [],
       "private": false
     }
   },
   {
-    "id": "art-cli",
+    "id": "art-md",
     "project": {
-      "name": "Art Cli",
-      "purpose": "Build high quality, consistent, CLI experiences from composable units.",
-      "description": "Shared libraries and tools for building CLIs.",
+      "name": "Art MD",
+      "purpose": "Express structured data in Markdown with an extensible language that enables human and machine authoring at scale and automated transformations.",
+      "description": "Language specification and JavaScript libraries for extracting structured data into a MDAST derived AST, with an open construct registry. Provides parsing, validation, transformation, and serialization of Art MD content.",
       "website": null,
-      "code": "https://github.com/noodlestan/art-cli",
-      "repository": "Repository: Art Cli",
-      "owner": "Project: Artificials",
+      "code": "https://github.com/noodlestan/art-md",
+      "repository": "Repository: Art MD",
+      "owner": "Project: Art MD",
       "resources": [],
       "private": false
     }
