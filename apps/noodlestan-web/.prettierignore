@@ -1,0 +1,7 @@
+.coverage/
+coverage/
+env.d.ts
+dist/
+
+# Astro
+.astro/

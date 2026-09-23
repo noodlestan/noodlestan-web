@@ -48,3 +48,7 @@ pids
 
 # Test directories
 **/coverage
+
+
+# Astro
+.astro

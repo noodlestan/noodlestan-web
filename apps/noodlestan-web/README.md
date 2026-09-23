@@ -1,46 +1,30 @@
-# Astro Starter Kit: Basics
+# noodlestan.org
 
-```sh
-npm create astro@latest -- --template basics
-```
+> http://noodlestan.org
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Astro-based static website for the [Noodlestan](https://github.com/noodlestan) organization.
 
-## 🚀 Project Structure
+## Development
 
-Inside of your Astro project, you'll see the following folders and files:
+Make sure you read the [root README](../../README.md) first.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+### Astro
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+To learn more about Astro, refer to:
 
-## 🧞 Commands
+- [Astro documentation](https://docs.astro.build).
+- [project structure](https://docs.astro.build/en/basics/project-structure/).
 
-All commands are run from the root of the project, from a terminal:
+### Scripts
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- **$** `npm run dev` — Watch mode for development. Host at localhost:4321
+- **$** `npm run lint` — Check formatting, lint, and type check
+- **$** `npm run lint:fix` — Fix formatting and lint issues
+- **$** `npm run build:clean` — Remove build artifacts
+- **$** `npm run build` — Build production site to `./dist/`
+- **$** `npm run preview` — Preview `./dist/`.
+- **$** `npm run ci` — Run CI pipeline
 
-## 👀 Want to learn more?
+## Copyright (c) 2026 [Noodlestan](https://noodlestan.org/).
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Published under a [MIT license](https://noodlestan.mit-license.org/).
