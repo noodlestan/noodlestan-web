@@ -2,7 +2,7 @@
 
 **Id:** `home-sections-mvp`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -112,10 +112,10 @@ This plan adds content sections to the noodlestan.org homepage.
 
 ## Items:
 
-| Iteration / Instructions                                                                                | Status    |
-| ------------------------------------------------------------------------------------------------------- | --------- |
-| Iteration: Write Homepage Content Prompt `plan-home-sections-mvp/instructions/write-content-prompt.md`  | `DONE`    |
-| Iteration: Apply Content to Homepage `plan-home-sections-mvp/instructions/apply-content-to-homepage.md` | `WORKING` |
+| Iteration / Instructions                                                                                | Status |
+| ------------------------------------------------------------------------------------------------------- | ------ |
+| Iteration: Write Homepage Content Prompt `plan-home-sections-mvp/instructions/write-content-prompt.md`  | `DONE` |
+| Iteration: Apply Content to Homepage `plan-home-sections-mvp/instructions/apply-content-to-homepage.md` | `DONE` |
 
 ### Iteration: Write Homepage Content Prompt
 
@@ -168,7 +168,7 @@ docs(noodlestan-web): add homepage content prompt
 
 **Id:** `apply-content-to-homepage`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Purpose:** Apply the AI-generated content and outlines to the homepage as structured sections.
 
@@ -187,11 +187,11 @@ docs(noodlestan-web): add homepage content prompt
 
 #### Commits:
 
-| ID                   | Repository / Checkout / Branch              | Policy    | Hash      | Status        |
-| -------------------- | ------------------------------------------- | --------- | --------- | ------------- |
-| `add-home-content`   | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | `df5585b` | `COMMITTED`   |
-| `extract-components` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `NOPUSH`  | (TBD)     | `PLACEHOLDER` |
-| `urls-as-variables`  | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `NOPUSH`  | (TBD)     | `PLACEHOLDER` |
+| ID                   | Repository / Checkout / Branch              | Policy    | Hash      | Status      |
+| -------------------- | ------------------------------------------- | --------- | --------- | ----------- |
+| `add-home-content`   | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | `df5585b` | `COMMITTED` |
+| `extract-components` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `NOPUSH`  | `e73491c` | `COMMITTED` |
+| `urls-as-variables`  | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `NOPUSH`  | `d424c88` | `COMMITTED` |
 
 ##### Commit: `add-home-content`
 
@@ -236,7 +236,7 @@ build(noodlestan-web): Centralize site endpoints in consts.ts.
 
 ### Next
 
-`add-home-content` COMMITTED (`df5585b`) — content applied to homepage. Next: refine remaining commits `extract-components` and `urls-as-variables` per ADR `$APP/architecture/adr/endpoints.md`, then write instructions.
+All commits COMMITTED — `add-home-content` (`df5585b`), `extract-components` (`e73491c`), `urls-as-variables` (`d424c88`). Plan complete; moved to `_backlog/1-done/`.
 
 ### Blockers
 

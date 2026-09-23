@@ -143,21 +143,20 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 ## Items:
 
-| Phase | Resource / Record                                                                          | Status    |
-| ----- | ------------------------------------------------------------------------------------------ | --------- |
-| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE`    |
-| -     |                                                                                            |           |
-| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE`    |
-| `2`   | Plan: Home Sections MVP `_backlog/3-now/plan-home-sections-mvp/plan.md`                    | `WORKING` |
-| -     |                                                                                            |           |
-| `3`   | Plan: Design Exploration                                                                   |           |
-| `3`   | Plan: Tokenize and Style                                                                   |           |
+| Phase | Resource / Record                                                                          | Status |
+| ----- | ------------------------------------------------------------------------------------------ | ------ |
+| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE` |
+| -     |                                                                                            |        |
+| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE` |
+| `2`   | Plan: Home Sections MVP `_backlog/1-done/plan-home-sections-mvp/plan.md`                   | `DONE` |
+| -     |                                                                                            |        |
+| `3`   | Plan: Design Exploration                                                                   |        |
+| `3`   | Plan: Tokenize and Style                                                                   |        |
 
 ## Work
 
 ### Next
 
-- Delegate Plan: Home Sections MVP.
 - Draft Plan: Design Exploration.
 
 ### Blockers
