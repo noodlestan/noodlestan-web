@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import ProjectItem from "./ProjectItem.astro";
+
+const projects = await getCollection("projects");
+---
+
+<section id="projects">
+	<h2>Projects</h2>
+	<p>
+		Tools for working with code and metadata, component libraries and design
+		systems, AI agent tooling, documentation infrastructure, and creative
+		experiments.
+	</p>
+	<p>
+		The projects are independent, but many are connected and built to work
+		together.
+	</p>
+
+	{projects.map((project) => (
+		<ProjectItem project={project} />
+	))}
+</section>

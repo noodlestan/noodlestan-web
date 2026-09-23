@@ -1,0 +1,40 @@
+---
+interface Props {
+	project: {
+		data: {
+			project: {
+				name: string;
+				description: string;
+				code: string | null;
+				website: string | null;
+			};
+		};
+	};
+}
+
+const { project } = Astro.props;
+const hasLinks = project.data.project.code || project.data.project.website;
+---
+
+<article>
+	<h3>{project.data.project.name}</h3>
+	<p>{project.data.project.description}</p>
+	{hasLinks && (
+		<nav>
+			<ul>
+				{project.data.project.code && (
+					<li>
+						<a href={project.data.project.code}>GitHub</a>
+					</li>
+				)}
+				{project.data.project.website && (
+					<li>
+						<a href={project.data.project.website}>
+							{project.data.project.website}
+						</a>
+					</li>
+				)}
+			</ul>
+		</nav>
+	)}
+</article>
