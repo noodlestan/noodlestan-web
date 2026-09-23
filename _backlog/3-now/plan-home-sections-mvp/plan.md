@@ -2,7 +2,7 @@
 
 **Id:** `home-sections-mvp`
 
-**Status:** `DONE`
+**Status:** `WORKING`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -86,6 +86,8 @@ Add structured content sections to the noodlestan.org homepage: an introduction 
 
 ::READ `$NOODLESTAN_WEB/apps/noodlestan-web/_guide.md` (Guide) — Defines the Astro application operations. Relevant for all iterations.
 
+::READ `$APP/architecture/adr/endpoints.md` (ADR) — Endpoints sourcing and exposure decisions (consts.ts, generated module, Astro config). Relevant for iteration `apply-content-to-homepage`.
+
 ## Scope
 
 This plan adds content sections to the noodlestan.org homepage.
@@ -110,10 +112,10 @@ This plan adds content sections to the noodlestan.org homepage.
 
 ## Items:
 
-| Iteration / Instructions                                                                                | Status     |
-| ------------------------------------------------------------------------------------------------------- | ---------- |
-| Iteration: Write Homepage Content Prompt `plan-home-sections-mvp/instructions/write-content-prompt.md`  | `DONE`     |
-| Iteration: Apply Content to Homepage `plan-home-sections-mvp/instructions/apply-content-to-homepage.md` | `PLANNING` |
+| Iteration / Instructions                                                                                | Status    |
+| ------------------------------------------------------------------------------------------------------- | --------- |
+| Iteration: Write Homepage Content Prompt `plan-home-sections-mvp/instructions/write-content-prompt.md`  | `DONE`    |
+| Iteration: Apply Content to Homepage `plan-home-sections-mvp/instructions/apply-content-to-homepage.md` | `WORKING` |
 
 ### Iteration: Write Homepage Content Prompt
 
@@ -172,26 +174,24 @@ docs(noodlestan-web): add homepage content prompt
 
 **Description:** Run the prompt through a writing AI, review the output with the crew, save the approved copy as a plan attachment, then integrate it into `$APP/src/pages/index.astro` as structured HTML sections. No CSS.
 
-**Pairing:** `./plan-home-sections-mvp/pairing/apply-content-to-homepage.md`
+**Instructions:** `./plan-home-sections-mvp/instructions/apply-content-to-homepage.md`
 
 **Changes:**
 
 - Refine and match structure (`./specs/home.pseudo-html.md`) and content (`./attachments/home-content.md`).
 - Update `$APP/src/pages/index.astro` with sections in order.
-- TBD: Create some components.
-  - Q: Which? Decide after we see markup in place.
-  - Q: Where? Use Astro standards for site-wide (Example: footer) and page-specific (Example: ).
-- TBD. Store variables such as Discord Link and Github link.
-  - !: Astro standards for thinks like this. How to feed, from config?
-  - Q: Source of truth? If in Art, then we need create a routine to convert Art to the Astro input.
+- Extract components (per ADR `$APP/architecture/adr/endpoints.md`):
+  - Site-wide: `SiteHeader`, `SiteFooter` in `$APP/src/components/site/`.
+  - Page content: `Hero`, `Projects`, `Workflows`, `Contributing`, `About` in `$APP/src/components/pages/home/`.
+- Centralize endpoints (Discord, GitHub, Contact, site URL) in `$APP/src/consts.ts`; long-term source of truth is Art records generating `src/generated/endpoints.ts` consumed by consts.ts; `astro.config.mjs` consumes the same source for `site` only.
 
 #### Commits:
 
-| ID                   | Repository / Checkout / Branch              | Policy    | Hash  | Status        |
-| -------------------- | ------------------------------------------- | --------- | ----- | ------------- |
-| `add-home-content`   | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | (TBD) | `PLACEHOLDER` |
-| `extract-components` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | (TBD) | `PLACEHOLDER` |
-| `urls-as-variables`  | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | (TBD) | `PLACEHOLDER` |
+| ID                   | Repository / Checkout / Branch              | Policy    | Hash      | Status        |
+| -------------------- | ------------------------------------------- | --------- | --------- | ------------- |
+| `add-home-content`   | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `PAIRING` | `df5585b` | `COMMITTED`   |
+| `extract-components` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `NOPUSH`  | (TBD)     | `PLACEHOLDER` |
+| `urls-as-variables`  | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `NOPUSH`  | (TBD)     | `PLACEHOLDER` |
 
 ##### Commit: `add-home-content`
 
@@ -212,7 +212,8 @@ build(noodlestan-web): Add content sections to homepage.
 ```
 build(noodlestan-web): Extract site and home page components.
 
-- TBD
+- Extract SiteHeader and SiteFooter into src/components/site/.
+- Extract Hero, Projects, Workflows, Contributing, About into src/components/pages/home/.
 ```
 
 ##### Commit: `urls-as-variables`
@@ -222,9 +223,11 @@ build(noodlestan-web): Extract site and home page components.
 **Message:**
 
 ```
-build(noodlestan-web): TBD
+build(noodlestan-web): Centralize site endpoints in consts.ts.
 
-- TBD
+- Add src/consts.ts with Discord, GitHub, Contact, and site URL endpoints.
+- Replace hardcoded URLs in components with consts imports.
+- Set site in astro.config.mjs from the same endpoint source.
 ```
 
 ---
@@ -233,11 +236,11 @@ build(noodlestan-web): TBD
 
 ### Next
 
-`write-content-prompt` DONE — prompt created (`4ffa68c`). Next: crew runs the prompt and approves copy, then draft `apply-content-to-homepage` instructions.
+`add-home-content` COMMITTED (`df5585b`) — content applied to homepage. Next: refine remaining commits `extract-components` and `urls-as-variables` per ADR `$APP/architecture/adr/endpoints.md`, then write instructions.
 
 ### Blockers
 
-- Crew: Discord invite URL is unknown — prompt and page use `{DISCORD_INVITE_URL}` placeholder until supplied.
+- Resolved: Discord invite URL is now present in the applied homepage content (`https://discord.gg/4MBbPK7sU`); to be centralized in `src/consts.ts` by `urls-as-variables`.
 
 ## Operating Instructions
 
@@ -318,15 +321,18 @@ npm run build # to produce a full build
 
 - **AI-generated content** — Use an AI writing tool to generate structured content from a detailed prompt, rather than writing copy manually.
 - **Prompt as source of truth** — The prompt captures ecosystem knowledge and intent; the generated output is the content.
+- **Endpoints source** — Endpoints are static build-time data exposed via a plain TS module (`src/consts.ts`); long-term source of truth is Art records generating `src/generated/endpoints.ts`; Astro config consumes the generated source for `site` only. See ADR `$APP/architecture/adr/endpoints.md`.
+- **Component classification** — Site-wide components in `src/components/site/` (named `Site*`); page content components in `src/components/pages/home/`.
 
 ### Knowledge to Update
 
-None.
+- ADR `$APP/architecture/adr/endpoints.md` created — endpoints sourcing and exposure decisions.
 
 ### Follow Ups
 
 - Add visual design (tokens, styling) after content is in place.
 - Add more homepage sections as the project grows.
+- Create a routine to convert Art records into `src/generated/endpoints.ts` (long-term endpoint source of truth, per ADR).
 
 ### Feedback
 

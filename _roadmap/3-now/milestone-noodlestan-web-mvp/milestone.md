@@ -157,7 +157,8 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 ### Next
 
-Delegate Plan: Home Sections MVP iteration `write-content-prompt`.
+- Delegate Plan: Home Sections MVP.
+- Draft Plan: Design Exploration.
 
 ### Blockers
 
