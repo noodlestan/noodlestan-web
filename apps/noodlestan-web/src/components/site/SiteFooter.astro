@@ -1,16 +1,22 @@
+---
+import { ENDPOINTS } from "../../consts";
+
+const contactUrl = `mailto:${ENDPOINTS.noodlestan.email}`;
+---
+
 <footer>
 	<nav>
 		<ul>
 			<li>
-				<a href="https://github.com/noodlestan">GitHub</a>
+				<a href={ENDPOINTS.noodlestan.github}>GitHub</a>
 			</li>
 			<li>
-				<a href="https://discord.gg/4MBbPK7sU">Discord</a>
+				<a href={ENDPOINTS.noodlestan.discord}>Discord</a>
 			</li>
 			<li>
-				<a href="mailto:hello@noodlestan.org">Contact</a>
+				<a href={contactUrl}>Contact</a>
 			</li>
 		</ul>
 	</nav>
-	<p>Copyright (c) 2026 Noodlestan https://noodlestan.org/</p>
+	<p>Copyright (c) 2026 Noodlestan {ENDPOINTS.noodlestan.site}/</p>
 </footer>
