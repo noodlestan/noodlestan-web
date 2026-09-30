@@ -2,7 +2,7 @@
 
 **Id:** `design-and-content`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -111,17 +111,17 @@ This plan establishes the design system, the layout layer, and the homepage cont
 
 ## Execution Context
 
-Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, with all application work under `$APP/`. Iterations 1 and 2 are committed; iteration 3 is partly in the working tree and partly outstanding on the user.
+Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, with all application work under `$APP/`. All 3 iterations are committed.
 
 ---
 
 ## Items:
 
-| Iteration / Instructions                                 | Status    |
-| -------------------------------------------------------- | --------- |
-| Iteration: Establish Design System and Content           | `DONE`    |
-| Iteration: Add PageLayout and 404 Page                   | `DONE`    |
-| Iteration: Complete Tokens, Icons, and Content Contracts | `WORKING` |
+| Iteration / Instructions                                 | Status |
+| -------------------------------------------------------- | ------ |
+| Iteration: Establish Design System and Content           | `DONE` |
+| Iteration: Add PageLayout and 404 Page                   | `DONE` |
+| Iteration: Complete Tokens, Icons, and Content Contracts | `DONE` |
 
 ### Iteration: Establish Design System and Content
 
@@ -217,9 +217,9 @@ build(noodlestan-web): Establish identity, tokens, and a branded 404 page.
 
 #### Commits:
 
-| ID                        | Repository / Checkout / Branch              | Policy   | Hash    | Status     |
-| ------------------------- | ------------------------------------------- | -------- | ------- | ---------- |
-| `add-page-layout-and-404` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `(TBD)` | `AUTHORED` |
+| ID                        | Repository / Checkout / Branch              | Policy   | Hash      | Status     |
+| ------------------------- | ------------------------------------------- | -------- | --------- | ---------- |
+| `add-page-layout-and-404` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `23051a0` | `EXECUTED` |
 
 ##### Commit: `add-page-layout-and-404`
 
@@ -239,7 +239,7 @@ build(noodlestan-web): Add `PageLayout` and render 404 through it.
 
 **Id:** `complete-tokens-icons-and-contracts`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Purpose:** Close the gaps the first two iterations leave behind — an undefined token, an out-of-palette theme colour, a half-present icon set, and an untyped layout prop contract.
 
@@ -265,9 +265,9 @@ build(noodlestan-web): Add `PageLayout` and render 404 through it.
 
 #### Commits:
 
-| ID                                    | Repository / Checkout / Branch              | Policy   | Hash    | Status     |
-| ------------------------------------- | ------------------------------------------- | -------- | ------- | ---------- |
-| `complete-tokens-icons-and-contracts` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `(TBD)` | `AUTHORED` |
+| ID                                    | Repository / Checkout / Branch              | Policy   | Hash      | Status     |
+| ------------------------------------- | ------------------------------------------- | -------- | --------- | ---------- |
+| `complete-tokens-icons-and-contracts` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `918d123` | `EXECUTED` |
 
 ##### Commit: `complete-tokens-icons-and-contracts`
 
@@ -289,7 +289,7 @@ build(noodlestan-web): Complete tokens, identity assets, and layout contracts.
 
 ### Next
 
-Commit Iteration: Complete Tokens, Icons, and Content Contracts. That is the last iteration; the plan is `DONE` once its commit lands, at which point milestone Phase 3 also goes `DONE`.
+None. All 3 iterations are committed; milestone Phase 3 closes with this plan.
 
 ### Blockers
 

@@ -101,7 +101,7 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 | ----- | ------------------------------ | --------- |
 | `1`   | Initialize Website             | `DONE`    |
 | `2`   | Develop Noodlestan Web Content | `WORKING` |
-| `3`   | Identity and Styling           | `WORKING` |
+| `3`   | Identity and Styling           | `DONE`    |
 
 ### Phase: 1 — Initialize Website
 
@@ -133,7 +133,7 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 **Description:** Conduct design exploration, define design tokens, and implement consistent styling across the website.
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Dependencies:**
 
@@ -143,20 +143,20 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 ## Items:
 
-| Phase | Resource / Record                                                                          | Status    |
-| ----- | ------------------------------------------------------------------------------------------ | --------- |
-| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE`    |
-| -     |                                                                                            |           |
-| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE`    |
-| `2`   | Plan: Home Sections MVP `_backlog/1-done/plan-home-sections-mvp/plan.md`                   | `DONE`    |
-| -     |                                                                                            |           |
-| `3`   | Plan: Design and Content `_backlog/3-now/plan-design-and-content/plan.md`                  | `WORKING` |
+| Phase | Resource / Record                                                                          | Status |
+| ----- | ------------------------------------------------------------------------------------------ | ------ |
+| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE` |
+| -     |                                                                                            |        |
+| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE` |
+| `2`   | Plan: Home Sections MVP `_backlog/1-done/plan-home-sections-mvp/plan.md`                   | `DONE` |
+| -     |                                                                                            |        |
+| `3`   | Plan: Design and Content `_backlog/1-done/plan-design-and-content/plan.md`                 | `DONE` |
 
 ## Work
 
 ### Next
 
-- Commit the Plan: Design and Content changeset, then decide whether iteration `complete-tokens-icons-and-contracts` is delegated or executed directly.
+- None. Phase 3 closed by `Plan: Design and Content`; draft the next phase's items.
 
 ### Blockers
 
