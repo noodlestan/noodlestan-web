@@ -5,9 +5,7 @@
   --palette-curcuma-800: oklch(96% 0.007 78);
   --palette-curcuma-900: oklch(98% 0.005 78);
 
-  --palette-brand-curcuma: oklch(81% 0.17 78);
   --palette-brand-orange: oklch(67% 0.19 42);
-  --palette-brand-purple: oklch(58% 0.22 316);
 
   --palette-orange-400: oklch(47% 0.2 42);
   --palette-orange-600: oklch(67% 0.2 42);
@@ -28,6 +26,7 @@
 
   --text-line-height: 1.75;
   --text-max-width: 35em;
+  --type-spacing-compact: 0.01em;
 
   --type-brand-family: 'Fredoka', sans-serif;
   --type-headings-family: 'Fredoka', sans-serif;

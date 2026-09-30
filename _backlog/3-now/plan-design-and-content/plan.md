@@ -243,7 +243,7 @@ build(noodlestan-web): Add `PageLayout` and render 404 through it.
 
 **Purpose:** Close the gaps the first two iterations leave behind — an undefined token, an out-of-palette theme colour, a half-present icon set, and an untyped layout prop contract.
 
-**Description:** Reconciles the token sheet with the values the components actually consume, finishes the identity asset set in `$APP/public/`, and declares the `content` prop contract on all three layout-layer components so Astro type-checks the head metadata. The token, colour, contract, and link work is done; the two image assets are produced by the user and are the only part of this iteration still outstanding.
+**Description:** Reconciles the token sheet with the values the components actually consume, finishes the identity asset set in `$APP/public/`, and declares the `content` prop contract on all three layout-layer components so Astro type-checks the head metadata. This is the plan's final iteration; everything it lists lands in one commit.
 
 **Changes:**
 
@@ -253,9 +253,10 @@ build(noodlestan-web): Add `PageLayout` and render 404 through it.
   - `--palette-brand-curcuma` was byte-identical to `--palette-curcuma-400`.
   - `--palette-brand-purple` was a third purple, `oklch(58% 0.22 316)`, outside the `--palette-purple-400` / `--palette-purple-600` scale it duplicated in role.
 - Declare `interface Props` with `content: { title: string; description: string }` in `$APP/src/layouts/components/SiteHead.astro`. `HomeLayout.astro` and `PageLayout.astro` already declare it.
-- Restore `<link rel="icon" href="/favicon.svg" type="image/svg+xml" />` in `SiteHead.astro`; `public/favicon.svg` previously shipped in `dist/` referenced by nothing.
-- Outstanding, owned by the user: add `icon.svg`, derived from the `SiteLogo.astro` mark so the favicon and the header logo are the same artwork, and `apple-touch-icon.png` at `180 × 180`. Both links already resolve in `SiteHead.astro` and 404 in `dist/` until the files land.
-- Left in place, no decision taken: `--palette-curcuma-400` completes the curcuma ramp at 000 / 100 / 400 / 800 / 900 but is consumed by no rule, and `--color-content-max` is set in both `:root` and the dark block but consumed by no rule. Wiring `--color-content-max` onto the max-width `p, li` rule is the reading its name suggests, but it is a visible colour change, so it is held back rather than assumed.
+- Complete the identity asset set in `$APP/public/`, which is exactly `icon.svg`, `favicon.ico`, and `apple-touch-icon.png`:
+  - `icon.svg` is derived from the `SiteLogo.astro` mark, so the favicon and the header logo are the same artwork.
+  - `apple-touch-icon.png` is `180 × 180`, so the `apple-touch-icon` link resolves on iOS.
+  - `favicon.svg` is not part of the set and is removed; `SiteHead` links the three files above and nothing else.
 
 **Dependencies:**
 
@@ -275,10 +276,11 @@ build(noodlestan-web): Add `PageLayout` and render 404 through it.
 **Message:**
 
 ```
-build(noodlestan-web): Complete tokens, theme colour, and layout contracts.
+build(noodlestan-web): Complete tokens, identity assets, and layout contracts.
 
 - Define `--type-spacing-compact`, drop two dead palette tokens, and set `theme-color` to the brand orange.
-- Link the shipped `/favicon.svg`, and type the `content` prop in `SiteHead`.
+- Complete `public/` with `icon.svg` and `apple-touch-icon.png`, refresh `favicon.ico`, and drop the unused `favicon.svg`.
+- Type the `content` prop in `SiteHead`.
 ```
 
 ---
@@ -287,7 +289,7 @@ build(noodlestan-web): Complete tokens, theme colour, and layout contracts.
 
 ### Next
 
-Add `icon.svg` and `apple-touch-icon.png` to `$APP/public/`, then commit Iteration: Complete Tokens, Icons, and Content Contracts. Decide separately whether to wire `--color-content-max` onto the max-width `p, li` rule or drop it, and whether `--palette-curcuma-400` is kept for ramp symmetry.
+Commit Iteration: Complete Tokens, Icons, and Content Contracts. That is the last iteration; the plan is `DONE` once its commit lands, at which point milestone Phase 3 also goes `DONE`.
 
 ### Blockers
 
@@ -366,7 +368,7 @@ npm run build # to produce a full build
 - `npm run build` from `$APP` succeeds and emits both `dist/index.html` and `dist/404.html`.
 - `dist/index.html` carries the token sheet, the Fredoka and Lusitana links, the `theme-color` meta, the fixed composed header with the site logo, and the refreshed homepage sections.
 - `dist/404.html` renders the same header and footer through `PageLayout`, with `<title>Page not found</title>` and a working link to `/`.
-- No artefact in `$APP/public/` is unreferenced. The reverse — every `href` in the emitted head resolving to a file in `dist/` — holds only once `icon.svg` and `apple-touch-icon.png` are added, so it is gated on that outstanding work rather than claimed.
+- Every `href` in the emitted head resolves to a file in `dist/`, and every file in `public/` is linked.
 - Switching the OS or browser to dark mode re-maps the semantic colour tokens without any component change.
 
 ### Findings
@@ -376,7 +378,7 @@ npm run build # to produce a full build
 - `HomeLayout` and `PageLayout` are no longer two chrome-bearing layouts. The merged-away 404 plan kept `HomeLayout` bare so the homepage composed its own `SiteHeader` and `SiteFooter`; once the token sheet and decomposed header landed, that produced two byte-identical layouts. `PageLayout` became a thin delegation to `HomeLayout` instead, so the chrome has one owner and standalone pages still get a named contract.
 - `--type-spacing-compact` is consumed by `.main-section h2 em` in `global.css` but declared nowhere; the `letter-spacing` it drives is silently inert.
 - The `theme-color` `#00d590` inherited from the Art MD reference is outside the curcuma, orange, and purple palette this site settled on.
-- `$APP/public/` holds only `favicon.ico` and `favicon.svg`. `SiteHead` links `/icon.svg` and `/apple-touch-icon.png`, which resolve to 404 in production, and `favicon.svg` ships unreferenced.
+- `$APP/public/` shipped `favicon.ico` and `favicon.svg` while `SiteHead` linked `/icon.svg` and `/apple-touch-icon.png`, so two links 404'd in production and `favicon.svg` was referenced by nothing. The settled asset set is `icon.svg`, `favicon.ico`, and `apple-touch-icon.png`; `favicon.svg` was not wanted and is gone.
 - `SiteLogo.astro` deliberately lives in `src/components/site/` rather than `src/layouts/components/` because pages as well as layouts render it; `Hero.astro` and `SiteTitle.astro` both import it.
 - `main { padding-block-start: 8rem; }` in `HomeLayout` is layout-generic, not home-page-specific: it clears the fixed site header, so it belongs in whichever layout carries that header.
 - `npm run build` and `npx prettier . -c` both pass on the current working tree.
