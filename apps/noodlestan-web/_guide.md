@@ -64,5 +64,5 @@ npm run build # to produce a full build
 
 Execute the **Deploying:** instructions of Deployment Command: Static Web AWS CLI `$DOMAINS/packages/_records/deployment-commands/static-web-aws-cli.art` with:
 
-- deployment record: `_records/deployment-infrastructure.art`.
+- deployment record: `_records/static-web-deployment.art`.
 - environments: `_records/production-environment.art`, `_records/staging-environment.art`.
