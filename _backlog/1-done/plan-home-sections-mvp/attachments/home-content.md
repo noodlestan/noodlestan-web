@@ -12,7 +12,7 @@ The projects are independent, but many are connected and built to work together.
 
 ## Work Flows
 
-Noodlestan is built in the open, one small piece at a time, with many larger efforts moving together in clunky and discontinuous ways.
+Noodlestan projects are built in the open, one small piece at a time, many moving parts evolving together.
 
 The projects live in separate repositories and are coordinated through a shared workspace. Each repository can be built and used on its own.
 
@@ -22,7 +22,7 @@ Projects also carry structured records (Art) describing what they are and how th
 
 ### Artificial Work
 
-AI agents are used extensively for planning, drafting, coding, documentation, and automating parts of the work. Since part of the work is to make everything artificial more effective I have been able to keep the bill under twenty bucks a month.
+AI agents are used extensively for planning, drafting, coding, documentation, and automating parts of the work. Since part of the work is to make agentic development more effective I have been able to keep the bill under twenty bucks a month.
 
 The motivation behind many of these projects has often been to make work flow better. More recently, it has also become about making artificial work more effective and sustainable, by continuously designing and calibrating its processes, turning what works into reusable knowledge, tools, and infrastructure.
 

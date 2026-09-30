@@ -1,24 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import SiteHeader from "../components/site/SiteHeader.astro";
-import SiteFooter from "../components/site/SiteFooter.astro";
-import Hero from "../components/pages/home/Hero.astro";
-import ProjectList from "../components/pages/home/ProjectList.astro";
-import Workflows from "../components/pages/home/Workflows.astro";
-import Contributing from "../components/pages/home/Contributing.astro";
-import About from "../components/pages/home/About.astro";
+import HomeLayout from '../layouts/HomeLayout.astro';
+import Hero from '../components/pages/home/Hero.astro';
+import ProjectList from '../components/pages/home/ProjectList.astro';
+import Workflows from '../components/pages/home/Workflows.astro';
+import Contributing from '../components/pages/home/Contributing.astro';
+import About from '../components/pages/home/About.astro';
+
+const content = {
+  title: 'Welcome to Noodlestan',
+  description: 'A home for software projects, experiments, crazy ideas, and things worth building.',
+};
 ---
 
-<Layout>
-	<SiteHeader />
-
-	<main>
-		<Hero />
-		<ProjectList />
-		<Workflows />
-		<Contributing />
-		<About />
-	</main>
-
-	<SiteFooter />
-</Layout>
+<HomeLayout content={content}>
+  <Hero />
+  <ProjectList />
+  <Workflows />
+  <Contributing />
+  <About />
+</HomeLayout>

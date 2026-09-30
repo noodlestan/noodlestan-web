@@ -47,7 +47,7 @@
       "name": "Art MD",
       "purpose": "Express structured data in Markdown with an extensible language that enables human and machine authoring at scale and automated transformations.",
       "description": "Language specification and JavaScript libraries for extracting structured data into a MDAST derived AST, with an open construct registry. Provides parsing, validation, transformation, and serialization of Art MD content.",
-      "website": null,
+      "website": "https://art-md.noodlestan.org",
       "code": "https://github.com/noodlestan/art-md",
       "repository": "Repository: Art MD",
       "owner": "Project: Art MD",
@@ -79,20 +79,6 @@
       "code": "https://github.com/noodlestan/artificials",
       "repository": "Repository: Artificials",
       "owner": "Project: Noodlestan Management",
-      "resources": [],
-      "private": false
-    }
-  },
-  {
-    "id": "artisans",
-    "project": {
-      "name": "Artisans",
-      "purpose": "Have fun with artificials.",
-      "description": "Creative and experimental micro projects developed entirely using Artificials.",
-      "website": "https://art-mantras.noodlestan.org",
-      "code": "https://github.com/noodlestan/artisans",
-      "repository": "Repository: Artisans",
-      "owner": "Project: Artificials",
       "resources": [],
       "private": false
     }

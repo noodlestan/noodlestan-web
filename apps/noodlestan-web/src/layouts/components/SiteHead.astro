@@ -1,0 +1,17 @@
+---
+const { title, description } = Astro.props.content;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" />
+
+<link rel="preconnect" href="https://fonts.bunny.net" />
+<link href="https://fonts.bunny.net/css?family=fredoka:300,400,500,600,700|lusitana:400,700" rel="stylesheet" />
+
+<meta name="theme-color" content="#00d590" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="icon" href="/favicon.ico" sizes="any" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+<meta name="description" content={description} />

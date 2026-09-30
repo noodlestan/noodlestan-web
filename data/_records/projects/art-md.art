@@ -14,14 +14,17 @@
 
 **Code:** https://github.com/noodlestan/art-md
 
+**Website:** https://art-md.noodlestan.org
+
 **Resources:**
 
 - Package: Parser
 - Package: Serializer
 - Package: Constructs
 - Package: Primitives
+- Package: Codec
 - Package: Spec
-- Package: Pipeline Tests
+- Package: Codec Tests
 - Package: Bin
 
 **Private:** `false`

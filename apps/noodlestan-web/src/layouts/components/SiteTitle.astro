@@ -1,0 +1,32 @@
+---
+import SiteLogo from '../../components/site/SiteLogo.astro';
+---
+
+<span class="logo">
+  <SiteLogo />
+  <span class="wordmark"> Noodlestan </span>
+</span>
+
+<style>
+  span {
+    display: flex;
+    align-items: flex-start;
+    height: 2rem;
+    gap: 0.5rem;
+    color: var(--color-brand);
+    font-family: var(--type-brand-family);
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .wordmark {
+    display: none;
+  }
+
+  @media screen and (min-width: 375px) {
+    .wordmark {
+      display: inline-block;
+    }
+  }
+</style>

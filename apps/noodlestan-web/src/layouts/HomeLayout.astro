@@ -1,0 +1,29 @@
+---
+import '../styles/global.css';
+import SiteHead from './components/SiteHead.astro';
+import SiteHeader from './components/SiteHeader.astro';
+import SiteFooter from './components/SiteFooter.astro';
+
+const { content } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SiteHead content={content} />
+  </head>
+  <body>
+    <SiteHeader />
+    <main>
+      <slot />
+    </main>
+    <SiteFooter />
+  </body>
+</html>
+
+<style>
+  main {
+    padding-block-start: 8rem;
+    overflow-x: hidden;
+  }
+</style>
