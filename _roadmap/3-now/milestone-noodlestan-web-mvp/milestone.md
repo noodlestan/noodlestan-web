@@ -97,11 +97,11 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 ## Phases
 
-| Index | Name                           | Status     |
-| ----- | ------------------------------ | ---------- |
-| `1`   | Initialize Website             | `DONE`     |
-| `2`   | Develop Noodlestan Web Content | `WORKING`  |
-| `3`   | Identity and Styling           | `PLANNING` |
+| Index | Name                           | Status    |
+| ----- | ------------------------------ | --------- |
+| `1`   | Initialize Website             | `DONE`    |
+| `2`   | Develop Noodlestan Web Content | `WORKING` |
+| `3`   | Identity and Styling           | `WORKING` |
 
 ### Phase: 1 — Initialize Website
 
@@ -133,7 +133,7 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 **Description:** Conduct design exploration, define design tokens, and implement consistent styling across the website.
 
-**Status:** `PLANNING`
+**Status:** `WORKING`
 
 **Dependencies:**
 
@@ -143,21 +143,20 @@ Execution is coordinated from the Noodlestan Web checkout. All website developme
 
 ## Items:
 
-| Phase | Resource / Record                                                                          | Status |
-| ----- | ------------------------------------------------------------------------------------------ | ------ |
-| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE` |
-| -     |                                                                                            |        |
-| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE` |
-| `2`   | Plan: Home Sections MVP `_backlog/1-done/plan-home-sections-mvp/plan.md`                   | `DONE` |
-| -     |                                                                                            |        |
-| `3`   | Plan: Design Exploration                                                                   |        |
-| `3`   | Plan: Tokenize and Style                                                                   |        |
+| Phase | Resource / Record                                                                          | Status    |
+| ----- | ------------------------------------------------------------------------------------------ | --------- |
+| `1`   | Plan: Initialize Noodlestan Website `_backlog/1-done/plan-init-noodlestan-website/plan.md` | `DONE`    |
+| -     |                                                                                            |           |
+| `2`   | Plan: Publish Project List `_backlog/1-done/plan-publish-project-list/plan.md`             | `DONE`    |
+| `2`   | Plan: Home Sections MVP `_backlog/1-done/plan-home-sections-mvp/plan.md`                   | `DONE`    |
+| -     |                                                                                            |           |
+| `3`   | Plan: Design and Content `_backlog/3-now/plan-design-and-content/plan.md`                  | `WORKING` |
 
 ## Work
 
 ### Next
 
-- Draft Plan: Design Exploration.
+- Commit the Plan: Design and Content changeset, then decide whether iteration `complete-tokens-icons-and-contracts` is delegated or executed directly.
 
 ### Blockers
 
@@ -212,7 +211,8 @@ npm run workspace sanity
 ### Findings
 
 - The workspace repository structure supports cross-repo coordination.
-- Astro is well-suited for static content sites.
+- Astro is well-suited to static content sites.
+- Plan: Add 404 Page, Plan: Design Exploration, and Plan: Tokenize and Style were merged into Plan: Design and Content. The design and token work landed in the working tree before any of the three plans was written, so the merged plan records it as done rather than re-planning it.
 
 ### Decisions
 
