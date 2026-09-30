@@ -10,7 +10,7 @@
 
 **Purpose:** Give noodlestan.org a coherent visual identity and a branded 404 page, by landing the design system, refreshed homepage content, and the layout layer in one coordinated change.
 
-**Description:** Merges the former `Plan: Add 404 Page`, `Plan: Design Exploration`, and `Plan: Tokenize and Style` into a single plan of 3 iterations: the design system and content already implemented in `$APP`, the `PageLayout` and 404 page still to build, and the token, identity asset, and content contract gaps that remain.
+**Description:** Merges the former `Plan: Add 404 Page`, `Plan: Design Exploration`, and `Plan: Tokenize and Style` into a single plan of 3 iterations: the design system and content implemented in `$APP`, the `PageLayout` and 404 page, and the token, identity asset, and content contract gaps that remain.
 
 ## Mandatory Reading
 
@@ -20,17 +20,16 @@
 
 ## Path Variables
 
-| Variable          | Resolved Path                                      | Purpose                                                       |
-| ----------------- | -------------------------------------------------- | ------------------------------------------------------------- |
-| `$WORKSPACE`      | Current working directory                          | Workspace root directory                                      |
-| `$NOODLESTAN_WEB` | Provided with prompt                               | Noodlestan Web repository checkout                            |
-| `$DOMAINS`        | `$WORKSPACE/.agents/domains`                       | Domain resources directory                                    |
-| `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web`              | The Astro application                                         |
-| `$REFERENCE`      | `$WORKSPACE/checkouts/artificials/apps/art-md-web` | Reference Astro app for the `SiteHead` / `PageLayout` pattern |
+| Variable          | Resolved Path                         | Purpose                            |
+| ----------------- | ------------------------------------- | ---------------------------------- |
+| `$WORKSPACE`      | Current working directory             | Workspace root directory           |
+| `$NOODLESTAN_WEB` | Provided with prompt                  | Noodlestan Web repository checkout |
+| `$DOMAINS`        | `$WORKSPACE/.agents/domains`          | Domain resources directory         |
+| `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web` | The Astro application              |
 
 ## Summary
 
-Establish the visual identity of noodlestan.org — a global token sheet, web font loading, a decomposed site header, the site logo, and refreshed homepage content — inside the `$APP` application, then publish a branded 404 page through a chrome-bearing `PageLayout`, and close the remaining token, identity asset, and content contract gaps.
+Establish the visual identity of noodlestan.org — a global token sheet, web font loading, a decomposed site header, the site logo, and refreshed homepage content — inside the `$APP` application, then publish a branded 404 page through `PageLayout`, and close the remaining token, identity asset, and content contract gaps.
 
 ## Attachments
 
@@ -44,7 +43,6 @@ None.
 | ----------- | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
 | Milestone   | `$NOODLESTAN_WEB/_roadmap/3-now/milestone-noodlestan-web-mvp/milestone.md` | Owning Milestone — Phase 3 `Identity and Styling`.                                |
 | Plan        | `_backlog/1-done/plan-home-sections-mvp/plan.md`                           | Completed — established the homepage sections and `Site*` components reused here. |
-| Reference   | `$REFERENCE/src/layouts/**`                                                | Source of the `SiteHead` / `HomeLayout` / `PageLayout` pattern being ported.      |
 | Parking Lot | `_backlog/_parking-lot.md`                                                 | Tracks short-term actionables, pending questions, and blockers.                   |
 
 ### Required Skills
@@ -86,10 +84,6 @@ None.
 
 ::READ `$APP/_guide.md` (Guide) — Defines the Astro application operations. Relevant for all iterations.
 
-::READ `$REFERENCE/src/layouts/PageLayout.astro` (Reference) — The reference chrome-bearing layout. Relevant for iteration `add-page-layout-and-404`.
-
-::READ `$REFERENCE/src/pages/404.astro` (Reference) — The reference 404 page and its `content` literal. Relevant for iteration `add-page-layout-and-404`.
-
 ## Scope
 
 This plan establishes the design system, the layout layer, and the homepage content of the Astro application, and adds the first standalone page rendered through `PageLayout`. It supersedes `Plan: Add 404 Page`, `Plan: Design Exploration`, and `Plan: Tokenize and Style`.
@@ -110,34 +104,34 @@ This plan establishes the design system, the layout layer, and the homepage cont
 
 - Add `$APP/src/styles/global.css` as the single token sheet, imported by each layout.
 - Extract the document head into `$APP/src/layouts/components/SiteHead.astro` and rename `Layout.astro` to `HomeLayout.astro`.
-- Add `$APP/src/layouts/PageLayout.astro` carrying the site chrome, and render `$APP/src/pages/404.astro` through it.
+- Add `$APP/src/layouts/PageLayout.astro` as a thin contract over `HomeLayout`, and render `$APP/src/pages/404.astro` through it.
 - Add `$APP/src/components/site/SiteLogo.astro` and split `SiteHeader` into `SiteHeaderContainer`, `SiteHeaderDivider`, `SiteLinks`, `SiteNav`, and `SiteTitle`.
 - Add `license` to `ENDPOINTS.noodlestan` in `$APP/src/consts.ts`.
 - Refresh the homepage section components and the regenerated project records in `$NOODLESTAN_WEB/data/`.
 
 ## Execution Context
 
-Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, with all application work under `$APP/`. Iteration 1 changes are already present in the working tree and uncommitted.
+Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, with all application work under `$APP/`. Iterations 1 and 2 are committed; iteration 3 is partly in the working tree and partly outstanding on the user.
 
 ---
 
 ## Items:
 
-| Iteration / Instructions                                 | Status     |
-| -------------------------------------------------------- | ---------- |
-| Iteration: Establish Design System and Content           | `WORKING`  |
-| Iteration: Add PageLayout and 404 Page                   | `WORKING`  |
-| Iteration: Complete Tokens, Icons, and Content Contracts | `PLANNING` |
+| Iteration / Instructions                                 | Status    |
+| -------------------------------------------------------- | --------- |
+| Iteration: Establish Design System and Content           | `DONE`    |
+| Iteration: Add PageLayout and 404 Page                   | `DONE`    |
+| Iteration: Complete Tokens, Icons, and Content Contracts | `WORKING` |
 
 ### Iteration: Establish Design System and Content
 
 **Id:** `establish-design-system-and-content`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Purpose:** Give the site a token-driven visual identity and refreshed homepage content, so that every later page inherits one consistent design system.
 
-**Description:** Implements the identity and content work in `$APP` — the global token sheet, web font loading, `SiteHead` extraction, the `Layout` to `HomeLayout` rename, the decomposed site header, the site logo, the footer, and the homepage section copy. The changes are present in the working tree and build clean; the commit is not yet executed.
+**Description:** Implements the identity and content work in `$APP` — the global token sheet, web font loading, `SiteHead` extraction, the `Layout` to `HomeLayout` rename, the decomposed site header, the site logo, the footer, and the homepage section copy. Landed as `5294bd0`; the commit blueprint below was written before execution and diverged, so the authored message is shown as executed.
 
 **Changes:**
 
@@ -176,9 +170,9 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, w
 
 #### Commits:
 
-| ID                                    | Repository / Checkout / Branch              | Policy   | Hash    | Status     |
-| ------------------------------------- | ------------------------------------------- | -------- | ------- | ---------- |
-| `establish-design-system-and-content` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `(TBD)` | `AUTHORED` |
+| ID                                    | Repository / Checkout / Branch              | Policy   | Hash      | Status     |
+| ------------------------------------- | ------------------------------------------- | -------- | --------- | ---------- |
+| `establish-design-system-and-content` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | `MANUAL` | `5294bd0` | `EXECUTED` |
 
 ##### Commit: `establish-design-system-and-content`
 
@@ -187,38 +181,39 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, w
 **Message:**
 
 ```
-design(app-noodlestan-web): Add token sheet, fonts, logo, and composed site header.
+build(noodlestan-web): Establish identity, tokens, and a branded 404 page.
 
 - Add `src/styles/global.css` with colour, type, and spacing tokens plus the document reset.
-- Load Fredoka and Lusitana, set `theme-color`, add `SiteLogo`, and split the header into parts.
-- Refresh homepage sections, footer, and project records; drop the unused Astro scaffold.
+- Load Fredoka and Lusitana, add `SiteLogo`, and compose `SiteHeader` from split parts.
+- Refresh homepage content and project records; add a branded 404 page.
 ```
 
 ### Iteration: Add PageLayout and 404 Page
 
 **Id:** `add-page-layout-and-404`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
-**Purpose:** Give standalone pages a layout that carries the site chrome, so pages do not each compose `SiteHeader` and `SiteFooter` themselves, and publish the first such page.
+**Purpose:** Give standalone pages a named layout contract that carries the site chrome, so pages do not each compose `SiteHeader` and `SiteFooter` themselves, and publish the first such page.
 
-**Description:** Create `$APP/src/layouts/PageLayout.astro` — the chrome-bearing sibling of `HomeLayout` — and render `$APP/src/pages/404.astro` through it. `$APP/src/pages/404.astro` already exists but renders through `HomeLayout`; it must move to `PageLayout` once that layout exists.
+**Description:** Add `$APP/src/layouts/PageLayout.astro` as a thin contract over the existing `HomeLayout`, and render `$APP/src/pages/404.astro` through it. The first draft of this iteration specified `PageLayout` as a second chrome-bearing layout carrying its own `SiteHead`, `SiteHeader`, `SiteFooter`, and `main` rule; that would have been byte-identical to `HomeLayout`, so the implementation inverts the relationship instead. `HomeLayout` is the single chrome owner and `PageLayout` delegates to it.
 
 **Changes:**
 
 - Create `$APP/src/layouts/PageLayout.astro`:
-  - Declares the same `content: { title: string; description: string }` contract as `HomeLayout` and destructures `const { content } = Astro.props;`.
-  - Imports `../styles/global.css`, `SiteHead` from `./components/SiteHead.astro`, `SiteHeader`, and `SiteFooter` from `./components/`.
-  - `<head>` renders only `<SiteHead content={content} />`; `<body>` renders `<SiteHeader />`, `<main><slot /></main>`, `<SiteFooter />`.
-  - Carries the same `main { padding-block-start: 8rem; overflow-x: hidden; }` rule as `HomeLayout`, so both layouts clear the fixed header identically.
-- Update `$APP/src/pages/404.astro` to import `PageLayout` instead of `HomeLayout`.
-  - Set the `content` literal to `description: 'The page you requested does not exist on this site.'`, matching the rendered copy exactly.
-  - Keep the `<section class="main-section">` wrapper and the `.text-large` wrapper — both are now real primitives in `global.css`, not placeholders.
-  - Drop the local `p { font-size: 1.3rem }` `<style>` block; `.text-large` already sets the size.
+  - Declares the `content: { title: string; description: string }` contract and destructures `const { content } = Astro.props;`.
+  - Imports `HomeLayout` from `./HomeLayout.astro` and renders `<HomeLayout content={content}><slot /></HomeLayout>`.
+  - Carries no markup, no `import '../styles/global.css'`, and no `main` rule of its own — those stay with `HomeLayout` so the two layouts cannot drift.
+- Update `$APP/src/pages/404.astro`:
+  - Import `PageLayout` from `../layouts/PageLayout.astro` in place of `HomeLayout`, and the root tag with it.
+  - The `content` literal already reads `description: 'The requested page does not exist on this site.'`; the rendered body copy reads `The page you requested does not exist on this site.`, so both remain as written and are intentionally not identical.
+  - Keeps the `<section class="main-section">` and `.text-large` wrappers — both are real primitives in `global.css`.
+  - Drops the local `p { font-size: 1.3rem }` `<style>` block, leaving the page with no scoped styles at all.
+- Declare `interface Props` with `content: { title: string; description: string }` in `$APP/src/layouts/HomeLayout.astro`, so the chrome owner and the contract it exports are both typed.
 
 **Dependencies:**
 
-- Iteration: Establish Design System and Content — `PageLayout` imports `SiteHead` and the chrome components that iteration creates.
+- Iteration: Establish Design System and Content — `PageLayout` delegates to `HomeLayout`, which that iteration renames and gives the chrome contract.
 
 #### Commits:
 
@@ -233,37 +228,39 @@ design(app-noodlestan-web): Add token sheet, fonts, logo, and composed site head
 **Message:**
 
 ```
-build(app-noodlestan-web): Add `PageLayout` and 404 page.
+build(noodlestan-web): Add `PageLayout` and render 404 through it.
 
-- Add `src/layouts/PageLayout.astro` composing `SiteHead`, `SiteHeader`, `main`, and `SiteFooter`.
-- Render `src/pages/404.astro` through `PageLayout` with a `content` title and description.
+- Add `src/layouts/PageLayout.astro` delegating to `HomeLayout` with a typed `content` prop.
+- Type the `content` prop in `HomeLayout`.
+- Render `src/pages/404.astro` through `PageLayout` and drop its local `<style>` block.
 ```
 
 ### Iteration: Complete Tokens, Icons, and Content Contracts
 
 **Id:** `complete-tokens-icons-and-contracts`
 
-**Status:** `PLANNING`
+**Status:** `WORKING`
 
 **Purpose:** Close the gaps the first two iterations leave behind — an undefined token, an out-of-palette theme colour, a half-present icon set, and an untyped layout prop contract.
 
-**Description:** Reconciles the token sheet with the values the components actually consume, finishes the identity asset set in `$APP/public/`, and declares the `content` prop contract on all three layout-layer components so Astro type-checks the head metadata.
+**Description:** Reconciles the token sheet with the values the components actually consume, finishes the identity asset set in `$APP/public/`, and declares the `content` prop contract on all three layout-layer components so Astro type-checks the head metadata. The token, colour, contract, and link work is done; the two image assets are produced by the user and are the only part of this iteration still outstanding.
 
 **Changes:**
 
-- Add `--type-spacing-compact` to `:root` in `$APP/src/styles/global.css`. It is consumed by `.main-section h2 em` and currently resolves to nothing, leaving that `letter-spacing` declaration inert.
-- Reconcile `<meta name="theme-color">` in `$APP/src/layouts/components/SiteHead.astro` with the palette. The current `#00d590` is a green absent from the curcuma, orange, and purple token set — replace it with a value derived from the brand palette, or drop the meta.
-- Complete the icon set in `$APP/public/`:
-  - Add `icon.svg`, derived from the `SiteLogo.astro` mark so the favicon and the header logo are the same artwork.
-  - Add `apple-touch-icon.png` at `180 × 180`, so the `apple-touch-icon` link resolves on iOS.
-  - Restore `<link rel="icon" href="/favicon.svg" type="image/svg+xml" />` in `SiteHead.astro`; `public/favicon.svg` currently ships in `dist/` referenced by nothing.
-- Declare `interface Props` with `content: { title: string; description: string }` in `$APP/src/layouts/components/SiteHead.astro`, `$APP/src/layouts/HomeLayout.astro`, and `$APP/src/layouts/PageLayout.astro`. All three read `Astro.props` untyped today.
-- Review the four tokens declared but never consumed — `--palette-curcuma-400`, `--palette-brand-curcuma`, `--palette-brand-purple`, `--color-content-max` — and either wire them or drop them.
+- Add `--type-spacing-compact: 0.01em` to `:root` in `$APP/src/styles/global.css`. It is consumed by `.main-section h2 em`, whose parent `h2` sets `letter-spacing: -0.02em`; the token gives the emphasised span slightly open tracking against the tightened uppercase heading.
+- Replace `<meta name="theme-color">` in `$APP/src/layouts/components/SiteHead.astro`. The inherited `#00d590` was a green absent from the curcuma, orange, and purple token set; it is now `#f0631d`, the sRGB hex of `oklch(67% 0.19 42)` — the same value as `--palette-brand-orange` and `--color-brand`.
+- Drop two dead tokens from `:root` in `$APP/src/styles/global.css`:
+  - `--palette-brand-curcuma` was byte-identical to `--palette-curcuma-400`.
+  - `--palette-brand-purple` was a third purple, `oklch(58% 0.22 316)`, outside the `--palette-purple-400` / `--palette-purple-600` scale it duplicated in role.
+- Declare `interface Props` with `content: { title: string; description: string }` in `$APP/src/layouts/components/SiteHead.astro`. `HomeLayout.astro` and `PageLayout.astro` already declare it.
+- Restore `<link rel="icon" href="/favicon.svg" type="image/svg+xml" />` in `SiteHead.astro`; `public/favicon.svg` previously shipped in `dist/` referenced by nothing.
+- Outstanding, owned by the user: add `icon.svg`, derived from the `SiteLogo.astro` mark so the favicon and the header logo are the same artwork, and `apple-touch-icon.png` at `180 × 180`. Both links already resolve in `SiteHead.astro` and 404 in `dist/` until the files land.
+- Left in place, no decision taken: `--palette-curcuma-400` completes the curcuma ramp at 000 / 100 / 400 / 800 / 900 but is consumed by no rule, and `--color-content-max` is set in both `:root` and the dark block but consumed by no rule. Wiring `--color-content-max` onto the max-width `p, li` rule is the reading its name suggests, but it is a visible colour change, so it is held back rather than assumed.
 
 **Dependencies:**
 
 - Iteration: Establish Design System and Content — the token sheet and icon links originate there.
-- Iteration: Add PageLayout and 404 Page — `PageLayout` is one of the three components to type.
+- Iteration: Add PageLayout and 404 Page — `PageLayout` is one of the three components now typed.
 
 #### Commits:
 
@@ -278,11 +275,10 @@ build(app-noodlestan-web): Add `PageLayout` and 404 page.
 **Message:**
 
 ```
-design(app-noodlestan-web): Complete tokens, icons, and layout content contracts.
+build(noodlestan-web): Complete tokens, theme colour, and layout contracts.
 
-- Define `--type-spacing-compact` and reconcile `theme-color` with the token palette.
-- Add `/icon.svg` and `/apple-touch-icon.png`, and link the shipped `/favicon.svg`.
-- Type the `content` prop in `SiteHead`, `HomeLayout`, and `PageLayout`.
+- Define `--type-spacing-compact`, drop two dead palette tokens, and set `theme-color` to the brand orange.
+- Link the shipped `/favicon.svg`, and type the `content` prop in `SiteHead`.
 ```
 
 ---
@@ -291,7 +287,7 @@ design(app-noodlestan-web): Complete tokens, icons, and layout content contracts
 
 ### Next
 
-Decide whether Iteration: Complete Tokens, Icons, and Content Contracts is delegated or executed directly, and confirm its name. Iteration: Add PageLayout and 404 Page is executed directly by the user.
+Add `icon.svg` and `apple-touch-icon.png` to `$APP/public/`, then commit Iteration: Complete Tokens, Icons, and Content Contracts. Decide separately whether to wire `--color-content-max` onto the max-width `p, li` rule or drop it, and whether `--palette-curcuma-400` is kept for ramp symmetry.
 
 ### Blockers
 
@@ -370,26 +366,29 @@ npm run build # to produce a full build
 - `npm run build` from `$APP` succeeds and emits both `dist/index.html` and `dist/404.html`.
 - `dist/index.html` carries the token sheet, the Fredoka and Lusitana links, the `theme-color` meta, the fixed composed header with the site logo, and the refreshed homepage sections.
 - `dist/404.html` renders the same header and footer through `PageLayout`, with `<title>Page not found</title>` and a working link to `/`.
-- No artefact in `$APP/public/` is unreferenced, and no `href` in the emitted head resolves to a missing file in `dist/`.
+- No artefact in `$APP/public/` is unreferenced. The reverse — every `href` in the emitted head resolving to a file in `dist/` — holds only once `icon.svg` and `apple-touch-icon.png` are added, so it is gated on that outstanding work rather than claimed.
 - Switching the OS or browser to dark mode re-maps the semantic colour tokens without any component change.
 
 ### Findings
 
 - The design work landed in the working tree before the plan that would have carried it. `Plan: Add 404 Page` had deliberately deferred fonts, `theme-color`, and the token sheet to the two unwritten Phase 3 plans, and forbade `import '../styles/global.css'` in `PageLayout`; all three deferrals were overtaken, which is why this plan absorbs them rather than the 404 plan remaining separate.
 - `$APP/src/styles/global.css` now carries a document reset at lines 51 to 76 that is a strict superset of the `html, body` reset the old `Layout.astro` held. Carrying the reset in both layouts, as the merged 404 plan required, would have duplicated it — the token sheet is the single reset owner.
-- `HomeLayout` and `PageLayout` are now both chrome-bearing, so the "bare `HomeLayout`" rule of the merged-away 404 plan no longer holds. The renamed layout keeps its identity as the home page's layout, not as the chrome-free one.
+- `HomeLayout` and `PageLayout` are no longer two chrome-bearing layouts. The merged-away 404 plan kept `HomeLayout` bare so the homepage composed its own `SiteHeader` and `SiteFooter`; once the token sheet and decomposed header landed, that produced two byte-identical layouts. `PageLayout` became a thin delegation to `HomeLayout` instead, so the chrome has one owner and standalone pages still get a named contract.
 - `--type-spacing-compact` is consumed by `.main-section h2 em` in `global.css` but declared nowhere; the `letter-spacing` it drives is silently inert.
 - The `theme-color` `#00d590` inherited from the Art MD reference is outside the curcuma, orange, and purple palette this site settled on.
 - `$APP/public/` holds only `favicon.ico` and `favicon.svg`. `SiteHead` links `/icon.svg` and `/apple-touch-icon.png`, which resolve to 404 in production, and `favicon.svg` ships unreferenced.
 - `SiteLogo.astro` deliberately lives in `src/components/site/` rather than `src/layouts/components/` because pages as well as layouts render it; `Hero.astro` and `SiteTitle.astro` both import it.
 - `main { padding-block-start: 8rem; }` in `HomeLayout` is layout-generic, not home-page-specific: it clears the fixed site header, so it belongs in whichever layout carries that header.
 - `npm run build` and `npx prettier . -c` both pass on the current working tree.
+- `--palette-brand-curcuma` and `--palette-brand-purple` were both dead on arrival: the first duplicated `--palette-curcuma-400` exactly, the second introduced a purple outside the `--palette-purple-400` / `--palette-purple-600` scale. Neither was load-bearing, so both were dropped rather than wired.
+- `theme-color` cannot reference a CSS custom property in a `<meta content>` attribute, so the brand orange had to be spelled as hex. `#f0631d` is the sRGB equivalent of `oklch(67% 0.19 42)`; the duplication between the meta and `--color-brand` is unavoidable and is noted rather than papered over with a build step.
 
 ### Decisions
 
 - **`HomeLayout` carries the chrome** — the merged-away 404 plan kept it bare so the homepage composed its own `SiteHeader` and `SiteFooter`. With a token sheet and a decomposed header in place, one chrome contract used by both layouts is simpler and keeps the two layouts from drifting.
 - **Fonts load from `fonts.bunny.net`, not Google Fonts** — the reference app's `fonts.googleapis.com` links are replaced with Bunny, and the token sheet's `--type-*` families name the loaded faces.
 - **The token sheet owns the document reset** — layouts carry only the header-clearing `main` rule, so a reset change is a one-file change.
+- **`PageLayout` delegates to `HomeLayout` rather than duplicating it** — the first draft of the iteration made the two layouts siblings carrying identical chrome. Duplicating markup to preserve a naming distinction was the wrong trade; `PageLayout` is now a typed `content` prop plus a forwarded slot, which keeps the standalone-page contract without a second source of truth.
 - **One commit per iteration, all `MANUAL`** — the user executes the commits, so no instructions files are generated and nothing is delegated.
 
 ### Knowledge to Update

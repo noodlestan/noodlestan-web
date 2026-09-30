@@ -1,5 +1,5 @@
 ---
-import HomeLayout from '../layouts/HomeLayout.astro';
+import PageLayout from '../layouts/PageLayout.astro';
 
 const content = {
   title: 'Page not found',
@@ -7,7 +7,7 @@ const content = {
 };
 ---
 
-<HomeLayout content={content}>
+<PageLayout content={content}>
   <section class="main-section">
     <h1>Page not found</h1>
     <div class="text-large">
@@ -15,11 +15,4 @@ const content = {
       <p><a href="/">Return to the home page</a></p>
     </div>
   </section>
-
-</HomeLayout>
-
-<style>
-  p {
-    font-size: 1.3rem;
-  }
-</style>
+</PageLayout>
