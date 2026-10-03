@@ -8,7 +8,7 @@
   "arrowParens": "avoid",
   "overrides": [
     {
-      "files": ["*.js", "*.cjs", "*.mts", "*.ts", "*.tsx"],
+      "files": ["*.js", "*.cjs", "*.mjs", "*.mts", "*.ts", "*.tsx"],
       "options": {
         "useTabs": true
       }

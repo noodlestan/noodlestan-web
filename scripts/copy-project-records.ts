@@ -58,7 +58,7 @@ async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void
 
 	// Clone if not exists
 	if (!existsSync(location)) {
-		console.log(`Cloning ${repo.resource.name}...`);
+		console.info(`Cloning ${repo.resource.name}...`);
 		execSync(`npm run art-work clone "${repo.resource.name}"`, {
 			cwd: WORKSPACE,
 			stdio: 'inherit',
@@ -75,7 +75,7 @@ async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void
 	if (isHosting) {
 		// Hosting repo runs the script and may be on a feature branch during the plan;
 		// skip branch check and pull, its project.art is already present locally.
-		console.log(`Skipping branch check and pull for hosting repo: ${repo.resource.name}`);
+		console.info(`Skipping branch check and pull for hosting repo: ${repo.resource.name}`);
 	} else {
 		// Verify branch
 		const branch = execSync('git branch --show-current', {
@@ -112,18 +112,18 @@ async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void
 	// can derive URLs (e.g. GitHub) without hardcoding the org.
 	const enriched = `${content.trimEnd()}\n\n**Remote:** \`${repo.resource.remote}\`\n`;
 	writeFileSync(dest, enriched);
-	console.log(`Copied project record: ${repo.resource.id}`);
+	console.info(`Copied project record: ${repo.resource.id}`);
 }
 
 async function main() {
 	const repos = await loadRepositoryRecords();
-	console.log(`Found ${repos.length} repository records`);
+	console.info(`Found ${repos.length} repository records`);
 
 	for (const repo of repos) {
 		await copyRepositoryProjectRecord(repo);
 	}
 
-	console.log('Done copying project records');
+	console.info('Done copying project records');
 }
 
 main().catch(err => {

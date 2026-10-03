@@ -1,4 +1,4 @@
-import { readdirSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 type ProjectRecord = {
@@ -37,7 +37,7 @@ function extractField(content: string, field: string): string | null {
 
 	for (const pattern of patterns) {
 		const match = content.match(pattern);
-		if (match) return match[1].trim();
+		if (match) return match[1]?.trim() || '';
 	}
 	return null;
 }
@@ -53,7 +53,7 @@ function extractResources(content: string, field: string): string[] {
 	const match = content.match(pattern);
 	if (!match) return [];
 
-	const block = match[1];
+	const block = match[1] || '';
 	const items: string[] = [];
 	const lines = block.split('\n');
 	for (const line of lines) {
@@ -136,14 +136,14 @@ async function saveProjectJson(projects: ProjectRecord[]): Promise<void> {
 	mkdirSync(DATA_DIR, { recursive: true });
 	const outPath = join(DATA_DIR, 'collection.json');
 	writeFileSync(outPath, JSON.stringify(items, null, 2) + '\n');
-	console.log(`Saved ${items.length} projects to collection.json`);
+	console.info(`Saved ${items.length} projects to collection.json`);
 }
 
 async function main() {
 	const projects = await loadProjectRecords(RECORDS_DIR);
-	console.log(`Loaded ${projects.length} project records`);
+	console.info(`Loaded ${projects.length} project records`);
 	await saveProjectJson(projects);
-	console.log('Done');
+	console.info('Done');
 }
 
 main().catch(err => {

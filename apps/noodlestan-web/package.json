@@ -7,8 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "lint": "prettier . -c",
-    "lint:fix": "prettier . -c --write",
+    "lint": "prettier . -c && eslint . && tsc --noEmit",
+    "lint:fix": "prettier . -c --write && eslint . --fix",
     "build:clean": "rm -rf dist",
     "build": "astro build",
     "test": "echo none yet",
