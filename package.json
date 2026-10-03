@@ -9,6 +9,7 @@
   "workspaces": [
     "apps/**"
   ],
+  "prettier": "@noodlestan/prettier-config",
   "engines": {
     "node": ">=22"
   },
