@@ -1,9 +1,9 @@
 ---
 interface Props {
-  content: {
-    title: string;
-    description: string;
-  };
+	content: {
+		title: string;
+		description: string;
+	};
 }
 
 const { title, description } = Astro.props.content;
@@ -13,7 +13,10 @@ const { title, description } = Astro.props.content;
 <meta name="viewport" content="width=device-width" />
 
 <link rel="preconnect" href="https://fonts.bunny.net" />
-<link href="https://fonts.bunny.net/css?family=fredoka:300,400,500,600,700|lusitana:400,700" rel="stylesheet" />
+<link
+	href="https://fonts.bunny.net/css?family=fredoka:300,400,500,600,700|lusitana:400,700"
+	rel="stylesheet"
+/>
 
 <meta name="theme-color" content="#f0631d" />
 <link rel="icon" href="/icon.svg" type="image/svg+xml" />

@@ -1,32 +1,31 @@
 <hr />
 
 <style>
+	hr {
+		margin: 0;
+		border: none;
+		border-top: 3px dashed var(--color-content);
+		position: relative;
+		overflow: visible;
+	}
 
-  hr {
-    margin: 0;
-    border: none;
-    border-top: 3px dashed  var(--color-content);
-    position: relative;
-    overflow: visible;
-  }
+	hr::before {
+		content: ' ';
+		position: absolute;
+		inset: 0;
+		top: 0px;
+		height: 5px;
+		z-index: 1;
+		background: rgb(from var(--color-page-bg) r g b / 60%);
+	}
 
-  hr::before {
-    content: ' ';
-    position: absolute;
-    inset: 0;
-    top: 0px;
-    height: 5px;
-    z-index: 1;
-    background: rgb(from var(--color-page-bg) r g b / 60%)
-  }
-
-  hr::after {
-    content: ' ';
-    inset: 0;
-    top: 5px;
-    height: 5px;
-    position: absolute;
-    display: block;
-    background: rgb(from var(--color-page-bg) r g b / 30%)
-  }
+	hr::after {
+		content: ' ';
+		inset: 0;
+		top: 5px;
+		height: 5px;
+		position: absolute;
+		display: block;
+		background: rgb(from var(--color-page-bg) r g b / 30%);
+	}
 </style>

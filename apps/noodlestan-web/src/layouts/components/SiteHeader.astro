@@ -7,47 +7,47 @@ import SiteTitle from './SiteTitle.astro';
 ---
 
 <SiteHeaderContainer>
-  <div class="container">
-    <a class="site-title" href="/">
-      <SiteTitle />
-    </a>
-    <div class="site-nav">
-      <SiteNav />
-    </div>
-    <div class="site-links">
-      <SiteLinks />
-    </div>
-  </div>
-  <SiteHeaderDivider />
+	<div class="container">
+		<a class="site-title" href="/">
+			<SiteTitle />
+		</a>
+		<div class="site-nav">
+			<SiteNav />
+		</div>
+		<div class="site-links">
+			<SiteLinks />
+		</div>
+	</div>
+	<SiteHeaderDivider />
 </SiteHeaderContainer>
 
 <style>
-  .container {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-end;
-    justify-content: space-between;
-    padding-block: 1.5rem;
-    row-gap: 1rem;
-  }
+	.container {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-end;
+		justify-content: space-between;
+		padding-block: 1.5rem;
+		row-gap: 1rem;
+	}
 
-  .site-title {
-    text-decoration: none;
-  }
+	.site-title {
+		text-decoration: none;
+	}
 
-  .site-nav {
-    display: none;
-  }
+	.site-nav {
+		display: none;
+	}
 
-  @media screen and (min-width: 1000px) {
-    .site-title,
-    .site-links {
-      width: 14rem;
-    }
-    .site-nav {
-      display: flex;
-    }
-  }
+	@media screen and (min-width: 1000px) {
+		.site-title,
+		.site-links {
+			width: 14rem;
+		}
+		.site-nav {
+			display: flex;
+		}
+	}
 </style>

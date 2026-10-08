@@ -9,10 +9,10 @@
   "workspaces": [
     "apps/**"
   ],
-  "prettier": "@noodlestan/prettier-config",
   "engines": {
     "node": ">=22"
   },
+  "prettier": "@noodlestan/prettier-config",
   "scripts": {
     "turbo": "turbo",
     "dev": "turbo run dev --ui tui",
@@ -27,13 +27,12 @@
   },
   "devDependencies": {
     "@noodlestan/eslint-config": "0.0.8",
+    "@noodlestan/prettier-config": "0.0.1",
     "@noodlestan/tsconfig": "0.0.14",
     "@types/node": "^25.9.5",
     "eslint": "8.57.1",
     "lefthook": "2.1.9",
     "prettier": "3.8.4",
-    "rollup": "4.61.1",
-    "simple-git": "^3.36.0",
     "solid-js": "1.9.13",
     "tsx": "4.23.13",
     "turbo": "2.9.18",

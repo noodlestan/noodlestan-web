@@ -41,15 +41,17 @@ Records are co-located with the resources they describe in `_records/` directori
 
 A copy all `project.art` records from know repositories is kept at `data/_records/projects/` and updated via **Operating Instructions: Updating Project Records**.
 
-## Formatting
+## Tooling
 
-Prettier rules are shared with the other Noodlestan repositories through the `@noodlestan/prettier-config` package, selected from the root `package.json` with the `prettier` field:
+Shared configuration from Noodlestan workspace-tooling:
 
-```json
-"prettier": "@noodlestan/prettier-config"
-```
+- `@noodlestan/eslint-config` — shared ESLint rules.
+- `@noodlestan/tsconfig` — shared TypeScript configurations.
+- `@noodlestan/prettier-config` — shared Prettier rules, selected from the root `package.json` with the `prettier` field.
 
-The field resolves the package through Node module resolution, so no Prettier configuration file lives in this repository. Files left unformatted are listed in `.prettierignore`.
+The field resolves the package through Node module resolution, so no Prettier configuration file lives in this repository. Files left unformatted are listed in `.prettierignore`. `apps/noodlestan-web` overrides it with `@noodlestan/prettier-config-astro` for `.astro` files.
+
+Toolchain: `vitest` (tests), `turbo` (task orchestration), `lefthook` (pre-commit hooks).
 
 ## Workflows
 

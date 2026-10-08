@@ -5,10 +5,10 @@ import SiteHeader from './components/SiteHeader.astro';
 import SiteFooter from './components/SiteFooter.astro';
 
 interface Props {
-  content: {
-    title: string;
-    description: string;
-  };
+	content: {
+		title: string;
+		description: string;
+	};
 }
 
 const { content } = Astro.props;
@@ -16,21 +16,21 @@ const { content } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <SiteHead content={content} />
-  </head>
-  <body>
-    <SiteHeader />
-    <main>
-      <slot />
-    </main>
-    <SiteFooter />
-  </body>
+	<head>
+		<SiteHead content={content} />
+	</head>
+	<body>
+		<SiteHeader />
+		<main>
+			<slot />
+		</main>
+		<SiteFooter />
+	</body>
 </html>
 
 <style>
-  main {
-    padding-block-start: 8rem;
-    overflow-x: hidden;
-  }
+	main {
+		padding-block-start: 8rem;
+		overflow-x: hidden;
+	}
 </style>

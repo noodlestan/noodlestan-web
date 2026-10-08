@@ -6,58 +6,56 @@ const projects = await getCollection('projects');
 ---
 
 <section class="container main-section">
-  <a class="main-anchor" id="projects" />
-  <h2>Projects</h2>
-  <div class="text-medium">
-    <p>
-      Tools for working with code and metadata, component libraries and design systems, AI agent
-      tooling, documentation infrastructure, and creative experiments.
-    </p>
-    <p>The projects are independent, but many are connected and built to work together.</p>
-  </div>
-  <ul class="project-list">
-    {
-      projects.map(project => (
-        <li>
-          <ProjectItem project={project} />
-        </li>
-      ))
-    }
-  </ul>
+	<a class="main-anchor" id="projects" />
+	<h2>Projects</h2>
+	<div class="text-medium">
+		<p>
+			Tools for working with code and metadata, component libraries and design systems, AI agent
+			tooling, documentation infrastructure, and creative experiments.
+		</p>
+		<p>The projects are independent, but many are connected and built to work together.</p>
+	</div>
+	<ul class="project-list">
+		{projects.map(project => (
+			<li>
+				<ProjectItem project={project} />
+			</li>
+		))}
+	</ul>
 </section>
 
 <style>
-  section {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
 
-  ul {
-    display: flex;
-    flex-direction: column;
-    row-gap: 2rem;
-    column-gap: 1rem;
-    padding-block: 2rem;
-    padding-inline: 0;
-  }
+	ul {
+		display: flex;
+		flex-direction: column;
+		row-gap: 2rem;
+		column-gap: 1rem;
+		padding-block: 2rem;
+		padding-inline: 0;
+	}
 
-  @media screen and (min-width: 45rem) {
-    ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-    }
-  }
+	@media screen and (min-width: 45rem) {
+		ul {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+		}
+	}
 
-  @media screen and (min-width: 75rem) {
-    ul {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-    }
-  }
+	@media screen and (min-width: 75rem) {
+		ul {
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
 
-  li {
-    flex: 30%;
-    list-style: none;
-  }
+	li {
+		flex: 30%;
+		list-style: none;
+	}
 </style>
