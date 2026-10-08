@@ -1,8 +1,18 @@
 {
+  "extends": "@noodlestan/tsconfig/workspace/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
-    "moduleResolution": "bundler",
+    "noEmit": true,
+    // strict
+    "strict": true,
+    "noImplicitAny": true,
+    "verbatimModuleSyntax": true,
+    "isolatedModules": true,
+    "forceConsistentCasingInFileNames": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "rootDir": ".",
     "allowJs": true,
@@ -11,16 +21,7 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationMap": true,
-    "sourceMap": true,
-    "strict": true,
-    "noImplicitAny": true,
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "forceConsistentCasingInFileNames": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-    "skipLibCheck": true,
-    "noEmit": true
+    "sourceMap": true
   },
   "include": ["apps/", "scripts/"],
   "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
