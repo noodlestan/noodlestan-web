@@ -1,5 +1,5 @@
 {
-  "extends": "@noodlestan/tsconfig/workspace/tsconfig.json",
+  "extends": "@noodlestan/tsconfig/monorepo/tsconfig.json",
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
@@ -10,18 +10,7 @@
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "forceConsistentCasingInFileNames": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noUncheckedIndexedAccess": true,
-
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "rootDir": ".",
-    "allowJs": true,
-    "types": ["node"],
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true
+    "noPropertyAccessFromIndexSignature": true
   },
   "include": ["apps/", "scripts/"],
   "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
