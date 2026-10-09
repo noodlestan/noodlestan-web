@@ -1,17 +1,5 @@
 {
   "extends": "@noodlestan/tsconfig/monorepo/tsconfig.json",
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "noEmit": true,
-    // strict
-    "strict": true,
-    "noImplicitAny": true,
-    "verbatimModuleSyntax": true,
-    "isolatedModules": true,
-    "forceConsistentCasingInFileNames": true,
-    "noPropertyAccessFromIndexSignature": true
-  },
   "include": ["apps/", "scripts/"],
   "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
 }
