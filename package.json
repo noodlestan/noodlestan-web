@@ -30,7 +30,7 @@
     "@noodlestan/conventions-unit-tests": "0.1.0",
     "@noodlestan/eslint-config": "0.0.8",
     "@noodlestan/prettier-config": "0.0.1",
-    "@noodlestan/tsconfig": "^0.2.0",
+    "@noodlestan/tsconfig": "0.2.0",
     "@types/node": "25.9.5",
     "eslint": "8.57.1",
     "lefthook": "2.1.9",
