@@ -8,7 +8,7 @@ _None yet._
 
 ## Pending Questions
 
-- Discord invite URL for the "Join us" section (Plan: Home Sections MVP). Placeholder `{DISCORD_INVITE_URL}` until supplied.
+_None yet._
 
 ## Blockers
 

@@ -8,10 +8,7 @@ _None yet._
 
 ## Pending Questions
 
-- Create `Milestone: Noodlstan Web Next` in `3-now/`
-  - Add `Plan: Search Projects POC`
-  - Add `Plan: Create Noodlestan Astro Components Package` (Name TBD)
-- Create `Milestone: Noodlestan Web 3000` in `9-inbox/`
+_None yet._
 
 ## Blockers
 

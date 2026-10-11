@@ -254,7 +254,6 @@ npm run art-work sanity
 - Create a routine that converts Art records into `src/generated/endpoints.ts`.
 - Add project hierarchy (parent/child) and project status indicators (active/archived) to the project list.
 - Crew action: commit or discard the staged `_guide.md` change in `checkouts/art-domains` before re-running the copy script.
-- Decide whether closed milestones should be relocated out of `_roadmap/3-now/` — this checkout has no archive convention yet.
 
 ### Feedback
 
