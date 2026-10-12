@@ -84,44 +84,11 @@ Not yet defined.
 
 ### Next
 
-Elaborate this milestone into a goal, scope, and phases — then move it out of `9-inbox/`.
+- None.
 
 ### Blockers
 
-- Not yet elaborated, so no goal, scope, or downstream items can be planned.
-
----
-
-## Operating Instructions
-
-### Writing Commit Message
-
-**Purpose:** Write standardized message according to context conventions. Operation of Workflow: Planning Work, defined in `$DOMAINS/work/workflows/planning-work/writing-commit-message/operation.art`.
-
-**Instructions:** (From `$WORKSPACE/_guide.md`)
-
-1. Read commit message conventions from `$WORKSPACE/knowledge/conventions/writing-commit-message.art`.
-2. Write the commit message following the rules defined there.
-
-### Setting Up
-
-**Purpose:** Prepare the execution environment. Operation of Workflow: Executing Work, defined in `$DOMAINS/work/workflows/executing-work/setting-up/operation.art`.
-
-**Instructions:** (From `$WORKSPACE/_guide.md`)
-
-```bash
-npm ci # to install dependencies.
-```
-
-### Verifying Completion
-
-**Purpose:** Confirms that the work item has been completed and satisfies its intended outcome. Operation of Workflow: Executing Work, defined in `$DOMAINS/work/workflows/executing-work/verifying-completion/operation.art`.
-
-**Instructions:** (From `$WORKSPACE/_guide.md`)
-
-```bash
-npm run art-work sanity # to check git status across all repos
-```
+- None.
 
 ---
 

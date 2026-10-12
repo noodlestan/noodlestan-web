@@ -142,34 +142,34 @@ Execution is coordinated from the Noodlestan Web checkout. Website work happens 
 
 ## Phases
 
-| Index | Name                     | Status     |
-| ----- | ------------------------ | ---------- |
-| `1`   | Search Projects POC      | `PLANNING` |
-| `2`   | Astro Components Package | `PLANNING` |
+| Index | Name                      | Status     |
+| ----- | ------------------------- | ---------- |
+| `1`   | Project browsing features | `PLANNING` |
+| `2`   | Astro Components Package  | `PLANNING` |
 
-### Phase: 1 — Search Projects POC
+### Phase: 1 — Project browsing features
 
-**Goal:** Let visitors find projects on noodlestan.org by searching the project collection.
+**Goal:** Enhance how projects are displayed on https://noodlestan.org.
 
-**Description:** Add a client-side search input that filters the rendered project list as the visitor types, over the `projects` Astro collection already shipped as static JSON. No backend and no external search service.
-
-**Status:** `PLANNING`
-
-**Dependencies:**
-
-- None — the `projects` collection is already rendered on the homepage.
-
-### Phase: 2 — Astro Components Package
-
-**Goal:** Extract the design tokens and site chrome into a reusable package so future noodlestan.org sites share one implementation.
-
-**Description:** Create the first package in this monorepo, move `global.css` and the `Site*` chrome components into it, and have the website consume it through the workspace dependency.
+**Description:** Add new pages and client-side scripts to search projects, filter (hide sub-projects by default, add a toggle to show all), featured projects, show packages, show releases.
 
 **Status:** `PLANNING`
 
 **Dependencies:**
 
-- The package name is not yet decided — see Blockers.
+- None.
+
+### Phase: 2 — Distribute Noodlestan Components
+
+**Goal:** All noodlestan.org sites should display noodlestan related info and interactions consistently.
+
+**Description:** Extract design tokens and components as reusable packages: "made in noodlestan", "noodlestan website link (header navigation)", "contribute" "help wanted", "wip".
+
+**Status:** `PLANNING`
+
+**Dependencies:**
+
+- None
 
 ---
 
@@ -184,13 +184,11 @@ Execution is coordinated from the Noodlestan Web checkout. Website work happens 
 
 ### Next
 
-Refine both plans to `READY`, then delegate the first iteration of `Plan: Search Projects POC`.
+- None
 
 ### Blockers
 
-- **Package Name** blocked because the components package name is undecided — the phase and its plan use `@noodlestan/astro-components` as a placeholder.
-
----
+- None
 
 ## Operating Instructions
 
@@ -244,7 +242,6 @@ npm run art-work sanity # to check git status across all repos
 ### Decisions
 
 - **Search stays client-side** — the collection is already shipped as static data, so a proof of concept should not introduce a service to operate.
-- **Extract, do not redesign** — the components package moves the existing tokens and chrome; restyling is separate work.
 
 ### Knowledge to Update
 
@@ -255,8 +252,6 @@ npm run art-work sanity # to check git status across all repos
 Carried from `Milestone: Noodlestan Web MVP` and deliberately not covered here:
 
 - Set up CI/CD for automatic deployment on push.
-- Deploy the staging environment.
-- Add real content beyond project listings.
 
 ### Feedback
 
