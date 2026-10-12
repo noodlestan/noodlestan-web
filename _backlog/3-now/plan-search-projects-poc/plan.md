@@ -75,7 +75,7 @@ None.
 
 ::READ `$APP/src/styles/global.css` (Token Sheet) — Source of the input, focus, and colour tokens the search must use. Relevant for iteration `style-and-tune-search`.
 
-::READ `$APP/architecture/adr/endpoints.md` (ADR) — Endpoints sourcing and exposure decisions. Relevant when search adds no new endpoints.
+::READ `$APP/knowledge/adr/endpoints.md` (ADR) — Endpoints sourcing and exposure decisions. Relevant when search adds no new endpoints.
 
 ::READ `$WORKSPACE/knowledge/conventions/writing-commit-message.art` (Conventions) — Defines the commit message format, types, scopes, and rules. Relevant for stages Writing Commit Message.
 

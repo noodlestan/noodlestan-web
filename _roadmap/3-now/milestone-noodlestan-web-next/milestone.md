@@ -82,7 +82,7 @@ None.
 
 ::READ `$DOMAINS/engineering/_guide.md` (Guide) — Defines the architect, delegator, and worker roles and the instruction/report working agreements. Relevant when refining and delegating plans.
 
-::READ `$APP/architecture/adr/endpoints.md` (ADR) — Endpoints sourcing and exposure decisions. Relevant when components carry links.
+::READ `$APP/knowledge/adr/endpoints.md` (ADR) — Endpoints sourcing and exposure decisions. Relevant when components carry links.
 
 ## Scope
 

@@ -78,7 +78,7 @@ None.
 
 ::READ `$APP/src/styles/global.css` (Token Sheet) — The single source of colour, type, and layout tokens to be moved. Relevant for iteration `move-tokens-and-chrome`.
 
-::READ `$APP/architecture/adr/endpoints.md` (ADR) — Endpoints sourcing and exposure decisions; the chrome components read `src/consts.ts`, which stays in the app. Relevant for iteration `move-tokens-and-chrome`.
+::READ `$APP/knowledge/adr/endpoints.md` (ADR) — Endpoints sourcing and exposure decisions; the chrome components read `src/consts.ts`, which stays in the app. Relevant for iteration `move-tokens-and-chrome`.
 
 ::READ `$WORKSPACE/knowledge/conventions/writing-commit-message.art` (Conventions) — Defines the commit message format, types, scopes, and rules. Relevant for stages Writing Commit Message.
 
