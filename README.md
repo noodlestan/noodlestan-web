@@ -4,6 +4,8 @@
 
 Repository of Noodlestan websites - typically built with Astro.
 
+**Keywords:** websites, documentation, astro.
+
 ## Applications
 
 | dir                    | description        |

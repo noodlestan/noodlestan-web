@@ -2,6 +2,11 @@
   "name": "noodlestan/noodlestan-web",
   "version": "0.0.1",
   "description": "Repository of Noodlestan websites — typically built with Astro.",
+  "keywords": [
+    "websites",
+    "documentation",
+    "astro"
+  ],
   "author": "Noodlestan",
   "license": "MIT",
   "private": true,
