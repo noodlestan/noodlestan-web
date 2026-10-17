@@ -18,11 +18,20 @@
 
 - Package: ESBuild CLI
 - Package: ESLint Config
+- Package: Prettier Config
 - Package: TS Config
+
+**Keywords:**
+
+- build-configs
+- esbuild
+- eslint
+- prettier
+- typescript
 
 **Private:** `true`
 
-**Management:** Uses Workflow: Planning Work with one backlog per package.
+**Management:** Uses Workflow: Planning Work with one backlog at `_backlog/`.
 
 **License:** License: Noodlestan 2026 MIT
 

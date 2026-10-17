@@ -15,8 +15,18 @@
 **Resources:**
 
 - Package: Art Work Cli
+- Package: Art Board Cli (PLANNED)
 - Application: Art Work Website (PLANNED)
 - Tool: Art Work Tool (PLANNED)
+
+**Keywords:**
+
+- art
+- workspaces
+- cli
+- tooling
+- multi-repository
+- git
 
 **Private:** `false`
 

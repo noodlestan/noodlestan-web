@@ -1,5 +1,19 @@
 [
   {
+    "id": "art-boards",
+    "project": {
+      "name": "Art Boards",
+      "purpose": "Visualize resources and coordinate agent sessions with human-machine collaboration tools.",
+      "description": "Tools for coordinating agent sessions and discovering and visualizing resources and artefacts.",
+      "website": null,
+      "code": "https://github.com/noodlestan/art-boards",
+      "repository": "Repository: Art Boards",
+      "owner": "Project: Artificials",
+      "resources": [],
+      "private": false
+    }
+  },
+  {
     "id": "art-domains",
     "project": {
       "name": "Art Domains",
@@ -22,7 +36,7 @@
       "website": null,
       "code": "https://github.com/noodlestan/art-js",
       "repository": "Repository: Art JS",
-      "owner": "Project: Art JS",
+      "owner": "Project: Artificials",
       "resources": [],
       "private": false
     }

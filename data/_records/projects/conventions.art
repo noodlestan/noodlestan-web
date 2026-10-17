@@ -21,6 +21,17 @@
 - Package: SolidJS Conventions
 - Package: SCSS Conventions
 - Package: Commits Conventions
+- Package: Unit Tests Conventions
+
+**Keywords:**
+
+- conventions
+- typescript
+- jsx
+- solidjs
+- scss
+- unit-tests
+- style-guide
 
 **Private:** `false`
 

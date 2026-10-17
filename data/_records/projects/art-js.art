@@ -6,7 +6,7 @@
 
 **Description:** Libraries and tools for working with Art MD as a programming language, including records, resources, modules, programs, program builders, validators, projectors, language services, and related tooling.
 
-**Owner:** Project: Art JS
+**Owner:** Project: Artificials
 
 **Author:** Noodlestan Collective
 
@@ -18,12 +18,23 @@
 
 - Package: Bundler
 - Package: Program
+- Package: Records
 - Package: Validator
 - Package: Bin
 - Package: Dev Server
 - Package: Language Server
 - Package: Tools
 - Package: Watcher
+
+**Keywords:**
+
+- art
+- markdown
+- ast
+- parser
+- validation
+- language-server
+- bundler
 
 **Private:** `false`
 

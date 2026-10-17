@@ -1,0 +1,28 @@
+# Module
+
+## Project: Art Boards
+
+**Purpose:** Visualize resources and coordinate agent sessions with human-machine collaboration tools.
+
+**Description:** Tools for coordinating agent sessions and discovering and visualizing resources and artefacts.
+
+**Owner:** Project: Artificials
+
+**Author:** Noodlestan Collective
+
+**Repository:** Repository: Art Boards
+
+**Resources:**
+
+- Package: Art Whiteboard CLI (PLANNED)
+
+**Private:** `false`
+
+**Management:**
+
+- Uses Workflow: Roadmapping. Roadmap at `_roadmap`.
+- Uses Workflow: Planning Work. Backlog at `_backlog`.
+
+**License:** License: Noodlestan 2026 MIT
+
+**Remote:** `noodlestan/art-boards`
