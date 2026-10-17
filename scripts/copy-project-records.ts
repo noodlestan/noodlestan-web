@@ -2,6 +2,8 @@ import { execSync } from 'node:child_process';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 
+import { HIDDEN_PROJECTS } from './constants';
+
 type RepositoryRecord = {
 	record: string;
 	content: string;
@@ -116,8 +118,11 @@ async function copyRepositoryProjectRecord(repo: RepositoryRecord): Promise<void
 }
 
 async function main() {
-	const repos = await loadRepositoryRecords();
-	console.info(`Found ${repos.length} repository records`);
+	const allRepos = await loadRepositoryRecords();
+	const repos = allRepos.filter(repo => !HIDDEN_PROJECTS.includes(repo.resource.id));
+	const hidden = allRepos.length - repos.length;
+
+	console.info(`Found ${allRepos.length} repository records, skipping ${hidden} hidden`);
 
 	for (const repo of repos) {
 		await copyRepositoryProjectRecord(repo);
