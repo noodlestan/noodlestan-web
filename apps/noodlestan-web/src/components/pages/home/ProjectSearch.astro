@@ -1,0 +1,66 @@
+---
+---
+
+<div class="project-search">
+	<label for="project-search-input">Search projects</label>
+	<input
+		id="project-search-input"
+		type="search"
+		placeholder="Search by name, purpose, or description"
+	/>
+	<p class="project-search-status" role="status">
+		<span data-project-search-count></span>
+		<span data-project-search-empty hidden>
+			No projects match
+		</span>
+	</p>
+</div>
+
+<script>
+	function filterProjects(): void {
+		const searchInput = document.querySelector<HTMLInputElement>('#project-search-input');
+		if (!(searchInput instanceof HTMLInputElement)) {
+			return;
+		}
+
+		const listSection = searchInput.closest('section');
+		if (!(listSection instanceof HTMLElement)) {
+			return;
+		}
+
+		const countElement = listSection.querySelector<HTMLElement>('[data-project-search-count]');
+		const emptyElement = listSection.querySelector<HTMLElement>('[data-project-search-empty]');
+		if (!countElement || !emptyElement) {
+			return;
+		}
+
+		const query = searchInput.value.trim().toLowerCase();
+		const projectItems = listSection.querySelectorAll<HTMLElement>('li[data-search]');
+		let visibleCount = 0;
+
+		for (const projectItem of projectItems) {
+			const searchText = projectItem.dataset.search ?? '';
+			const matchesQuery = query === '' || searchText.includes(query);
+			projectItem.hidden = !matchesQuery;
+			if (matchesQuery) {
+				visibleCount += 1;
+			}
+		}
+
+		const hasVisibleProjects = visibleCount > 0;
+		emptyElement.hidden = hasVisibleProjects;
+		countElement.textContent = hasVisibleProjects ? `${visibleCount} projects` : '';
+	}
+
+	function initializeProjectSearch(): void {
+		const searchInput = document.querySelector<HTMLInputElement>('#project-search-input');
+		if (!(searchInput instanceof HTMLInputElement)) {
+			return;
+		}
+
+		searchInput.addEventListener('input', filterProjects);
+		filterProjects();
+	}
+
+	initializeProjectSearch();
+</script>

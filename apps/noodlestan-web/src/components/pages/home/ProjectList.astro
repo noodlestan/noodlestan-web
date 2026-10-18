@@ -1,8 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 import ProjectItem from './ProjectItem.astro';
+import ProjectSearch from './ProjectSearch.astro';
 
 const projects = await getCollection('projects');
+
+const searchableProjects = projects.map(project => {
+	const { name, purpose, description } = project.data.project;
+	const searchText = [name, purpose, description].join(' ').toLowerCase();
+	return { project, searchText };
+});
 ---
 
 <section class="container main-section">
@@ -15,9 +22,10 @@ const projects = await getCollection('projects');
 		</p>
 		<p>The projects are independent, but many are connected and built to work together.</p>
 	</div>
+	<ProjectSearch />
 	<ul class="project-list">
-		{projects.map(project => (
-			<li>
+		{searchableProjects.map(({ project, searchText }) => (
+			<li data-search={searchText}>
 				<ProjectItem project={project} />
 			</li>
 		))}
