@@ -1,9 +1,11 @@
 {
   "name": "apps-noodlestan-web",
   "keywords": [
+    "web-app",
     "astro",
     "website",
-    "static-site"
+    "static-site",
+    "documentation"
   ],
   "type": "module",
   "version": "0.0.1",
