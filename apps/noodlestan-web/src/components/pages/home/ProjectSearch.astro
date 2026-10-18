@@ -64,3 +64,53 @@
 
 	initializeProjectSearch();
 </script>
+
+<style>
+	.project-search {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		margin-block: 1rem;
+		max-width: var(--text-max-width);
+	}
+
+	label {
+		font-family: var(--type-input-family);
+		font-weight: 600;
+		letter-spacing: var(--type-spacing-compact);
+		color: var(--color-interactive);
+		font-size: clamp(1.25rem, calc(1.25rem + (100vw - 5rem) * 0.014286), 1.75rem);
+	}
+
+	input[type='search'] {
+		width: 100%;
+		padding: 0.75rem 1rem;
+		font-family: var(--type-input-family);
+		font-size: clamp(1rem, calc(1rem + (100vw - 5rem) * 0.00714), 1.125rem);
+		line-height: var(--text-line-height);
+		color: var(--color-content);
+		background-color: var(--color-surface-bg);
+		border: 1px solid var(--color-interactive);
+		border-radius: 0.25rem;
+	}
+
+	input[type='search']::placeholder {
+		color: var(--color-content);
+		opacity: 0.6;
+	}
+
+	input[type='search']:focus-visible {
+		outline: 2px solid var(--color-interactive);
+		outline-offset: 2px;
+	}
+
+	.project-search-status {
+		min-height: 1.75rem;
+		color: var(--color-content);
+	}
+
+	.project-search-status [data-project-search-empty] {
+		font-family: var(--type-nav-family);
+		color: var(--color-headings);
+	}
+</style>
