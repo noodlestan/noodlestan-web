@@ -2,7 +2,7 @@
 
 **Id:** `search-projects-poc`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -20,12 +20,12 @@
 
 ## Path Variables
 
-| Variable     | Resolved Path                         | Purpose                            |
-| ------------ | ------------------------------------- | ---------------------------------- |
-| `$WORKSPACE` | Current working directory             | Workspace root directory           |
-| `$DOMAINS`   | `$WORKSPACE/.agents/domains`          | Domain resources directory         |
-| `$PROJECT`   | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout |
-| `$APP`       | `$PROJECT/apps/noodlestan-web`        | The Astro application              |
+| Variable     | Resolved Path                  | Purpose                            |
+| ------------ | ------------------------------ | ---------------------------------- |
+| `$WORKSPACE` | Current working directory      | Workspace root directory           |
+| `$DOMAINS`   | `$WORKSPACE/.agents/domains`   | Domain resources directory         |
+| `$PROJECT`   | Provided with prompt           | Noodlestan Web repository checkout |
+| `$APP`       | `$PROJECT/apps/noodlestan-web` | The Astro application              |
 
 ## Summary
 
@@ -109,10 +109,10 @@ Execution is coordinated from the `$PROJECT` checkout on branch `main`, with all
 
 ## Items:
 
-| Iteration / Instructions                                                   | Status  |
-| -------------------------------------------------------------------------- | ------- |
-| Iteration: Add Project Search `./instructions/add-project-search.md`       | `DONE`  |
-| Iteration: Style and Tune Search `./instructions/style-and-tune-search.md` | `READY` |
+| Iteration / Instructions                                                   | Status |
+| -------------------------------------------------------------------------- | ------ |
+| Iteration: Add Project Search `./instructions/add-project-search.md`       | `DONE` |
+| Iteration: Style and Tune Search `./instructions/style-and-tune-search.md` | `DONE` |
 
 ### Iteration: Add Project Search
 
@@ -160,7 +160,7 @@ build(project-search): Add client-side search filtering the homepage project lis
 
 **Id:** `style-and-tune-search`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Bring the search input onto the design system so it looks and behaves like the rest of the site.
 
@@ -183,9 +183,9 @@ build(project-search): Add client-side search filtering the homepage project lis
 
 #### Commits:
 
-| ID                      | Repository / Checkout / Branch       | Policy   | Hash | Status     |
-| ----------------------- | ------------------------------------ | -------- | ---- | ---------- |
-| `style-and-tune-search` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `AUTHORED` |
+| ID                      | Repository / Checkout / Branch       | Policy   | Hash      | Status      |
+| ----------------------- | ------------------------------------ | -------- | --------- | ----------- |
+| `style-and-tune-search` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | `1e8afb6` | `COMMITTED` |
 
 ##### Commit: style-and-tune-search
 
