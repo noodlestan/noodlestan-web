@@ -4,7 +4,6 @@ WIP tracker, structured like the session parking lot: **ACTIONABLE** (in progres
 
 ## Ongoing
 
-- **Plan: Search Projects POC** — `_backlog/{dir}/plan-search-projects-poc/plan.md`.
 - **Plan: Create Noodlestan Astro Components Package** — `_backlog/{dir}}/plan-noodlestan-astro-components/plan.md`.
 
 ---

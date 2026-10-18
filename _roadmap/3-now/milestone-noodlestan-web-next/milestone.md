@@ -177,7 +177,7 @@ Execution is coordinated from the Noodlestan Web checkout. Website work happens 
 
 | Phase | Resource / Record                                                                                          | Status     |
 | ----- | ---------------------------------------------------------------------------------------------------------- | ---------- |
-| `1`   | Plan: Search Projects POC `_backlog/3-now/plan-search-projects-poc/plan.md`                                | `PLANNING` |
+| `1`   | Plan: Search Projects POC `_backlog/1-done/plan-search-projects-poc/plan.md`                               | `DONE`     |
 | `2`   | Plan: Create Noodlestan Astro Components Package `_backlog/3-now/plan-noodlestan-astro-components/plan.md` | `PLANNING` |
 
 ## Work
