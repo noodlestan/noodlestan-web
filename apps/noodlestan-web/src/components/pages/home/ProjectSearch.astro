@@ -49,7 +49,7 @@
 
 		const hasVisibleProjects = visibleCount > 0;
 		emptyElement.hidden = hasVisibleProjects;
-		countElement.textContent = hasVisibleProjects ? `${visibleCount} projects` : '';
+		countElement.textContent = hasVisibleProjects ? `${visibleCount} projects found` : '';
 	}
 
 	function initializeProjectSearch(): void {
@@ -79,14 +79,14 @@
 		font-weight: 600;
 		letter-spacing: var(--type-spacing-compact);
 		color: var(--color-interactive);
-		font-size: clamp(1.25rem, calc(1.25rem + (100vw - 5rem) * 0.014286), 1.75rem);
+		font-size: var(--text-size-large);
 	}
 
 	input[type='search'] {
 		width: 100%;
 		padding: 0.75rem 1rem;
 		font-family: var(--type-input-family);
-		font-size: clamp(1rem, calc(1rem + (100vw - 5rem) * 0.00714), 1.125rem);
+		font-size: var(--text-size-body);
 		line-height: var(--text-line-height);
 		color: var(--color-content);
 		background-color: var(--color-surface-bg);
@@ -107,10 +107,5 @@
 	.project-search-status {
 		min-height: 1.75rem;
 		color: var(--color-content);
-	}
-
-	.project-search-status [data-project-search-empty] {
-		font-family: var(--type-nav-family);
-		color: var(--color-headings);
 	}
 </style>

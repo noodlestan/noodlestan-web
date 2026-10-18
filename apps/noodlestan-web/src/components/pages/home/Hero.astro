@@ -18,9 +18,7 @@ import SiteLogo from '../../site/SiteLogo.astro';
 <style>
 	:root {
 		/* 1.2rem @ 100px → 4.5rem @ 640px */
-		--__font-size-welcome: clamp(1.2rem, calc(1.2rem + (100vw - 5rem) * 0.06111), 4.5rem);
 		/* 1.6rem @ 100px → 6rem @ 640px */
-		--__font-size-noodlestan: clamp(1.6rem, calc(1.6rem + (100vw - 5rem) * 0.08148), 6rem);
 	}
 
 	section {
@@ -41,14 +39,14 @@ import SiteLogo from '../../site/SiteLogo.astro';
 	}
 
 	span:first-child {
-		font-size: var(--__font-size-welcome);
+		font-size: var(--text-size-hero-welcome);
 		font-weight: 300;
 		letter-spacing: var(--type-spacing-compact);
 	}
 
 	span:last-child {
 		font-family: var(--type-brand-family);
-		font-size: var(--__font-size-noodlestan);
+		font-size: var(--text-size-hero-brand);
 		font-weight: 700;
 		color: var(--color-brand);
 	}
