@@ -20,12 +20,12 @@
 
 ## Path Variables
 
-| Variable          | Resolved Path                         | Purpose                            |
-| ----------------- | ------------------------------------- | ---------------------------------- |
-| `$WORKSPACE`      | Current working directory             | Workspace root directory           |
-| `$DOMAINS`        | `$WORKSPACE/.agents/domains`          | Domain resources directory         |
-| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout |
-| `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web` | The Astro application              |
+| Variable     | Resolved Path                         | Purpose                            |
+| ------------ | ------------------------------------- | ---------------------------------- |
+| `$WORKSPACE` | Current working directory             | Workspace root directory           |
+| `$DOMAINS`   | `$WORKSPACE/.agents/domains`          | Domain resources directory         |
+| `$PROJECT`   | `$WORKSPACE/checkouts/noodlestan-web` | Noodlestan Web repository checkout |
+| `$APP`       | `$PROJECT/apps/noodlestan-web`        | The Astro application              |
 
 ## Summary
 
@@ -92,7 +92,7 @@ This plan changes only the homepage project list of the Astro application. The c
 **Partial:**
 
 - `owner` — Project: Noodlestan Web
-- `path` — `$NOODLESTAN_WEB/apps/noodlestan-web/`
+- `path` — `$PROJECT/apps/noodlestan-web/`
 - `url` — `https://noodlestan.org`
 
 **Changes:**
@@ -103,28 +103,30 @@ This plan changes only the homepage project list of the Astro application. The c
 
 ## Execution Context
 
-Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, with all application work under `$APP/`.
+Execution is coordinated from the `$PROJECT` checkout on branch `main`, with all application work under `$APP/`.
 
 ---
 
 ## Items:
 
-| Iteration / Instructions         | Status     |
-| -------------------------------- | ---------- |
-| Iteration: Add Project Search    | `PLANNING` |
-| Iteration: Style and Tune Search | `PLANNING` |
+| Iteration / Instructions                                                   | Status  |
+| -------------------------------------------------------------------------- | ------- |
+| Iteration: Add Project Search `./instructions/add-project-search.md`       | `READY` |
+| Iteration: Style and Tune Search `./instructions/style-and-tune-search.md` | `READY` |
 
 ### Iteration: Add Project Search
 
 **Id:** `add-project-search`
 
-**Status:** `PLANNING`
+**Status:** `READY`
 
 **Purpose:** Make the project list filterable by typing, using only what the page already ships.
 
 **Description:** Add a labelled search input above the project list. An inline `<script>` filters the already-rendered project cards by matching the typed text against each card's name, purpose, and description, hiding non-matching cards. No Astro island, no client framework, no network request, and no change to the collection.
 
 **Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
+
+**Instructions:** `./instructions/add-project-search.md`
 
 **Changes:**
 
@@ -140,15 +142,23 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, w
 
 #### Commits:
 
-| ID                   | Repository / Checkout / Branch              | Policy | Hash | Status    |
-| -------------------- | ------------------------------------------- | ------ | ---- | --------- |
-| `add-project-search` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | —      | —    | `PLANNED` |
+| ID                   | Repository / Checkout / Branch       | Policy   | Hash | Status     |
+| -------------------- | ------------------------------------ | -------- | ---- | ---------- |
+| `add-project-search` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `AUTHORED` |
+
+##### Commit: add-project-search
+
+**Repository:** Noodlestan Web
+
+**Message:**
+
+build(project-search): Add client-side search filtering the homepage project list as the visitor types.
 
 ### Iteration: Style and Tune Search
 
 **Id:** `style-and-tune-search`
 
-**Status:** `PLANNING`
+**Status:** `READY`
 
 **Purpose:** Bring the search input onto the design system so it looks and behaves like the rest of the site.
 
@@ -156,10 +166,12 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, w
 
 **Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
 
+**Instructions:** `./instructions/style-and-tune-search.md`
+
 **Changes:**
 
 - Style the input in `$APP/src/components/pages/home/ProjectSearch.astro` using `--color-*`, `--type-*`, and `--page-margin-h` tokens only; no hard-coded colours.
-- Style the empty state and the result count in `$APP/src/styles/global.css` alongside the existing `.project-list` rules.
+- Add search, empty-state, and result-count styles in `$APP/src/styles/global.css`; preserve the component-scoped project-list rules and breakpoints in `ProjectList.astro`.
 - Add `:focus-visible` styling that survives the `prefers-color-scheme: dark` block.
 - Keep the input usable at the existing `45rem` and `75rem` breakpoints where the list becomes a grid.
 
@@ -169,15 +181,23 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`, w
 
 #### Commits:
 
-| ID                      | Repository / Checkout / Branch              | Policy | Hash | Status    |
-| ----------------------- | ------------------------------------------- | ------ | ---- | --------- |
-| `style-and-tune-search` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | —      | —    | `PLANNED` |
+| ID                      | Repository / Checkout / Branch       | Policy   | Hash | Status     |
+| ----------------------- | ------------------------------------ | -------- | ---- | ---------- |
+| `style-and-tune-search` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `AUTHORED` |
+
+##### Commit: style-and-tune-search
+
+**Repository:** Noodlestan Web
+
+**Message:**
+
+build(project-search): Style search with design tokens; verify focus, empty state, dark mode, and breakpoints.
 
 ## Work
 
 ### Next
 
-Draft self-contained instructions for both iterations, mark them `READY`, then delegate `add-project-search`.
+Delegate `add-project-search`.
 
 ### Blockers
 

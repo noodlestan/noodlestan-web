@@ -96,7 +96,7 @@ This plan creates one package and moves existing code into it. It does not redes
 
 - `owner` — Project: Noodlestan Web
 - `path` — `$NOODLESTAN_WEB/packages/astro-components/`
-- `name` — `@noodlestan/astro-components` — placeholder, see Blockers.
+- `name` — `@noodlestan/astro-components`
 
 **Changes:**
 
@@ -168,13 +168,21 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`. P
 
 **Dependencies:**
 
-- The package name is not yet decided — see Blockers.
+- None.
 
 #### Commits:
 
 | ID                          | Repository / Checkout / Branch              | Policy | Hash | Status    |
 | --------------------------- | ------------------------------------------- | ------ | ---- | --------- |
 | `scaffold-astro-components` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | —      | —    | `PLANNED` |
+
+##### Commit: scaffold-astro-components
+
+**Repository:** Noodlestan Web
+
+**Message:**
+
+scaffold(package-astro-components): Add the package skeleton with records, package.json, tsconfig, and README.
 
 ### Iteration: Move Tokens and Chrome
 
@@ -206,6 +214,14 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`. P
 | ------------------------ | ------------------------------------------- | ------ | ---- | --------- |
 | `move-tokens-and-chrome` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | —      | —    | `PLANNED` |
 
+##### Commit: move-tokens-and-chrome
+
+**Repository:** Noodlestan Web
+
+**Message:**
+
+refactor(package-astro-components): Move token sheet and `Site*` chrome into the package as props-driven.
+
 ### Iteration: Consume Package From App
 
 **Id:** `consume-package-from-app`
@@ -235,15 +251,23 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`. P
 | ---------------------------- | ------------------------------------------- | ------ | ---- | --------- |
 | `consume-components-package` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | —      | —    | `PLANNED` |
 
+##### Commit: consume-components-package
+
+**Repository:** Noodlestan Web
+
+**Message:**
+
+build(package-astro-components): Consume the package from the website; verify the built output is unchanged.
+
 ## Work
 
 ### Next
 
-Confirm the package name, then draft self-contained instructions and mark the iterations `READY`.
+Draft self-contained instructions for all three iterations and mark them `READY`.
 
 ### Blockers
 
-- **Package Name** blocked because the name is undecided — every reference here uses `@noodlestan/astro-components` as a placeholder and must be replaced once the name is chosen.
+- None.
 
 ## Operating Instructions
 
