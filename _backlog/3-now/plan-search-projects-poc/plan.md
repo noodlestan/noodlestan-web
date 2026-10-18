@@ -2,7 +2,7 @@
 
 **Id:** `search-projects-poc`
 
-**Status:** `PLANNING`
+**Status:** `WORKING`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -111,14 +111,16 @@ Execution is coordinated from the `$PROJECT` checkout on branch `main`, with all
 
 | Iteration / Instructions                                                   | Status  |
 | -------------------------------------------------------------------------- | ------- |
-| Iteration: Add Project Search `./instructions/add-project-search.md`       | `READY` |
+| Iteration: Add Project Search `./instructions/add-project-search.md`       | `DONE`  |
 | Iteration: Style and Tune Search `./instructions/style-and-tune-search.md` | `READY` |
 
 ### Iteration: Add Project Search
 
 **Id:** `add-project-search`
 
-**Status:** `READY`
+**Status:** `DONE`
+
+**Report:** `./instructions/add-project-search__report.md`
 
 **Purpose:** Make the project list filterable by typing, using only what the page already ships.
 
@@ -142,9 +144,9 @@ Execution is coordinated from the `$PROJECT` checkout on branch `main`, with all
 
 #### Commits:
 
-| ID                   | Repository / Checkout / Branch       | Policy   | Hash | Status     |
-| -------------------- | ------------------------------------ | -------- | ---- | ---------- |
-| `add-project-search` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `AUTHORED` |
+| ID                   | Repository / Checkout / Branch       | Policy   | Hash      | Status      |
+| -------------------- | ------------------------------------ | -------- | --------- | ----------- |
+| `add-project-search` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | `cc7d5a5` | `COMMITTED` |
 
 ##### Commit: add-project-search
 
@@ -197,7 +199,7 @@ build(project-search): Style search with design tokens; verify focus, empty stat
 
 ### Next
 
-Delegate `add-project-search`.
+Delegate `style-and-tune-search`.
 
 ### Blockers
 
@@ -263,7 +265,7 @@ npm run build # to produce a full build
 
 ### Evidence
 
-- None yet.
+- `add-project-search` (`cc7d5a5`): `ProjectSearch.astro` added with labelled search input, `role="status"` live region, and inline DOM-filtering script; `ProjectList.astro` renders it above the list and marks each card with lower-case `data-search` text. `npm run lint` and `npm run build` pass from `$APP`.
 
 ### Findings
 
