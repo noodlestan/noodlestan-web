@@ -1,5 +1,6 @@
 ---
 import { ENDPOINTS } from '../../../consts';
+import { HelpWanted, HowToContribute } from '@noodlestan/astro-components';
 
 const contactUrl = `mailto:${ENDPOINTS.noodlestan.email}`;
 ---
@@ -7,22 +8,14 @@ const contactUrl = `mailto:${ENDPOINTS.noodlestan.email}`;
 <section class="main-section">
 	<a id="contributing" class="main-anchor" />
 	<h2>Contributing</h2>
-	<p>
-		Did you find a bug? Do you have an idea? Want to contribute, discuss something, or just say
-		hello?
-	</p>
-	<p>You are welcome.</p>
-	<nav>
-		<ul>
-			<li>
-				<a href={ENDPOINTS.noodlestan.github}>GitHub</a>
-			</li>
-			<li>
-				<a href={ENDPOINTS.noodlestan.discord}>Discord</a>
-			</li>
-			<li>
-				<a href={contactUrl}>Contact</a>
-			</li>
-		</ul>
-	</nav>
+	<HowToContribute
+		githubURL={ENDPOINTS.noodlestan.github}
+		discordURL={ENDPOINTS.noodlestan.discord}
+		contactURL={contactUrl}
+	/>
+	<HelpWanted
+		message="We are looking for help to expand the project list and improve documentation."
+		actionURL={ENDPOINTS.noodlestan.github}
+		actionLabel="Get involved"
+	/>
 </section>

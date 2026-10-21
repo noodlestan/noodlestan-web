@@ -1,9 +1,10 @@
 ---
 import SiteHeaderContainer from './SiteHeaderContainer.astro';
 import SiteHeaderDivider from './SiteHeaderDivider.astro';
-import SiteLinks from './SiteLinks.astro';
 import SiteNav from './SiteNav.astro';
 import SiteTitle from './SiteTitle.astro';
+import { DiscordIconLink } from '@noodlestan/astro-components';
+import { ENDPOINTS } from '../../consts';
 ---
 
 <SiteHeaderContainer>
@@ -15,7 +16,7 @@ import SiteTitle from './SiteTitle.astro';
 			<SiteNav />
 		</div>
 		<div class="site-links">
-			<SiteLinks />
+			<DiscordIconLink href={ENDPOINTS.noodlestan.discord} />
 		</div>
 	</div>
 	<SiteHeaderDivider />
