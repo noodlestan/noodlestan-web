@@ -43,6 +43,19 @@ const contactURL = 'mailto:hello@example.org';
 <HowToContribute githubURL={githubURL} discordURL={discordURL} contactURL={contactURL} />
 ```
 
+## Components
+
+| Component            | Props                                   | Purpose                                                  |
+| -------------------- | --------------------------------------- | -------------------------------------------------------- |
+| `HowToContribute`    | `githubURL`, `discordURL`, `contactURL` | Invite readers to contribute, discuss, or get in touch.  |
+| `HelpWanted`         | `message`, `actionURL`, `actionLabel`   | Offer an actionable invitation to help with a task.      |
+| `MadeInNoodlestan`   | `href`                                  | Attribute a page or project as made in Noodlestan.       |
+| `WorkInProgress`     | `label`, `linkHref`, `linkLabel`        | Mark content that is genuinely a work in progress.       |
+| `NoodlestanFooter`   | `year`, `githubURL`                     | Render the shared Noodlestan copyright and legal footer. |
+| `NoodlestanIconLink` | `href`                                  | Link to Noodlestan with the monochrome Noodlestan logo.  |
+| `GithubIconLink`     | `href`                                  | Link to the consuming project on GitHub.                 |
+| `DiscordIconLink`    | `href`                                  | Link to the Noodlestan Discord server.                   |
+
 ## Development
 
 Read the [Noodlestan Web guide](../../_guide.md) for repository setup and conventions.

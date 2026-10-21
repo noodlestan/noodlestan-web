@@ -1,0 +1,43 @@
+---
+type Props = {
+	message: string;
+	actionURL: string;
+	actionLabel: string;
+};
+
+const { message, actionURL, actionLabel } = Astro.props;
+---
+
+<aside class="help-wanted">
+	<h3>Help wanted</h3>
+	<p>{message}</p>
+	<a class="help-wanted-action" href={actionURL}>
+		{actionLabel}
+	</a>
+</aside>
+
+<style>
+	.help-wanted {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.5rem;
+	}
+
+	.help-wanted h3 {
+		margin: 0;
+		font-family: var(--type-noodlestan-family);
+		font-size: var(--text-size-heading-3, 1.5rem);
+		font-weight: 600;
+		color: var(--color-headings, inherit);
+	}
+
+	.help-wanted p {
+		margin: 0;
+		max-width: var(--text-max-width, 35em);
+	}
+
+	.help-wanted-action {
+		font-family: var(--type-noodlestan-family);
+	}
+</style>

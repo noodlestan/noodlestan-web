@@ -1,0 +1,21 @@
+---
+type Props = {
+	href: string;
+	label: string;
+};
+
+const { href, label } = Astro.props;
+---
+
+<a class="icon-link" href={href} aria-label={label}>
+	<slot />
+</a>
+
+<style>
+	.icon-link {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		color: var(--color-content, currentColor);
+	}
+</style>
