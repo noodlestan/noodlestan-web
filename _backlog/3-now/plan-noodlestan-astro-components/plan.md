@@ -216,14 +216,14 @@ Work spans `$PROJECT` and `$ARTIFICIALS`. Package creation and publication happe
 
 ## Items:
 
-| Iteration / Instructions                                                                          | Status  |
-| ------------------------------------------------------------------------------------------------- | ------- |
-| Iteration: Scaffold Components Package `./instructions/scaffold-components-package.md`            | `DONE`  |
-| Iteration: Create Components From Spec `./instructions/create-components-from-spec.md`            | `READY` |
-| Iteration: Review and Consolidate                                                                 | `READY` |
-| Iteration: Publish Components Package `./instructions/publish-components-package.md`              | `READY` |
-| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `READY` |
-| Iteration: Apply Components to Art MD Web `./instructions/apply-components-art-md-web.md`         | `READY` |
+| Iteration / Instructions                                                                          | Status    |
+| ------------------------------------------------------------------------------------------------- | --------- |
+| Iteration: Scaffold Components Package `./instructions/scaffold-components-package.md`            | `DONE`    |
+| Iteration: Create Components From Spec `./instructions/create-components-from-spec.md`            | `WORKING` |
+| Iteration: Review and Consolidate                                                                 | `READY`   |
+| Iteration: Publish Components Package `./instructions/publish-components-package.md`              | `READY`   |
+| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `READY`   |
+| Iteration: Apply Components to Art MD Web `./instructions/apply-components-art-md-web.md`         | `READY`   |
 
 ### Iteration: Scaffold Components Package
 
@@ -270,7 +270,7 @@ scaffold(package-astro-components): Add package house-style files and register t
 
 **Id:** `create-components-from-spec`
 
-**Status:** `READY`
+**Status:** `WORKING`
 
 **Purpose:** Create the package components and usage assets defined by the attached specification.
 
@@ -471,7 +471,7 @@ integrate(artificials): Apply shared components to the Art MD Website.
 
 ### Next
 
-Delegate `create-components-from-spec`: the iteration is `READY` and its commit blueprint is `AUTHORED`. The user-led `review-and-consolidate` iteration is not delegated; confirm public NPM publication authorization before publishing.
+Await the `create-components-from-spec` delegation report from the `agent-worker` worker. The user-led `review-and-consolidate` iteration is not delegated; confirm public NPM publication authorization before publishing.
 
 ### Blockers
 
