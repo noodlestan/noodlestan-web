@@ -1,0 +1,17 @@
+# Module
+
+## NPM Package Deployment: Noodlestan Astro Components
+
+**Owner:** Package: Noodlestan Astro Components
+
+**Status:** `PLANNED`
+
+**Build:** Deployment Build: NPM Command
+
+**Deploy:** Deployment Command: NPM Package CLI
+
+**Canonical Name:** `@noodlestan/astro-components`
+
+**Registry:** `https://registry.npmjs.org`
+
+**Access:** `public`

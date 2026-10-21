@@ -21,13 +21,8 @@ _records/    — records (project, repository, namespaces, scaffolders, license)
 _roadmap/    — roadmap
 apps/        — application packages
 data/        — data for applications (e.g. project records)
+packages/    — shared library packages
 ```
-
-## Projects
-
-| Project            | Guide                           | Backlog |
-| ------------------ | ------------------------------- | ------- |
-| Noodlestan Website | `apps/noodlestan-web/_guide.md` | `NONE`  |
 
 ## Records Management
 

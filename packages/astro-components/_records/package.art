@@ -1,0 +1,53 @@
+# Module
+
+## Package: Noodlestan Astro Components
+
+**Purpose:** Provide reusable Noodlestan components and the minimal CSS token required by Noodlestan websites.
+
+**Description:** Astro workspace package with components, stylesheet export, and usage instructions defined by the components specification.
+
+**Owner:** Project: Noodlestan Web
+
+**Namespace:** Namespace: Noodlestan Web
+
+**Author:** Noodlestan Collective
+
+**Path:** `$PROJECT/packages/astro-components/`
+
+**Canonical Name:** `@noodlestan/astro-components`
+
+**Published:** `false`
+
+**Private:** `false`
+
+**Keywords:**
+
+- astro
+- components
+- noodlestan
+
+**Deployment:** NPM Package Deployment: Noodlestan Common Components
+
+**Files:**
+
+- `src`
+- `LICENSE-MIT`
+- `README.md`
+
+**Language:** TypeScript
+
+**Main:** `./src/index.ts`
+
+**PackageManager:** `npm@10.2.3`
+
+**PackageFile:** `package.json`
+
+**Dependencies:**
+
+- Peer:
+  - `astro` @ `^7.2.7`
+- Dev:
+  - `@noodlestan/prettier-config-astro` @ `0.1.0`
+  - `prettier-plugin-astro` @ `1.1.0`
+
+**License:** License: Noodlestan 2026 MIT

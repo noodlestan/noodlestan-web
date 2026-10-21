@@ -1,170 +1,250 @@
-# Plan: Create Noodlestan Astro Components Package
+# Plan: Create Noodlestan Common Components Package
 
 **Id:** `noodlestan-astro-components`
 
-**Status:** `PLANNING`
+**Status:** `WORKING`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
 **Skill:** `write-plan`
 
-**Purpose:** Give noodlestan.org sites one shared implementation of the design tokens and site chrome by extracting them from the website into the first package of this monorepo.
+**Purpose:** Provide reusable Noodlestan content, footer, and link components, plus the minimal font token CSS they require.
 
-**Description:** Three iterations: scaffold the package with its records and exports, move the token sheet and the `Site*` chrome components into it, then have the website consume it through a workspace dependency and prove the site still builds and renders identically.
+**Description:** Create and review `@noodlestan/astro-components`, publish the approved package, then consume it in Noodlestan Web and Art MD Web. Component contracts and package asset requirements are specified in the attached component spec.
 
 ## Mandatory Reading
 
-::READ `$DOMAINS/plans/structures/plan.art` (Structure) — Describe the work-item changes through a series of iterations and commits with detailed instructions.
+::READ `$DOMAINS/plans/structures/plan.art` (Structure) — Describe the work-item changes through iterations and commits with detailed instructions.
 
 ---
 
 ## Path Variables
 
-| Variable          | Resolved Path                               | Purpose                            |
-| ----------------- | ------------------------------------------- | ---------------------------------- |
-| `$WORKSPACE`      | Current working directory                   | Workspace root directory           |
-| `$DOMAINS`        | `$WORKSPACE/.agents/domains`                | Domain resources directory         |
-| `$NOODLESTAN_WEB` | `$WORKSPACE/checkouts/noodlestan-web`       | Noodlestan Web repository checkout |
-| `$APP`            | `$NOODLESTAN_WEB/apps/noodlestan-web`       | The Astro application              |
-| `$PACKAGE`        | `$NOODLESTAN_WEB/packages/astro-components` | The Astro components package       |
+| Variable       | Resolved Path                        | Purpose                            |
+| -------------- | ------------------------------------ | ---------------------------------- |
+| `$WORKSPACE`   | Current working directory            | Workspace root directory           |
+| `$DOMAINS`     | `$WORKSPACE/.agents/domains`         | Domain resources directory         |
+| `$PROJECT`     | Provided with prompt                 | Noodlestan Web repository checkout |
+| `$APP`         | `$PROJECT/apps/noodlestan-web`       | Noodlestan Web application         |
+| `$PACKAGE`     | `$PROJECT/packages/astro-components` | Common components package          |
+| `$ARTIFICIALS` | `$WORKSPACE/checkouts/artificials`   | Artificials repository checkout    |
+| `$ART_MD_APP`  | `$ARTIFICIALS/apps/art-md-web`       | Art MD documentation application   |
 
 ## Summary
 
-Create `packages/astro-components` as the first package of the monorepo, move `src/styles/global.css` and the site chrome components into it, and have `apps/noodlestan-web` import them from the package so a second site can reuse the same design system.
+Create the package, publish it for use across repositories, and apply its components to both websites according to `./plan__components-spec.md`.
 
 ## Attachments
 
-None.
+- `./plan__components-spec.md` — component purpose, source, props, wireframes, and application targets. This is the source of truth for component-level requirements.
 
 ## Context
 
 ### Upstream Work
 
-| Kind        | Path                                                        | Role                                                      |
-| ----------- | ----------------------------------------------------------- | --------------------------------------------------------- |
-| Milestone   | `_roadmap/3-now/milestone-noodlestan-web-next/milestone.md` | Owning Milestone — Phase 2 `Astro Components Package`.    |
-| Parking Lot | `_roadmap/_parking-lot.md`                                  | Origin of this plan; the package name is still TBD there. |
-| Milestone   | `_roadmap/1-done/milestone-noodlestan-web-mvp/milestone.md` | Delivered the tokens and chrome that this plan extracts.  |
+| Kind        | Path                                                                 | Role                                                           |
+| ----------- | -------------------------------------------------------------------- | -------------------------------------------------------------- |
+| Milestone   | `_roadmap/3-now/milestone-noodlestan-web-next/milestone.md`          | Owning Phase 2 — Distribute Noodlestan Components.             |
+| Parking Lot | `_backlog/_parking-lot.md`                                           | Tracks this plan as ongoing work.                              |
+| Plan        | `_backlog/1-done/plan-home-sections-mvp/plan.md`                     | Delivered the contribution content used by the component spec. |
+| Attachment  | `_backlog/1-done/plan-home-sections-mvp/attachments/home-content.md` | Existing homepage copy used by the component spec.             |
 
 ### Required Skills
 
-- `write-plan` — Generates plans from sources and context. Required for Drafting, Refining.
+- `write-plan` — Refines the plan and produces implementation instructions.
 
 ### Domains
 
-| Domain / Path                           | Description                                                                        |
-| --------------------------------------- | ---------------------------------------------------------------------------------- |
-| Domain: Plans `$DOMAINS/plans/index.md` | Planning lifecycle for contextualising, drafting, refining, and integrating plans. |
+| Domain / Path                                       | Description                                                                        |
+| --------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| Domain: Plans `$DOMAINS/plans/index.md`             | Planning lifecycle for contextualising, drafting, refining, and integrating plans. |
+| Domain: Packages `$DOMAINS/packages/index.md`       | Package and NPM deployment records.                                                |
+| Domain: Deployments `$DOMAINS/deployments/index.md` | Deployment records and workflow for publishing the package.                        |
 
 ### Resource Kinds in Scope
 
-| Kind        | Domain       | Structure Record Path                             |
-| ----------- | ------------ | ------------------------------------------------- |
-| Package     | Packages     | `$DOMAINS/packages/structures/package.art`        |
-| Application | Applications | — WIP                                             |
-| Repository  | Repositories | `$DOMAINS/repositories/structures/repository.art` |
+| Kind                   | Domain       | Structure Record Path                                     |
+| ---------------------- | ------------ | --------------------------------------------------------- |
+| Package                | Packages     | `$DOMAINS/packages/structures/package.art`                |
+| NPM Package Deployment | Packages     | `$DOMAINS/packages/structures/npm-package-deployment.art` |
+| Application            | Applications | — WIP                                                     |
+| Repository             | Repositories | `$DOMAINS/repositories/structures/repository.art`         |
 
 ### Workflows
 
 | Workflow / Path                                                              | Purpose                                                                      |
 | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
 | Workflow: Planning Work `$DOMAINS/work/workflows/planning-work/workflow.art` | Create and manage work items lifecycle, collecting operational instructions. |
+| Workflow: Deploying `$DOMAINS/deployments/workflows/deploying/workflow.art`  | Organize package publication and deployment operations.                      |
 
 ### Knowledge
 
-::READ `$NOODLESTAN_WEB/_guide.md` (Guide) — Defines the repository conventions and the monorepo layout. Relevant for all iterations.
+::READ `$PROJECT/_guide.md` (Guide) — Repository setup, workspace layout, conventions, and verification.
 
-::READ `$NOODLESTAN_WEB/_records/namespace.art` (Namespace) — Defines the `@noodlestan` namespace the package belongs to. Relevant for iteration `scaffold-components-package`.
+::READ `$PROJECT/_records/namespace.art` (Namespace) — Defines the `@noodlestan` package namespace.
 
-::READ `$APP/src/styles/global.css` (Token Sheet) — The single source of colour, type, and layout tokens to be moved. Relevant for iteration `move-tokens-and-chrome`.
+::READ `$DOMAINS/packages/structures/package.art` (Structure) — Package record fields.
 
-::READ `$APP/knowledge/adr/endpoints.md` (ADR) — Endpoints sourcing and exposure decisions; the chrome components read `src/consts.ts`, which stays in the app. Relevant for iteration `move-tokens-and-chrome`.
+::READ `$DOMAINS/packages/structures/npm-package-deployment.art` (Structure) — Registry publication record fields.
 
-::READ `$WORKSPACE/knowledge/conventions/writing-commit-message.art` (Conventions) — Defines the commit message format, types, scopes, and rules. Relevant for stages Writing Commit Message.
+::READ `$APP/_guide.md` (Guide) — Noodlestan Web setup and verification.
+
+::READ `$ARTIFICIALS/_guide.md` (Guide) — Artificials repository setup and verification.
+
+::READ `$ART_MD_APP/_guide.md` (Guide) — Art MD Web setup, verification, and deployment.
+
+::READ `$APP/src/layouts/components/SiteHead.astro` (Component) — Existing Fredoka web-font loading example for the package README.
+
+::READ `./plan__components-spec.md` (Specification) — Component contracts, source material, usage targets, and demo route.
+
+::READ `$WORKSPACE/knowledge/conventions/writing-commit-message.art` (Conventions) — Commit message types, scopes, and formatting rules.
 
 ## Scope
 
-This plan creates one package and moves existing code into it. It does not redesign tokens, add components, or publish to npm.
+Create a reusable component package with a small exported stylesheet, publish it so a separate repository can consume it reproducibly, and apply it to the two applications at the targets defined by the component spec.
 
-### (Scope) Package: Noodlestan Astro Components
+### (Scope) Package: Noodlestan Common Components
 
 **Record:** `$PACKAGE/_records/package.art`
 
-**Role:** — New — owns the design tokens and the site chrome components shared by noodlestan.org sites.
+**Role:** — New — owns the reusable components specified in `plan__components-spec.md`.
 
 **Partial:**
 
 - `owner` — Project: Noodlestan Web
-- `path` — `$NOODLESTAN_WEB/packages/astro-components/`
-- `name` — `@noodlestan/astro-components`
+- `namespace` — Namespace: Noodlestan Web
+- `path` — `$PROJECT/packages/astro-components/`
+- `canonicalName` — `@noodlestan/astro-components`
+- `dependencies.peer` — `astro` @ `^7.2.7`
+- `dependencies.dev` — `@noodlestan/prettier-config-astro` @ `0.1.0`; `prettier-plugin-astro` @ `1.1.0`
+- `sideEffects` — Preserve CSS imports as side-effectful for consumer bundlers.
+- `purpose` — Provide reusable Noodlestan components and the minimal CSS token required by Noodlestan websites.
+- `description` — Astro workspace package with components, stylesheet export, and usage instructions defined by `plan__components-spec.md`.
 
 **Changes:**
 
-- Create the package directory, records, `package.json`, and tsconfig.
-- Export the `.astro` components and `global.css`.
-- Own the token sheet and the `Site*` chrome components.
+- Create the package structure, components, stylesheet export, and usage documentation according to the spec attachment.
+- Include package house-style assets: `LICENSE-MIT`, package dotfiles, a package `_guide.md`, and a complete README with a `## Usage` section.
+- Publish the package to the public NPM registry for the Artificials repository to consume.
+
+### (Scope) NPM Package Deployment: Noodlestan Common Components
+
+**Record:** `$PACKAGE/_records/published.art`
+
+**Role:** — New — describes how the package is published for external repository consumers.
+
+**Partial:**
+
+- `owner` — Package: Noodlestan Common Components
+- `canonicalName` — `@noodlestan/astro-components`
+- `registry` — `https://registry.npmjs.org`
+- `access` — `public`
+
+**Changes:**
+
+- Create and link the NPM package deployment record, then publish the verified package and update the package publication status.
 
 ### (Scope) Application: Noodlestan Website
 
 **Record:** `$APP/_guide.md`
 
-**Role:** — The main noodlestan.org website, built with Astro. Becomes the first consumer of the package.
+**Role:** — First consumer — uses the specified components and hosts the non-interactive demo route.
 
 **Partial:**
 
 - `owner` — Project: Noodlestan Web
-- `path` — `$NOODLESTAN_WEB/apps/noodlestan-web/`
+- `path` — `$PROJECT/apps/noodlestan-web/`
+- `url` — `https://noodlestan.org`
 
 **Changes:**
 
-- Depend on the package through the workspace.
-- Replace local chrome and token imports with package imports.
-- Keep page-level components (`Hero`, `ProjectList`, and the other home sections) in the app.
+- Apply the package components at the Noodlestan Web locations specified in `plan__components-spec.md`.
+- Add the demo route described in `plan__components-spec.md`.
 
 ### (Scope) Repository: Noodlestan Web
 
-**Record:** `$NOODLESTAN_WEB/_records/repository.art`
+**Record:** `$PROJECT/_records/repository.art`
 
-**Role:** — Hosts both the package and the application.
+**Role:** — Hosts the package and its first consuming application.
 
 **Partial:**
 
 - `owner` — Project: Noodlestan Web
-- `path` — `$NOODLESTAN_WEB/`
+- `path` — `$PROJECT/`
+
+**Changes:**
+
+- Add `packages/**` to the NPM workspace patterns and update the lockfile and repository guide.
+
+### (Scope) Application: Art MD Web
+
+**Record:** `$ART_MD_APP/_guide.md`
+
+**Role:** — Second consumer — installs the published package and applies the specified components.
+
+**Partial:**
+
+- `owner` — Project: Artificials
+- `path` — `$ARTIFICIALS/apps/art-md-web/`
+- `url` — `https://art-md.noodlestan.org`
+
+**Changes:**
+
+- Install the published `@noodlestan/astro-components` package.
+- Apply the package components at the Art MD Web locations specified in `plan__components-spec.md`.
+
+### (Scope) Repository: Artificials
+
+**Record:** `$ARTIFICIALS/_records/repository.art`
+
+**Role:** — Hosts the Art MD Web consumer.
+
+**Partial:**
+
+- `owner` — Project: Artificials
+- `path` — `$ARTIFICIALS/`
+
+**Changes:**
+
+- Add the published package dependency to the Art MD Web application and update the repository lockfile.
 
 ## Execution Context
 
-Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`. Package work happens in `packages/astro-components/`; the consuming changes happen in `apps/noodlestan-web/`.
+Work spans `$PROJECT` and `$ARTIFICIALS`. Package creation and publication happen in `$PROJECT`; the first consumer and demo route are in `$APP`; the second consumer is `$ART_MD_APP`.
 
 ---
 
 ## Items:
 
-| Iteration / Instructions               | Status     |
-| -------------------------------------- | ---------- |
-| Iteration: Scaffold Components Package | `PLANNING` |
-| Iteration: Move Tokens and Chrome      | `PLANNING` |
-| Iteration: Consume Package From App    | `PLANNING` |
+| Iteration / Instructions                                                                          | Status    |
+| ------------------------------------------------------------------------------------------------- | --------- |
+| Iteration: Scaffold Components Package `./instructions/scaffold-components-package.md`            | `WORKING` |
+| Iteration: Create Components From Spec `./instructions/create-components-from-spec.md`            | `READY`   |
+| Iteration: Review and Consolidate                                                                 | `READY`   |
+| Iteration: Publish Components Package `./instructions/publish-components-package.md`              | `READY`   |
+| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `READY`   |
+| Iteration: Apply Components to Art MD Web `./instructions/apply-components-art-md-web.md`         | `READY`   |
 
 ### Iteration: Scaffold Components Package
 
 **Id:** `scaffold-components-package`
 
-**Status:** `PLANNING`
+**Status:** `WORKING`
 
-**Purpose:** Create the first package of the monorepo with its records and its export surface, empty of components.
+**Purpose:** Register `@noodlestan/astro-components` as a valid NPM workspace package.
 
-**Description:** Add `packages/astro-components/` with a package record, a `package.json` under the `@noodlestan` namespace, and a tsconfig aligned with the repository conventions. The package exports `.astro` components and a stylesheet; no component is moved yet.
+**Description:** Create the package skeleton and records, include `packages/**` in the repository workspace patterns, and update the lockfile and guide.
 
 **Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
 
+**Instructions:** `./instructions/scaffold-components-package.md`
+
 **Changes:**
 
-- Create `$PACKAGE/_records/package.art` following `$DOMAINS/packages/structures/package.art`.
-- Create `$PACKAGE/package.json` publishing `@noodlestan/astro-components`, exposing the components directory and the stylesheet.
-- Create `$PACKAGE/tsconfig.json` extending the repository base config.
-- Create `$PACKAGE/README.md` stating what the package owns and who consumes it.
-- Add a placeholder export so the package resolves before anything is moved.
+- Create the package manifest, record, entry point, tsconfig, and README.
+- Add the package license, house-style dotfiles, package `_guide.md`, Vite build script, and package record dependencies.
+- Add `packages/**` to `$PROJECT/package.json` workspaces and update `$PROJECT/package-lock.json`.
+- Document the new package directory in `$PROJECT/_guide.md`.
 
 **Dependencies:**
 
@@ -172,9 +252,9 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`. P
 
 #### Commits:
 
-| ID                          | Repository / Checkout / Branch              | Policy | Hash | Status    |
-| --------------------------- | ------------------------------------------- | ------ | ---- | --------- |
-| `scaffold-astro-components` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | —      | —    | `PLANNED` |
+| ID                          | Repository / Checkout / Branch       | Policy   | Hash | Status     |
+| --------------------------- | ------------------------------------ | -------- | ---- | ---------- |
+| `scaffold-astro-components` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `AUTHORED` |
 
 ##### Commit: scaffold-astro-components
 
@@ -182,88 +262,214 @@ Execution is coordinated from the `$NOODLESTAN_WEB` checkout on branch `main`. P
 
 **Message:**
 
-scaffold(package-astro-components): Add the package skeleton with records, package.json, tsconfig, and README.
+scaffold(package-astro-components): Add package house-style files and register the workspace.
 
-### Iteration: Move Tokens and Chrome
+### Iteration: Create Components From Spec
 
-**Id:** `move-tokens-and-chrome`
+**Id:** `create-components-from-spec`
 
-**Status:** `PLANNING`
+**Status:** `READY`
 
-**Purpose:** Put the token sheet and the site chrome in the package so they have one owner.
+**Purpose:** Create the package components and usage assets defined by the attached specification.
 
-**Description:** `git mv` `src/styles/global.css` and the site chrome components into the package, keeping behaviour identical. Page-level components and `src/consts.ts` stay in the app, so the package takes its endpoints as props rather than importing the app's module.
+**Description:** Implement and export each component, the small package stylesheet, and consumer usage documentation according to `plan__components-spec.md`, without restating their requirements in this plan.
 
 **Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
 
+**Instructions:** `./instructions/create-components-from-spec.md`
+
 **Changes:**
 
-- Move `$APP/src/styles/global.css` into `$PACKAGE/src/styles/global.css`.
-- Move the site chrome into `$PACKAGE/src/components/`: `SiteHead`, `SiteHeader`, `SiteHeaderContainer`, `SiteHeaderDivider`, `SiteLinks`, `SiteNav`, `SiteTitle`, `SiteFooter`, and `SiteLogo`.
-- Replace the endpoints the chrome reads from `src/consts.ts` with props, so the package does not depend on the app.
-- Keep `HomeLayout`, `PageLayout`, the home section components, and `src/consts.ts` in the app.
-- Export the moved components and the stylesheet from the package entry point.
+- Create `HowToContribute` according to `plan__components-spec.md`.
+- Create `HelpWanted` according to `plan__components-spec.md`.
+- Create `MadeInNoodlestan` according to `plan__components-spec.md`.
+- Create `WorkInProgress` according to `plan__components-spec.md`.
+- Create `NoodlestanFooter` according to `plan__components-spec.md`.
+- Create `NoodlestanIconLink` according to `plan__components-spec.md`.
+- Create `GithubIconLink` according to `plan__components-spec.md`.
+- Create `DiscordIconLink` according to `plan__components-spec.md`.
+- Create `global.css`, add its explicit package export, and write the README usage instructions according to `plan__components-spec.md`.
+- Structure the README component installation and import examples under `## Usage`.
 
 **Dependencies:**
 
-- Iteration: Scaffold Components Package — the package must exist before code can move into it.
+- Iteration: Scaffold Components Package — package and workspace must exist first.
 
 #### Commits:
 
-| ID                       | Repository / Checkout / Branch              | Policy | Hash | Status    |
-| ------------------------ | ------------------------------------------- | ------ | ---- | --------- |
-| `move-tokens-and-chrome` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | —      | —    | `PLANNED` |
+| ID                       | Repository / Checkout / Branch       | Policy   | Hash | Status        |
+| ------------------------ | ------------------------------------ | -------- | ---- | ------------- |
+| `create-components-spec` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `PLACEHOLDER` |
 
-##### Commit: move-tokens-and-chrome
+##### Commit: create-components-spec
 
 **Repository:** Noodlestan Web
 
 **Message:**
 
-refactor(package-astro-components): Move token sheet and `Site*` chrome into the package as props-driven.
+build(common-components): Create spec components, stylesheet export, and usage documentation.
 
-### Iteration: Consume Package From App
+### Iteration: Review and Consolidate
 
-**Id:** `consume-package-from-app`
+**Id:** `review-and-consolidate`
 
-**Status:** `PLANNING`
+**Status:** `READY`
 
-**Purpose:** Prove the extraction by having the website import the tokens and chrome from the package and build unchanged.
+**Purpose:** Review the implemented package with the user and consolidate approved changes before release.
 
-**Description:** Add the package as a workspace dependency of the app, repoint the imports, remove the moved files, and verify that the built output is unchanged apart from import paths.
+**Description:** The user reviews the implementation with a pair-driver assistant, resolves feedback against the attached spec, and consolidates approved changes. This is user-led work and is not delegated to a worker.
 
-**Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
+**Instructions Mode:** `INSTRUCTIONS_INLINED_IN_ITERATION`
 
 **Changes:**
 
-- Add `@noodlestan/astro-components` as a workspace dependency in `$APP/package.json`.
-- Repoint `$APP/src/layouts/HomeLayout.astro` and `$APP/src/layouts/PageLayout.astro` to the package's `global.css` and chrome components.
-- Delete the moved originals from `$APP/src/`.
-- Confirm `npm run build` emits the same `dist/index.html` and `dist/404.html`, with the same head links, header, and footer.
+- Review the component implementation against `plan__components-spec.md`.
+- Consolidate the user's approved review feedback into the package.
+- Run package verification before publication.
+- The user performs the commit with `MANUAL` policy while working with a pair-driver assistant.
+
+**Instructions:**
+
+The user leads this review with a pair-driver assistant; do not delegate it to a worker. Review the package against `plan__components-spec.md`, resolve feedback with the user, consolidate approved changes, verify the package, and have the user perform the commit using the `MANUAL` policy.
 
 **Dependencies:**
 
-- Iteration: Move Tokens and Chrome — the components must live in the package before the app can import them.
+- Iteration: Create Components From Spec — components must exist before they can be reviewed and consolidated.
 
 #### Commits:
 
-| ID                           | Repository / Checkout / Branch              | Policy | Hash | Status    |
-| ---------------------------- | ------------------------------------------- | ------ | ---- | --------- |
-| `consume-components-package` | Noodlestan Web / `$NOODLESTAN_WEB` / `main` | —      | —    | `PLANNED` |
+| ID                       | Repository / Checkout / Branch       | Policy   | Hash | Status        |
+| ------------------------ | ------------------------------------ | -------- | ---- | ------------- |
+| `review-and-consolidate` | Noodlestan Web / `$PROJECT` / `main` | `MANUAL` | —    | `PLACEHOLDER` |
 
-##### Commit: consume-components-package
+##### Commit: review-and-consolidate
 
 **Repository:** Noodlestan Web
 
 **Message:**
 
-build(package-astro-components): Consume the package from the website; verify the built output is unchanged.
+refactor(common-components): Review and consolidate the component package before release.
+
+### Iteration: Publish Components Package
+
+**Id:** `publish-components-package`
+
+**Status:** `READY`
+
+**Purpose:** Make the verified package installable by the Artificials repository.
+
+**Description:** Add the NPM deployment record and publish a public version of `@noodlestan/astro-components` after package verification.
+
+**Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
+
+**Instructions:** `./instructions/publish-components-package.md`
+
+**Changes:**
+
+- Create `$PACKAGE/_records/published.art` according to the NPM Package Deployment structure and link it from `$PACKAGE/_records/package.art`.
+- Verify the package contents and version before publishing to the public NPM registry.
+- Publish `@noodlestan/astro-components` so `$ARTIFICIALS` can install a versioned dependency.
+- After authorized publication, mark the deployment `DEPLOYED` and the package as published; make no registry write before authorization.
+
+**Dependencies:**
+
+- Iteration: Create Components From Spec — only verified package contents may be published.
+- Iteration: Review and Consolidate — user review and consolidation are required before release.
+
+#### Commits:
+
+| ID                          | Repository / Checkout / Branch       | Policy   | Hash | Status        |
+| --------------------------- | ------------------------------------ | -------- | ---- | ------------- |
+| `publish-components-record` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `PLACEHOLDER` |
+
+##### Commit: publish-components-record
+
+**Repository:** Noodlestan Web
+
+**Message:**
+
+release(package-astro-components): Add the public NPM deployment record.
+
+### Iteration: Apply Components to Noodlestan Web
+
+**Id:** `apply-components-noodlestan-web`
+
+**Status:** `READY`
+
+**Purpose:** Use the package in Noodlestan Web and provide the homepage-equivalent demo route.
+
+**Description:** Apply the components at the locations in the attached spec and create `/build/astro-component` with the same homepage content minus its interactive search behavior.
+
+**Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
+
+**Instructions:** `./instructions/apply-components-noodlestan-web.md`
+
+**Changes:**
+
+- Apply Noodlestan Web components according to `plan__components-spec.md`.
+- Create the `/build/astro-component` route according to `plan__components-spec.md`.
+
+**Dependencies:**
+
+- Iteration: Create Components From Spec — component exports must be available.
+
+#### Commits:
+
+| ID                     | Repository / Checkout / Branch       | Policy   | Hash | Status        |
+| ---------------------- | ------------------------------------ | -------- | ---- | ------------- |
+| `apply-components-web` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `PLACEHOLDER` |
+
+##### Commit: apply-components-web
+
+**Repository:** Noodlestan Web
+
+**Message:**
+
+integrate(noodlestan-web): Apply shared components and add the non-interactive demo route.
+
+### Iteration: Apply Components to Art MD Web
+
+**Id:** `apply-components-art-md-web`
+
+**Status:** `READY`
+
+**Purpose:** Consume the published package in the Art MD Website.
+
+**Description:** Install the released package and apply the Art MD Web components at the locations defined in the attached spec.
+
+**Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
+
+**Instructions:** `./instructions/apply-components-art-md-web.md`
+
+**Changes:**
+
+- Add `@noodlestan/astro-components` as a dependency in `$ART_MD_APP/package.json` and update the Artificials lockfile.
+- Apply Art MD Web components according to `plan__components-spec.md`.
+- Verify the Art MD Web app builds and the specified app locations render correctly.
+
+**Dependencies:**
+
+- Iteration: Publish Components Package — Art MD Web must install a published package version.
+
+#### Commits:
+
+| ID                        | Repository / Checkout / Branch        | Policy   | Hash | Status        |
+| ------------------------- | ------------------------------------- | -------- | ---- | ------------- |
+| `apply-components-art-md` | Artificials / `$ARTIFICIALS` / `main` | `NOPUSH` | —    | `PLACEHOLDER` |
+
+##### Commit: apply-components-art-md
+
+**Repository:** Artificials
+
+**Message:**
+
+integrate(artificials): Apply shared components to the Art MD Website.
 
 ## Work
 
 ### Next
 
-Draft self-contained instructions for all three iterations and mark them `READY`.
+Resume `scaffold-components-package`: complete the house-style additions, run the package build and CI after formatting the plan, and commit the verified scaffold. The user-led `review-and-consolidate` iteration is not delegated; confirm public NPM publication authorization before publishing.
 
 ### Blockers
 
@@ -273,49 +479,28 @@ Draft self-contained instructions for all three iterations and mark them `READY`
 
 ### Writing Commit Message
 
-**Purpose:** Write standardized message according to context conventions. Operation of Workflow: Planning Work, defined in `$DOMAINS/work/workflows/planning-work/writing-commit-message/operation.art`.
+**Purpose:** Write standardized messages according to context conventions. Operation of Workflow: Planning Work, defined in `$DOMAINS/work/workflows/planning-work/writing-commit-message/operation.art`.
 
 **Instructions:** (From `$WORKSPACE/_guide.md`)
 
 1. Read commit message conventions from `$WORKSPACE/knowledge/conventions/writing-commit-message.art`.
-2. Write the commit message following the rules defined there.
+2. Write commit messages following those rules.
 
 ### Setting Up
 
-**Purpose:** Prepare the execution environment. Operation of Workflow: Executing Work, defined in `$DOMAINS/work/workflows/executing-work/setting-up/operation.art`.
-
-**Instructions:** (From `$NOODLESTAN_WEB/_guide.md`)
-
-Run from the `$NOODLESTAN_WEB` root:
-
-```bash
-npm ci # to install dependencies.
-```
+Run `npm ci` from the root of `$PROJECT` and `$ARTIFICIALS` before working in each repository.
 
 ### Verifying Step
 
-**Instructions:**
-
-Run from the `$APP` package directory:
-
-```bash
-npm run lint:fix # to fix formatting issues automatically
-npm run lint # to report other issues
-npm run build # to produce a full build
-```
+Run the target app's `npm run lint` and `npm run build` from `$APP` or `$ART_MD_APP` as appropriate.
 
 ### Verifying Completion
 
-**Purpose:** Confirms that the work item has been completed and satisfies its intended outcome. Operation of Workflow: Executing Work, defined in `$DOMAINS/work/workflows/executing-work/verifying-completion/operation.art`.
+Run `npm run ci` from each repository root after integration. Verify the NPM package contains the files exported by the spec before release, and verify both apps resolve the released package version.
 
-**Instructions:** (From `$APP/_guide.md`)
+### Publishing
 
-Run from the `$APP` package directory:
-
-```bash
-npm run lint # to report formatting issues
-npm run build # to produce a full build
-```
+Follow the package's NPM deployment record and deployment commands. Do not publish until the package build and package contents have been verified and public publication has been confirmed.
 
 ---
 
@@ -323,9 +508,9 @@ npm run build # to produce a full build
 
 ### Not In Scope
 
-- **npm publication** — the package is consumed inside this repository; publishing is separate work.
-- **New or redesigned components** — the plan moves what exists; the search input and the home sections stay where they are.
-- **A second consuming site** — no other noodlestan.org site exists yet.
+- **Wholesale global-style extraction** — include only the minimal package-owned stylesheet defined in the spec attachment.
+- **A general-purpose page/layout framework** — existing app composition remains app-owned.
+- **Additional app content** — do not add content beyond the spec and homepage-equivalent demo requirements.
 
 ### Evidence
 
@@ -333,24 +518,26 @@ npm run build # to produce a full build
 
 ### Findings
 
-- None yet.
+- The completed homepage plan provides the existing contribution copy and links used by the component spec.
+- The current Noodlestan Web and Art MD Web implementations contain the footer and icon SVG/style sources identified by the spec.
+- Art MD Web is a separate repository consumer, so a published NPM package is required for a reproducible dependency.
 
 ### Decisions
 
-- **Props over app imports** — the chrome components take endpoints as props instead of importing the app's `src/consts.ts`, so the package has no dependency on the website.
-- **The token sheet travels whole** — `global.css` moves as one file rather than being split, keeping the document reset and the semantic tokens in a single place.
-- **Page-level components stay in the app** — `Hero`, `ProjectList`, and the other home sections are page content, not shared chrome.
+- **Spec is authoritative** — component-level purpose, source, props, wireframes, and application points live only in `plan__components-spec.md`.
+- **One social icon link per app header** — the exact component-to-app mapping is defined in the spec.
+- **Demo uses shared layout** — the page body mirrors the homepage without search interaction; the layout supplies the header and footer once.
+- **Publish for cross-repository use** — release the package publicly before Art MD Web adopts it.
 
 ### Knowledge to Update
 
-- None.
+- Update the Noodlestan Web and Art MD Web guides to document package consumption and the demo route where appropriate.
 
 ### Follow Ups
 
-- Publish the package once a second consumer exists outside this repository.
-- Adopt the package for the next noodlestan.org site when it is created.
-- Decide whether page-level components move into the package once a second page reuses them.
+- Apply the WIP component to live content only when a genuine WIP state is identified.
+- Adopt the package in additional Noodlestan sites when they exist.
 
 ### Feedback
 
-- None.
+- `npm run ci` passed after formatting this plan and its instructions; the root formatting blocker is resolved. Keep formatting plan files before any subsequent delegation.

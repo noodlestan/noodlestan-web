@@ -1,5 +1,5 @@
 {
   "extends": "@noodlestan/tsconfig/monorepo/tsconfig.json",
-  "include": ["apps/", "scripts/"],
+  "include": ["apps/", "packages/", "scripts/"],
   "exclude": ["**/node_modules/", "**/dist/", "**/coverage/"]
 }
