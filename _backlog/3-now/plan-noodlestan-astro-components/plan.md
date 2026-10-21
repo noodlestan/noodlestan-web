@@ -220,9 +220,9 @@ Work spans `$PROJECT` and `$ARTIFICIALS`. Package creation and publication happe
 | ------------------------------------------------------------------------------------------------- | ------- |
 | Iteration: Scaffold Components Package `./instructions/scaffold-components-package.md`            | `DONE`  |
 | Iteration: Create Components From Spec `./instructions/create-components-from-spec.md`            | `DONE`  |
+| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `READY` |
 | Iteration: Review and Consolidate                                                                 | `READY` |
 | Iteration: Publish Components Package `./instructions/publish-components-package.md`              | `READY` |
-| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `READY` |
 | Iteration: Apply Components to Art MD Web `./instructions/apply-components-art-md-web.md`         | `READY` |
 
 ### Iteration: Scaffold Components Package
@@ -313,6 +313,43 @@ scaffold(package-astro-components): Add package house-style files and register t
 
 build(common-components): Create spec components, stylesheet export, and usage documentation.
 
+### Iteration: Apply Components to Noodlestan Web
+
+**Id:** `apply-components-noodlestan-web`
+
+**Status:** `READY`
+
+**Purpose:** Use the package in Noodlestan Web and provide the homepage-equivalent demo route.
+
+**Description:** Apply the components at the locations in the attached spec and create `/build/astro-component` with the same homepage content minus its interactive search behavior.
+
+**Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
+
+**Instructions:** `./instructions/apply-components-noodlestan-web.md`
+
+**Changes:**
+
+- Apply Noodlestan Web components according to `plan__components-spec.md`.
+- Create the `/build/astro-component` route according to `plan__components-spec.md`.
+
+**Dependencies:**
+
+- Iteration: Create Components From Spec — component exports must be available.
+
+#### Commits:
+
+| ID                     | Repository / Checkout / Branch       | Policy   | Hash | Status     |
+| ---------------------- | ------------------------------------ | -------- | ---- | ---------- |
+| `apply-components-web` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `AUTHORED` |
+
+##### Commit: apply-components-web
+
+**Repository:** Noodlestan Web
+
+**Message:**
+
+integrate(noodlestan-web): Apply shared components and add the non-interactive demo route.
+
 ### Iteration: Review and Consolidate
 
 **Id:** `review-and-consolidate`
@@ -327,18 +364,19 @@ build(common-components): Create spec components, stylesheet export, and usage d
 
 **Changes:**
 
-- Review the component implementation against `plan__components-spec.md`.
+- Review the component implementation against `plan__components-spec.md`, using the `/build/astro-component` preview page.
 - Consolidate the user's approved review feedback into the package.
 - Run package verification before publication.
 - The user performs the commit with `MANUAL` policy while working with a pair-driver assistant.
 
 **Instructions:**
 
-The user leads this review with a pair-driver assistant; do not delegate it to a worker. Review the package against `plan__components-spec.md`, resolve feedback with the user, consolidate approved changes, verify the package, and have the user perform the commit using the `MANUAL` policy.
+The user leads this review with a pair-driver assistant; do not delegate it to a worker. Review the package against `plan__components-spec.md` using the `/build/astro-component` preview page, resolve feedback with the user, consolidate approved changes, verify the package, and have the user perform the commit using the `MANUAL` policy.
 
 **Dependencies:**
 
 - Iteration: Create Components From Spec — components must exist before they can be reviewed and consolidated.
+- Iteration: Apply Components to Noodlestan Web — the `/build/astro-component` preview page must exist before the user reviews the components.
 
 #### Commits:
 
@@ -394,43 +432,6 @@ refactor(common-components): Review and consolidate the component package before
 
 release(package-astro-components): Add the public NPM deployment record.
 
-### Iteration: Apply Components to Noodlestan Web
-
-**Id:** `apply-components-noodlestan-web`
-
-**Status:** `READY`
-
-**Purpose:** Use the package in Noodlestan Web and provide the homepage-equivalent demo route.
-
-**Description:** Apply the components at the locations in the attached spec and create `/build/astro-component` with the same homepage content minus its interactive search behavior.
-
-**Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
-
-**Instructions:** `./instructions/apply-components-noodlestan-web.md`
-
-**Changes:**
-
-- Apply Noodlestan Web components according to `plan__components-spec.md`.
-- Create the `/build/astro-component` route according to `plan__components-spec.md`.
-
-**Dependencies:**
-
-- Iteration: Create Components From Spec — component exports must be available.
-
-#### Commits:
-
-| ID                     | Repository / Checkout / Branch       | Policy   | Hash | Status        |
-| ---------------------- | ------------------------------------ | -------- | ---- | ------------- |
-| `apply-components-web` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `PLACEHOLDER` |
-
-##### Commit: apply-components-web
-
-**Repository:** Noodlestan Web
-
-**Message:**
-
-integrate(noodlestan-web): Apply shared components and add the non-interactive demo route.
-
 ### Iteration: Apply Components to Art MD Web
 
 **Id:** `apply-components-art-md-web`
@@ -473,7 +474,7 @@ integrate(artificials): Apply shared components to the Art MD Website.
 
 ### Next
 
-Run the user-led `review-and-consolidate` iteration with a pair-driver assistant: it is not delegated to a worker, and the user performs its commit under the `MANUAL` policy. Confirm public NPM publication authorization before the publish iteration.
+Delegate `apply-components-noodlestan-web`: the iteration is `READY` and its commit blueprint is `AUTHORED`. It produces the `/build/astro-component` preview page that the user-led `review-and-consolidate` iteration needs; that review is not delegated, and the user performs its commit under the `MANUAL` policy. Confirm public NPM publication authorization before the publish iteration.
 
 ### Blockers
 
@@ -533,7 +534,7 @@ Follow the package's NPM deployment record and deployment commands. Do not publi
 - **One social icon link per app header** — the exact component-to-app mapping is defined in the spec.
 - **Demo uses shared layout** — the page body mirrors the homepage without search interaction; the layout supplies the header and footer once.
 - **Publish for cross-repository use** — release the package publicly before Art MD Web adopts it.
-- **Review precedes the demo route** — the user-led `review-and-consolidate` iteration reviews the component source against the specification; the `/build/astro-component` page is built later by the `apply-components-noodlestan-web` iteration, which consumes the package through the workspace dependency and so needs no publication.
+- **Demo route precedes the review** — the `apply-components-noodlestan-web` iteration builds `/build/astro-component` first, so the user-led `review-and-consolidate` iteration can review rendered output rather than source alone. The review still precedes publication.
 
 ### Knowledge to Update
 
@@ -554,4 +555,5 @@ Follow the package's NPM deployment record and deployment commands. Do not publi
 - The specification's `MadeInNoodlestan` entry carries an unresolved WIP note that conflicts with its wireframe. The implementation followed the note — an anchor wrapping an inline-flex span that holds the logo before the brand name. The specification should state which of the two is authoritative.
 - The specification names each component's source file but not where shared internal markup lives; the implementation placed the shared anchor and logo under `src/components/private/`, so the public API is exactly the eight specified components. The specification could state this convention for future components.
 - The README `## Usage` example uses placeholder URLs; the consumer iterations should show the real endpoints to keep the documentation honest.
-- The `apply-components-noodlestan-web` iteration has no dependency on publication: its step 1 adds the package as an internal workspace dependency, so only `apply-components-art-md-web` needs a published version. The `## Items:` order keeps the demo route after the review and publication by decision, not by technical constraint.
+- The `apply-components-noodlestan-web` iteration has no dependency on publication: its step 1 adds the package as an internal workspace dependency, so only `apply-components-art-md-web` needs a published version. The iteration now runs before the review so the preview page exists for it.
+- `instructions/apply-components-noodlestan-web.md` still calls the package "the published package" in its goal and in step 1, which is inaccurate now that the iteration runs before publication. The delegation carries a directive to add the package as a workspace dependency instead. The instruction should be corrected by the planner.
