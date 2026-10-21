@@ -216,20 +216,20 @@ Work spans `$PROJECT` and `$ARTIFICIALS`. Package creation and publication happe
 
 ## Items:
 
-| Iteration / Instructions                                                                          | Status    |
-| ------------------------------------------------------------------------------------------------- | --------- |
-| Iteration: Scaffold Components Package `./instructions/scaffold-components-package.md`            | `WORKING` |
-| Iteration: Create Components From Spec `./instructions/create-components-from-spec.md`            | `READY`   |
-| Iteration: Review and Consolidate                                                                 | `READY`   |
-| Iteration: Publish Components Package `./instructions/publish-components-package.md`              | `READY`   |
-| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `READY`   |
-| Iteration: Apply Components to Art MD Web `./instructions/apply-components-art-md-web.md`         | `READY`   |
+| Iteration / Instructions                                                                          | Status  |
+| ------------------------------------------------------------------------------------------------- | ------- |
+| Iteration: Scaffold Components Package `./instructions/scaffold-components-package.md`            | `DONE`  |
+| Iteration: Create Components From Spec `./instructions/create-components-from-spec.md`            | `READY` |
+| Iteration: Review and Consolidate                                                                 | `READY` |
+| Iteration: Publish Components Package `./instructions/publish-components-package.md`              | `READY` |
+| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `READY` |
+| Iteration: Apply Components to Art MD Web `./instructions/apply-components-art-md-web.md`         | `READY` |
 
 ### Iteration: Scaffold Components Package
 
 **Id:** `scaffold-components-package`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Purpose:** Register `@noodlestan/astro-components` as a valid NPM workspace package.
 
@@ -238,6 +238,8 @@ Work spans `$PROJECT` and `$ARTIFICIALS`. Package creation and publication happe
 **Instructions Mode:** `INSTRUCTIONS_SELF_CONTAINED_FILE`
 
 **Instructions:** `./instructions/scaffold-components-package.md`
+
+**Report:** `./instructions/scaffold-components-package__report.md`
 
 **Changes:**
 
@@ -252,9 +254,9 @@ Work spans `$PROJECT` and `$ARTIFICIALS`. Package creation and publication happe
 
 #### Commits:
 
-| ID                          | Repository / Checkout / Branch       | Policy   | Hash | Status     |
-| --------------------------- | ------------------------------------ | -------- | ---- | ---------- |
-| `scaffold-astro-components` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `AUTHORED` |
+| ID                          | Repository / Checkout / Branch       | Policy   | Hash      | Status      |
+| --------------------------- | ------------------------------------ | -------- | --------- | ----------- |
+| `scaffold-astro-components` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | `82a8872` | `COMMITTED` |
 
 ##### Commit: scaffold-astro-components
 
@@ -297,9 +299,9 @@ scaffold(package-astro-components): Add package house-style files and register t
 
 #### Commits:
 
-| ID                       | Repository / Checkout / Branch       | Policy   | Hash | Status        |
-| ------------------------ | ------------------------------------ | -------- | ---- | ------------- |
-| `create-components-spec` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `PLACEHOLDER` |
+| ID                       | Repository / Checkout / Branch       | Policy   | Hash | Status     |
+| ------------------------ | ------------------------------------ | -------- | ---- | ---------- |
+| `create-components-spec` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `AUTHORED` |
 
 ##### Commit: create-components-spec
 
@@ -469,7 +471,7 @@ integrate(artificials): Apply shared components to the Art MD Website.
 
 ### Next
 
-Resume `scaffold-components-package`: complete the house-style additions, run the package build and CI after formatting the plan, and commit the verified scaffold. The user-led `review-and-consolidate` iteration is not delegated; confirm public NPM publication authorization before publishing.
+Delegate `create-components-from-spec`: the iteration is `READY` and its commit blueprint is `AUTHORED`. The user-led `review-and-consolidate` iteration is not delegated; confirm public NPM publication authorization before publishing.
 
 ### Blockers
 
@@ -514,7 +516,7 @@ Follow the package's NPM deployment record and deployment commands. Do not publi
 
 ### Evidence
 
-- None yet.
+- `scaffold-components-package` committed as `82a8872`: package manifest, package and deployment records, entry point, tsconfig, README with `## Usage`, `LICENSE-MIT`, package dotfiles, package `_guide.md`, `packages/**` workspace registration, lockfile update, and repository guide update. The package `npm run lint:fix` passed.
 
 ### Findings
 
@@ -541,3 +543,6 @@ Follow the package's NPM deployment record and deployment commands. Do not publi
 ### Feedback
 
 - `npm run ci` passed after formatting this plan and its instructions; the root formatting blocker is resolved. Keep formatting plan files before any subsequent delegation.
+- The worker delegated for `scaffold-components-package` reported a BLOCKER on the root Prettier check of this plan; see `./instructions/scaffold-components-package__report.md`. The iteration was then completed user-led with a pair-driver assistant and committed as `82a8872`, so the reported blocker no longer applies.
+- The committed deployment record is `packages/astro-components/_records/npm-deployment` — without the `.art` extension — and is titled `NPM Package Deployment: Noodlestan Astro Components`, while `package.art` links to `NPM Package Deployment: Noodlestan Common Components`. Before publishing, the publish iteration must rename the record to `published.art` and align the two names.
+- The scaffold commit message `scaffold(package-astro-components): Add package house-style files and usage docs` differs from the plan blueprint wording; the committed message is authoritative.
