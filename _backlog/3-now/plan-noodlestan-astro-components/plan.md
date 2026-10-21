@@ -533,6 +533,7 @@ Follow the package's NPM deployment record and deployment commands. Do not publi
 - **One social icon link per app header** — the exact component-to-app mapping is defined in the spec.
 - **Demo uses shared layout** — the page body mirrors the homepage without search interaction; the layout supplies the header and footer once.
 - **Publish for cross-repository use** — release the package publicly before Art MD Web adopts it.
+- **Review precedes the demo route** — the user-led `review-and-consolidate` iteration reviews the component source against the specification; the `/build/astro-component` page is built later by the `apply-components-noodlestan-web` iteration, which consumes the package through the workspace dependency and so needs no publication.
 
 ### Knowledge to Update
 
@@ -553,3 +554,4 @@ Follow the package's NPM deployment record and deployment commands. Do not publi
 - The specification's `MadeInNoodlestan` entry carries an unresolved WIP note that conflicts with its wireframe. The implementation followed the note — an anchor wrapping an inline-flex span that holds the logo before the brand name. The specification should state which of the two is authoritative.
 - The specification names each component's source file but not where shared internal markup lives; the implementation placed the shared anchor and logo under `src/components/private/`, so the public API is exactly the eight specified components. The specification could state this convention for future components.
 - The README `## Usage` example uses placeholder URLs; the consumer iterations should show the real endpoints to keep the documentation honest.
+- The `apply-components-noodlestan-web` iteration has no dependency on publication: its step 1 adds the package as an internal workspace dependency, so only `apply-components-art-md-web` needs a published version. The `## Items:` order keeps the demo route after the review and publication by decision, not by technical constraint.
