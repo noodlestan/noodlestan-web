@@ -1,7 +1,0 @@
-.coverage/
-coverage/
-env.d.ts
-dist/
-
-# Astro
-apps/noodlestan-web/.astro/

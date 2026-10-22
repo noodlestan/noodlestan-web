@@ -2,3 +2,5 @@
 coverage/
 env.d.ts
 dist/
+
+test/astro/.astro/

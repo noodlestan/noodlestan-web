@@ -1,6 +1,6 @@
 {
   "name": "@noodlestan/astro-components",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Reusable Astro components for Noodlestan websites.",
   "keywords": [
     "astro",
@@ -35,10 +35,13 @@
   ],
   "prettier": "@noodlestan/prettier-config-astro",
   "scripts": {
+    "preview": "astro preview --root test/astro --watch",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
     "lint:fix": "prettier . --write && eslint . --fix",
+    "build": "astro build --root test/astro",
+    "build:clean": "rm -rf dist",
     "test": "echo none yet",
-    "ci": "npm run lint && npm run test"
+    "ci": "npm run lint && npm run build && npm run test"
   },
   "peerDependencies": {
     "astro": "^7.2.7"

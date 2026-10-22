@@ -1,0 +1,91 @@
+---
+import '../../../../src/styles/global.css';
+
+import NoodlestanFooter from '../../../../src/components/site/NoodlestanFooter.astro';
+
+interface Props {
+	content: {
+		title: string;
+		description: string;
+	};
+}
+
+const { content } = Astro.props;
+const { title, description } = content;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+
+		<link rel="preconnect" href="https://fonts.bunny.net" />
+		<link
+			href="https://fonts.bunny.net/css?family=fredoka:300,400,500,600,700|lusitana:400,700"
+			rel="stylesheet"
+		/>
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+	</head>
+	<body>
+		<main>
+			<slot />
+		</main>
+	</body>
+	<footer class="container">
+		<NoodlestanFooter
+			year={2006}
+			githubURL="https://github.com/noodlestan/noodlestan-web/blob/main/packages/astro-components/README.md"
+		/>
+	</footer>
+</html>
+
+<style>
+	:root {
+		--palette-curcuma-000: oklch(10% 0.01 78);
+		--palette-curcuma-100: oklch(18% 0.007 78);
+		--palette-curcuma-200: oklch(24% 0.007 78);
+		--palette-curcuma-400: oklch(81% 0.17 78);
+		--palette-curcuma-700: oklch(85% 0.007 78);
+		--palette-curcuma-800: oklch(96% 0.007 78);
+		--palette-curcuma-900: oklch(98% 0.005 78);
+
+		--palette-brand-orange: oklch(67% 0.19 42);
+
+		--palette-orange-400: oklch(47% 0.2 42);
+		--palette-orange-600: oklch(67% 0.2 42);
+
+		--palette-purple-400: oklch(47% 0.2 316);
+		--palette-purple-600: oklch(67% 0.2 316);
+
+		--color-content-max: var(--palette-curcuma-000);
+		--color-content: var(--palette-curcuma-100);
+		--color-content-min: var(--palette-curcuma-200);
+		--color-headings: var(--palette-purple-400);
+		--color-brand: var(--palette-brand-orange);
+		--color-surface-bg: var(--palette-curcuma-900);
+		--color-page-bg: var(--palette-curcuma-800);
+		--color-interactive: var(--palette-orange-400);
+		--color-gradient-1: var(--palette-purple-600);
+		--color-gradient-2: var(--palette-purple-400);
+		--color-gradient-3: var(--color-page-bg);
+
+		@media screen and (prefers-color-scheme: dark) {
+			--color-interactive: var(--palette-orange-600);
+			--color-content-max: var(--palette-curcuma-900);
+			--color-content: var(--palette-curcuma-800);
+			--color-content-min: var(--palette-curcuma-700);
+			--color-headings: var(--palette-purple-600);
+			--color-surface-bg: var(--palette-curcuma-100);
+			--color-page-bg: var(--palette-curcuma-000);
+		}
+	}
+
+	main,
+	footer {
+		padding-block: 4rem;
+		overflow-x: hidden;
+	}
+</style>
