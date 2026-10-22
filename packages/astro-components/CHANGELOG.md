@@ -1,6 +1,17 @@
 # CHANGELOG
 
-## 0.0.1
+## 0.1.1
+
+### Added
+
+- **GithubIconLink** — Add prop `iconLabel`.
+
+### Fixed
+
+- **HowToConstribute** — Make selectors more specific to overcome brittle formatting when embedded in another site.
+- **NoodlestanFooter** — Was not interpolating license year.
+
+## 0.1.0
 
 ### Added
 
