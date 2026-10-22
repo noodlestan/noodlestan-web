@@ -1,10 +1,9 @@
 ---
 import SiteHeaderContainer from './SiteHeaderContainer.astro';
 import SiteHeaderDivider from './SiteHeaderDivider.astro';
+import SiteLinks from './SiteLinks.astro';
 import SiteNav from './SiteNav.astro';
 import SiteTitle from './SiteTitle.astro';
-import { DiscordIconLink, GithubIconLink } from '@noodlestan/astro-components';
-import { ENDPOINTS } from '../../constants';
 ---
 
 <SiteHeaderContainer>
@@ -15,10 +14,7 @@ import { ENDPOINTS } from '../../constants';
 		<div class="site-nav">
 			<SiteNav />
 		</div>
-		<div class="site-links">
-			<GithubIconLink href={ENDPOINTS.noodlestan.github} />
-			<DiscordIconLink href={ENDPOINTS.noodlestan.discord} />
-		</div>
+		<SiteLinks />
 	</div>
 	<SiteHeaderDivider />
 </SiteHeaderContainer>
@@ -44,19 +40,7 @@ import { ENDPOINTS } from '../../constants';
 		display: none;
 	}
 
-	.site-links {
-		display: inline-flex;
-		justify-content: end;
-		gap: 1rem;
-		margin-bottom: -0.25rem;
-		font-size: calc(var(--text-size-nav) * 0.85);
-		line-height: 1;
-	}
-
 	@media screen and (min-width: 1022px) {
-		.site-links {
-			width: 13rem;
-		}
 		.site-nav {
 			display: flex;
 		}
