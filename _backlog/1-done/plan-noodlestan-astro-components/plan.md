@@ -2,7 +2,7 @@
 
 **Id:** `noodlestan-astro-components`
 
-**Status:** `WORKING`
+**Status:** `DONE`
 
 **Template:** `$DOMAINS/plans/templates/plan.tart`
 
@@ -216,14 +216,14 @@ Work spans `$PROJECT` and `$ARTIFICIALS`. Package creation and publication happe
 
 ## Items:
 
-| Iteration / Instructions                                                                          | Status  |
-| ------------------------------------------------------------------------------------------------- | ------- |
-| Iteration: Scaffold Components Package `./instructions/scaffold-components-package.md`            | `DONE`  |
-| Iteration: Create Components From Spec `./instructions/create-components-from-spec.md`            | `DONE`  |
-| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `DONE`  |
-| Iteration: Review and Consolidate                                                                 | `READY` |
-| Iteration: Publish Components Package `./instructions/publish-components-package.md`              | `READY` |
-| Iteration: Apply Components to Art MD Web `./instructions/apply-components-art-md-web.md`         | `READY` |
+| Iteration / Instructions                                                                          | Status |
+| ------------------------------------------------------------------------------------------------- | ------ |
+| Iteration: Scaffold Components Package `./instructions/scaffold-components-package.md`            | `DONE` |
+| Iteration: Create Components From Spec `./instructions/create-components-from-spec.md`            | `DONE` |
+| Iteration: Apply Components to Noodlestan Web `./instructions/apply-components-noodlestan-web.md` | `DONE` |
+| Iteration: Review and Consolidate                                                                 | `DONE` |
+| Iteration: Publish Components Package `./instructions/publish-components-package.md`              | `DONE` |
+| Iteration: Apply Components to Art MD Web `./instructions/apply-components-art-md-web.md`         | `DONE` |
 
 ### Iteration: Scaffold Components Package
 
@@ -264,7 +264,9 @@ Work spans `$PROJECT` and `$ARTIFICIALS`. Package creation and publication happe
 
 **Message:**
 
+```
 scaffold(package-astro-components): Add package house-style files and register the workspace.
+```
 
 ### Iteration: Create Components From Spec
 
@@ -311,7 +313,9 @@ scaffold(package-astro-components): Add package house-style files and register t
 
 **Message:**
 
+```
 build(common-components): Create spec components, stylesheet export, and usage documentation.
+```
 
 ### Iteration: Apply Components to Noodlestan Web
 
@@ -350,13 +354,15 @@ build(common-components): Create spec components, stylesheet export, and usage d
 
 **Message:**
 
+```
 integrate(noodlestan-web): Apply shared components and add the non-interactive demo route.
+```
 
 ### Iteration: Review and Consolidate
 
 **Id:** `review-and-consolidate`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Review the implemented package with the user and consolidate approved changes before release.
 
@@ -382,9 +388,9 @@ The user leads this review with a pair-driver assistant; do not delegate it to a
 
 #### Commits:
 
-| ID                       | Repository / Checkout / Branch       | Policy   | Hash | Status     |
-| ------------------------ | ------------------------------------ | -------- | ---- | ---------- |
-| `review-and-consolidate` | Noodlestan Web / `$PROJECT` / `main` | `MANUAL` | —    | `AUTHORED` |
+| ID                       | Repository / Checkout / Branch       | Policy   | Hash      | Status      |
+| ------------------------ | ------------------------------------ | -------- | --------- | ----------- |
+| `review-and-consolidate` | Noodlestan Web / `$PROJECT` / `main` | `MANUAL` | `91b0e78` | `COMMITTED` |
 
 ##### Commit: review-and-consolidate
 
@@ -392,13 +398,19 @@ The user leads this review with a pair-driver assistant; do not delegate it to a
 
 **Message:**
 
+```
 refactor(common-components): Review and consolidate the component package before release.
+
+- Classify components.
+- Add global typography and surface tokens.
+- Recompose components demo page.
+```
 
 ### Iteration: Publish Components Package
 
 **Id:** `publish-components-package`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Make the verified package installable by the Artificials repository.
 
@@ -422,9 +434,9 @@ refactor(common-components): Review and consolidate the component package before
 
 #### Commits:
 
-| ID                          | Repository / Checkout / Branch       | Policy   | Hash | Status        |
-| --------------------------- | ------------------------------------ | -------- | ---- | ------------- |
-| `publish-components-record` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | —    | `PLACEHOLDER` |
+| ID                          | Repository / Checkout / Branch       | Policy   | Hash      | Status      |
+| --------------------------- | ------------------------------------ | -------- | --------- | ----------- |
+| `publish-components-record` | Noodlestan Web / `$PROJECT` / `main` | `NOPUSH` | `7bf0ce0` | `COMMITTED` |
 
 ##### Commit: publish-components-record
 
@@ -432,13 +444,15 @@ refactor(common-components): Review and consolidate the component package before
 
 **Message:**
 
+```
 release(package-astro-components): Add the public NPM deployment record.
+```
 
 ### Iteration: Apply Components to Art MD Web
 
 **Id:** `apply-components-art-md-web`
 
-**Status:** `READY`
+**Status:** `DONE`
 
 **Purpose:** Consume the published package in the Art MD Website.
 
@@ -460,9 +474,9 @@ release(package-astro-components): Add the public NPM deployment record.
 
 #### Commits:
 
-| ID                        | Repository / Checkout / Branch        | Policy   | Hash | Status        |
-| ------------------------- | ------------------------------------- | -------- | ---- | ------------- |
-| `apply-components-art-md` | Artificials / `$ARTIFICIALS` / `main` | `NOPUSH` | —    | `PLACEHOLDER` |
+| ID                        | Repository / Checkout / Branch        | Policy   | Hash      | Status      |
+| ------------------------- | ------------------------------------- | -------- | --------- | ----------- |
+| `apply-components-art-md` | Artificials / `$ARTIFICIALS` / `main` | `NOPUSH` | `ff118fc` | `COMMITTED` |
 
 ##### Commit: apply-components-art-md
 
@@ -470,7 +484,9 @@ release(package-astro-components): Add the public NPM deployment record.
 
 **Message:**
 
-integrate(artificials): Apply shared components to the Art MD Website.
+```
+build(artificials): Apply shared components to the Art MD Website.
+```
 
 ## Work
 

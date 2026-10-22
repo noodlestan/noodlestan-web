@@ -145,7 +145,7 @@ Execution is coordinated from the Noodlestan Web checkout. Website work happens 
 | Index | Name                      | Status     |
 | ----- | ------------------------- | ---------- |
 | `1`   | Project browsing features | `PLANNING` |
-| `2`   | Astro Components Package  | `PLANNING` |
+| `2`   | Astro Components Package  | `DONE`     |
 
 ### Phase: 1 — Project browsing features
 
@@ -165,7 +165,7 @@ Execution is coordinated from the Noodlestan Web checkout. Website work happens 
 
 **Description:** Extract design tokens and components as reusable packages: "made in noodlestan", "noodlestan website link (header navigation)", "contribute" "help wanted", "wip".
 
-**Status:** `PLANNING`
+**Status:** `DONE`
 
 **Dependencies:**
 
@@ -175,16 +175,16 @@ Execution is coordinated from the Noodlestan Web checkout. Website work happens 
 
 ## Items:
 
-| Phase | Resource / Record                                                                                          | Status     |
-| ----- | ---------------------------------------------------------------------------------------------------------- | ---------- |
-| `1`   | Plan: Search Projects POC `_backlog/1-done/plan-search-projects-poc/plan.md`                               | `DONE`     |
-| `2`   | Plan: Create Noodlestan Astro Components Package `_backlog/3-now/plan-noodlestan-astro-components/plan.md` | `PLANNING` |
+| Phase | Resource / Record                                                                                           | Status |
+| ----- | ----------------------------------------------------------------------------------------------------------- | ------ |
+| `1`   | Plan: Search Projects POC `_backlog/1-done/plan-search-projects-poc/plan.md`                                | `DONE` |
+| `2`   | Plan: Create Noodlestan Astro Components Package `_backlog/1-done/plan-noodlestan-astro-components/plan.md` | `DONE` |
 
 ## Work
 
 ### Next
 
-- None
+- Plan more project browsing features.
 
 ### Blockers
 
