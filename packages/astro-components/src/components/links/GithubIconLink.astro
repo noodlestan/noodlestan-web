@@ -4,12 +4,13 @@ import { IconLink } from '../links';
 
 type Props = {
 	label?: string;
+	iconLabel?: string;
 	href?: string;
 };
 
-const { label, href = 'https://github.com/noodlestan' } = Astro.props;
+const { label, iconLabel: maybeIconLabel, href = 'https://github.com/noodlestan' } = Astro.props;
 
-const iconLabel = label || 'View on Github';
+const iconLabel = maybeIconLabel || label || 'View on Github';
 ---
 
 <IconLink href={href} label={iconLabel}>

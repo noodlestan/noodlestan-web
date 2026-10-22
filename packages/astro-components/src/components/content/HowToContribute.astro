@@ -22,7 +22,7 @@ const Element = tag;
 		hello?
 	</p>
 	<p>You are welcome.</p>
-	<ul>
+	<ul class="links">
 		{githubURL && (
 			<li>
 				<GithubIconLink href={githubURL} label="View on GitHub" />
@@ -42,15 +42,15 @@ const Element = tag;
 </aside>
 
 <style>
-	ul {
+	.how-to-contribute ul.links {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 0.5rem 1.5rem;
 		padding: 0;
 		list-style: none;
-	}
 
-	li {
-		margin: 0;
+		li {
+			margin: 0;
+		}
 	}
 </style>
