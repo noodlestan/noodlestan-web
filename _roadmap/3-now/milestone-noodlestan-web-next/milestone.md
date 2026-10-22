@@ -218,7 +218,7 @@ npm ci # to install dependencies.
 **Instructions:** (From `$WORKSPACE/_guide.md`)
 
 ```bash
-npm run art-work sanity # to check git status across all repos
+npm run workspace sanity # to check git status across all repos
 ```
 
 ---

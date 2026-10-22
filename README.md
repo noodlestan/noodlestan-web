@@ -27,7 +27,7 @@ Repository of Noodlestan websites - typically built with Astro.
 ### update-project-records
 
 - Reads repository records from workspace `_records/repositories/*`.
-- Clones repository if not present using `art-work-cli clone "{repo.name}"`;
+- Clones repository if not present using `art-workspace-cli clone "{repo.name}"`;
 - Makes sure it's on `main` branch and pulls.
 - Reads repository project record from `$CHECKOUT/_records/project.art`
 - Copies all project records into `data/_records/projects/`.
