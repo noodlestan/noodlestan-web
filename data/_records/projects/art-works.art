@@ -1,6 +1,6 @@
 # Module
 
-## Project: Art Work
+## Project: Art Works
 
 **Purpose:** Manage multi-repository development environments for parallel planning and execution.
 
@@ -10,21 +10,18 @@
 
 **Author:** Noodlestan Collective
 
-**Repository:** Repository: Art Work
+**Repository:** Repository: Art Works
 
 **Resources:**
 
-- Package: Art Work Cli
-- Package: Art Board Cli (PLANNED)
-- Application: Art Work Website (PLANNED)
-- Tool: Art Work Tool (PLANNED)
+- Package: Art Workspace Cli
+- Tool: Art Workspace Tool (PLANNED)
 
 **Keywords:**
 
 - art
+- agent-workflows
 - workspaces
-- cli
-- tooling
 - multi-repository
 - git
 
@@ -37,4 +34,4 @@
 
 **License:** License: Noodlestan 2026 MIT
 
-**Remote:** `noodlestan/art-work`
+**Remote:** `noodlestan/art-works`

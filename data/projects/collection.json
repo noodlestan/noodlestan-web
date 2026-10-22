@@ -70,14 +70,14 @@
     }
   },
   {
-    "id": "art-work",
+    "id": "art-works",
     "project": {
-      "name": "Art Work",
+      "name": "Art Works",
       "purpose": "Manage multi-repository development environments for parallel planning and execution.",
       "description": "Tools for discovering projects, managing knowledge and context resources, and operating across multiple checkouts: cloning, visualizing, synchronizing, and executing commands.",
       "website": null,
-      "code": "https://github.com/noodlestan/art-work",
-      "repository": "Repository: Art Work",
+      "code": "https://github.com/noodlestan/art-works",
+      "repository": "Repository: Art Works",
       "owner": "Project: Art Domains",
       "resources": [],
       "private": false
