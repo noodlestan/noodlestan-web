@@ -1,0 +1,39 @@
+---
+import { NoodlestanLogo } from '../logos';
+
+type Props = {
+	href?: string;
+};
+
+const { href = 'https://noodlestan.org' } = Astro.props;
+---
+
+<a class="made-in-noodlestan" href={href}>
+	<span class="made-in">made in:</span>
+	<NoodlestanLogo mono={true} />
+</a>
+
+<style>
+	.made-in-noodlestan {
+		--noodlestan-logo-size: 1.25rem;
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: start;
+		gap: 0.5rem;
+		font-family: var(--type-noodlestan-family);
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+	.made-in {
+		display: block;
+		font-size: 66%;
+		white-space: nowrap;
+		height: 100%;
+		display: block;
+		font-weight: 400;
+	}
+</style>

@@ -1,4 +1,5 @@
 ---
+import { NoodlestanLogoMark } from '@noodlestan/astro-components';
 import SiteLogo from '../../site/SiteLogo.astro';
 ---
 
@@ -8,7 +9,7 @@ import SiteLogo from '../../site/SiteLogo.astro';
 		<span>Noodlestan</span>
 	</h1>
 	<figure>
-		<SiteLogo />
+		<NoodlestanLogoMark />
 	</figure>
 	<p class="text-large">
 		A home for software projects, experiments, crazy ideas, and things worth building.
@@ -21,7 +22,7 @@ import SiteLogo from '../../site/SiteLogo.astro';
 		/* 1.6rem @ 100px → 6rem @ 640px */
 	}
 
-	section {
+	#hero {
 		padding-block-start: 4rem;
 		display: flex;
 		flex-direction: column;
@@ -51,8 +52,13 @@ import SiteLogo from '../../site/SiteLogo.astro';
 		color: var(--color-brand);
 	}
 
-	figure {
+	figure,
+	#hero :global(svg) {
 		width: min(80vw, 300px);
+	}
+
+	#hero :global(svg) {
+		height: auto;
 	}
 
 	p {

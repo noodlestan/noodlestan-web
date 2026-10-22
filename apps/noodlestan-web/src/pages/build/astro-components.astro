@@ -1,0 +1,122 @@
+---
+import { ENDPOINTS } from '../../constants';
+import HomeLayout from '../../layouts/HomeLayout.astro';
+
+import {
+	ContactLink,
+	DiscordIconLink,
+	GithubIconLink,
+	HelpWanted,
+	HowToContribute,
+	IconLink,
+	MadeInNoodlestan,
+	NoodlestanLogo,
+	NoodlestanLogoMark,
+	WorkInProgress,
+} from '@noodlestan/astro-components';
+
+const contactUrl = `mailto:${ENDPOINTS.noodlestan.email}`;
+
+const content = {
+	title: 'Noodlestan Astro Components',
+	description: 'Non-interactive demo of Noodlestan Astro Components.',
+};
+---
+
+<HomeLayout content={content}>
+	<section class="main-section">
+		<div>
+			<h2>Extensible</h2>
+			<p>
+				An open construct registry allows new structures and declarations to be defined without
+				changing the underlying parser.
+			</p>
+			<HelpWanted
+				tag="h3"
+				message="We are looking for help to expand the project list and improve documentation."
+				linkURL={ENDPOINTS.noodlestan.github}
+			/>
+			<h3>Transformable</h3>
+			<p>
+				Constructs define how Markdown is recognised, represented, validated, transformed, and
+				serialised.
+			</p>
+			<p>
+				Transformable Art MD content can be parsed, validated, transformed, and serialised
+				programmatically, enabling automated generation, extraction, and transformation.
+			</p>
+			<HowToContribute
+				tag="h4"
+				githubURL={ENDPOINTS.noodlestan.github}
+				discordURL={ENDPOINTS.noodlestan.discord}
+				contactURL={contactUrl}
+			/>
+			<h4>Ecosystem</h4>
+			<WorkInProgress
+				linkHref="https://github.com/noodlestan/art-js/blob/main/_roadmap/6-plan/milestone-art-modules/milestone.md"
+				linkLabel="Milestone: Art Modules"
+			/>
+			<p>
+				Art MD consists of a language specification and a set of JavaScript libraries for parsing
+				Markdown into an MDAST-derived AST, with an open construct registry. The libraries provide
+				parsing, validation, transformation, and serialisation of Art MD content back to Markdown.
+			</p>
+		</div>
+		<hr />
+		<div class="stack">
+			<div class="stack compact">
+				<MadeInNoodlestan />
+				<div class="large">
+					<MadeInNoodlestan />
+				</div>
+			</div>
+			<hr />
+			<div class="bar">
+				Navigation:
+				<DiscordIconLink href={ENDPOINTS.noodlestan.discord} />
+				<GithubIconLink />
+				<ContactLink href="/" />
+			</div>
+			<hr />
+			<div class="logos">
+				Logos:
+				<NoodlestanLogo />
+				<IconLink href="/" label="Contact">
+					<NoodlestanLogo mono />
+				</IconLink>
+				<NoodlestanLogoMark mono />
+				<NoodlestanLogoMark />
+			</div>
+			<hr />
+		</div>
+	</section>
+</HomeLayout>
+
+<style>
+	.stack {
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	.compact {
+		gap: 1rem;
+	}
+
+	.large {
+		font-size: 3rem;
+	}
+
+	.bar {
+		display: flex;
+		height: 3rem;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.logos {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
+</style>

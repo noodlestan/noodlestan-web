@@ -1,5 +1,15 @@
+---
+type Props = {
+	mono?: boolean;
+};
+
+const { mono } = Astro.props;
+
+const className = `noodlestan-logo ${mono ? 'mono' : 'colors'}`;
+---
+
 <svg
-	class="noodlestan-logo"
+	class={className}
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 500 371"
 	aria-hidden="true"
@@ -22,10 +32,12 @@
 		transform="rotate(45.098 314.42 114.149) skewY(-.196)"
 	></rect>
 	<path
+		class="bowl-1"
 		fill="currentColor"
 		d="M22.05 248H421c-36.66 72.837-112.307 123-199.631 123-87.275 0-162.887-50.11-199.37-122.974Z"
 	></path>
 	<path
+		class="bowl-2"
 		fill="currentColor"
 		d="M0 178h442a217.4 217.4 0 0 1-17.338 62H17.338A217.4 217.4 0 0 1 0 178"
 	></path>
@@ -34,8 +46,19 @@
 <style>
 	.noodlestan-logo {
 		display: block;
-		height: var(--noodlestan-logo-size, 1.5rem);
+		height: 1em;
 		width: auto;
 		aspect-ratio: 500 / 371;
+	}
+
+	.colors rect {
+		fill: #f3661d;
+	}
+
+	.colors .bowl-1 {
+		fill: #ac44d2;
+	}
+	.colors .bowl-2 {
+		fill: #ffb400;
 	}
 </style>

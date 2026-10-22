@@ -1,0 +1,35 @@
+---
+import { GithubIconLink } from '../links';
+
+type Props = {
+	label?: string;
+	linkLabel?: string;
+	linkHref?: string;
+};
+
+const { label = 'Work in progress', linkHref, linkLabel } = Astro.props;
+
+const isGitHubLink = linkHref?.startsWith('https://github.com');
+
+const hasLink = Boolean(linkHref) && Boolean(linkLabel);
+---
+
+<p class="work-in-progress">
+	<span>🚧</span>
+	<strong>{label ?? 'Work in progress'}</strong>
+	{hasLink &&
+		(isGitHubLink ? (
+			<GithubIconLink label={linkLabel} href={linkHref} />
+		) : (
+			<a href={linkHref}>{linkLabel}</a>
+		))}
+</p>
+
+<style>
+	.work-in-progress {
+		display: inline-flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+	}
+</style>

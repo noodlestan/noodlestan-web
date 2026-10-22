@@ -1,5 +1,5 @@
 ---
-import { ENDPOINTS } from '../../consts';
+import { ENDPOINTS } from '../../constants';
 import { NoodlestanFooter } from '@noodlestan/astro-components';
 ---
 
@@ -11,6 +11,10 @@ import { NoodlestanFooter } from '@noodlestan/astro-components';
 
 <style>
 	footer {
+		--text-max-width: 33rem;
+		display: flex;
+		padding-block: 7rem 5rem;
+		font-family: var(--type-headings-family, var(--type-noodlestan-family, sans-serif));
 		background: linear-gradient(
 			180deg,
 			var(--color-gradient-3) 90%,

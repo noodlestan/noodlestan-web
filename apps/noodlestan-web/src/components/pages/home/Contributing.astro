@@ -1,6 +1,6 @@
 ---
-import { ENDPOINTS } from '../../../consts';
-import { HelpWanted, HowToContribute } from '@noodlestan/astro-components';
+import { ENDPOINTS } from '../../../constants';
+import { HowToContribute } from '@noodlestan/astro-components';
 
 const contactUrl = `mailto:${ENDPOINTS.noodlestan.email}`;
 ---
@@ -12,10 +12,5 @@ const contactUrl = `mailto:${ENDPOINTS.noodlestan.email}`;
 		githubURL={ENDPOINTS.noodlestan.github}
 		discordURL={ENDPOINTS.noodlestan.discord}
 		contactURL={contactUrl}
-	/>
-	<HelpWanted
-		message="We are looking for help to expand the project list and improve documentation."
-		actionURL={ENDPOINTS.noodlestan.github}
-		actionLabel="Get involved"
 	/>
 </section>

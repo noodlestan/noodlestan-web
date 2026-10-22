@@ -1,0 +1,18 @@
+---
+import { DiscordLogoIcon } from '../logos';
+import { IconLink } from '../links';
+
+type Props = {
+	label?: string;
+	href: string;
+};
+
+const { label, href } = Astro.props;
+
+const iconLabel = label || 'Noodlestan on Discord';
+---
+
+<IconLink href={href} label={iconLabel}>
+	<DiscordLogoIcon />
+	{label}
+</IconLink>

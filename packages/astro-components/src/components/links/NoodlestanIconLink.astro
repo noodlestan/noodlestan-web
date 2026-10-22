@@ -1,0 +1,14 @@
+---
+import { NoodlestanLogo } from '../logos';
+import { IconLink } from '../links';
+
+type Props = {
+	href?: string;
+};
+
+const { href = 'https://noodlestan.org' } = Astro.props;
+---
+
+<IconLink href={href} label="Noodlestan">
+	<NoodlestanLogo />
+</IconLink>

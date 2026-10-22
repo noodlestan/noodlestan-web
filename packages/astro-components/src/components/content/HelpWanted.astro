@@ -1,0 +1,33 @@
+---
+import type { HTMLTag } from 'astro/types';
+
+type Props = {
+	tag?: HTMLTag;
+	title?: string;
+	message: string;
+	linkURL?: string;
+	linkLabel?: string;
+};
+
+const {
+	tag = 'h3',
+	title = 'Help wanted',
+	message,
+	linkURL,
+	linkLabel = 'Get involved!',
+} = Astro.props;
+
+const Element = tag;
+---
+
+<aside class="help-wanted">
+	<Element>{title}</Element>
+	<p>{message}</p>
+	{Boolean(linkURL) && (
+		<p class="link">
+			<a class="link" href={linkURL}>
+				{linkLabel}
+			</a>
+		</p>
+	)}
+</aside>

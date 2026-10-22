@@ -1,0 +1,29 @@
+---
+import NoodlestanLogoMark from './NoodlestanLogoMark.astro';
+
+type Props = {
+	mono?: boolean;
+};
+
+const { mono } = Astro.props;
+---
+
+<span class="logo">
+	<NoodlestanLogoMark mono={mono} />
+	<span class="wordmark">Noodlestan</span>
+</span>
+
+<style>
+	.logo {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 0.125em;
+		font-weight: 600;
+	}
+
+	.wordmark {
+		font-family: var(--type-noodlestan-family);
+		text-decoration: none;
+		line-height: 1;
+	}
+</style>

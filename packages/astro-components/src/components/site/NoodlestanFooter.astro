@@ -1,0 +1,57 @@
+---
+type Props = {
+	year: number;
+	githubURL: string;
+	showBrand?: boolean;
+};
+
+const { year, githubURL, showBrand } = Astro.props;
+
+const licenseURL = `https://noodlestan.mit-license.org/{year}`;
+---
+
+<div class="footer">
+	<p class="copyright">
+		Copyright © {year}
+		{showBrand && <span class="brand">Noodlestan</span>}
+	</p>
+	<div class="legal">
+		<p>
+			Code and content available on <a href={githubURL}>GitHub</a> under an{' '}
+			<a href={licenseURL}>MIT LICENSE</a>.
+		</p>
+		<p>This site respects your privacy: no cookies, analytics, or tracking tools are used.</p>
+		<p>This site is built with open source knowledge and tools.</p>
+	</div>
+</div>
+
+<style>
+	.footer {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	.copyright {
+		margin: 0;
+		font-size: var(--text-size-normal, 1rem);
+		font-weight: 400;
+	}
+
+	.brand {
+		font-family: var(--type-noodlestan-family);
+	}
+
+	.legal {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25rem;
+		font-size: var(--text-size-small, 0.85rem);
+		font-weight: 100;
+	}
+
+	p {
+		margin: 0;
+		max-width: var(--text-max-width);
+	}
+</style>

@@ -1,9 +1,9 @@
 {
-  "extends": "@noodlestan/tsconfig/libs/tsconfig.json",
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "types": ["astro/client"],
     "skipLibCheck": true
   },
-  "include": ["src/"],
+  "include": [".astro/types.d.ts", "src/**/*"],
   "exclude": ["dist/"]
 }

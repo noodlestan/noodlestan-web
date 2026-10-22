@@ -3,8 +3,8 @@ import SiteHeaderContainer from './SiteHeaderContainer.astro';
 import SiteHeaderDivider from './SiteHeaderDivider.astro';
 import SiteNav from './SiteNav.astro';
 import SiteTitle from './SiteTitle.astro';
-import { DiscordIconLink } from '@noodlestan/astro-components';
-import { ENDPOINTS } from '../../consts';
+import { DiscordIconLink, GithubIconLink } from '@noodlestan/astro-components';
+import { ENDPOINTS } from '../../constants';
 ---
 
 <SiteHeaderContainer>
@@ -16,6 +16,7 @@ import { ENDPOINTS } from '../../consts';
 			<SiteNav />
 		</div>
 		<div class="site-links">
+			<GithubIconLink href={ENDPOINTS.noodlestan.github} />
 			<DiscordIconLink href={ENDPOINTS.noodlestan.discord} />
 		</div>
 	</div>
@@ -30,8 +31,9 @@ import { ENDPOINTS } from '../../consts';
 		flex-wrap: wrap;
 		align-items: flex-end;
 		justify-content: space-between;
-		padding-block: 1.5rem;
 		row-gap: 1rem;
+		column-gap: 2rem;
+		padding-block: 1.5rem;
 	}
 
 	.site-title {
@@ -42,10 +44,18 @@ import { ENDPOINTS } from '../../consts';
 		display: none;
 	}
 
-	@media screen and (min-width: 1000px) {
-		.site-title,
+	.site-links {
+		display: inline-flex;
+		justify-content: end;
+		gap: 1rem;
+		margin-bottom: -0.25rem;
+		font-size: calc(var(--text-size-nav) * 0.85);
+		line-height: 1;
+	}
+
+	@media screen and (min-width: 1022px) {
 		.site-links {
-			width: 14rem;
+			width: 13rem;
 		}
 		.site-nav {
 			display: flex;

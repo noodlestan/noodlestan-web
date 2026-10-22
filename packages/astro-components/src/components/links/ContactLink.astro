@@ -1,0 +1,18 @@
+---
+import { EmailIcon } from '../icons';
+import { IconLink } from '../links';
+
+type Props = {
+	href: string;
+	label?: string;
+};
+
+const { label = 'Contact', href } = Astro.props;
+
+const iconLabel = label || 'View on Email';
+---
+
+<IconLink href={href} label={iconLabel}>
+	<EmailIcon />
+	{label}
+</IconLink>

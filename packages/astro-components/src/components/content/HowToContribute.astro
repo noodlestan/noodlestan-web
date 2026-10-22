@@ -1,0 +1,56 @@
+---
+import type { HTMLTag } from 'astro/types';
+import { GithubIconLink, DiscordIconLink } from '../links/index.js';
+import ContactLink from '../links/ContactLink.astro';
+
+type Props = {
+	tag?: HTMLTag;
+	githubURL?: string;
+	discordURL?: string;
+	contactURL?: string;
+};
+
+const { tag = 'h3', githubURL, discordURL, contactURL } = Astro.props;
+
+const Element = tag;
+---
+
+<aside class="how-to-contribute">
+	<Element>Contributing</Element>
+	<p>
+		Did you find a bug? Do you have an idea? Want to contribute, discuss something, or just say
+		hello?
+	</p>
+	<p>You are welcome.</p>
+	<ul>
+		{githubURL && (
+			<li>
+				<GithubIconLink href={githubURL} label="View on GitHub" />
+			</li>
+		)}
+		{discordURL && (
+			<li>
+				<DiscordIconLink href={discordURL} label="Join on Discord" />
+			</li>
+		)}
+		{contactURL && (
+			<li>
+				<ContactLink href={contactURL} label="Get in touch" />
+			</li>
+		)}
+	</ul>
+</aside>
+
+<style>
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem 1.5rem;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		margin: 0;
+	}
+</style>
