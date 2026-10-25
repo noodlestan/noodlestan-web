@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 0.1.2
+
+### Changed
+
+- **Update dependencies** - `astro@7.4.2` cleans up npm audit.
+
 ## 0.1.1
 
 ### Added
