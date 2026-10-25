@@ -21,6 +21,7 @@
     "node": ">=22"
   },
   "type": "module",
+  "prettier": "@noodlestan/prettier-config-astro",
   "scripts": {
     "dev": "astro dev",
     "lint": "prettier . -c && eslint . && tsc --noEmit",
@@ -39,6 +40,5 @@
   "devDependencies": {
     "@noodlestan/prettier-config-astro": "0.1.1",
     "prettier-plugin-astro": "1.1.0"
-  },
-  "prettier": "@noodlestan/prettier-config-astro"
+  }
 }

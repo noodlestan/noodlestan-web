@@ -3,19 +3,25 @@
   "version": "0.0.1",
   "description": "Repository of Noodlestan websites — typically built with Astro.",
   "keywords": [
-    "documentation"
+    "documentation",
+    "websites",
+    "astro"
   ],
   "author": "Noodlestan",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlestan/noodlestan-web.git"
+  },
   "private": true,
+  "engines": {
+    "node": ">=22"
+  },
   "packageManager": "npm@10.2.3",
   "workspaces": [
     "apps/**",
     "packages/**"
   ],
-  "engines": {
-    "node": ">=22"
-  },
   "prettier": "@noodlestan/prettier-config",
   "scripts": {
     "turbo": "turbo",
