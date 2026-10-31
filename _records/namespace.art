@@ -1,12 +1,14 @@
 # Module
 
-## Namespace: Noodlestan Web
+## Namespace: Noodlestan
 
-**Purpose:** Initialize Noodlestan Website — Astro-based website for Noodlestan.
+**Purpose:** Publish the shared Noodlestan ecosystem conventions, tools, and components under one canonical npm scope.
 
-**Description:** Standalone website repository for Noodlestan, hosting the Astro website application.
+**Description:** Packages published from multiple Noodlestan repositories `noodlestan/conventions`, `noodlestan/noodlestan-web`, and `noodlestan/workspace-tooling`.
 
-**Owner:** Project: Noodlestan Web
+**Canonical Name:** `@noodlestan`
+
+**Owner:** Project: Noodlestan Management
 
 **Author:** Noodlestan Collective
 
