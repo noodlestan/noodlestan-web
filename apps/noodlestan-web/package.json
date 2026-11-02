@@ -16,6 +16,7 @@
     "url": "https://github.com/noodlestan/noodlestan-web.git",
     "directory": "apps/noodlestan-web"
   },
+  "homepage": "https://noodlestan.org",
   "private": true,
   "engines": {
     "node": ">=22"
