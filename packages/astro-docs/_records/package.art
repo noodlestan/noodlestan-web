@@ -16,7 +16,7 @@
 
 **Canonical Name:** `@noodlestan/astro-docs`
 
-**Published:** `false`
+**Published:** `true`
 
 **Private:** `false`
 
@@ -25,6 +25,8 @@
 - astro
 - components
 - documentation
+
+**Deployment:** NPM Package Deployment: Astro Docs
 
 **Files:**
 
