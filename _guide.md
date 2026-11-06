@@ -24,6 +24,13 @@ data/        — data for applications (e.g. project records)
 packages/    — shared library packages
 ```
 
+## Packages
+
+| Package                        | Guide                                 | Path                         |
+| ------------------------------ | ------------------------------------- | ---------------------------- |
+| `@noodlestan/astro-components` | `packages/astro-components/_guide.md` | `packages/astro-components/` |
+| `@noodlestan/astro-docs`       | `packages/astro-docs/README.md`       | `packages/astro-docs/`       |
+
 ## Records Management
 
 Records are co-located with the resources they describe in `_records/` directories:
