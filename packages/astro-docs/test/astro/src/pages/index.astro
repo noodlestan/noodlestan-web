@@ -1,8 +1,14 @@
 ---
-import '../../../../src/index.ts';
 import '../../../../src/styles/global.css';
+import { DocsBreadcrumbs, EntitiesSection } from '../../../../src/index.ts';
 
 const title = 'Noodlestan Astro Docs';
+
+const docsRoot = '/docs';
+const apiRoot = '/docs/api';
+const packageHref = (pkg: string) => `${apiRoot}/${pkg}`;
+const moduleHref = (pkg: string, mod: string) => `${packageHref(pkg)}/${mod}`;
+const entities = [{ href: `${apiRoot}/example/module/example`, label: 'module: example' }];
 ---
 
 <html lang="en">
@@ -16,5 +22,16 @@ const title = 'Noodlestan Astro Docs';
 		<p>
 			Fixture proving the <code>.astro</code> graph and the copied styles build.
 		</p>
+		<DocsBreadcrumbs
+			docsRoot={docsRoot}
+			apiRoot={apiRoot}
+			packageHref={packageHref}
+			moduleHref={moduleHref}
+			pkg="@example/pkg"
+			mod="example"
+			type="module"
+			ent="example"
+		/>
+		<EntitiesSection entities={entities} />
 	</body>
 </html>

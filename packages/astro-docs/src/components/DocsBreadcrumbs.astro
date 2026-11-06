@@ -1,0 +1,42 @@
+---
+interface Props {
+	docsRoot: string;
+	apiRoot: string;
+	packageHref: (pkg: string) => string;
+	moduleHref: (pkg: string, mod: string) => string;
+	pkg: string;
+	mod?: string;
+	type?: string;
+	ent?: string;
+}
+
+const { docsRoot, apiRoot, packageHref, moduleHref, pkg, mod, type, ent } = Astro.props;
+---
+
+<nav aria-label="Breadcrumbs">
+	<a href={docsRoot}>Docs</a> / <a href={apiRoot}>API</a>
+	{!mod && <span> / Package</span>}
+	{mod && (
+		<>
+			{' / '}
+			<a href={packageHref(pkg)}>{pkg}</a>
+		</>
+	)}
+	{mod && !type && <span> / module</span>}
+	{mod && type && (
+		<>
+			{' / '}
+			<a href={moduleHref(pkg, mod)}>{mod}</a>
+			<span>
+				{' / '}
+				{type}: {ent}
+			</span>
+		</>
+	)}
+</nav>
+
+<style>
+	nav {
+		font-size: var(--text-size-normal);
+	}
+</style>
